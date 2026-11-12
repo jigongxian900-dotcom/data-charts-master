@@ -1,0 +1,311 @@
+{
+  "name": "见数 · Chromatic Atlas",
+  "version": "1.1",
+  "purpose": "原创语义配色。主题是内容条件下的候选，不是固定业务或品牌色。",
+  "roles": {
+    "accent": "主比较对象或当前选择，不代表好坏",
+    "accent2": "第二比较对象，避免用于同一对象的不同状态",
+    "positive": "有利结果；涨跌是否有利必须按指标定义判断",
+    "negative": "不利结果；降低类指标不能把下降自动标红",
+    "neutral": "参照或未选对象；未知必须另配缺失符号",
+    "categorical": "离散类别，同一文档保留类别到颜色的映射",
+    "sequential": "从低到高；须有数值图例，不能表示离散类别",
+    "diverging": "负偏离到正偏离，中点必须有业务基准，不自动等于好坏"
+  },
+  "themes": [
+    {
+      "id": "tidal",
+      "name": "墨海 · 珊瑚",
+      "use": "编辑式经营分析与对比叙事",
+      "paper": "#F7F5F0",
+      "surface": "#FFFFFF",
+      "ink": "#162F40",
+      "muted": "#596974",
+      "grid": "#D8DFDF",
+      "accent": "#176B87",
+      "accent2": "#C65338",
+      "positive": "#087F73",
+      "negative": "#B83D45",
+      "neutral": "#87969E",
+      "categorical": [
+        "#176B87",
+        "#C65338",
+        "#67823D",
+        "#7D62A3",
+        "#B47C16",
+        "#A74978",
+        "#3B8880",
+        "#686173"
+      ],
+      "sequential": [
+        "#EAF3F3",
+        "#C4DEDF",
+        "#93BFC6",
+        "#609DAB",
+        "#337A90",
+        "#15536E"
+      ],
+      "diverging": [
+        "#A6334E",
+        "#D5788D",
+        "#EFC1CB",
+        "#ECEBE7",
+        "#B6DADB",
+        "#5FA7AD",
+        "#176B78"
+      ]
+    },
+    {
+      "id": "cobalt",
+      "name": "霁蓝 · 琥珀",
+      "use": "精确比较、技术数据与清晰投屏",
+      "paper": "#F4F7FC",
+      "surface": "#FFFFFF",
+      "ink": "#192D52",
+      "muted": "#53647D",
+      "grid": "#D5DFEE",
+      "accent": "#3159BD",
+      "accent2": "#B3700F",
+      "positive": "#087F73",
+      "negative": "#B83D45",
+      "neutral": "#8393AE",
+      "categorical": [
+        "#3159BD",
+        "#B3700F",
+        "#168477",
+        "#9452A7",
+        "#BF5261",
+        "#6A7834",
+        "#27879D",
+        "#725D4E"
+      ],
+      "sequential": [
+        "#EDF1FE",
+        "#CAD6FA",
+        "#9DB3ED",
+        "#718FDC",
+        "#4D6AC7",
+        "#294497"
+      ],
+      "diverging": [
+        "#A4580D",
+        "#D79945",
+        "#F2D5A2",
+        "#EFF0F0",
+        "#BCCCF0",
+        "#7799DD",
+        "#3159BD"
+      ]
+    },
+    {
+      "id": "grove",
+      "name": "松绿 · 陶土",
+      "use": "持续运营、供应链与时间序列",
+      "paper": "#F5F6EF",
+      "surface": "#FFFFFB",
+      "ink": "#203C33",
+      "muted": "#596B5F",
+      "grid": "#D7DFD1",
+      "accent": "#2C765E",
+      "accent2": "#B65232",
+      "positive": "#20764F",
+      "negative": "#B54441",
+      "neutral": "#8E9C8C",
+      "categorical": [
+        "#2C765E",
+        "#B65232",
+        "#557DA1",
+        "#8C6193",
+        "#A58218",
+        "#AB587C",
+        "#467F82",
+        "#70674C"
+      ],
+      "sequential": [
+        "#EEF3E7",
+        "#D5E5C3",
+        "#AFCEA0",
+        "#82B27F",
+        "#528E62",
+        "#286746"
+      ],
+      "diverging": [
+        "#A34430",
+        "#D58464",
+        "#EECAB3",
+        "#EEEFE7",
+        "#C5DFCC",
+        "#7CB896",
+        "#2C765E"
+      ]
+    },
+    {
+      "id": "iris",
+      "name": "梅紫 · 青瓷",
+      "use": "多组科研分布、区间与关系探索",
+      "paper": "#F8F4F8",
+      "surface": "#FFFFFF",
+      "ink": "#392C4A",
+      "muted": "#6C6077",
+      "grid": "#E0D8E4",
+      "accent": "#80529A",
+      "accent2": "#237F88",
+      "positive": "#087F73",
+      "negative": "#B83D45",
+      "neutral": "#9D90A6",
+      "categorical": [
+        "#80529A",
+        "#237F88",
+        "#BE6541",
+        "#5574AD",
+        "#77853C",
+        "#B94D7A",
+        "#9C7C26",
+        "#6B626A"
+      ],
+      "sequential": [
+        "#F2ECF6",
+        "#DFCCE9",
+        "#C6AAD9",
+        "#AA84C2",
+        "#8A60A8",
+        "#653C81"
+      ],
+      "diverging": [
+        "#75418F",
+        "#AE80C0",
+        "#DDC3E6",
+        "#EEEBEE",
+        "#BADEE0",
+        "#69ADB4",
+        "#237F88"
+      ]
+    },
+    {
+      "id": "nocturne",
+      "name": "夜航 · 流光",
+      "use": "屏幕探索与演示；打印切换浅色主题",
+      "paper": "#101C2C",
+      "surface": "#16263A",
+      "ink": "#F0F5F9",
+      "muted": "#ACBBCB",
+      "grid": "#35495F",
+      "accent": "#ACDE6B",
+      "accent2": "#77C6F0",
+      "positive": "#63D5B1",
+      "negative": "#FF9589",
+      "neutral": "#879AAE",
+      "categorical": [
+        "#ACDE6B",
+        "#77C6F0",
+        "#F5AD79",
+        "#C3A2EA",
+        "#64D4C0",
+        "#F28BB2",
+        "#E9D178",
+        "#BBC8D5"
+      ],
+      "sequential": [
+        "#263E4D",
+        "#365F64",
+        "#4A8280",
+        "#63A79A",
+        "#82C9A9",
+        "#B1E5BC"
+      ],
+      "diverging": [
+        "#F49A99",
+        "#B8798B",
+        "#735A74",
+        "#354153",
+        "#406F7D",
+        "#58ABB0",
+        "#83DDD3"
+      ]
+    },
+    {
+      "id": "graphite",
+      "name": "石墨 · 印刷",
+      "use": "黑白打印与无彩色检查；必须加线型/纹理/直接标签",
+      "paper": "#FAF9F6",
+      "surface": "#FFFFFF",
+      "ink": "#252727",
+      "muted": "#626565",
+      "grid": "#D6D8D5",
+      "accent": "#353A3C",
+      "accent2": "#7A8082",
+      "positive": "#404A48",
+      "negative": "#6E625E",
+      "neutral": "#929695",
+      "categorical": [
+        "#353A3C",
+        "#6D7476",
+        "#7D8687",
+        "#545859",
+        "#858D88",
+        "#6E7B73",
+        "#484D4C",
+        "#7C8076"
+      ],
+      "sequential": [
+        "#ECEEEB",
+        "#D2D6D2",
+        "#B4BAB6",
+        "#909994",
+        "#68736D",
+        "#3D4A42"
+      ],
+      "diverging": [
+        "#414141",
+        "#7C7C7C",
+        "#BABABA",
+        "#F2F2F2",
+        "#B4BDBA",
+        "#75867F",
+        "#33483F"
+      ]
+    },
+    {
+      "id": "mixue-ruby",
+      "name": "蜜雪适配 · 石榴红",
+      "use": "用户明确要求蜜雪适配时使用；原创适配色，不冒称官方VI标准色",
+      "paper": "#FBF8F5",
+      "surface": "#FFFFFF",
+      "ink": "#30262D",
+      "muted": "#6E6067",
+      "grid": "#E4D9DC",
+      "accent": "#A51D36",
+      "accent2": "#287C82",
+      "positive": "#167763",
+      "negative": "#AF4A25",
+      "neutral": "#9A8C92",
+      "categorical": [
+        "#A51D36",
+        "#287C82",
+        "#A77B27",
+        "#79618F",
+        "#42759A",
+        "#B45D71",
+        "#58764C",
+        "#76656B"
+      ],
+      "sequential": [
+        "#FBEDEF",
+        "#F3CDD4",
+        "#E7A4B0",
+        "#D57286",
+        "#B94660",
+        "#8E1D38"
+      ],
+      "diverging": [
+        "#2F6B83",
+        "#77A5B8",
+        "#CADFE5",
+        "#F2EEEB",
+        "#F0C6CF",
+        "#D67B90",
+        "#A51D36"
+      ]
+    }
+  ]
+}

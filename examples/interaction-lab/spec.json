@@ -1,0 +1,19 @@
+{
+  "title": "增长从哪里来，下一步看哪里？",
+  "question": "总盘营业额增长时，哪些市场贡献大，哪些市场还需核查同店表现？",
+  "synthetic": true,
+  "source": "独立构造的演示数据，不代表真实经营状况",
+  "period": "2026年10月对比2025年10月，同币种示意",
+  "unit": "百万元",
+  "scope": "八个示意市场全量营业额；同店指标为两期均营业的相同门店样本，单列而不用于总盘加总",
+  "rows": [
+    {"id":"VN","name":"越南","prior":380,"revenue":460,"target":480,"sameStoreGrowth":4},
+    {"id":"ID","name":"印尼","prior":300,"revenue":340,"target":400,"sameStoreGrowth":-6},
+    {"id":"TH","name":"泰国","prior":160,"revenue":192,"target":210,"sameStoreGrowth":2},
+    {"id":"MY","name":"马来西亚","prior":90,"revenue":108,"target":110,"sameStoreGrowth":5},
+    {"id":"PH","name":"菲律宾","prior":60,"revenue":78,"target":80,"sameStoreGrowth":8},
+    {"id":"SG","name":"新加坡","prior":40,"revenue":42,"target":45,"sameStoreGrowth":-2},
+    {"id":"LA","name":"老挝","prior":30,"revenue":27,"target":32,"sameStoreGrowth":-8},
+    {"id":"KH","name":"柬埔寨","prior":20,"revenue":24,"target":28,"sameStoreGrowth":1}
+  ]
+}
