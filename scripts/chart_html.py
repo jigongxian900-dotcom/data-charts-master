@@ -7,6 +7,7 @@ import hashlib
 import html
 import json
 import math
+import re
 from pathlib import Path
 import statistics
 import sys
@@ -110,6 +111,8 @@ def validate(spec):
                 require(c.get('x_unit') and c.get('y_unit'), 'scatter needs axis units')
             else:
                 require('value' in r and (r['value'] is None or num(r['value'])), 'value must be finite number or explicit null')
+                if kind == 'bar' and 'target' in r:
+                    require(r['target'] is None or (num(r['target']) and r['target'] >= 0), 'target must be nonnegative finite number or explicit null')
                 if kind == 'waterfall':
                     require(num(r['value']), 'waterfall cannot reconcile missing values')
                     require(r.get('role') in {'start', 'change', 'total'}, 'waterfall role required')
@@ -185,7 +188,289 @@ def extent(values, zero=False):
     return (lo if zero and lo == 0 else lo - pad), (hi if zero and hi == 0 else hi + pad)
 
 
-def svg_chart(c, mobile=False):
+def display_number(value, max_chars=16):
+    """Shorten only a display glyph; source/ledger values remain unchanged."""
+    reading = fmt(value)
+    if num(value) and len(reading) > max_chars:
+        return format(value, '.6g')
+    return reading
+
+
+def compact_ticks(values, intervals=4):
+    """Readable ticks with one outward-rounded domain for every observation.
+
+    Decimal tick arithmetic avoids float tails and never buckets a tiny
+    nonzero step into zero. This is used only by compact layouts.
+    """
+    low, high = map(lambda v: Decimal(str(v)), extent(values))
+    raw_step = (high-low)/intervals
+    # Converted coordinates must also retain distinct floats at large bases.
+    raw_step=max(raw_step,Decimal(str(max(math.ulp(float(low)),math.ulp(float(high))))))
+    magnitude = Decimal(10) ** raw_step.adjusted()
+    step = next(v*magnitude for v in map(Decimal, ['1','2','2.5','5','10']) if v*magnitude >= raw_step)
+    first, last = math.floor(low/step), math.ceil(high/step)
+    ticks = [float(step*i) for i in range(first,last+1)]
+    return ticks[0], ticks[-1], ticks
+
+
+def compact_tick_readings(ticks):
+    readings=[format(v,'.4g') for v in ticks]
+    if len(set(readings))==len(ticks):
+        return readings,None
+    # A small span around a large base needs an explicit offset, rather than
+    # printing several identical rounded labels at different coordinates.
+    base=Decimal(str(ticks[0]))
+    offsets=[Decimal(str(v))-base for v in ticks]
+    readings=['0' if v==0 else format(v,'.6g') for v in offsets]
+    return readings,'轴值 = '+fmt(ticks[0])+' + 刻度'
+
+
+def compact_chart(c):
+    """A narrow *layout*, not a scaled desktop canvas.
+
+    At the smallest supported 256 CSS-pixel chart slot, 14 SVG units on
+    this 280-unit canvas are 12.8 CSS pixels. Rows grow vertically. Numeric
+    tokens stay atomic; the exact values always remain in the source table.
+    """
+    width, pad, font, leading = 280, 8, 14, 20
+    out, ledger = [], []
+    cursor = 20
+    natural_width = width
+    def measured(s):
+        return sum(4 if ch.isspace() else 8 if ord(ch) < 256 else 14 for ch in str(s))
+    def wrapped(value, available=264):
+        nonlocal natural_width
+        # A signed decimal/exponent/percentage is a single token. Never wrap
+        # 100 into 10 / 0 or split a minus sign from its number.
+        tokens = re.findall(r'[+−-]?\d[\d,]*(?:\.\d+)?(?:[eE][+−-]?\d+)?%?|[A-Za-z_]+|\s+|.', str(value))
+        lines, part = [], ''
+        for token in tokens:
+            if re.search(r'\d', token):
+                natural_width=max(natural_width, measured(token)+32)
+            if measured(token) > available and not re.search(r'\d', token):
+                pieces = list(token)
+            else:
+                pieces = [token]
+            for piece in pieces:
+                if part and measured(part + piece) > available:
+                    lines.append(part.rstrip()); part = ''
+                part += piece
+        if part.strip(): lines.append(part.rstrip())
+        return lines or ['']
+    def text(x, y, value, anchor='start', cls=''):
+        out.append(f'<text x="{x:.3f}" y="{y:.3f}" text-anchor="{anchor}" class="{cls}">{esc(value)}</text>')
+    def paragraph(value, cls='', x=pad, available=264):
+        nonlocal cursor
+        for reading in wrapped(value, available):
+            text(x, cursor, reading, cls=cls); cursor += leading
+    def line(x1,y1,x2,y2,color='var(--rule)',dash=''):
+        out.append(f'<line x1="{x1:.3f}" y1="{y1:.3f}" x2="{x2:.3f}" y2="{y2:.3f}" stroke="{color}" stroke-dasharray="{dash}"/>')
+    def rect(x,y,w,h,value,label,color,axis,start,end,scale):
+        out.append(f'<rect x="{x:.3f}" y="{y:.3f}" width="{w:.12g}" height="{h:.12g}" fill="{color}" data-value="{value}" data-start="{start}" data-end="{end}" data-scale="{scale}" data-axis="{axis}" role="img" aria-label="{esc(label)}"><title>{esc(label)}</title></rect>')
+        ledger.append(dict(shape='rect',value=value,x=x,y=y,width=w,height=h,axis=axis,start=start,end=end,scale=scale))
+    def dot(x,y,value,label,color='var(--accent)',reference=False):
+        out.append(f'<circle cx="{x:.3f}" cy="{y:.3f}" r="4" fill="{"var(--paper)" if reference else color}" stroke="{color}" stroke-width="2" role="img" aria-label="{esc(label)}"><title>{esc(label)}</title></circle>')
+        ledger.append(dict(shape='point',value=value,x=x,y=y))
+    def short(v): return display_number(v, 12)
+    rows, kind = c['rows'], c['kind']
+    vals = [r['value'] for r in rows if num(r.get('value'))]
+    if not rows:
+        paragraph('当前没有可绘制的数据', 'empty')
+    elif kind in {'bar','waterfall'}:
+        waterfall = kind == 'waterfall'
+        if waterfall:
+            net = float(Decimal(str(rows[-1]['value'])) - Decimal(str(rows[0]['value'])))
+            paragraph('窄屏阅读：零基线贡献行', 'comparison-note')
+            paragraph('期初 '+rows[0]['label']+'：'+short(rows[0]['value']), 'value')
+            paragraph('期末 '+rows[-1]['label']+'：'+short(rows[-1]['value']), 'value')
+            paragraph('净变化 '+('+' if net>0 else '')+short(net)+' '+c['unit'], 'comparison-note')
+            paragraph('下方仅绘制增减，共用贡献尺度。', 'tick')
+            ledger.extend(dict(shape='reference-total',role=r['role'],label=r['label'],value=r['value']) for r in [rows[0],rows[-1]])
+        plotted_rows=rows[1:-1] if waterfall else rows
+        scale_values = [r['value'] for r in plotted_rows if num(r.get('value'))] + [r['target'] for r in plotted_rows if r.get('target') is not None]
+        if not scale_values:
+            paragraph('没有中间增减项' if waterfall else '当前没有可绘制的数据', 'tick' if waterfall else 'empty')
+        else:
+            lo,hi = extent(scale_values, True)
+            scale = 264/(hi-lo)
+            xx = lambda v: pad+(v-lo)*scale
+            for r in plotted_rows:
+                paragraph(r['label'], 'category')
+                v = r['value']
+                prefix = '+' if waterfall and r['role']=='change' and v>0 else ''
+                paragraph(('实际 ' if not waterfall else '')+prefix+short(v)+' '+c['unit'], 'value')
+                yy=cursor-5
+                line(xx(0),yy-4,xx(0),yy+25,'var(--ink)')
+                if v is not None:
+                    color='var(--accent)' if r.get('highlight') else 'var(--series)'
+                    if waterfall:
+                        direction=c.get('performance_direction','neutral')
+                        if r['role']!='change':color='var(--ink)'
+                        elif direction=='neutral':color='var(--accent)' if v>=0 else 'var(--series)'
+                        else:color='var(--positive)' if ((v>=0)==(direction=='higher')) else 'var(--negative)'
+                    rect(min(xx(0),xx(v)),yy,abs(v)*scale,20,v,r['label']+'：'+fmt(v)+' '+c['unit'],color,'x',0,v,scale)
+                if 'target' in r:
+                    target=r['target']
+                    if target is not None:line(xx(target),yy-4,xx(target),yy+25,'var(--ink)','3 2')
+                    attainment=None if target in (None,0) or v is None else v/target*100
+                    ledger.append(dict(shape='target',value=target,attainment=attainment,actual=v,x=None if target is None else xx(target)))
+                cursor=yy+44
+                if 'target' in r:
+                    target=r['target']; direction=c.get('performance_direction','neutral')
+                    paragraph('目标未知' if target is None else '目标 '+short(target), 'tick')
+                    if target is not None and v is not None:
+                        delta=float(Decimal(str(v))-Decimal(str(target)))
+                        paragraph('差额 '+('+' if delta>0 else '')+short(delta), 'tick')
+                    if attainment is None:
+                        paragraph('目标未提供' if target is None else '实际未提供' if v is None else '零目标，不计算比率', 'tick')
+                    else:
+                        reading=round(attainment,2) if abs(attainment)>=.01 else float(format(attainment,'.3g'))
+                        paragraph(('达成 ' if direction=='higher' else '实际/目标 ')+short(reading)+'%', 'target-reading')
+                        if direction!='neutral':paragraph('达标' if (v>=target if direction=='higher' else v<=target) else '未达标', 'tick')
+                cursor+=12
+            paragraph('0 为各行共同基线', 'tick')
+    elif kind == 'stacked':
+        names=list(rows[0]['parts'])
+        paragraph('构成：色块对应下方同色明细', 'comparison-note')
+        maxima=100 if c.get('percent') else max(sum(r['parts'].values()) for r in rows)
+        scale=264/(maxima or 1)
+        for r in rows:
+            paragraph(r['label'], 'category')
+            denom=sum(r['parts'].values())
+            paragraph('合计 '+short(denom)+' '+c['unit'], 'value')
+            start=0; yy=cursor-5
+            for j,name in enumerate(names):
+                raw=r['parts'][name]; value=raw/denom*100 if c.get('percent') else raw
+                rect(pad+start*scale,yy,value*scale,24,value,r['label']+' '+name+'：'+fmt(raw),COLORS[j%len(COLORS)],'x',start,start+value,scale)
+                start+=value
+            cursor=yy+44
+            for j,name in enumerate(names):
+                out.append(f'<rect x="8" y="{cursor-11}" width="9" height="9" fill="{COLORS[j%len(COLORS)]}"/>')
+                paragraph(name, 'legend', 25, 247)
+                raw=r['parts'][name]
+                reading=short(raw)+' '+c['unit']
+                if c.get('percent'):reading+=' · 占 '+short(float(format(raw/denom*100,'.6g')))+'%'
+                paragraph(reading, 'tick',25,247)
+            cursor+=12
+    elif kind == 'line':
+        groups=collections.defaultdict(list)
+        for r in rows:groups[r.get('group','观测值')].append(r)
+        for rr in groups.values():rr.sort(key=lambda r:r['x'])
+        if vals:
+            lo,hi,ticks=compact_ticks(vals)
+            tick_readings,offset_note=compact_tick_readings(ticks)
+        else:offset_note=None
+        endpoint_reading=lambda v:fmt(v) if offset_note else short(v)
+        windows={(rr[0]['x'],rr[-1]['x']) for rr in groups.values()}
+        common_window=len(windows)==1
+        if common_window:
+            start,end=next(iter(windows))
+            paragraph('共同期间：'+start+' → '+end, 'comparison-note')
+        for gi,(name,rr) in enumerate(groups.items()):
+            paragraph(name, 'legend')
+            a,z=rr[0],rr[-1]
+            if common_window:
+                reading='起 '+endpoint_reading(a['value'])+' → 末 '+endpoint_reading(z['value'])
+                if measured(reading)<=264:
+                    paragraph(reading, 'tick')
+                else:
+                    paragraph('起 '+endpoint_reading(a['value']), 'tick')
+                    paragraph('末 '+endpoint_reading(z['value']), 'tick')
+            else:
+                paragraph('起 '+a['x']+'：'+endpoint_reading(a['value']), 'tick')
+                paragraph('末 '+z['x']+'：'+endpoint_reading(z['value']), 'tick')
+            if len(rr)>1 and a['value'] is not None and z['value'] is not None:
+                delta=float(Decimal(str(z['value']))-Decimal(str(a['value'])))
+                paragraph('首尾差 '+('+' if delta>0 else '')+short(delta)+' '+('百分点' if c['unit']=='%' else c['unit']), 'comparison-note')
+            elif a['value'] is None or z['value'] is None:
+                paragraph('起末期均缺测' if a['value'] is None and z['value'] is None else '起期缺测' if a['value'] is None else '末期缺测', 'tick')
+            # A visible line key ties wrapped series names to the plot.
+            line(pad,cursor-6,272,cursor-6,COLORS[gi%len(COLORS)],LINE_DASHES[gi%len(LINE_DASHES)])
+            cursor+=14
+        if vals:
+            if offset_note:paragraph(offset_note,'comparison-note')
+            left,right,top,bottom=78,264,cursor+10,cursor+230
+            yy=lambda v:bottom-(v-lo)/(hi-lo)*(bottom-top)
+            for v,reading in zip(ticks,tick_readings):
+                line(left,yy(v),right,yy(v)); text(left-8,yy(v)+4,reading,'end','tick')
+            dates=sorted({r['x'] for r in rows}); ordinals=[dt.date.fromisoformat(d).toordinal() for d in dates]
+            xx=lambda d:left+(dt.date.fromisoformat(d).toordinal()-ordinals[0])/(ordinals[-1]-ordinals[0] or 1)*(right-left)
+            for gi,(name,rr) in enumerate(groups.items()):
+                segment=[]
+                def finish():
+                    if segment:out.append('<polyline points="'+' '.join(f'{x:.3f},{y:.3f}' for x,y in segment)+f'" fill="none" stroke="{COLORS[gi%len(COLORS)]}" stroke-width="2.4" stroke-dasharray="{LINE_DASHES[gi%len(LINE_DASHES)]}"/>')
+                for r in rr:
+                    if r['value'] is None:finish(); segment=[]; continue
+                    px,py=xx(r['x']),yy(r['value']);segment.append((px,py))
+                    dot(px,py,r['value'],name+' '+r['x']+'：'+fmt(r['value']),COLORS[gi%len(COLORS)],reference=r is rr[0])
+                finish()
+            for date in dict.fromkeys([dates[0],dates[len(dates)//2],dates[-1]]):
+                label=date[:4] if c['frequency']=='year' else date[5:]
+                anchor='start' if date==dates[0] else 'end' if date==dates[-1] else 'middle'
+                text(xx(date),bottom+25,label,anchor,'tick')
+            cursor=bottom+50
+        else:paragraph('当前没有可绘制的数据','empty')
+    elif kind == 'box':
+        if not vals:paragraph('当前没有可绘制的数据','empty')
+        else:
+            lo,hi,ticks=compact_ticks(vals,2); scale=248/(hi-lo); xx=lambda v:16+(v-lo)*scale
+            tick_readings,offset_note=compact_tick_readings(ticks)
+            groups=collections.defaultdict(list)
+            for r in rows:
+                if r['value'] is not None:groups[r['label']].append(r['value'])
+            paragraph('各组共用横轴；圆点为原始观测值。','comparison-note')
+            if offset_note:paragraph(offset_note,'comparison-note')
+            for name,vv in groups.items():
+                paragraph(name,'category')
+                med=quantile(vv,.5);q1=quantile(vv,.25);q3=quantile(vv,.75);iqr=q3-q1
+                inner=[v for v in vv if q1-1.5*iqr<=v<=q3+1.5*iqr]
+                paragraph('n='+str(len(vv))+' · 中位数 '+(fmt(med) if offset_note else short(med)),'annotated-value')
+                yy=cursor+24
+                line(xx(min(inner)),yy,xx(max(inner)),yy,'var(--accent)')
+                for v in [min(inner),max(inner)]:line(xx(v),yy-12,xx(v),yy+12,'var(--accent)')
+                out.append(f'<rect x="{xx(q1):.3f}" y="{yy-15:.3f}" width="{max(0,xx(q3)-xx(q1)):.3f}" height="30" fill="var(--paper)" stroke="var(--accent)"/>')
+                line(xx(med),yy-15,xx(med),yy+15,'var(--accent)')
+                for i,v in enumerate(sorted(vv)):dot(xx(v),yy+((i*7)%17-8)*1.5,v,name+' 原始值 '+fmt(v),'var(--muted)')
+                ledger.append(dict(shape='box',label=name,q1=q1,median=med,q3=q3,low=min(inner),high=max(inner),n=len(vv)))
+                cursor=yy+58
+            for i,(v,reading) in enumerate(zip(ticks,tick_readings)):
+                text(xx(v),cursor,reading,'start' if i==0 else 'end' if i==len(ticks)-1 else 'middle','tick')
+            cursor+=28;paragraph(c['unit'],'tick')
+    elif kind == 'scatter':
+        points=[r for r in rows if r['x'] is not None and r['y'] is not None]
+        if not points:paragraph('当前没有可绘制的数据','empty')
+        else:
+            paragraph('纵轴：'+c['y_unit'],'tick')
+            left,right,top,bottom=78,264,cursor+10,cursor+230
+            lo,hi=extent([r['y'] for r in points]);xlo,xhi=extent([r['x'] for r in points])
+            yy=lambda v:bottom-(v-lo)/(hi-lo)*(bottom-top)
+            xx=lambda v:left+(v-xlo)/(xhi-xlo)*(right-left)
+            for i in range(5):
+                v=lo+(hi-lo)*i/4;line(left,yy(v),right,yy(v));text(left-8,yy(v)+4,format(v,'.4g'),'end','tick')
+            for i in range(3):
+                v=xlo+(xhi-xlo)*i/2;text(xx(v),bottom+25,format(v,'.4g'),'start' if i==0 else 'end' if i==2 else 'middle','tick')
+            for r in points:dot(xx(r['x']),yy(r['y']),r['y'],r['label']+'：'+fmt(r['x'])+' '+c['x_unit']+'，'+fmt(r['y'])+' '+c['y_unit'])
+            cursor=bottom+50;paragraph('横轴：'+c['x_unit'],'tick')
+            extreme=[]
+            if c.get('label_extremes',True):
+                for key,axis in [('x','横轴'),('y','纵轴')]:
+                    for method,label in [(min,'最小'),(max,'最大')]:
+                        r=method(points,key=lambda r:r[key]);extreme.append((r,axis+label))
+            extreme.extend((r,'重点') for r in points if r.get('highlight'))
+            for r,reason in extreme:
+                paragraph(reason+'：'+r['label'],'category')
+                paragraph('x '+short(r['x'])+' · y '+short(r['y']),'value')
+    height=max(80,cursor+8)
+    label=c['title']+'。'+c['question']+'。窄屏重排，完整数值见同源数据表。'
+    wide=' compact-wide' if natural_width>width else ''
+    minimum=f' style="min-width:{natural_width}px"' if wide else ''
+    svg=f'<svg viewBox="0 0 {natural_width} {height}" role="img" aria-label="{esc(label)}" class="compact-svg{wide}"{minimum} data-source-sha256="{digest(rows)}"><title>{esc(label)}</title>'+''.join(out)+'</svg>'
+    return svg,ledger
+
+
+def svg_chart(c, mobile=False, *, compact=False):
+    if compact:
+        return compact_chart(c)
     width, height = (360, 340) if mobile else (760, 360)
     left, right, top, bottom = (58, width - 35, 36, height - 55)
     kind, rows = c['kind'], c['rows']
@@ -194,8 +479,9 @@ def svg_chart(c, mobile=False):
         out.append(f'<text x="{x:.3f}" y="{y:.3f}" text-anchor="{anchor}" class="{cls}" {extra}>{esc(value)}</text>')
     def line(x1, y1, x2, y2, color='var(--rule)', dash=''):
         out.append(f'<line x1="{x1:.3f}" y1="{y1:.3f}" x2="{x2:.3f}" y2="{y2:.3f}" stroke="{color}" stroke-dasharray="{dash}"/>')
-    def dot(x, y, value, label, color, radius=4):
-        out.append(f'<circle cx="{x:.3f}" cy="{y:.3f}" r="{radius}" fill="{color}" stroke="var(--paper)" tabindex="0" role="img" aria-label="{esc(label)}"><title>{esc(label)}</title></circle>')
+    def dot(x, y, value, label, color, radius=4, reference=False):
+        fill,stroke=('var(--paper)',color) if reference else (color,'var(--paper)')
+        out.append(f'<circle cx="{x:.3f}" cy="{y:.3f}" r="{radius}" fill="{fill}" stroke="{stroke}" stroke-width="{2 if reference else 1}" tabindex="0" role="img" aria-label="{esc(label)}"><title>{esc(label)}</title></circle>')
         ledger.append({'shape': 'point', 'value': value, 'x': x, 'y': y})
     def rect(x, y, w, h, value, label, color, axis, start, end, scale):
         out.append(f'<rect x="{x:.3f}" y="{y:.3f}" width="{w:.3f}" height="{h:.3f}" fill="{color}" tabindex="0" role="img" aria-label="{esc(label)}" data-value="{value}" data-start="{start}" data-end="{end}" data-scale="{scale}" data-axis="{axis}"><title>{esc(label)}</title></rect>')
@@ -213,7 +499,15 @@ def svg_chart(c, mobile=False):
             text(left - 8, y(v) + 4, fmt(v, axis=True), 'end', 'tick')
         return y, lo, hi
     def category_text(x, y, label, anchor='start', limit=10):
-        parts = [str(label)[i:i+limit] for i in range(0, len(str(label)), limit)]
+        parts,part,used=[], '',0
+        for ch in str(label):
+            advance=.3 if ch.isspace() else .5 if ord(ch)<256 else 1
+            if part and used+advance>limit:
+                parts.append(part)
+                part,used='',0
+            part+=ch
+            used+=advance
+        if part:parts.append(part)
         for i, part in enumerate(parts):
             text(x, y + i * 16, part, anchor, 'category')
     def empty():
@@ -223,35 +517,89 @@ def svg_chart(c, mobile=False):
         empty()
     elif kind == 'bar':
         left = 138 if mobile else 205
-        value_space = max(68, max((len(fmt(v))*7.5+12 for v in vals), default=68))
+        value_space = max(68, max((len(display_number(v))*7.5+12 for v in vals), default=68))
         right = width - value_space
         require(right > left + 30, 'values too wide for this layout; choose a table or a wider canvas')
         # Reserve actual Chinese glyph width, not an ASCII-sized estimate.
         # Twelve full-width glyphs fit the 193px desktop label column with
         # a font-fallback margin; wrapped rows grow with the same limit.
         label_limit = 8 if mobile else 12
-        row_sizes = [max(56 if mobile else 49, math.ceil(len(r['label'])/label_limit)*16+20) for r in rows]
+        def target_details(r):
+            target,v=r.get('target'),r['value']
+            result='目标未知' if target is None else '目标 '+fmt(target)
+            if target is not None and v is not None:
+                delta=float(Decimal(str(v))-Decimal(str(target)))
+                result+=' · 差额 '+('+' if delta>0 else '')+fmt(delta)
+            lines,part,used=[], '',0
+            # Keep a signed decimal/scientific number in one reading token.
+            tokens=re.findall(r'[+-]?\d[\d,]*(?:\.\d+)?(?:e[+-]?\d+)?|.',result,re.I)
+            for ch in tokens:
+                advance=sum(.55 if ord(glyph)<256 else 1 for glyph in ch)
+                if part and used+advance>(width-left-6)/14:
+                    lines.append(part)
+                    part,used='',0
+                part+=ch
+                used+=advance
+            if part:lines.append(part)
+            return lines
+        row_sizes=[]
+        for r in rows:
+            size=max(56 if mobile else 49,math.ceil(len(r['label'])/label_limit)*16+20)
+            if 'target' in r:
+                offset=max(41,math.ceil(len(r['label'])/label_limit)*16+18)
+                size=max(size,offset+17*len(target_details(r))+63)
+            row_sizes.append(size)
         height = max(210, sum(row_sizes) + 80)
         bottom = height - 38
-        if not vals:
+        scale_values = vals + [r['target'] for r in rows if r.get('target') is not None]
+        if not scale_values:
             empty()
         else:
-            lo, hi = extent(vals, True)
+            lo, hi = extent(scale_values, True)
             x = lambda v: left + (v - lo) / (hi - lo) * (right - left)
             scale = (right - left) / (hi - lo)
             line(x(0), top - 7, x(0), bottom)
-            text(x(0),top-12,'0','middle','tick')
+            text(x(0),bottom+26,'0','middle','tick')
             for i, r in enumerate(rows):
                 yy = top + 15 + sum(row_sizes[:i])
                 category_text(left-12, yy, r['label'], 'end', label_limit)
                 v = r['value']
                 if v is None:
                     text(left + 7, yy, '缺失', cls='muted')
-                    continue
-                color = 'var(--accent)' if r.get('highlight') else 'var(--series)'
-                rect(min(x(0), x(v)), yy-13, abs(x(v)-x(0)), 21, v, f'{r["label"]}：{fmt(v)} {c["unit"]}', color, 'x', 0, v, scale)
-                # A stable value column prevents labels crossing negative bars.
-                text(width-4, yy+3, fmt(v), 'end', 'value')
+                else:
+                    color = 'var(--accent)' if r.get('highlight') else 'var(--series)'
+                    rect(min(x(0), x(v)), yy-13, abs(v)*scale, 21, v, f'{r["label"]}：{fmt(v)} {c["unit"]}', color, 'x', 0, v, scale)
+                    text(width-4, yy+3, display_number(v), 'end', 'value')
+                if 'target' in r:
+                    target = r['target']
+                    if target is not None:
+                        line(x(target),yy-20,x(target),yy+14,'var(--ink)','3 2')
+                    attainment = None if target in (None,0) or v is None else v/target*100
+                    target_text = '目标未知' if target is None else '目标 '+fmt(target)
+                    direction=c.get('performance_direction','neutral')
+                    ratio_label='达成' if direction=='higher' else '实际/目标'
+                    if attainment is None:
+                        ratio_text='目标未提供' if target is None else '实际未提供' if v is None else '零目标，不计算比率'
+                    else:
+                        displayed=round(attainment,2) if abs(attainment)>=.01 else float(format(attainment,'.3g'))
+                        ratio_text=ratio_label+' '+fmt(displayed)+'%'
+                    status_text=''
+                    if v is not None and target is not None and direction!='neutral':
+                        met=v>=target if direction=='higher' else v<=target
+                        status_text='达标' if met else '未达标'
+                    units=sum(.55 if ord(ch)<256 else 1 for ch in ratio_text)
+                    reading_size=min(22,max(14,(width-left-6)/max(units,1))) if attainment is not None else 14
+                    text(left,yy-25,ratio_text,cls='target-reading'+(' target-unknown' if attainment is None else ''),extra=f'style="font-size:{reading_size}px"')
+                    offset=max(41,math.ceil(len(r['label'])/label_limit)*16+18)
+                    details=target_details(r)
+                    for detail_index,detail in enumerate(details):text(left,yy+offset+detail_index*17,detail,cls='tick')
+                    if status_text:text(left,yy+offset+len(details)*17,status_text,cls='tick')
+                    if v is not None and target is not None and v!=target:
+                        a,z=sorted([x(v),x(target)])
+                        line(a,yy+21,z,yy+21,'var(--ink)')
+                        line(a,yy+17,a,yy+25,'var(--ink)')
+                        line(z,yy+17,z,yy+25,'var(--ink)')
+                    ledger.append({'shape':'target','value':target,'attainment':attainment,'actual':v,'x':None if target is None else x(target)})
     elif kind == 'line':
         if not vals:
             empty()
@@ -259,10 +607,13 @@ def svg_chart(c, mobile=False):
             groups = collections.defaultdict(list)
             for r in rows:
                 groups[r.get('group', '系列')].append(r)
+            ordered_groups={group:sorted(values,key=lambda r:r['x']) for group,values in groups.items()}
+            common_window=len({(values[0]['x'],values[-1]['x']) for values in ordered_groups.values()})==1
+            compare_groups=len(groups)<=4 and common_window
             # Each character gets a full-em fallback allowance, including
             # Latin names, so long series names wrap inside the SVG instead
             # of relying on visible overflow. Grow the canvas, not tiny type.
-            columns = 2 if mobile else 4
+            columns = min(2 if mobile else 4,len(groups))
             cell = (right-left)/columns
             if any(len(str(group))*15+28 > cell for group in groups):
                 columns = 1
@@ -274,11 +625,36 @@ def svg_chart(c, mobile=False):
                 row_height = 0
                 for column, group in enumerate(group_items[row_start:row_start+columns]):
                     gi = row_start+column
-                    label = str(group)
+                    label = '观测值' if group=='系列' else str(group)
+                    ordered=ordered_groups[group]
+                    reading=None
+                    if compare_groups:
+                        a,z=ordered[0],ordered[-1]
+                        if a['value'] is None and z['value'] is None:reading='起末期均缺测'
+                        elif a['value'] is None:reading='起期缺测'
+                        elif z['value'] is None:reading='末期缺测'
+                        elif len(groups)>1:reading=fmt(float(format(a['value'],'.4g')))+' → '+fmt(float(format(z['value'],'.4g')))
+                        else:reading='空心起期 / 实心末期'
                     parts = [label[i:i+limit] for i in range(0,len(label),limit)]
+                    if reading:
+                        reading_width=sum(7.5 if ord(ch)<256 else 14 for ch in reading)
+                        if reading_width>cell-20 and a['value'] is not None and z['value'] is not None:
+                            parts.extend(['起 '+fmt(float(format(a['value'],'.4g'))),'末 '+fmt(float(format(z['value'],'.4g')))])
+                        else:parts.append(reading)
                     legends.append((left+column*cell,legend_y,parts,gi))
                     row_height = max(row_height,len(parts)*17)
                 legend_y += row_height+4
+            endpoint_pair=None
+            if len(groups)==1:
+                ordered=sorted(next(iter(groups.values())),key=lambda r:r['x'])
+                if len(ordered)>1 and ordered[0]['value'] is not None and ordered[-1]['value'] is not None:
+                    endpoint_pair=(ordered[0],ordered[-1])
+                    a,z=endpoint_pair
+                    change=float(Decimal(str(z['value']))-Decimal(str(a['value'])))
+                    delta_unit='百分点' if c['unit']=='%' else c['unit']
+                    text(left,legend_y+14,a['x']+' → '+z['x'],cls='comparison-note')
+                    text(left,legend_y+35,'首尾差 '+('+' if change>0 else '')+fmt(change)+' '+delta_unit,cls='comparison-note')
+                    legend_y+=43
             extra = max(0,legend_y+12-top)
             top += extra; bottom += extra; height += extra
             yy, lo, hi = axis_y(vals)
@@ -287,6 +663,8 @@ def svg_chart(c, mobile=False):
             xx = lambda v: left + (v-minx) / (maxx-minx or 1) * (right-left)
             for gi, (group, rr) in enumerate(groups.items()):
                 color = COLORS[gi % len(COLORS)]
+                ordered=ordered_groups[group]
+                paired=compare_groups and ordered[0]['value'] is not None and ordered[-1]['value'] is not None
                 segments, segment = [], []
                 for r in sorted(rr, key=lambda r:r['x']):
                     if r['value'] is None:
@@ -295,7 +673,8 @@ def svg_chart(c, mobile=False):
                         continue
                     px, py = xx(dt.date.fromisoformat(r['x']).toordinal()), yy(r['value'])
                     segment.append((px, py))
-                    dot(px, py, r['value'], f'{group} {r["x"]}：{fmt(r["value"])} {c["unit"]}', color)
+                    is_endpoint=paired and (r is ordered[0] or r is ordered[-1])
+                    dot(px, py, r['value'], f'{group} {r["x"]}：{fmt(r["value"])} {c["unit"]}', color,5 if is_endpoint else 4,reference=paired and r is ordered[0])
                 if segment: segments.append(segment)
                 for segment in segments:
                     points = ' '.join(f'{x:.3f},{y:.3f}' for x,y in segment)
@@ -310,18 +689,40 @@ def svg_chart(c, mobile=False):
                     text(lx,ly+index*17,part,cls='legend')
     elif kind == 'stacked':
         left = 100 if mobile else 165
-        height = max(230, 95 + len(rows)*53)
-        bottom = height - 35
+        def wrap_reading(value,limit):
+            lines,part,used=[], '',0
+            for ch in value:
+                advance=.55 if ord(ch)<256 else 1
+                if part and used+advance>limit:
+                    lines.append(part)
+                    part,used='',0
+                part+=ch
+                used+=advance
+            if part:lines.append(part)
+            return lines
+        summaries=[]
+        for r in rows:
+            summary=' · '.join(k+' '+fmt(v)+('%' if c['unit']=='%' else '') for k,v in r['parts'].items())
+            summaries.append(wrap_reading(summary,(width-16)/13))
+        summary_offsets=[max(43,math.ceil(len(r['label'])/(6 if mobile else 11))*16+18) for r in rows]
+        row_sizes=[max(64,offset+17*(len(lines)-1)+24) for offset,lines in zip(summary_offsets,summaries)]
         names = list(dict.fromkeys(k for r in rows for k in r['parts']))
         require(len(names) <= 6, 'more than six stack series: choose another layout')
+        columns=2 if mobile else 4
+        cell_width=(width-20)/columns
+        legend_lines=[wrap_reading(name,(cell_width-25)/13) for name in names]
+        header_heights=[max(len(v) for v in legend_lines[i:i+columns])*17+8 for i in range(0,len(names),columns)]
+        chart_top=max(65,26+sum(header_heights))
+        height = max(160, chart_top+sum(row_sizes)+35)
+        bottom = height - 35
         maxima = 100 if c.get('percent') else max(sum(r['parts'].values()) for r in rows)
         scale = (right-left)/(maxima or 1)
         for j, name in enumerate(names):
-            lx, ly = 10 + (j % (2 if mobile else 4)) * (170 if mobile else 185), 16 + (j // (2 if mobile else 4))*17
+            lx, ly = 10 + (j % columns)*cell_width,16+sum(header_heights[:j//columns])
             out.append(f'<rect x="{lx}" y="{ly-9}" width="9" height="9" fill="{COLORS[j]}" stroke="var(--ink)" stroke-width=".5"/>')
-            text(lx+15, ly, name, cls='legend')
+            for line_index,part in enumerate(legend_lines[j]):text(lx+15,ly+line_index*17,part,cls='legend')
         for i, r in enumerate(rows):
-            yy, start = 65 + i*53, 0
+            yy, start = chart_top + sum(row_sizes[:i]), 0
             category_text(left-10, yy+13, r['label'], 'end', 6 if mobile else 11)
             denom = sum(r['parts'].values())
             for j, name in enumerate(names):
@@ -330,8 +731,12 @@ def svg_chart(c, mobile=False):
                 raw = r['parts'][name]
                 value = raw/denom*100 if c.get('percent') else raw
                 rect(left+start*scale, yy, value*scale, 25, value, f'{r["label"]} {name}：{fmt(raw)} {c["unit"]}' + (f'，占{value:.1f}%' if c.get('percent') else ''), COLORS[j], 'x', start, start+value, scale)
+                label=fmt(float(format(value,'.12g')))+'%' if c.get('percent') else fmt(raw)+('%' if c['unit']=='%' else '')
+                if value*scale >= len(label)*8+12:
+                    text(left+(start+value/2)*scale,yy+18,label,'middle','stack-value','style="fill:var(--ink);stroke:var(--paper);stroke-width:1.6;paint-order:stroke"')
                 start += value
-            text(width-4, yy+39, f'合计 {fmt(denom)}', 'end', 'tick')
+            for j,label in enumerate(summaries[i]):text(8,yy+summary_offsets[i]+j*17,label,cls='tick')
+            text(width-4, yy-8, f'合计 {fmt(denom)}', 'end', 'tick')
     elif kind == 'waterfall':
         cumulative, segments = 0, []
         for r in rows:
@@ -341,6 +746,8 @@ def svg_chart(c, mobile=False):
                 a, b = cumulative, cumulative+r['value']
             segments.append((a,b))
             cumulative = b
+        net=float(Decimal(str(rows[-1]['value']))-Decimal(str(rows[0]['value'])))
+        text(left,17,'净变化 '+('+' if net>0 else '')+fmt(net)+' '+c['unit'],cls='comparison-note')
         yy, lo, hi = axis_y([v for segment in segments for v in segment], True)
         step = (right-left)/len(rows)
         scale = (bottom-top)/(hi-lo)
@@ -355,6 +762,8 @@ def svg_chart(c, mobile=False):
                 favorable = (r['value'] >= 0) == (direction == 'higher')
                 color = 'var(--positive)' if favorable else 'var(--negative)'
             rect(x, min(yy(a),yy(b)), bw, abs(yy(b)-yy(a)), r['value'], f'{r["label"]}：{fmt(r["value"])} {c["unit"]}', color, 'y', a, b, scale)
+            if r['role']=='start':
+                out.append(f'<rect x="{x:.3f}" y="{min(yy(a),yy(b)):.3f}" width="{bw:.3f}" height="{abs(yy(b)-yy(a)):.3f}" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.6" stroke-dasharray="4 3" pointer-events="none"/>')
             text(x+bw/2, min(yy(a),yy(b))-9, ('+' if r['role']=='change' and r['value']>0 else '')+fmt(r['value']), 'middle', 'value')
             category_text(x+bw/2, bottom+23, r['label'], 'middle', 4 if mobile else 9)
             if i<len(rows)-1:
@@ -381,7 +790,9 @@ def svg_chart(c, mobile=False):
                 line(x-18,yy(med),x+18,yy(med),'var(--accent)')
                 text(x,bottom+25,label,'middle','category')
                 text(x,top-13,f'n={len(vv)}','middle','tick')
+                text(x,bottom+43,fmt(float(format(med,'.4g'))),'middle','annotated-value')
                 ledger.append({'shape':'box','label':label,'q1':q1,'median':med,'q3':q3,'low':min(inner),'high':max(inner),'n':len(vv)})
+            text(4,bottom+43,'中位数',cls='tick')
     elif kind == 'scatter':
         points=[r for r in rows if r['x'] is not None and r['y'] is not None]
         if not points:
@@ -393,10 +804,28 @@ def svg_chart(c, mobile=False):
             for i in range(4):
                 v=xlo+(xhi-xlo)*i/3
                 text(xx(v),bottom+25,fmt(v, axis=True),'middle','tick')
-            for r in points:
+            labels=[]
+            extreme_indices=set()
+            if c.get('label_extremes',True):
+                for key in ['x','y']:
+                    extreme_indices.update([min(range(len(points)),key=lambda i:points[i][key]),max(range(len(points)),key=lambda i:points[i][key])])
+            coordinates=[(xx(r['x']),yy(r['y'])) for r in points]
+            for index,r in enumerate(points):
                 dot(xx(r['x']),yy(r['y']),r['y'],f'{r["label"]}：{fmt(r["x"])} {c["x_unit"]}，{fmt(r["y"])} {c["y_unit"]}','var(--accent)',5)
-                if r.get('highlight'):
-                    text(xx(r['x'])+8,yy(r['y'])-9,r['label'],cls='value')
+                if r.get('highlight') or index in extreme_indices:
+                    px,py=coordinates[index]
+                    reading=r['label']+' · '+fmt(float(format(r['y'],'.4g')))
+                    size=sum(7.5 if ord(ch)<256 else 14 for ch in reading)
+                    for lx,ly,anchor in [(px+9,py-11,'start'),(px+9,py+22,'start'),(px-9,py-11,'end'),(px-9,py+22,'end')]:
+                        l=lx if anchor=='start' else lx-size
+                        box=(l,ly-14,l+size,ly+3)
+                        inside=box[0]>=left and box[2]<=right and box[1]>=top-8 and box[3]<=bottom+4
+                        collision=any(not(box[2]+4<a or box[0]-4>z or box[3]+3<b or box[1]-3>t) for a,b,z,t in labels)
+                        covered=any(box[0]-5<x<box[2]+5 and box[1]-5<y<box[3]+5 for x,y in coordinates)
+                        if inside and not collision and not covered:
+                            text(lx,ly,reading,anchor,'value')
+                            labels.append(box)
+                            break
             text((left+right)/2,height-6,c['x_unit'],'middle','tick')
             text(6,16,c['y_unit'],cls='tick')
     label=f'{c["title"]}。{c["question"]}。{c["unit"]}。完整数值见同源数据表。'
@@ -411,9 +840,15 @@ CSS = '''
 @media print{body{background:white}header,main,footer{max-width:none;padding:12px}nav,.screen-only{display:none}.charts,.layout-analytical .charts{display:block}.panel,.layout-editorial .panel{display:block;border-top:1px solid #333;break-inside:avoid;margin-bottom:20px;padding:16px}.panel[hidden]{display:block!important}.desktop-svg{display:block}.mobile-svg{display:none}details{display:block}.table-scroll{overflow:visible}details:not([open])>div{display:block}a{color:inherit}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
 svg text,svg .tick,svg .value,svg .legend{font-size:14px}
+svg .target-reading{font-size:22px;font-weight:700;fill:var(--accent)}
+svg .target-unknown{font-weight:400;fill:var(--muted)}
+svg .comparison-note{font-size:14px;fill:var(--muted)}svg .annotated-value{font-size:14px;fill:var(--accent);font-weight:700}
 .layout-analytical .desktop-svg{display:none}.layout-analytical .mobile-svg{display:block}.layout-analytical svg text,.layout-analytical svg .tick,.layout-analytical svg .value,.layout-analytical svg .legend{font-size:11px}
 @media(max-width:700px){.layout-analytical svg text,.layout-analytical svg .tick,.layout-analytical svg .value,.layout-analytical svg .legend{font-size:14px}}
 @media print{.layout-analytical .desktop-svg{display:block}.layout-analytical .mobile-svg{display:none}}
+.compact-chart{display:none;max-width:100%;overflow-x:auto;overscroll-behavior-x:contain}.compact-svg{display:none}.compact-chart:has(.compact-wide)::before{content:"图表较宽，可左右滑动查看。";display:block;font-size:13px;color:var(--muted);margin-bottom:8px}
+@media screen and (max-width:400px){.desktop-svg,.mobile-svg,.layout-comparison .mobile-svg,.layout-analytical .mobile-svg{display:none!important}.compact-chart{display:block}.compact-chart .compact-svg{display:block;width:100%;height:auto;max-width:360px;margin:0 auto}.compact-chart .compact-wide{max-width:none}.compact-chart svg text,.compact-chart svg .tick,.compact-chart svg .legend,.compact-chart svg .value,.compact-chart svg .target-reading,.compact-chart svg .comparison-note,.compact-chart svg .annotated-value{font-size:14px}.compact-chart svg .target-reading{font-weight:700}}
+@media print{.compact-chart,.compact-svg{display:none!important}}
 '''
 
 JS = '''
@@ -439,7 +874,8 @@ def build(spec, layout='editorial', theme=None):
         display_unit = '占比（%），原始值：'+c['unit'] if c['kind']=='stacked' and c.get('percent') else c['unit']
         svg,ledger=svg_chart(c)
         mobile,ml=svg_chart(c,True)
-        ledgers[c['id']]={'desktop':ledger,'mobile':ml,'data_sha256':digest(c['rows'])}
+        compact,cl=svg_chart(c,compact=True)
+        ledgers[c['id']]={'desktop':ledger,'mobile':ml,'compact':cl,'data_sha256':digest(c['rows'])}
         fields=list(dict.fromkeys(k for r in c['rows'] for k in r))
         field_names={'label':'对象','value':'数值','group':'分组','parts':'构成','role':'增减类型','highlight':'重点标记','x':'日期' if c['kind']=='line' else c.get('x_unit','横轴数值'),'y':c.get('y_unit','纵轴数值')}
         headings=''.join(f'<th scope="col">{esc(field_names.get(k,k))}</th>' for k in fields)
@@ -454,6 +890,7 @@ def build(spec, layout='editorial', theme=None):
         if missing: notes+=f' 含{missing}条缺失记录；未替换为零。'
         claims=''.join(f'<p class="claims">核对值 · {esc(cl["method"])} = {esc(fmt(cl["expected"]))}</p>' for cl in c.get('claims',[]))
         panels.append(f'<section class="panel" data-chart-id="{esc(c["id"])}" aria-labelledby="title-{i}"><div class="heading"><span class="eyebrow">{i+1:02d} / {esc(c["kind"])}</span><h2 id="title-{i}">{esc(c["title"])}</h2><p class="q">{esc(c["question"])}</p><p class="scope">{esc(c["period"])} · {esc(c["unit"])}</p>{claims}<p class="note">{esc(notes)}</p></div><div class="data">{svg}{mobile}<details><summary>查看同源数据（{len(c["rows"])}条）</summary><div class="table-scroll"><table><caption>{esc(c["scope"])}</caption><thead><tr>{headings}</tr></thead><tbody>{tr}</tbody></table></div></details></div><div class="source">{esc(source)}</div></section>')
+        panels[-1]=panels[-1].replace(f'{svg}{mobile}',f'{svg}{mobile}<div class="compact-chart">{compact}</div>')
         if display_unit != c['unit']:
             panels[-1] = panels[-1].replace(f'<p class="scope">{esc(c["period"])} · {esc(c["unit"])}</p>', f'<p class="scope">{esc(c["period"])} · {esc(display_unit)}</p>')
         panels[-1] = panels[-1].replace(f'{i+1:02d} / {esc(c["kind"])}', f'{i+1:02d} / {KIND_NAMES[c["kind"]]}')
@@ -482,9 +919,9 @@ def main():
             require(args.out is not None,'--out is required for build')
             content=build(spec,args.layout,args.theme)
             args.out.parent.mkdir(parents=True,exist_ok=True)
-            args.out.write_text(content,encoding='utf-8')
+            args.out.write_text(content,encoding='utf-8',newline='\n')
             # Save the exact source contract next to the delivered artifact.
-            args.out.with_suffix('.data.json').write_text(json.dumps(spec,ensure_ascii=False,indent=2,allow_nan=False),encoding='utf-8')
+            args.out.with_suffix('.data.json').write_text(json.dumps(spec,ensure_ascii=False,indent=2,allow_nan=False),encoding='utf-8',newline='\n')
             result['output']=str(args.out.resolve())
         print(json.dumps({'ok':True,**result},ensure_ascii=False))
     except (ValueError,TypeError,KeyError,OSError) as e:

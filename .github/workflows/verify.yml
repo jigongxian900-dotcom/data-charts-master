@@ -11,9 +11,18 @@ jobs:
       - uses: actions/checkout@v7.0.1
       - name: Behavioral tests
         run: python3 scripts/test_chart_html.py
+      - name: Composed output tests
+        run: python3 scripts/test_compose_html.py
+      - name: Coherent source and derived-view tests
+        run: python3 scripts/test_operating_story.py
+      - name: Rebuild reports and presentations
+        run: |
+          python3 scripts/compose_html.py examples/composed/source.json --mode report --theme ruby --out examples/composed/report.html
+          python3 scripts/compose_html.py examples/composed/source.json --mode slides --theme ruby --out examples/composed/slides.html
+          python3 scripts/build_operating_story.py
       - name: Rebuild curated examples
         run: node scripts/build_gallery.js
       - name: Check generated files are reproducible
-        run: git diff --exit-code -- examples/dashboard-atlas docs/index.html docs/source-data.json docs/labs
+        run: git diff --exit-code -- examples/dashboard-atlas examples/composed examples/operating-story docs/index.html docs/source-data.json docs/labs docs/report.html docs/slides.html docs/operating-story.html
       - name: Verify release package
         run: python3 scripts/verify_release.py

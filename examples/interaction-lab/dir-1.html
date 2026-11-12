@@ -1,7 +1,7 @@
 <!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>增长织带 · 数据视觉实验</title>
 <style>
 *{box-sizing:border-box}body{margin:0;color:#28201e;background:#faf5ee;font:16px/1.6 "Microsoft YaHei",Arial,sans-serif}button,select{font:inherit;color:inherit}button{cursor:pointer}button:focus-visible,select:focus-visible,[tabindex]:focus-visible{outline:3px solid #192fa4;outline-offset:4px}.wrap{max-width:1440px;margin:auto;padding:30px 48px}header{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #d7c7bc;padding-bottom:18px}.brand{font-size:18px;font-weight:700}.badge{background:#f3dfcf;padding:4px 12px;font-size:13px}.intro{display:grid;grid-template-columns:1.5fr 1fr;gap:70px;margin:42px 0 25px;align-items:end}h1{font-family:"Microsoft YaHei",sans-serif;font-size:54px;line-height:1.15;letter-spacing:-2px;margin:0;font-weight:800}h1 em{font-style:normal;color:#c3442e}.intro p{font-size:16px;margin:0 0 8px;color:#68584f}.meta{font-size:13px;color:#68584f}.stage{display:grid;grid-template-columns:1fr 275px;gap:30px;margin:24px 0}.graphic{min-width:0}nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}nav button{border:1px solid #cdbbad;background:transparent;padding:8px 18px;border-radius:30px}nav button[aria-pressed=true]{background:#28201e;color:#fff;border-color:#28201e}.chart-head{display:flex;align-items:center;justify-content:space-between;gap:10px}.chart-head h2{font-size:17px;margin:0}.chart-head span{font-size:12px;color:#68584f}#chart{display:block;width:100%;height:auto;overflow:visible}.side{padding:28px 0 0 24px;border-left:1px solid #d7c7bc}#country{width:100%;padding:8px;border:1px solid #cdbbad;background:#faf5ee}.eyebrow{font-size:14px;color:#68584f;margin:28px 0 5px}#detail-title{font-size:32px;margin:0 0 8px}#detail-copy{font-size:15px;min-height:92px}.stat{margin:18px 0;border-top:1px solid #d7c7bc;padding-top:12px;display:flex;justify-content:space-between}.stat b{font-size:24px;line-height:1.2}.tiny{font-size:14px;color:#68584f}.actions{display:flex;gap:10px;flex-wrap:wrap;border-top:1px solid #d7c7bc;padding-top:16px}.actions button{background:transparent;border:0;border-bottom:1px solid #28201e;padding:7px 0;margin-right:12px}footer{padding:25px 0;font-size:13px;color:#68584f}summary{cursor:pointer;font-weight:700}.table-scroll{overflow:auto}table{border-collapse:collapse;width:100%;font-size:14px;margin:18px 0}th,td{text-align:right;padding:12px;border-bottom:1px solid #decec3;white-space:nowrap}th:first-child,td:first-child{text-align:left}tr.selected{background:#f2ddca}#announce{padding:14px 0;font-size:14px;min-height:50px}.lead-line{font-size:15px;border-top:1px solid #d7c7bc;padding-top:18px}.sr{position:absolute;left:-9999px}
-@media(max-width:750px){.wrap{padding:20px}.intro{display:block;margin:28px 0 24px}h1{font-size:38px;letter-spacing:-1px}.intro p{margin-top:20px}.stage{display:block}.side{border-left:0;padding:14px 0;border-top:1px solid #d7c7bc}.chart-head{display:block}.badge{font-size:12px}header{gap:12px}.brand{font-size:15px}#detail-copy{min-height:0}.stat{display:inline-flex;gap:20px;width:48%;vertical-align:top;flex-direction:column;margin:12px 0}.lead-line{font-size:14px}}
+@media(max-width:750px){.stat b{font-size:20px}.wrap{padding:20px}.intro{display:block;margin:28px 0 24px}h1{font-size:38px;letter-spacing:-1px}.intro p{margin-top:20px}.stage{display:block}.side{border-left:0;padding:14px 0;border-top:1px solid #d7c7bc}.chart-head{display:block}.badge{font-size:12px}header{gap:12px}.brand{font-size:15px}#detail-copy{min-height:0}.stat{display:inline-flex;gap:20px;width:48%;vertical-align:top;flex-direction:column;margin:12px 0}.lead-line{font-size:14px}}
 @page{size:A4;margin:12mm}@media print{html,body{margin:0;background:white;color:#28201e}.wrap{max-width:none;padding:0}header{padding-bottom:10px}.intro{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:18px 0}.intro h1{font-size:30px;letter-spacing:-1px}.intro p{font-size:14px;margin-top:0}nav,.actions,#country,#announce{display:none}.stage{display:block;margin:12px 0;break-inside:auto}.graphic{break-inside:avoid}.chart-head{display:flex}.chart-head h2{font-size:16px}.chart-head span{font-size:11px}#chart{width:100%;height:auto}.lead-line{font-size:13px;padding-top:8px}.side{border-left:0;border-top:1px solid #d7c7bc;padding:12px 0 0;break-inside:avoid;display:grid;grid-template-columns:1fr 1fr;gap:5px 30px}.side>label{display:none}.side .eyebrow{grid-column:1/-1;margin:0}.side h2{font-size:24px;margin:0}.side #detail-copy{grid-column:2;grid-row:2/5;min-height:0;margin:0;font-size:13px}.side .stat{margin:0;padding-top:5px;width:auto;flex-direction:row;display:flex;font-size:12px}.side .stat b{font-size:20px}.side .tiny{grid-column:1/-1;font-size:12px;margin:5px 0}details{break-inside:avoid;margin-top:18px}details>*{display:block}table{font-size:12px;margin:8px 0}th,td{padding:7px 8px}.tiny{font-size:12px}footer{padding:12px 0;font-size:11px}.table-scroll{overflow:visible}}
 </style>
 <div class="wrap"><header><div class="brand">数据视觉实验 / 增长织带</div><span class="badge">合成数据 · 视觉试稿 A</span></header>
@@ -9,71 +9,205 @@
 <div class="stage"><main class="graphic"><nav aria-label="分析问题"><button id="growth" aria-pressed="true">看增长来源</button><button id="gap" aria-pressed="false">看目标缺口</button></nav><div class="chart-head"><h2 id="chart-title"></h2><span>带宽与数值成正比 · 选择市场可联动</span></div><svg id="chart" role="img" aria-labelledby="svgtitle svgdesc"></svg><div class="lead-line" id="takeaway"></div><div id="announce" role="status" aria-live="polite"></div></main>
 <aside class="side"><label for="country">聚焦市场（总盘基准保留）</label><select id="country"></select><div class="eyebrow">把总量与同店分开看</div><h2 id="detail-title"></h2><p id="detail-copy"></p><div class="stat"><span>营业额同比</span><b id="total-growth"></b></div><div class="stat"><span>同店营业额同比</span><b id="same-growth"></b></div><p class="tiny">同店：两期均营业的相同门店样本。未提供利润与投入，不能判断资源回报，也不能把差异归因于新店。</p></aside></div>
 <div class="actions"><button id="reset">恢复默认</button><button id="save-svg">下载当前图 SVG</button><button id="save-data">下载完整数据</button></div>
-<details><summary>查看八市场源数据与口径</summary><p class="tiny">独立构造的演示数据。营业额是全量市场总盘；同店同比单列，不用于总盘加总。缺口=目标−本期。合成数据不作事实引用。</p><div class="table-scroll"><table><thead><tr><th>市场</th><th>上期</th><th>本期</th><th>目标</th><th>增量</th><th>同店同比</th></tr></thead><tbody id="data-table"></tbody></table></div></details>
+<details><summary>查看八市场源数据与口径</summary><p class="tiny">独立构造的演示数据。营业额是全量市场总盘；同店同比单列，不用于总盘加总。目标差额=目标−本期；负数表示超额，缺失目标不计算。合成数据不作事实引用。</p><div class="table-scroll"><table><thead><tr><th>市场</th><th>上期</th><th>本期</th><th>目标</th><th>增量</th><th>同店同比</th></tr></thead><tbody id="data-table"></tbody></table></div></details>
 <footer>来源：独立构造的演示数据｜所有市场采用同币种示意，单位：百万元。汇流仅表示增量的算术构成，不表示资金或客群流转。</footer></div>
 <script id="source-data" type="application/json">{"title": "增长从哪里来，下一步看哪里？", "question": "总盘营业额增长时，哪些市场贡献大，哪些市场还需核查同店表现？", "synthetic": true, "source": "独立构造的演示数据，不代表真实经营状况", "period": "2026年10月对比2025年10月，同币种示意", "unit": "百万元", "scope": "八个示意市场全量营业额；同店指标为两期均营业的相同门店样本，单列而不用于总盘加总", "rows": [{"id": "VN", "name": "越南", "prior": 380, "revenue": 460, "target": 480, "sameStoreGrowth": 4}, {"id": "ID", "name": "印尼", "prior": 300, "revenue": 340, "target": 400, "sameStoreGrowth": -6}, {"id": "TH", "name": "泰国", "prior": 160, "revenue": 192, "target": 210, "sameStoreGrowth": 2}, {"id": "MY", "name": "马来西亚", "prior": 90, "revenue": 108, "target": 110, "sameStoreGrowth": 5}, {"id": "PH", "name": "菲律宾", "prior": 60, "revenue": 78, "target": 80, "sameStoreGrowth": 8}, {"id": "SG", "name": "新加坡", "prior": 40, "revenue": 42, "target": 45, "sameStoreGrowth": -2}, {"id": "LA", "name": "老挝", "prior": 30, "revenue": 27, "target": 32, "sameStoreGrowth": -8}, {"id": "KH", "name": "柬埔寨", "prior": 20, "revenue": 24, "target": 28, "sameStoreGrowth": 1}]}</script><script>
 'use strict';
-const spec=JSON.parse(document.getElementById('source-data').textContent), rows=spec.rows;
-const sum=(a,key)=>a.reduce((s,r)=>s+r[key],0), prior=sum(rows,'prior'),current=sum(rows,'revenue'),net=current-prior;
-const fmt=x=>Number(x).toLocaleString('zh-CN',{maximumFractionDigits:1}),pct=x=>(x>=0?'+':'')+x.toFixed(1)+'%';
+
+// The public transfer boundary accepts finite numbers only; null never becomes zero.
+function validateData(input) {
+  if (!input || typeof input !== 'object' || !Array.isArray(input.rows) || !input.rows.length || input.rows.length > 8) throw new TypeError('rows 必须包含 1–8 个市场');
+  const ids = new Set();
+  for (const key of ['title', 'question', 'period', 'source', 'unit', 'scope']) if (typeof input[key] !== 'string' || !input[key].trim()) throw new TypeError(key + ' 必须为非空文本');
+  if (typeof input.synthetic !== 'boolean') throw new TypeError('synthetic 必须为 boolean');
+  const supported = new Set(['title', 'question', 'period', 'source', 'unit', 'scope', 'synthetic', 'rows']);
+  if (Object.keys(input).some(key => !supported.has(key))) throw new TypeError('不支持的元数据字段');
+  const copy = JSON.parse(JSON.stringify(input));
+  for (const [i, row] of input.rows.entries()) {
+    if (!row || typeof row !== 'object' || !/^[A-Za-z][A-Za-z0-9_-]*$/.test(row.id) || ids.has(row.id) || typeof row.name !== 'string' || !row.name.trim()) throw new TypeError('市场 id/name 无效或 id 重复');
+    ids.add(row.id);
+    for (const key of ['revenue', 'prior', 'target', 'sameStoreGrowth']) {
+      const value = row[key];
+      if (key !== 'revenue' && (value === null || value === undefined)) { copy.rows[i][key] = null; continue; }
+      if (typeof value !== 'number' || !Number.isFinite(value) || (key !== 'sameStoreGrowth' && value < 0)) throw new TypeError(key + ' 必须为有限数字；缺失值使用 null');
+    }
+  }
+  return copy;
+}
+// Sum the input decimal representations before converting back to Number.
+// This keeps 1e-12 + (-1e-12) at zero instead of a floating-point residual.
+function knownSum(values) {
+ if(values.some(value=>value===null))return null;
+ if(!values.length)return 0;
+ const parts=values.map(value=>{const [coefficient,exponent='0']=value.toString().split('e'),fraction=(coefficient.split('.')[1]||'').length;return {integer:BigInt(coefficient.replace('.','')),power:Number(exponent)-fraction}});
+ const power=Math.min(...parts.map(part=>part.power));
+ const integer=parts.reduce((sum,part)=>sum+part.integer*10n**BigInt(part.power-power),0n);
+ const result=Number(integer.toString()+'e'+power);
+ if(!Number.isFinite(result))throw new TypeError('金额合计超出有限数字范围');
+ return result===0?0:result;
+}
+const deltaOf = r => r.prior === null ? null : knownSum([r.revenue,-r.prior]);
+const growthOf = r => r.prior === null || r.prior === 0 ? null : deltaOf(r)/r.prior*100;
+function niceDomain(values, includeZero = true) {
+  const finite = values.filter(value => typeof value === 'number' && Number.isFinite(value));
+  if (includeZero || !finite.length) finite.push(0);
+  let lo = Math.min(...finite), hi = Math.max(...finite);
+  if (lo === hi) { if (lo === 0) return { domain: [0, 1], ticks: [0, .2, .4, .6, .8, 1] }; lo = Math.min(0, lo); hi = Math.max(0, hi); }
+  const raw = (hi - lo) / 4, power = 10 ** Math.floor(Math.log10(raw));
+  const step = [1, 2, 5, 10].find(value => value * power >= raw) * power;
+  lo = Math.floor(lo / step) * step; hi = Math.ceil(hi / step) * step;
+  const ticks = [], count = Math.round((hi - lo) / step);
+  for (let index = 0; index <= count; index++) { const value = lo + index * step; ticks.push(Math.abs(value) < step * 1e-10 ? 0 : Number(value.toPrecision(12))); }
+  return { domain: [lo, hi], ticks };
+}
+
+// Preserve nonzero readings at every magnitude; signed zero is displayed as 0.
+function numberText(value) {
+  if (value === null) return '未提供';
+  if (value === 0) return '0';
+  const magnitude = Math.abs(value);
+  if (magnitude < 1e-5 || magnitude >= 1e9) return value.toExponential(5).replace(/(\.\d*?[1-9])0+e/, '$1e').replace(/\.0+e/, 'e').replace('e+', 'e');
+  return value.toLocaleString('zh-CN', { maximumSignificantDigits: 6 });
+}
+function textWidth(value,size=12){const canvas=document.createElement('canvas'),context=canvas.getContext('2d');context.font=size+'px Microsoft YaHei, Arial, sans-serif';return context.measureText(value).width;}
+function sourceNumber(value){return value===null?'未提供':value===0?'0':String(value)}
+function sourcePercent(value){return value===null?'未提供':(value>0?'+':value<0?'−':'')+sourceNumber(Math.abs(value))+'%'}
+function signedNumber(value) { return value === null ? '未提供' : (value > 0 ? '+' : value < 0 ? '−' : '') + numberText(Math.abs(value)); }
+function displayPercent(value, signed = true) {
+  if (value === null) return '不适用/未提供';
+  if (value === 0) return '0%';
+  const magnitude = Math.abs(value);
+  let reading;
+  if (magnitude >= .01 && magnitude < 1e9) reading = magnitude.toLocaleString('zh-CN', { maximumFractionDigits: 2 });
+  else if (magnitude < 1e-5 || magnitude >= 1e9) reading = magnitude.toExponential(2).replace(/(\.\d*?[1-9])0+e/, '$1e').replace(/\.0+e/, 'e').replace('e+', 'e');
+  else reading = magnitude.toLocaleString('zh-CN', { maximumSignificantDigits: 3 });
+  return (value < 0 ? '−' : signed ? '+' : '') + reading + '%';
+}
+function percentText(value) { return displayPercent(value); }
+function metadataText() { return '期间：' + spec.period + '；范围：' + spec.scope + '；金额单位：' + spec.unit + '（输入数值按该单位显示，不作换算）；来源：' + spec.source + '。'; }
+function mergeData(input) {
+  if (!input || typeof input !== 'object' || Array.isArray(input)) throw new TypeError('setData 需要数据对象');
+  return validateData({ ...spec, ...input });
+}
+// Standalone exports carry all metadata, wrapped at a readable font size.
+function appendExportMetadata(copy, width, height, background, ink, extra = []) {
+  const fontSize = 13, lineHeight = 20, padding = 10, canvas = document.createElement('canvas'), context = canvas.getContext('2d');
+  context.font = fontSize + 'px Microsoft YaHei, Arial, sans-serif';
+  const paragraphs = [...extra, '题目：' + spec.title, '问题：' + spec.question, '期间：' + spec.period, '范围：' + spec.scope, '金额单位：' + spec.unit + '；输入数值按该单位显示，不作换算', '来源：' + spec.source];
+  const lines = [];
+  for (const paragraph of paragraphs) {
+    let line = '';
+    for (const character of paragraph) {
+      if (line && context.measureText(line + character).width > width - padding * 2) { lines.push(line); line = character; } else line += character;
+    }
+    if (line) lines.push(line);
+  }
+  const totalHeight = height + 25 + lines.length * lineHeight;
+  copy.setAttribute('viewBox', '0 0 ' + width + ' ' + totalHeight); copy.setAttribute('width', width); copy.setAttribute('height', totalHeight);
+  const ns = 'http://www.w3.org/2000/svg', bg = document.createElementNS(ns, 'rect');
+  Object.entries({ x: 0, y: 0, width, height: totalHeight, fill: background }).forEach(([key, value]) => bg.setAttribute(key, value)); copy.insertBefore(bg, copy.firstChild);
+  lines.forEach((line, i) => { const text = document.createElementNS(ns, 'text'); Object.entries({ x: padding, y: height + 25 + i * lineHeight, fill: ink, 'font-size': fontSize, 'font-family': 'Microsoft YaHei, Arial, sans-serif' }).forEach(([key, value]) => text.setAttribute(key, value)); text.textContent = line; copy.append(text); });
+  const metadata = document.createElementNS(ns, 'metadata'); metadata.textContent = JSON.stringify({ title: spec.title, question: spec.question, period: spec.period, unit: spec.unit, source: spec.source, scope: spec.scope, synthetic: spec.synthetic, rows: spec.rows }); copy.append(metadata);
+}
+function narrative(data) {
+  const net = knownSum(data.map(deltaOf)), top = [...data].filter(r => deltaOf(r) !== null && deltaOf(r) > 0).sort((a,b) => deltaOf(b)-deltaOf(a)).slice(0,3);
+  const amount = knownSum(top.map(deltaOf));
+  const contribution = top.length ? `${top.map(r=>r.name).join('、')}合计贡献 ${numberText(amount)} ${spec.unit}；` + (net === null || net === 0 ? '净增量缺失或为0，不计算份额。' : `占总盘净增量 ${numberText(net)} 的 ${displayPercent(amount/net*100,false)}。`) : '没有已知的正增量市场。';
+  const diverging = data.filter(r=>growthOf(r)>0 && r.sameStoreGrowth!==null && r.sameStoreGrowth<0);
+  const falling = data.filter(r=>growthOf(r)!==null && growthOf(r)<0 && r.sameStoreGrowth!==null && r.sameStoreGrowth<0);
+  const risk = diverging.length ? `${diverging.map(r=>r.name).join('、')}总盘增长、同店下降，需继续核查。` : '当前已知数据中，没有总盘增长、同店下降的市场。';
+  return {net, top, amount, contribution, diverging, falling, risk};
+}
+
+let spec=validateData(JSON.parse(document.getElementById('source-data').textContent)),rows=spec.rows,prior,current,net,story;
+const fmt=numberText,pct=percentText;
+
 let mode='growth',selected='ID',raf=0,version=0,printing=false;
 const NS='http://www.w3.org/2000/svg',svg=document.getElementById('chart'),small=matchMedia('(max-width:750px)'),reduce=matchMedia('(prefers-reduced-motion:reduce)');
 function el(tag,attrs={},text){let e=document.createElementNS(NS,tag);for(let[k,v]of Object.entries(attrs))e.setAttribute(k,v);if(text!==undefined)e.textContent=text;return e}
 function txt(x,y,t,size=16,color='#28201e',anchor='start',weight=400){return el('text',{x,y,fill:color,'font-size':size,'font-family':'Microsoft YaHei, Arial, sans-serif','text-anchor':anchor,'font-weight':weight},t)}
-document.getElementById('intro-copy').textContent=`总盘营业额从 ${fmt(prior)} 增至 ${fmt(current)}，同比 ${pct(net/prior*100)}。主图拆开 ${net} 的净增量，再切到目标缺口，看看关注顺序如何变化。`;
-document.getElementById('country').innerHTML=rows.map(r=>`<option value="${r.id}">${r.name}</option>`).join('');
-document.getElementById('data-table').innerHTML=rows.map(r=>`<tr data-market="${r.id}"><td>${r.name}</td><td>${r.prior}</td><td>${r.revenue}</td><td>${r.target}</td><td>${r.revenue-r.prior}</td><td>${pct(r.sameStoreGrowth)}</td></tr>`).join('');
+function syncMetadata(){
+ document.title=spec.title;document.querySelector('.badge').textContent=spec.synthetic?'合成数据 · 视觉试稿 A':'输入数据 · 视觉试稿 A';
+ document.querySelector('footer').textContent=metadataText()+'汇流仅表示增量的算术构成，不表示资金或客群流转。';
+ document.querySelector('details > .tiny').textContent=metadataText()+'同店指标单列，不用于总盘加总；目标差额=目标−本期，负数表示超额。';
+}
+function refreshData(){
+ syncMetadata();
+ document.querySelector('.meta').textContent=spec.period+' · '+spec.rows.length+'市场 · '+spec.unit;document.querySelector('summary').textContent='查看'+spec.rows.length+'市场源数据与口径';rows=spec.rows;prior=knownSum(rows.map(r=>r.prior));current=knownSum(rows.map(r=>r.revenue));net=knownSum(rows.map(deltaOf));story=narrative(rows);
+ document.getElementById('intro-copy').textContent=`总盘营业额：上期 ${fmt(prior)}，本期 ${fmt(current)}，同比 ${pct(growthOf({prior,revenue:current}))}。${spec.question} 主图拆开已知增量，再切到目标差额。缺失上期不计算增量；缺失目标不计算目标差额。`;
+ const select=document.getElementById('country');select.replaceChildren();const body=document.getElementById('data-table');body.replaceChildren();
+ rows.forEach(r=>{const option=document.createElement('option');option.value=r.id;option.textContent=r.name;select.append(option);const tr=document.createElement('tr');tr.dataset.market=r.id;[r.name,sourceNumber(r.prior),sourceNumber(r.revenue),sourceNumber(r.target),fmt(deltaOf(r)),sourcePercent(r.sameStoreGrowth)].forEach(value=>{const td=document.createElement('td');td.textContent=value;tr.append(td)});body.append(tr)});
+}
 function render(animate=true){
 const focusedMarket=document.activeElement?.closest('g[data-market]')?.dataset.market;
 const oldPaths=new Map([...svg.querySelectorAll('g[data-market]')].map(g=>[g.dataset.market,g.querySelector('path').getAttribute('d')]));
-const mobile=!printing&&small.matches,W=mobile?400:1000,H=mode==='gap'?(mobile?640:455):(mobile?670:560);
+const mobile=!printing&&small.matches,W=mobile?svg.clientWidth:1000,knownTargets=rows.filter(r=>r.target!==null),emptyGap=mode==='gap'&&!knownTargets.length,H=emptyGap?(mobile?180:210):mode==='gap'?(mobile?690:455):(mobile?740:560);
 svg.setAttribute('viewBox',`0 0 ${W} ${H}`);svg.setAttribute('data-mode',mode);svg.setAttribute('data-selected',selected);svg.replaceChildren();
-svg.append(el('title',{id:'svgtitle'},mode==='growth'?'八市场营业额增量的算术汇流':'八市场目标缺口：共同零基线排序'),el('desc',{id:'svgdesc'},`${spec.period}，单位百万元，合成数据。${mode==='growth'?'正增量合计194、负增量3、净增量191。':'八市场缺口合计114，印尼60，占52.6%。条形从共同零基线起，按目标减实际金额降序。实际、目标与达成率相邻列出。'}选择市场只聚焦，不过滤总盘。`));
+const gapTotal=knownTargets.length?knownSum(knownTargets.map(r=>knownSum([r.target,-r.revenue]))):null;
+const gapReading=knownTargets.length?`仅覆盖 ${knownTargets.length}/${rows.length}市场的已知目标；目标减实际合计 ${fmt(gapTotal)}，负值表示超额。缺失目标不计入。`:'目标均未提供，不计算差额。目标差额合计未知。';
+svg.append(el('title',{id:'svgtitle'},mode==='growth'?'市场营业额增量的算术汇流':emptyGap?'目标均未提供，不计算差额':'市场目标差额：共同零基线排序'),el('desc',{id:'svgdesc'},`${spec.period}，单位${spec.unit}，${spec.synthetic?'合成数据':'输入数据'}。${mode==='growth'?story.contribution:gapReading}选择市场只聚焦，不过滤总盘。${metadataText()}`));
 svg.append(el('rect',{width:W,height:H,fill:'#faf5ee'}));
-let list=rows.filter(r=>mode==='gap'||r.revenue>=r.prior).map(r=>({...r,value:mode==='gap'?r.target-r.revenue:r.revenue-r.prior})).sort((a,b)=>b.value-a.value);
-const total=list.reduce((s,r)=>s+r.value,0),unit=mobile?1.08:1.26,sourceX=mobile?130:165,mergeX=mobile?266:650,barW=mobile?24:30,top=mobile?60:70;
-const interval=mobile?63:55,mergeTop=mobile?170:110,gapScale=(mobile?192:430)/Math.max(...list.map(r=>r.value));
-if(mode==='growth')svg.append(txt(5,35,'各市场正增量',mobile?15:17),txt(mergeX+barW+10,mobile?130:50,'正增量合计',mobile?14:17));
-else{svg.append(txt(5,25,'按缺口金额排序',mobile?15:17));[0,20,40,60].forEach(v=>{const x=sourceX+v*gapScale;svg.append(el('line',{x1:x,y1:49,x2:x,y2:mobile?556:392,stroke:v===0?'#68584f':'#ded2c8','stroke-width':v===0?1.4:1}));svg.append(txt(x,43,String(v),14,'#68584f','middle'))});if(!mobile){svg.append(txt(720,43,'实际',14,'#68584f','end'),txt(830,43,'目标',14,'#68584f','end'),txt(965,43,'达成率',14,'#68584f','end'))}}
+let list=rows.filter(r=>mode==='gap'?r.target!==null:deltaOf(r)!==null&&deltaOf(r)>=0).map(r=>({...r,value:mode==='gap'?knownSum([r.target,-r.revenue]):deltaOf(r)})).sort((a,b)=>b.value-a.value);
+const total=mode==='gap'?gapTotal:knownSum(list.map(r=>r.value)),negativeAmount=knownSum(rows.filter(r=>deltaOf(r)!==null&&deltaOf(r)<0).map(r=>-deltaOf(r))),unit=mode==='growth'&&total+negativeAmount>0?(mobile?230:245)/(total+negativeAmount):0,mergeX=mobile?W-65:650,barW=mobile?20:30,top=mobile?60:70;
+const gapDomain=niceDomain(list.map(r=>r.value)),gapScale=(mobile?W-150:430)/(gapDomain.domain[1]-gapDomain.domain[0]),sourceX=(mobile?105:165)-gapDomain.domain[0]*gapScale,mergeTop=mobile?150:110;
+if(mode==='growth')svg.append(txt(5,35,'各市场正增量',mobile?15:17),txt(mobile?W-140:mergeX+barW+10,mobile?130:50,'正增量合计',mobile?14:17));
+else if(knownTargets.length){svg.append(txt(5,25,'按缺口金额排序',mobile?15:17));gapDomain.ticks.filter((_,i)=>!mobile||gapDomain.ticks.length<5||i%2===0).forEach(v=>{const x=sourceX+v*gapScale;svg.append(el('line',{x1:x,y1:49,x2:x,y2:mobile?556:392,stroke:v===0?'#68584f':'#ded2c8','stroke-width':v===0?1.4:1}));const tick=txt(x,43,fmt(v),14,'#68584f','middle');tick.dataset.axisTick='x';svg.append(tick)});if(!mobile){svg.append(txt(720,43,'实际',14,'#68584f','end'),txt(830,43,'目标',14,'#68584f','end'),txt(965,43,'达成率',14,'#68584f','end'))}}
+if(emptyGap)svg.append(txt(8,42,`目标覆盖 0/${rows.length} 市场`,mobile?17:22,'#28201e','start',700),txt(8,78,'目标差额合计 未提供',mobile?18:22,'#c3442e','start',700),txt(8,110,'目标均未提供，不计算差额',mobile?14:16,'#68584f'));
 let offset=0,sourceOffset=0;const ribbons=[];
 list.forEach((r,i)=>{let h=mode==='gap'?20:r.value*unit,sourceY=mode==='gap'?top+i*(mobile?62:40):top+sourceOffset,sy=sourceY+h/2,dy=mergeTop+offset;offset+=h;sourceOffset+=h+(mobile?34:22);
 let color=r.id===selected?'#c3442e':'#dd9279',opacity=r.id===selected?1:.65;
 const bend=(mergeX-sourceX)*.45,endX=sourceX+r.value*gapScale,gapBend=(endX-sourceX)*.45,d=mode==='gap'?`M ${sourceX} ${sourceY} C ${sourceX+gapBend} ${sourceY},${endX-gapBend} ${sourceY},${endX} ${sourceY} L ${endX} ${sourceY+h} C ${endX-gapBend} ${sourceY+h},${sourceX+gapBend} ${sourceY+h},${sourceX} ${sourceY+h} Z`:`M ${sourceX} ${sourceY} C ${sourceX+bend} ${sourceY},${mergeX-bend} ${dy},${mergeX} ${dy} L ${mergeX} ${dy+h} C ${mergeX-bend} ${dy+h},${sourceX+bend} ${sourceY+h},${sourceX} ${sourceY+h} Z`;
-let g=el('g',{'data-market':r.id,tabindex:0,role:'button','aria-label':`${r.name}，${mode==='gap'?'目标缺口':'增量'}${r.value}百万元，聚焦市场`,'aria-pressed':String(r.id===selected)});
+let g=el('g',{'data-market':r.id,tabindex:0,role:'button','aria-label':`${r.name}，${mode==='gap'?'目标缺口':'增量'}${fmt(r.value)}${spec.unit}，聚焦市场`,'aria-pressed':String(r.id===selected)});
 g.append(el('path',{d,fill:color,opacity,stroke:'#faf5ee','stroke-width':1,'data-value':r.value,'data-band-width':mode==='growth'?h:0,'data-bar-width':mode==='gap'?r.value*gapScale:0}));
-const desktopGrowth=mode==='growth'&&!mobile,nameX=desktopGrowth?sourceX-67:sourceX-14,valueX=mode==='gap'?endX+8:mobile?sourceX-14:sourceX-12;
-g.append(txt(nameX,sy+(mode==='growth'&&mobile?-4:5),r.name,mobile?14:18,'#28201e','end',r.id===selected?700:400),txt(valueX,sy+(mode==='growth'&&mobile?15:5),(mode==='growth'?'+':'')+r.value,mobile?14:17,'#28201e',mode==='growth'?'end':'start',700));
-if(mode==='gap'){const achievement=(r.revenue/r.target*100).toFixed(1)+'%';if(mobile)g.append(txt(5,sy+34,`实际 ${r.revenue} / 目标 ${r.target} / 达成 ${achievement}`,14,'#68584f'));else g.append(txt(720,sy+5,String(r.revenue),17,'#28201e','end'),txt(830,sy+5,String(r.target),17,'#28201e','end'),txt(965,sy+5,achievement,17,'#28201e','end'))}
+const desktopGrowth=mode==='growth'&&!mobile,nameX=desktopGrowth?sourceX-67:mode==='gap'?(mobile?90:150):sourceX-14,valueX=mode==='gap'?Math.min(endX+8,W-8-textWidth(fmt(r.value),mobile?14:17)):mobile?sourceX-14:sourceX-12;
+g.append(txt(nameX,sy+(mode==='growth'&&mobile?-4:5),r.name,mobile?14:18,'#28201e','end',r.id===selected?700:400),txt(valueX,sy+(mode==='growth'&&mobile?15:5),(mode==='growth'?'+':'')+fmt(r.value),mobile?14:17,'#28201e',mode==='growth'||r.value<0?'end':'start',700));
+if(mode==='gap'){const achievement=r.target===0?'不适用（目标为0）':displayPercent(r.revenue/r.target*100,false);if(mobile)g.append(txt(5,sy+32,`实际 ${fmt(r.revenue)} / 目标 ${fmt(r.target)}`,14,'#68584f'),txt(5,sy+50,`达成 ${achievement}`,14,'#68584f'));else g.append(txt(720,sy+5,fmt(r.revenue),17,'#28201e','end'),txt(830,sy+5,fmt(r.target),17,'#28201e','end'),txt(965,sy+5,achievement,17,'#28201e','end'))}
 g.addEventListener('click',()=>choose(r.id));g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();choose(r.id)}});svg.append(g);ribbons.push(g.firstChild);
 });
-if(mode==='growth'){svg.append(el('rect',{x:mergeX,y:mergeTop,width:barW,height:total*unit,fill:'#c3442e'}));const labelX=mobile?205:mergeX+65,labelY=mobile?500:190;svg.append(txt(labelX,labelY,'净增量',mobile?18:21,'#68584f'),txt(labelX,labelY+(mobile?65:96),'+'+net,mobile?59:90,'#c3442e','start',800),txt(labelX,labelY+(mobile?91:128),'百万元',16,'#68584f'))}
-else svg.append(txt(5,H-64,`待弥合缺口合计 ${total} 百万元`,mobile?16:19,'#c3442e','start',700));
+if(mode==='growth'){svg.append(el('rect',{x:mergeX,y:mergeTop,width:barW,height:total*unit,fill:'#c3442e'}));const labelX=mobile?W-160:mergeX+65,labelY=mobile?560:190;svg.append(txt(labelX,labelY,'净增量',mobile?18:21,'#68584f'),txt(labelX,labelY+(mobile?65:96),(net!==null&&net>0?'+':'')+fmt(net),Math.min(mobile?(net===null?40:59):90,(W-labelX-10)/Math.max(1,textWidth((net!==null&&net>0?'+':'')+fmt(net),1))),'#c3442e','start',800),txt(labelX,labelY+(mobile?91:128),spec.unit,16,'#68584f'))}
+else if(!emptyGap){svg.append(txt(5,H-64,mobile?`${knownTargets.length&&knownTargets.length<rows.length?'已知目标':'目标'}差额合计 ${fmt(total)}`:`${knownTargets.length&&knownTargets.length<rows.length?'已知目标':'目标'}差额合计 ${fmt(total)}（${list.length}/${rows.length}市场）`,mobile?16:19,'#c3442e','start',700));if(mobile)svg.append(txt(5,H-44,`${list.length}/${rows.length}市场有目标`,14,'#68584f'))}
 if(mode==='growth'){
- const neg=rows.filter(r=>r.revenue<r.prior).reduce((s,r)=>s+r.prior-r.revenue,0),ny=mergeTop+total*unit;
- svg.append(el('path',{d:`M${mergeX+barW} ${ny-3*unit} C ${mergeX+55} ${ny-3*unit},${mergeX+55} ${ny+48},${mergeX+100} ${ny+48} L${mergeX+100} ${ny+48+3*unit} C${mergeX+55} ${ny+48+3*unit},${mergeX+55} ${ny},${mergeX+barW} ${ny} Z`,fill:'#493830','data-value':neg}));
- svg.append(txt(mobile?265:mergeX+55,ny+85,'老挝 −3',mobile?14:17,'#493830'));
- svg.append(txt(5,H-52,`194 正增量 − ${neg} 负增量 = ${net} 净增量`,mobile?14:18,'#68584f'));
+ const negative=rows.filter(r=>deltaOf(r)!==null&&deltaOf(r)<0),neg=negative.reduce((s,r)=>s-deltaOf(r),0),ny=mergeTop+total*unit+25,negativeEndX=mobile?W-12:mergeX+100,negativeControlX=mobile?W-28:mergeX+55;
+ svg.append(el('path',{d:`M${mergeX+barW} ${ny} C ${negativeControlX} ${ny},${negativeControlX} ${ny+48},${negativeEndX} ${ny+48} L${negativeEndX} ${ny+48+neg*unit} C${negativeControlX} ${ny+48+neg*unit},${negativeControlX} ${ny+neg*unit},${mergeX+barW} ${ny+neg*unit} Z`,fill:'#493830','data-value':neg}));
+ const negativeLabelY=ny+48+neg*unit+25;
+ if(mobile&&negative.length)svg.append(el('line',{x1:W-24,y1:negativeLabelY-18,x2:negativeEndX-5,y2:ny+48+neg*unit/2,stroke:'#493830','stroke-width':1.2,'aria-hidden':'true','data-negative-leader':'true'}));
+ svg.append(txt(mobile?W-24:mergeX+55,negativeLabelY,negative.length?(mobile?'扣减：':'')+(negative.length===1?negative[0].name:negative.length+'市场')+' −'+fmt(neg):'无已知负增量',mobile?14:17,'#493830',mobile?'end':'start'));
+ if(mobile){svg.append(txt(5,H-70,`${fmt(total)} 正增量 − ${fmt(neg)} 负增量`,14,'#68584f'),txt(5,H-48,`净增量：${fmt(net)}`,14,'#68584f'))}else svg.append(txt(5,H-52,`${fmt(total)} 正增量 − ${fmt(neg)} 负增量 = ${fmt(net)} 净增量`,18,'#68584f'));
 }
-svg.append(txt(5,H-26,'2026年10月 vs 2025年10月 · 百万元 · 八市场',14,'#68584f'),txt(5,H-6,'来源：独立构造的演示数据 · 合成数据',14,'#68584f'));
-document.getElementById('chart-title').textContent=mode==='growth'?'191 的增长，从哪里汇来？':'114 的缺口，集中在哪里？';
-document.querySelector('.chart-head span').textContent=mode==='growth'?'带宽与数值成正比 · 选择市场可联动':'共同零基线 · 按追回金额排序 · 同列核对达成率';
-document.getElementById('takeaway').textContent=mode==='growth'?'越南、印尼、泰国贡献 152，占净增量的 79.6%。带宽看规模，右侧再看同店。':'印尼缺口 60，占总缺口的 52.6%。目标缺口与营业额增长回答不同问题。';
+svg.append(txt(5,H-26,`单位：${spec.unit} · ${rows.length}市场`,14,'#68584f'),txt(5,H-6,'期间、来源与范围见下方源数据',14,'#68584f'));
+document.getElementById('chart-title').textContent=mode==='growth'?fmt(net)+' 的净增量，从哪里汇来？':knownTargets.length?(knownTargets.length<rows.length?'已知目标市场 ':'')+fmt(gapTotal)+' 的目标差额，集中在哪里？':'目标均未提供，不计算差额';
+document.querySelector('.chart-head span').textContent=mode==='growth'?'带宽与数值成正比 · 选择市场可联动':knownTargets.length?'共同零基线 · 按目标差额排序 · 同列核对达成率':'未提供目标 · 暂无可比较差额';
+document.getElementById('takeaway').textContent=mode==='growth'?story.contribution:gapReading;
 document.getElementById('growth').setAttribute('aria-pressed',mode==='growth');document.getElementById('gap').setAttribute('aria-pressed',mode==='gap');
 const r=rows.find(r=>r.id===selected);document.getElementById('country').value=selected;
 document.getElementById('detail-title').textContent=r.name;
-document.getElementById('total-growth').textContent=pct((r.revenue/r.prior-1)*100);document.getElementById('same-growth').textContent=pct(r.sameStoreGrowth);
-document.getElementById('detail-copy').textContent=`本期 ${r.revenue}，较上期${r.revenue>=r.prior?'增加':'减少'} ${Math.abs(r.revenue-r.prior)}；距目标 ${r.target} 尚差 ${r.target-r.revenue}。`+(r.sameStoreGrowth<0&&r.revenue>r.prior?'总盘增长与同店下降并存，需继续核查门店结构与经营原因。':'仍需结合利润、投入与门店结构判断后续行动。');
+document.getElementById('total-growth').textContent=pct(growthOf(r));document.getElementById('same-growth').textContent=pct(r.sameStoreGrowth);
+document.getElementById('detail-copy').textContent=`本期 ${fmt(r.revenue)}，上期 ${fmt(r.prior)}，增量 ${fmt(deltaOf(r))}；目标 ${fmt(r.target)}，目标减实际 ${fmt(r.target===null?null:knownSum([r.target,-r.revenue]))}。`+(r.sameStoreGrowth!==null&&r.sameStoreGrowth<0&&growthOf(r)>0?'总盘增长与同店下降并存，需继续核查门店结构与经营原因。':'仍需结合利润、投入与门店结构判断后续行动。');
 document.querySelectorAll('tr[data-market]').forEach(e=>e.classList.toggle('selected',e.dataset.market===selected));
 document.getElementById('announce').textContent=`当前：${mode==='growth'?'增长来源':'目标缺口'}，聚焦${r.name}。图表保留全部市场，总盘分母不变。`;
 if(focusedMarket)svg.querySelector(`g[data-market="${focusedMarket}"]`)?.focus({preventScroll:true});
 cancelAnimationFrame(raf);const run=++version;
-if(animate&&!reduce.matches){const number=/-?\d+(?:\.\d+)?/g,targets=ribbons.map(p=>p.getAttribute('d')),starts=ribbons.map(p=>oldPaths.get(p.parentNode.dataset.market));let start=null;function frame(t){if(run!==version)return;if(start===null)start=t;const p=Math.min((t-start)/480,1),ease=1-Math.pow(1-p,3);ribbons.forEach((pth,i)=>{const from=starts[i]?.match(number)?.map(Number),to=targets[i].match(number).map(Number);if(from&&from.length===to.length){let j=0;pth.setAttribute('d',targets[i].replace(number,()=>String(from[j]+(to[j]-from[j++])*ease)))}pth.setAttribute('opacity',(.35+.65*p)*(pth.parentNode.dataset.market===selected?1:.65))});if(p<1)raf=requestAnimationFrame(frame);else svg.dataset.settled='true'}svg.dataset.settled='false';raf=requestAnimationFrame(frame)}else svg.dataset.settled='true';
+if(animate&&!reduce.matches){const number=/-?\d+(?:\.\d+)?/g,targets=ribbons.map(p=>p.getAttribute('d')),starts=ribbons.map(p=>oldPaths.get(p.parentNode.dataset.market));let start=null;function frame(t){if(run!==version)return;if(start===null)start=t;const p=Math.min((t-start)/480,1),ease=1-Math.pow(1-p,3);ribbons.forEach((pth,i)=>{const from=starts[i]?.match(number)?.map(Number),to=targets[i].match(number).map(Number);if(from&&from.length===to.length){let j=0;pth.setAttribute('d',targets[i].replace(number,()=>String(from[j]+(to[j]-from[j++])*ease)))}pth.setAttribute('opacity',(.35+.65*p)*(pth.parentNode.dataset.market===selected?1:.65))});if(p<1)raf=requestAnimationFrame(frame);else settleTransition(false)}settleTransition(true);raf=requestAnimationFrame(frame)}else settleTransition(false);
+}
+function settleTransition(active){
+ svg.dataset.settled=String(!active);
+ let status=svg.querySelector('[data-transition]');if(!status){status=txt(+svg.viewBox.baseVal.width/2,20,'切换视角中 · 稳定后显示读数',14,'#28201e','middle',700);status.dataset.transition='true';svg.append(status)}
+ status.setAttribute('visibility',active?'visible':'hidden');
+ svg.querySelectorAll('text:not([data-transition])').forEach(t=>t.setAttribute('visibility',active?'hidden':'visible'));
+ svg.querySelectorAll('g[data-market]').forEach(g=>{g.querySelector('text')?.setAttribute('visibility','visible');if(active){g.dataset.stableLabel=g.getAttribute('aria-label');g.setAttribute('aria-label',g.dataset.market+'，切换视角中，聚焦市场')}});
+ for(const selector of ['#takeaway','#detail-copy','.side .stat'])document.querySelectorAll(selector).forEach(e=>e.style.visibility=active?'hidden':'');
+ const description=svg.querySelector('desc');
+ if(active){description.dataset.stable=description.textContent;description.textContent='切换视角中；暂不提供定量读数，稳定后显示。'}else if(description.dataset.stable){description.textContent=description.dataset.stable;delete description.dataset.stable}
+ svg.querySelectorAll('g[data-market]').forEach(g=>{if(!active&&g.dataset.stableLabel){g.setAttribute('aria-label',g.dataset.stableLabel);delete g.dataset.stableLabel}});
+ document.getElementById('announce').textContent=active?'切换视角中 · 稳定后显示读数':document.getElementById('announce').textContent.replace('切换视角中 · 稳定后显示读数','视角已稳定，可读取数值。');
 }
 function choose(id){selected=id;render(true)}
 function download(name,body,type){let a=document.createElement('a'),url=URL.createObjectURL(new Blob([body],{type}));a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}
-document.getElementById('growth').onclick=()=>{mode='growth';render()};document.getElementById('gap').onclick=()=>{mode='gap';render()};document.getElementById('country').onchange=e=>choose(e.target.value);document.getElementById('reset').onclick=()=>{mode='growth';selected='ID';render()};
-document.getElementById('save-data').onclick=()=>download('八市场_合成数据.json',JSON.stringify(spec,null,2),'application/json');
-document.getElementById('save-svg').onclick=()=>{render(false);let clone=svg.cloneNode(true);clone.setAttribute('xmlns',NS);clone.querySelectorAll('[tabindex]').forEach(e=>{e.removeAttribute('tabindex');e.removeAttribute('role')});download(`增长织带_${mode}_${selected}.svg`,new XMLSerializer().serializeToString(clone),'image/svg+xml')};
+document.getElementById('growth').onclick=()=>{mode='growth';render()};document.getElementById('gap').onclick=()=>{mode='gap';render()};document.getElementById('country').onchange=e=>choose(e.target.value);document.getElementById('reset').onclick=()=>{mode='growth';selected=rows.some(r=>r.id==='ID')?'ID':rows[0].id;render()};
+document.getElementById('save-data').onclick=()=>download(rows.length+'市场_源数据.json',JSON.stringify(spec,null,2),'application/json');
+document.getElementById('save-svg').onclick=()=>{render(false);let clone=svg.cloneNode(true);clone.setAttribute('xmlns',NS);appendExportMetadata(clone,svg.viewBox.baseVal.width,svg.viewBox.baseVal.height,'#faf5ee','#28201e',[document.getElementById('chart-title').textContent]);clone.querySelectorAll('[tabindex]').forEach(e=>{e.removeAttribute('tabindex');e.removeAttribute('role')});download(`增长织带_${mode}_${selected}.svg`,new XMLSerializer().serializeToString(clone),'image/svg+xml')};
 let printOpen=[];window.addEventListener('beforeprint',()=>{printing=true;render(false);printOpen=[...document.querySelectorAll('details')].map(e=>e.open);document.querySelectorAll('details').forEach(e=>e.open=true)});window.addEventListener('afterprint',()=>{printing=false;document.querySelectorAll('details').forEach((e,i)=>e.open=printOpen[i]);render(false)});
-small.addEventListener('change',()=>render(false));reduce.addEventListener('change',()=>render(false));render(false);
+small.addEventListener('change',()=>render(false));reduce.addEventListener('change',()=>render(false));
+window.__lab={setData(input){const next=mergeData(input);spec={...spec,...next};document.getElementById('source-data').textContent=JSON.stringify(spec);if(!next.rows.some(r=>r.id===selected))selected=next.rows[0].id;refreshData();render(false);return this.getState()},getState(){const known=rows.filter(r=>r.target!==null);return JSON.parse(JSON.stringify({data:spec,mode,selected,settled:svg.dataset.settled==='true',prior,current,net,gapTotal:known.length?knownSum(known.map(r=>knownSum([r.target,-r.revenue]))):null,targetCoverage:{known:known.length,total:rows.length}}))}};
+refreshData();render(false);
 </script></html>

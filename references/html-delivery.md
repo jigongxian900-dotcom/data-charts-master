@@ -8,7 +8,7 @@
 
 | kind | rows字段 | 额外字段 / 条件 |
 |---|---|---|
-| bar | label,value,highlight可选 | 唯一类目，零基线，支持负值 |
+| bar | label,value,highlight可选，target可选 | 唯一类目，零基线，支持负值；显式target为同单位非负值或null，绘目标线并同轴比较 |
 | line | x（ISO日期）,value,group可选 | frequency为day/month/year；每组期间连续，缺测补显式null记录，不插值；按真实日期间距 |
 | stacked | label,parts（名称→非负数字） | percent可选，零分母拒绝；缺失段不补零 |
 | waterfall | label,value,role | 首项start，中间change，末项total；起点+贡献=终点，否则拒绝 |
@@ -26,6 +26,8 @@
 配色可用输入的 `theme` 或命令参数 `--theme tidal|cobalt|grove|iris|nocturne|graphite|ruby`。见 [配色体系](color-system.md)。图例用颜色标记与正文色文字，分类色不直接承担小字号文字；深色屏幕版打印自动切到浅色语义色。输入值与图形几何不因主题改变。需要保留品牌色的PDF/PPTX按选定浅底主题另行输出与实看，不能把屏幕换色当作打印也已同步。
 
 可复跑输入：[representative.json](../examples/representative.json)。它只是合成数据的实现样例，不是业务选图的固定模板；先按业务问题选图，再决定是否使用该助手。
+
+实际与目标的完整输入见 [target-comparison.json](../examples/target-comparison.json)。`target` 不从类目名称猜测。缺失目标、零目标和实际缺失均不计算比率；`performance_direction: higher` 才将实际÷目标称为达成，`lower` 写实际/目标并按不超过上限判断，`neutral` 不判断好坏。堆叠分项保留直接数值和全量分项摘要，不能把悬停作为唯一原值路径。
 
 ## 检查真实文件
 

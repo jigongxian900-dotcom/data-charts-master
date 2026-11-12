@@ -11,6 +11,8 @@
 @media print{
 html,body{color-scheme:light!important;margin:0;background:#fff!important;color:#152035;--ink:#152035;--muted:#263242}.wrap{padding:0}.top{padding-bottom:8px}.wordmark{font-size:13px}.hero{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:16px 0}.hero h1{font-size:33px;margin:6px 0}.hero h1 span,.section-number{color:#1b493c}.hero .deck{font-size:12px}.hero-numbers{gap:15px}.big{font-size:54px}.big sup{font-size:24px}.smallmetric{font-size:23px}.analysis{display:block;break-inside:auto}.main-viz,.aside{break-inside:avoid;padding:16px 0}.main-viz{border-bottom:1px solid #aab2bd}.chart{height:auto;aspect-ratio:700/360}.callout{padding:10px 12px 10px 0;margin-top:8px}.callout strong{font-size:14px}.callout p,.pick-metrics label,.pick-name span,.aside-foot,.focus-note,.source,.deck,.metric-label,.selected-text,.hint,.legend,.reader p,footer,summary,.top small,.eyebrow,.smallmetric span{color:#263242!important}.callout p,.selected-text{font-size:12px}.aside .pick-name{margin-top:10px}.pick-name strong{font-size:25px}.pick-metrics b{font-size:24px}.pick-metrics{margin:8px 0}.bar-head{margin-top:12px}.rank{height:auto;aspect-ratio:700/302}.reader{padding:12px 0;break-inside:avoid}.reader h2{font-size:16px}.reader p{font-size:12px}.tools{padding:8px 0}.source{font-size:11px}.full-data{break-inside:avoid;margin-top:12px}table{font-size:11px}th,td{padding:6px}.table-scroll{overflow:visible}footer{padding:10px 0;font-size:10px}.focus-note{margin-bottom:0}
 }
+@media(max-width:380px){.hero-numbers{grid-template-columns:1fr;gap:18px}.big{font-size:58px}.smallmetric{font-size:30px}.hero-numbers>div:last-child{display:grid;grid-template-columns:1fr 1fr;gap:8px}.hero-numbers>div:last-child .smallmetric{grid-row:1;margin:0!important}.hero-numbers>div:last-child .metric-label{grid-row:2;font-size:12px}.hero-numbers>div:last-child .metric-label:nth-child(2){grid-column:1}.hero-numbers>div:last-child .metric-label:nth-child(4){grid-column:2}.smallmetric span{font-size:12px;margin-left:2px}}
+@media(max-width:700px){.pick-metrics b{font-size:clamp(20px,7vw,32px)}}.hero-numbers,.hero-numbers>div{min-width:0}.big{max-width:100%;overflow-wrap:anywhere}
 </style>
 <div class="wrap">
 <header class="top"><div class="wordmark"><span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>市场观察台 <small>／ MARKET PERSPECTIVE</small></div><span class="badge">合成数据 · 视觉试稿 B</span></header>
@@ -25,51 +27,182 @@ html,body{color-scheme:light!important;margin:0;background:#fff!important;color:
 </div><script id="source-data" type="application/json">{"title": "增长从哪里来，下一步看哪里？", "question": "总盘营业额增长时，哪些市场贡献大，哪些市场还需核查同店表现？", "synthetic": true, "source": "独立构造的演示数据，不代表真实经营状况", "period": "2026年10月对比2025年10月，同币种示意", "unit": "百万元", "scope": "八个示意市场全量营业额；同店指标为两期均营业的相同门店样本，单列而不用于总盘加总", "rows": [{"id": "VN", "name": "越南", "prior": 380, "revenue": 460, "target": 480, "sameStoreGrowth": 4}, {"id": "ID", "name": "印尼", "prior": 300, "revenue": 340, "target": 400, "sameStoreGrowth": -6}, {"id": "TH", "name": "泰国", "prior": 160, "revenue": 192, "target": 210, "sameStoreGrowth": 2}, {"id": "MY", "name": "马来西亚", "prior": 90, "revenue": 108, "target": 110, "sameStoreGrowth": 5}, {"id": "PH", "name": "菲律宾", "prior": 60, "revenue": 78, "target": 80, "sameStoreGrowth": 8}, {"id": "SG", "name": "新加坡", "prior": 40, "revenue": 42, "target": 45, "sameStoreGrowth": -2}, {"id": "LA", "name": "老挝", "prior": 30, "revenue": 27, "target": 32, "sameStoreGrowth": -8}, {"id": "KH", "name": "柬埔寨", "prior": 20, "revenue": 24, "target": 28, "sameStoreGrowth": 1}]}</script>
 <script>
 'use strict';
-const spec=JSON.parse(document.getElementById('source-data').textContent), data=spec.rows.map(d=>({...d,delta:d.revenue-d.prior,growth:(d.revenue/d.prior-1)*100}));
+
+// The public transfer boundary accepts finite numbers only; null never becomes zero.
+function validateData(input) {
+  if (!input || typeof input !== 'object' || !Array.isArray(input.rows) || !input.rows.length || input.rows.length > 8) throw new TypeError('rows 必须包含 1–8 个市场');
+  const ids = new Set();
+  for (const key of ['title', 'question', 'period', 'source', 'unit', 'scope']) if (typeof input[key] !== 'string' || !input[key].trim()) throw new TypeError(key + ' 必须为非空文本');
+  if (typeof input.synthetic !== 'boolean') throw new TypeError('synthetic 必须为 boolean');
+  const supported = new Set(['title', 'question', 'period', 'source', 'unit', 'scope', 'synthetic', 'rows']);
+  if (Object.keys(input).some(key => !supported.has(key))) throw new TypeError('不支持的元数据字段');
+  const copy = JSON.parse(JSON.stringify(input));
+  for (const [i, row] of input.rows.entries()) {
+    if (!row || typeof row !== 'object' || !/^[A-Za-z][A-Za-z0-9_-]*$/.test(row.id) || ids.has(row.id) || typeof row.name !== 'string' || !row.name.trim()) throw new TypeError('市场 id/name 无效或 id 重复');
+    ids.add(row.id);
+    for (const key of ['revenue', 'prior', 'target', 'sameStoreGrowth']) {
+      const value = row[key];
+      if (key !== 'revenue' && (value === null || value === undefined)) { copy.rows[i][key] = null; continue; }
+      if (typeof value !== 'number' || !Number.isFinite(value) || (key !== 'sameStoreGrowth' && value < 0)) throw new TypeError(key + ' 必须为有限数字；缺失值使用 null');
+    }
+  }
+  return copy;
+}
+// Sum the input decimal representations before converting back to Number.
+// This keeps 1e-12 + (-1e-12) at zero instead of a floating-point residual.
+function knownSum(values) {
+ if(values.some(value=>value===null))return null;
+ if(!values.length)return 0;
+ const parts=values.map(value=>{const [coefficient,exponent='0']=value.toString().split('e'),fraction=(coefficient.split('.')[1]||'').length;return {integer:BigInt(coefficient.replace('.','')),power:Number(exponent)-fraction}});
+ const power=Math.min(...parts.map(part=>part.power));
+ const integer=parts.reduce((sum,part)=>sum+part.integer*10n**BigInt(part.power-power),0n);
+ const result=Number(integer.toString()+'e'+power);
+ if(!Number.isFinite(result))throw new TypeError('金额合计超出有限数字范围');
+ return result===0?0:result;
+}
+const deltaOf = r => r.prior === null ? null : knownSum([r.revenue,-r.prior]);
+const growthOf = r => r.prior === null || r.prior === 0 ? null : deltaOf(r)/r.prior*100;
+function niceDomain(values, includeZero = true) {
+  const finite = values.filter(value => typeof value === 'number' && Number.isFinite(value));
+  if (includeZero || !finite.length) finite.push(0);
+  let lo = Math.min(...finite), hi = Math.max(...finite);
+  if (lo === hi) { if (lo === 0) return { domain: [0, 1], ticks: [0, .2, .4, .6, .8, 1] }; lo = Math.min(0, lo); hi = Math.max(0, hi); }
+  const raw = (hi - lo) / 4, power = 10 ** Math.floor(Math.log10(raw));
+  const step = [1, 2, 5, 10].find(value => value * power >= raw) * power;
+  lo = Math.floor(lo / step) * step; hi = Math.ceil(hi / step) * step;
+  const ticks = [], count = Math.round((hi - lo) / step);
+  for (let index = 0; index <= count; index++) { const value = lo + index * step; ticks.push(Math.abs(value) < step * 1e-10 ? 0 : Number(value.toPrecision(12))); }
+  return { domain: [lo, hi], ticks };
+}
+
+// Preserve nonzero readings at every magnitude; signed zero is displayed as 0.
+function numberText(value) {
+  if (value === null) return '未提供';
+  if (value === 0) return '0';
+  const magnitude = Math.abs(value);
+  if (magnitude < 1e-5 || magnitude >= 1e9) return value.toExponential(5).replace(/(\.\d*?[1-9])0+e/, '$1e').replace(/\.0+e/, 'e').replace('e+', 'e');
+  return value.toLocaleString('zh-CN', { maximumSignificantDigits: 6 });
+}
+function textWidth(value,size=12){const canvas=document.createElement('canvas'),context=canvas.getContext('2d');context.font=size+'px Microsoft YaHei, Arial, sans-serif';return context.measureText(value).width;}
+function sourceNumber(value){return value===null?'未提供':value===0?'0':String(value)}
+function sourcePercent(value){return value===null?'未提供':(value>0?'+':value<0?'−':'')+sourceNumber(Math.abs(value))+'%'}
+function signedNumber(value) { return value === null ? '未提供' : (value > 0 ? '+' : value < 0 ? '−' : '') + numberText(Math.abs(value)); }
+function displayPercent(value, signed = true) {
+  if (value === null) return '不适用/未提供';
+  if (value === 0) return '0%';
+  const magnitude = Math.abs(value);
+  let reading;
+  if (magnitude >= .01 && magnitude < 1e9) reading = magnitude.toLocaleString('zh-CN', { maximumFractionDigits: 2 });
+  else if (magnitude < 1e-5 || magnitude >= 1e9) reading = magnitude.toExponential(2).replace(/(\.\d*?[1-9])0+e/, '$1e').replace(/\.0+e/, 'e').replace('e+', 'e');
+  else reading = magnitude.toLocaleString('zh-CN', { maximumSignificantDigits: 3 });
+  return (value < 0 ? '−' : signed ? '+' : '') + reading + '%';
+}
+function percentText(value) { return displayPercent(value); }
+function metadataText() { return '期间：' + spec.period + '；范围：' + spec.scope + '；金额单位：' + spec.unit + '（输入数值按该单位显示，不作换算）；来源：' + spec.source + '。'; }
+function mergeData(input) {
+  if (!input || typeof input !== 'object' || Array.isArray(input)) throw new TypeError('setData 需要数据对象');
+  return validateData({ ...spec, ...input });
+}
+// Standalone exports carry all metadata, wrapped at a readable font size.
+function appendExportMetadata(copy, width, height, background, ink, extra = []) {
+  const fontSize = 13, lineHeight = 20, padding = 10, canvas = document.createElement('canvas'), context = canvas.getContext('2d');
+  context.font = fontSize + 'px Microsoft YaHei, Arial, sans-serif';
+  const paragraphs = [...extra, '题目：' + spec.title, '问题：' + spec.question, '期间：' + spec.period, '范围：' + spec.scope, '金额单位：' + spec.unit + '；输入数值按该单位显示，不作换算', '来源：' + spec.source];
+  const lines = [];
+  for (const paragraph of paragraphs) {
+    let line = '';
+    for (const character of paragraph) {
+      if (line && context.measureText(line + character).width > width - padding * 2) { lines.push(line); line = character; } else line += character;
+    }
+    if (line) lines.push(line);
+  }
+  const totalHeight = height + 25 + lines.length * lineHeight;
+  copy.setAttribute('viewBox', '0 0 ' + width + ' ' + totalHeight); copy.setAttribute('width', width); copy.setAttribute('height', totalHeight);
+  const ns = 'http://www.w3.org/2000/svg', bg = document.createElementNS(ns, 'rect');
+  Object.entries({ x: 0, y: 0, width, height: totalHeight, fill: background }).forEach(([key, value]) => bg.setAttribute(key, value)); copy.insertBefore(bg, copy.firstChild);
+  lines.forEach((line, i) => { const text = document.createElementNS(ns, 'text'); Object.entries({ x: padding, y: height + 25 + i * lineHeight, fill: ink, 'font-size': fontSize, 'font-family': 'Microsoft YaHei, Arial, sans-serif' }).forEach(([key, value]) => text.setAttribute(key, value)); text.textContent = line; copy.append(text); });
+  const metadata = document.createElementNS(ns, 'metadata'); metadata.textContent = JSON.stringify({ title: spec.title, question: spec.question, period: spec.period, unit: spec.unit, source: spec.source, scope: spec.scope, synthetic: spec.synthetic, rows: spec.rows }); copy.append(metadata);
+}
+function narrative(data) {
+  const net = knownSum(data.map(deltaOf)), top = [...data].filter(r => deltaOf(r) !== null && deltaOf(r) > 0).sort((a,b) => deltaOf(b)-deltaOf(a)).slice(0,3);
+  const amount = knownSum(top.map(deltaOf));
+  const contribution = top.length ? `${top.map(r=>r.name).join('、')}合计贡献 ${numberText(amount)} ${spec.unit}；` + (net === null || net === 0 ? '净增量缺失或为0，不计算份额。' : `占总盘净增量 ${numberText(net)} 的 ${displayPercent(amount/net*100,false)}。`) : '没有已知的正增量市场。';
+  const diverging = data.filter(r=>growthOf(r)>0 && r.sameStoreGrowth!==null && r.sameStoreGrowth<0);
+  const falling = data.filter(r=>growthOf(r)!==null && growthOf(r)<0 && r.sameStoreGrowth!==null && r.sameStoreGrowth<0);
+  const risk = diverging.length ? `${diverging.map(r=>r.name).join('、')}总盘增长、同店下降，需继续核查。` : '当前已知数据中，没有总盘增长、同店下降的市场。';
+  return {net, top, amount, contribution, diverging, falling, risk};
+}
+
+let spec=validateData(JSON.parse(document.getElementById('source-data').textContent)),data=[],totalPrior,totalRevenue,totalDelta,story;
+
 const NS='http://www.w3.org/2000/svg', COLORS={ink:'#f5f8ed',muted:'#b6c2d2',grid:'#33445d',zero:'#8799ae',lime:'#d6f57a',coral:'#ffa998',bg:'#101b2b'};
-const $=id=>document.getElementById(id), pct=v=>(v<0?'−':v>0?'+':'')+Math.abs(v).toFixed(1)+'%', signed=v=>(v<0?'−':v>0?'+':'')+Math.abs(v).toLocaleString('zh-CN');
+const $=id=>document.getElementById(id),pct=percentText,signed=signedNumber;
 let mode='growth', selected='ID', sorted=true, current={}, animation=0, resizeTimer,printing=false;
 const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
 function S(tag,attrs={},parent){const n=document.createElementNS(NS,tag);for(const[k,v]of Object.entries(attrs))n.setAttribute(k,v);if(parent)parent.appendChild(n);return n}
 function text(parent,value,x,y,size=13,color=COLORS.muted,anchor='start',weight='400'){const n=S('text',{x,y,'font-family':'Microsoft YaHei, PingFang SC, Arial, sans-serif','font-size':size,fill:color,'text-anchor':anchor,'font-weight':weight},parent);n.textContent=value;return n}
 const main=$('bubble-chart'), grid=S('g',{},main), leaders=S('g',{},main), dots=S('g',{},main), labels=S('g',{},main);
 const groups={}, labelNodes={}, leaderNodes={}, rankGroups={};
-data.forEach(d=>{const g=S('g',{class:'bubble-group','data-id':d.id,tabindex:0,role:'button','aria-label':d.name+'，总盘'+pct(d.growth)+'，同店'+pct(d.sameStoreGrowth)+'，点击聚焦'},dots);S('circle',{r:1,cx:0,cy:0,'stroke-width':1.5},g);const t=S('title',{},g);t.textContent=d.name+' · 本期 '+d.revenue+' 百万元';groups[d.id]=g;const l=S('line',{'stroke-width':1,stroke:COLORS.muted},leaders);leaderNodes[d.id]=l;labelNodes[d.id]=text(labels,d.name,0,0,14,COLORS.ink,'middle');g.addEventListener('click',()=>pick(d.id));g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();pick(d.id)}})});
-function drawGrid(w,h){grid.replaceChildren();const mobile=w<450, L=44,R=mobile?58:35,T=46,B=55,pw=w-L-R,ph=h-T-B;const xmin=mode==='growth'?-15:-10,xmax=mode==='growth'?35:90;const X=v=>L+(v-xmin)/(xmax-xmin)*pw,Y=v=>T+(12-v)/24*ph;
-  [-10,-5,0,5,10].forEach(v=>{S('line',{x1:L,y1:Y(v),x2:w-R,y2:Y(v),stroke:v===0?COLORS.zero:COLORS.grid,'stroke-width':v===0?1.2:1,'stroke-dasharray':v===0?'5 4':'none'},grid);text(grid,(v>0?'+':'')+v+'%',L-8,Y(v)+4,12,COLORS.muted,'end')});
-  (mode==='growth'?[-10,0,10,20,30]:[0,20,40,60,80]).forEach(v=>{S('line',{x1:X(v),y1:T,x2:X(v),y2:h-B,stroke:v===0?COLORS.zero:COLORS.grid,'stroke-width':v===0?1.2:1,'stroke-dasharray':v===0?'5 4':'none'},grid);text(grid,(mode==='growth'&&v>0?'+':'')+v+(mode==='growth'?'%':''),X(v),h-B+23,12,COLORS.muted,'middle')});
-  text(grid,'同店同比',L,T-19,12,COLORS.muted);text(grid,mode==='growth'?'总营业额同比 →':'同比增量（百万元）→',w-R,h-6,12,COLORS.muted,'end');
+function makeDots(){data.forEach(d=>{const g=S('g',{class:'bubble-group','data-id':d.id,tabindex:0,role:'button','aria-label':d.name+'，总盘'+pct(d.growth)+'，同店'+pct(d.sameStoreGrowth)+'，点击聚焦'},dots);S('circle',{r:1,cx:0,cy:0,'stroke-width':1.5},g);const t=S('title',{},g);t.textContent=d.name+' · 本期 '+numberText(d.revenue)+' '+spec.unit;groups[d.id]=g;const l=S('line',{'stroke-width':1,stroke:COLORS.muted},leaders);leaderNodes[d.id]=l;labelNodes[d.id]=text(labels,d.name,0,0,14,COLORS.ink,'middle');g.addEventListener('click',()=>pick(d.id));g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();pick(d.id)}})});}
+function drawGrid(w,h){grid.replaceChildren();const mobile=w<450,xAxis=niceDomain(data.map(d=>d[mode])),yAxis=niceDomain(data.map(d=>d.sameStoreGrowth)),L=Math.max(44,...yAxis.ticks.map(v=>textWidth(signedNumber(v)+'%',12)+10)),R=mobile?36:60,T=62,B=65,pw=w-L-R,ph=h-T-B,[xmin,xmax]=xAxis.domain,[ymin,ymax]=yAxis.domain;const X=v=>L+((v??0)-xmin)/(xmax-xmin)*pw,Y=v=>T+(ymax-(v??0))/(ymax-ymin)*ph;
+  yAxis.ticks.forEach(v=>{S('line',{x1:L,y1:Y(v),x2:w-R,y2:Y(v),stroke:v===0?COLORS.zero:COLORS.grid,'stroke-width':v===0?1.2:1,'stroke-dasharray':v===0?'5 4':'none'},grid);text(grid,signedNumber(v)+'%',L-8,Y(v)+4,12,COLORS.muted,'end').dataset.axisTick='y'});
+  xAxis.ticks.filter((_,i)=>!mobile||xAxis.ticks.length<5||i%2===0).forEach(v=>{S('line',{x1:X(v),y1:T,x2:X(v),y2:h-B,stroke:v===0?COLORS.zero:COLORS.grid,'stroke-width':v===0?1.2:1,'stroke-dasharray':v===0?'5 4':'none'},grid);text(grid,mode==='growth'?signedNumber(v)+'%':numberText(v),X(v),h-B+23,12,COLORS.muted,'middle').dataset.axisTick='x'});
+  text(grid,'同店同比',L,T-19,12,COLORS.muted);text(grid,mode==='growth'?'总营业额同比 →':'同比增量（'+spec.unit+'）→',w-R,h-6,12,COLORS.muted,'end');
   if(!mobile){text(grid,'总盘 ↑  同店 ↑',w-R,T+3,12,'#8d9f86','end');text(grid,'总盘 ↑  同店 ↓',w-R,h-B-8,12,'#ad938c','end')}
   return {X,Y,w,h,mobile};}
-function positions(d,p){const {X,Y,mobile,w}=p;const x=X(d[mode]), y=Y(d.sameStoreGrowth), r=Math.sqrt(d.revenue/460)*(mobile?31:47);let lx=x,ly=y-r-10,anchor='middle';
+function positions(d,p){const {X,Y,mobile,w}=p;const x=X(d[mode]), y=Y(d.sameStoreGrowth), r=Math.sqrt(d.revenue/Math.max(Number.MIN_VALUE,...data.map(r=>r.revenue)))*(mobile?31:47);let lx=x,ly=y-r-10,anchor='middle';
   if(mode==='growth'){
     const desktop={VN:[53,-13],MY:[-45,-28],TH:[50,6],KH:[-50,29],PH:[-1,-18],ID:[55,10],SG:[-7,-15],LA:[-1,31]};
     const compact={VN:[-8,-65],MY:[-56,-12],TH:[48,1],KH:[-20,39],PH:[0,-18],ID:[35,23],SG:[-21,-17],LA:[0,29]};
-    const o=(mobile?compact:desktop)[d.id];lx=x+o[0];ly=y+o[1];
-  } else {const o={VN:[0,-1],ID:[0,22],TH:[0,-1],MY:[-24,-13],PH:[20,-15],SG:[-10,-13],LA:[-2,27],KH:[28,19]}[d.id];lx=x+o[0];ly=(o[1]===-1?y-r-10:y+o[1]);}
+    const o=(mobile?compact:desktop)[d.id]||[0,-20];lx=x+o[0];ly=y+o[1];
+  } else {const o={VN:[0,-1],ID:[0,22],TH:[0,-1],MY:[-24,-13],PH:[20,-15],SG:[-10,-13],LA:[-2,27],KH:[28,19]}[d.id]||[0,-20];lx=x+o[0];ly=(o[1]===-1?y-r-10:y+o[1]);}
   if(mode==='delta'){if(d.id==='ID'||d.id==='KH')ly=y+r+19;if(['MY','PH','SG'].includes(d.id))ly=y-r-12;}
   lx=Math.max(22,Math.min(w-22,lx));return {x,y,r,lx,ly};}
-function arrangeLabels(target,w,h){const placed=[...grid.querySelectorAll('text')].map(t=>{const b=t.getBBox();return{x:b.x-3,y:b.y-3,w:b.width+6,h:b.height+6}}),overlap=(a,b)=>Math.max(0,Math.min(a.x+a.w,b.x+b.w)-Math.max(a.x,b.x))*Math.max(0,Math.min(a.y+a.h,b.y+b.h)-Math.max(a.y,b.y));
+function arrangeLabels(target,w,h){
+// On narrow screens, two ordered label rails leave every market name legible.
+if(w<450){const order=[...data].filter(d=>d[mode]!==null&&d.sameStoreGrowth!==null).sort((a,b)=>target[a.id].x-target[b.id].x),half=Math.ceil(order.length/2);for(const [side,list] of [order.slice(0,half),order.slice(half)].entries()){const sorted=list.sort((a,b)=>target[a.id].y-target[b.id].y),ys=[];for(const d of sorted)ys.push(Math.max(76,target[d.id].y,(ys.at(-1)??40)+32));const shift=Math.max(0,(ys.at(-1)??0)-(h-85));sorted.forEach((d,i)=>{target[d.id].lx=side===0?78:w-38;target[d.id].ly=ys[i]-shift})}return}
+const placed=[...grid.querySelectorAll('text')].map(t=>{const b=t.getBBox();return{x:b.x-3,y:b.y-3,w:b.width+6,h:b.height+6}}),overlap=(a,b)=>Math.max(0,Math.min(a.x+a.w,b.x+b.w)-Math.max(a.x,b.x))*Math.max(0,Math.min(a.y+a.h,b.y+b.h)-Math.max(a.y,b.y));
 for(const d of [...data].sort((a,b)=>(b.id===selected)-(a.id===selected)||b.revenue-a.revenue)){const t=target[d.id],lw=labelNodes[d.id].getBBox().width+8,lh=19,off=t.r+13,options=[[t.lx,t.ly],[t.x,t.y-off],[t.x,t.y+off+10],[t.x-off-lw/2,t.y+5],[t.x+off+lw/2,t.y+5],[t.x-off*.8-lw/2,t.y-off*.8],[t.x+off*.8+lw/2,t.y-off*.8],[t.x-off*.8-lw/2,t.y+off*.8+10],[t.x+off*.8+lw/2,t.y+off*.8+10]];
 let best=null;for(const [ox,oy] of options){const x=Math.max(lw/2+4,Math.min(w-lw/2-4,ox)),y=Math.max(37,Math.min(h-62,oy)),box={x:x-lw/2,y:y-14,w:lw,h:lh};let penalty=placed.reduce((s,b)=>s+overlap(box,b)*20,0);for(const q of Object.values(target)){const nx=Math.max(box.x,Math.min(q.x,box.x+box.w)),ny=Math.max(box.y,Math.min(q.y,box.y+box.h));penalty+=Math.max(0,q.r+3-Math.hypot(q.x-nx,q.y-ny))*22}penalty+=Math.hypot(x-t.lx,y-t.ly)*.15;if(!best||penalty<best.penalty)best={x,y,box,penalty}}t.lx=best.x;t.ly=best.y;placed.push(best.box)}}
 function renderChart(animate=true){const w=printing?700:main.clientWidth,h=printing?360:main.clientHeight;main.setAttribute('viewBox',`0 0 ${w} ${h}`);const p=drawGrid(w,h), target=Object.fromEntries(data.map(d=>[d.id,positions(d,p)]));arrangeLabels(target,w,h);const start=structuredClone(current), token=++animation, begin=performance.now(),duration=animate&&!reduced.matches?420:0;
-  function frame(now){if(token!==animation)return;let q=duration?Math.min(1,(now-begin)/duration):1;q=1-Math.pow(1-q,3);for(const d of data){const a=start[d.id]||target[d.id],b=target[d.id],c={};for(const k of ['x','y','r','lx','ly'])c[k]=a[k]+(b[k]-a[k])*q;current[d.id]=c;const circle=groups[d.id].querySelector('circle');circle.setAttribute('cx',c.x);circle.setAttribute('cy',c.y);circle.setAttribute('r',c.r);const label=labelNodes[d.id];label.setAttribute('x',c.lx);label.setAttribute('y',c.ly);const line=leaderNodes[d.id];line.setAttribute('x1',c.x);line.setAttribute('y1',c.y);line.setAttribute('x2',c.lx);line.setAttribute('y2',c.ly-5)}if(q<1)requestAnimationFrame(frame);else main.dataset.animating='false'}
-  main.dataset.animating=duration?'true':'false';if(duration)requestAnimationFrame(frame);else frame(begin);applyFocus();}
-function makeRanks(){const rank=$('rank-chart');for(const d of data){const g=S('g',{class:'bar-g','data-id':d.id,tabindex:0,role:'button','aria-label':d.name+'，同比增量'+signed(d.delta)+'百万元，点击聚焦'},rank);S('rect',{class:'bar-bg',x:0,y:0,width:'100%',height:31,fill:'#2b3e50',opacity:0},g);text(g,d.name,0,21,13,COLORS.ink);S('rect',{class:'bar',x:80,y:9,width:0,height:13,fill:COLORS.lime},g);text(g,signed(d.delta),0,21,13,COLORS.ink,'end');rankGroups[d.id]=g;g.addEventListener('click',()=>pick(d.id));g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();pick(d.id)}})} }
+  function frame(now){if(token!==animation)return;let q=duration?Math.min(1,(now-begin)/duration):1;q=1-Math.pow(1-q,3);for(const d of data){const a=start[d.id]||target[d.id],b=target[d.id],c={};for(const k of ['x','y','r','lx','ly'])c[k]=a[k]+(b[k]-a[k])*q;current[d.id]=c;const circle=groups[d.id].querySelector('circle');circle.setAttribute('cx',c.x);circle.setAttribute('cy',c.y);circle.setAttribute('r',c.r);const label=labelNodes[d.id];label.setAttribute('pointer-events','none');label.setAttribute('paint-order','stroke');label.setAttribute('stroke',COLORS.bg);label.setAttribute('stroke-width',4);label.setAttribute('stroke-linejoin','round');label.setAttribute('x',c.lx);label.setAttribute('y',c.ly);const line=leaderNodes[d.id];line.setAttribute('x1',c.x);line.setAttribute('y1',c.y);line.setAttribute('x2',c.lx);line.setAttribute('y2',c.ly-5)}if(q<1)requestAnimationFrame(frame);else setTransition(false)}
+  setTransition(!!duration);if(duration)requestAnimationFrame(frame);else frame(begin);applyFocus();}
+function makeRanks(){const rank=$('rank-chart');for(const d of data){const g=S('g',{class:'bar-g','data-id':d.id,tabindex:0,role:'button','aria-label':d.name+'，同比增量'+signed(d.delta)+spec.unit+'，点击聚焦'},rank);S('rect',{class:'bar-bg',x:0,y:0,width:'100%',height:31,fill:'#2b3e50',opacity:0},g);text(g,d.name,0,21,13,COLORS.ink);S('rect',{class:'bar',x:80,y:9,width:0,height:13,fill:COLORS.lime},g);text(g,signed(d.delta),0,21,13,COLORS.ink,'end');rankGroups[d.id]=g;g.addEventListener('click',()=>pick(d.id));g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();pick(d.id)}})} }
 let rankFrame=0,rankCurrent={};
-function drawRanks(animate=true){const rank=$('rank-chart'),w=printing?700:rank.clientWidth,baseline=82,span=w-133;rank.setAttribute('viewBox',`0 0 ${w} 302`);const order=sorted?[...data].sort((a,b)=>b.delta-a.delta):data;let zero=rank.querySelector('.zero');if(!zero)zero=S('line',{class:'zero',stroke:COLORS.zero,'stroke-width':1},rank);zero.setAttribute('x1',baseline);zero.setAttribute('x2',baseline);zero.setAttribute('y1',0);zero.setAttribute('y2',292);
-  const token=++rankFrame,start=performance.now(),before={...rankCurrent},duration=animate&&!reduced.matches?420:0;function f(t){if(token!==rankFrame)return;const q=duration?1-Math.pow(1-Math.min(1,(t-start)/duration),3):1;order.forEach((d,i)=>{const ty=i*36+5,y=(before[d.id]??ty)+(ty-(before[d.id]??ty))*q;rankCurrent[d.id]=y;const g=rankGroups[d.id],bar=g.querySelector('.bar');g.setAttribute('transform',`translate(0 ${y})`);bar.setAttribute('x',d.delta<0?baseline+d.delta/80*span:baseline);bar.setAttribute('width',Math.abs(d.delta)/80*span);bar.setAttribute('fill',d.delta<0?COLORS.coral:COLORS.lime);g.querySelectorAll('text')[1].setAttribute('x',w-2)});if(q<1)requestAnimationFrame(f)}if(duration)requestAnimationFrame(f);else f(start);applyFocus()}
-function applyFocus(){for(const d of data){const on=d.id===selected,c=groups[d.id].querySelector('circle');c.setAttribute('fill',d.sameStoreGrowth<0?COLORS.coral:COLORS.lime);c.setAttribute('fill-opacity',on?.93:.3);c.setAttribute('stroke',on?COLORS.ink:d.sameStoreGrowth<0?COLORS.coral:COLORS.lime);c.setAttribute('stroke-width',on?2.4:1.2);groups[d.id].setAttribute('aria-pressed',String(on));labelNodes[d.id].setAttribute('fill',on?COLORS.ink:COLORS.muted);labelNodes[d.id].setAttribute('font-weight',on?'700':'400');leaderNodes[d.id].setAttribute('opacity',on?.85:.35);const rg=rankGroups[d.id];if(rg){rg.querySelector('.bar-bg').setAttribute('opacity',on?1:0);rg.setAttribute('aria-pressed',String(on))}const row=document.querySelector(`tr[data-id="${d.id}"]`);if(row)row.dataset.selected=on}}
-function pick(id){selected=id;const d=data.find(x=>x.id===id);$('picked-name').textContent=d.name;$('picked-code').textContent=d.id;$('picked-growth').textContent=pct(d.growth);$('picked-growth').className=d.growth<0?'pink':'lime';$('picked-same').textContent=pct(d.sameStoreGrowth);$('picked-same').className=d.sameStoreGrowth<0?'pink':'lime';$('selected-text').textContent=`本期 ${d.revenue} 百万元，同比${d.delta<0?'减少':'增加'} ${Math.abs(d.delta)} 百万元，占总盘净增量 ${((d.delta/totalDelta)*100).toFixed(1)}%。`+(d.growth>0&&d.sameStoreGrowth<0?'总盘与同店方向分化，需核查门店结构和样本。':d.sameStoreGrowth>=0?'同店同比为正；仍需结合利润与投入判断资源安排。':'总盘与同店均下降，需进一步核查原因。');applyFocus();main.dataset.selected=id;$('rank-chart').dataset.selected=id}
-function setMode(next){mode=next;$('mode-growth').setAttribute('aria-pressed',String(next==='growth'));$('mode-delta').setAttribute('aria-pressed',String(next==='delta'));$('axis-note').textContent=next==='growth'?'横轴：总营业额同比　纵轴：同店营业额同比':'横轴：同比增量（百万元）　纵轴：同店营业额同比';$('bubble-title').textContent=next==='growth'?'总盘增速与同店表现':'同比增量与同店表现';main.dataset.mode=next;renderChart()}
-const totalPrior=data.reduce((a,d)=>a+d.prior,0),totalRevenue=data.reduce((a,d)=>a+d.revenue,0),totalDelta=totalRevenue-totalPrior;
-$('total-growth').innerHTML=((totalRevenue/totalPrior-1)*100).toFixed(1)+'<sup>%</sup>';$('total').innerHTML=totalRevenue.toLocaleString('zh-CN')+'<span>百万元</span>';$('delta').innerHTML=signed(totalDelta)+'<span>百万元</span>';$('contribution-text').textContent='贡献核对：越南、印尼、泰国贡献 '+data.filter(d=>['VN','ID','TH'].includes(d.id)).reduce((a,d)=>a+d.delta,0)+' 百万元，占净增量 '+(data.filter(d=>['VN','ID','TH'].includes(d.id)).reduce((a,d)=>a+d.delta,0)/totalDelta*100).toFixed(1)+'%。';
-document.querySelector('.reader p').innerHTML='<strong id="contribution-text">'+$('contribution-text').textContent+'</strong><br>风险排查：先看总盘增长、同店下降的'+data.filter(d=>d.growth>0&&d.sameStoreGrowth<0).map(d=>d.name).join('、')+'，以及总盘与同店双降的'+data.filter(d=>d.growth<0&&d.sameStoreGrowth<0).map(d=>d.name).join('、')+'。这是两类核查队列，不是资源投入优先级。';
-$('data-body').innerHTML=data.map(d=>`<tr data-id="${d.id}"><td>${d.name}</td><td>${d.prior}</td><td>${d.revenue}</td><td>${d.target}</td><td>${signed(d.delta)}</td><td>${pct(d.growth)}</td><td>${pct(d.sameStoreGrowth)}</td></tr>`).join('');
-$('mode-growth').onclick=()=>setMode('growth');$('mode-delta').onclick=()=>setMode('delta');$('sort').onclick=()=>{sorted=!sorted;$('sort').textContent=sorted?'切换为市场顺序':'切换为增量排序';drawRanks()};$('reset').onclick=()=>pick('ID');
+function drawRanks(animate=true){const rank=$('rank-chart'),w=printing?700:rank.clientWidth,rankDomain=niceDomain(data.map(d=>d.delta)),rankMin=rankDomain.domain[0],rankMax=rankDomain.domain[1],span=w-148,baseline=82+(0-rankMin)/(rankMax-rankMin)*span;rank.setAttribute('viewBox',`0 0 ${w} 302`);const order=sorted?[...data].sort((a,b)=>b.delta-a.delta):data;let zero=rank.querySelector('.zero');if(!zero)zero=S('line',{class:'zero',stroke:COLORS.zero,'stroke-width':1},rank);zero.setAttribute('x1',baseline);zero.setAttribute('x2',baseline);zero.setAttribute('y1',0);zero.setAttribute('y2',292);
+  const token=++rankFrame,start=performance.now(),before={...rankCurrent},duration=animate&&!reduced.matches?420:0;function f(t){if(token!==rankFrame)return;const q=duration?1-Math.pow(1-Math.min(1,(t-start)/duration),3):1;order.forEach((d,i)=>{const ty=i*36+5,y=(before[d.id]??ty)+(ty-(before[d.id]??ty))*q;rankCurrent[d.id]=y;const g=rankGroups[d.id],bar=g.querySelector('.bar');g.setAttribute('transform',`translate(0 ${y})`);bar.setAttribute('x',d.delta<0?baseline+d.delta/(rankMax-rankMin)*span:baseline);bar.setAttribute('width',Math.abs(d.delta??0)/(rankMax-rankMin)*span);bar.setAttribute('fill',d.delta<0?COLORS.coral:COLORS.lime);g.querySelectorAll('text')[1].setAttribute('x',w-2)});if(q<1)requestAnimationFrame(f)}if(duration)requestAnimationFrame(f);else f(start);applyFocus()}
+function applyFocus(){for(const d of data){const on=d.id===selected,c=groups[d.id].querySelector('circle');c.setAttribute('fill',d.sameStoreGrowth===null?COLORS.muted:d.sameStoreGrowth<0?COLORS.coral:COLORS.lime);c.setAttribute('fill-opacity',on?.93:.3);c.setAttribute('stroke',on?COLORS.ink:d.sameStoreGrowth<0?COLORS.coral:COLORS.lime);c.setAttribute('stroke-width',on?2.4:1.2);groups[d.id].setAttribute('aria-pressed',String(on));const visible=d[mode]!==null&&d.sameStoreGrowth!==null;groups[d.id].style.visibility=visible?'visible':'hidden';labelNodes[d.id].style.visibility=visible?'visible':'hidden';leaderNodes[d.id].style.visibility=visible?'visible':'hidden';labelNodes[d.id].setAttribute('fill',on?COLORS.ink:COLORS.muted);labelNodes[d.id].setAttribute('font-weight',on?'700':'400');leaderNodes[d.id].setAttribute('opacity',on?.85:.35);const rg=rankGroups[d.id];if(rg){rg.querySelector('.bar-bg').setAttribute('opacity',on?1:0);rg.setAttribute('aria-pressed',String(on))}const row=document.querySelector(`tr[data-id="${d.id}"]`);if(row)row.dataset.selected=on}}
+function pick(id){selected=id;const d=data.find(x=>x.id===id);$('picked-name').textContent=d.name;$('picked-code').textContent=d.id;$('picked-growth').textContent=pct(d.growth);$('picked-growth').className=d.growth!==null&&d.growth<0?'pink':'lime';$('picked-same').textContent=pct(d.sameStoreGrowth);$('picked-same').className=d.sameStoreGrowth!==null&&d.sameStoreGrowth<0?'pink':'lime';$('selected-text').textContent=`本期 ${numberText(d.revenue)} ${spec.unit}，增量 ${signed(d.delta)}；`+(totalDelta===null||totalDelta===0||d.delta===null?'净增量缺失或为0，不计算份额。':`占总盘净增量 ${displayPercent(d.delta/totalDelta*100,false)}。`)+(d.growth>0&&d.sameStoreGrowth!==null&&d.sameStoreGrowth<0?'总盘增长、同店下降，需核查门店结构和样本。':d.sameStoreGrowth===null?'同店同比未提供。':d.sameStoreGrowth>=0?'同店同比未下降；仍需结合利润与投入判断资源安排。':'同店同比下降；总盘方向按已知数据单列。');applyFocus();main.dataset.selected=id;$('rank-chart').dataset.selected=id}
+function updateMetadata(){
+ $('bubble-title').textContent=mode==='growth'?'总盘增速与同店表现':'同比增量与同店表现';
+ $('bubble-desc').textContent=`${data.length}市场气泡图。横轴：${mode==='growth'?'总营业额同比（%）':'同比增量（'+spec.unit+'）'}；纵轴：同店营业额同比（%）；气泡面积表示本期营业额。缺失横轴或同店指标时不画气泡，源表保留。${story.risk} ${metadataText()}`;
+}
+function setTransition(active){main.dataset.animating=String(active);grid.setAttribute('visibility',active?'hidden':'visible');document.querySelector('.pick-metrics').style.visibility=active?'hidden':'';$('selected-text').style.visibility=active?'hidden':'';let note=main.querySelector('[data-transition]');if(!note){note=text(main,'切换视角中 · 稳定后显示刻度',main.viewBox.baseVal.width/2,20,13,COLORS.ink,'middle');note.dataset.transition='true'}note.setAttribute('visibility',active?'visible':'hidden');if(active)$('bubble-desc').textContent='切换视角中，暂不提供定量读数。';else updateMetadata();}
+function setMode(next){mode=next;$('mode-growth').setAttribute('aria-pressed',String(next==='growth'));$('mode-delta').setAttribute('aria-pressed',String(next==='delta'));$('axis-note').textContent=next==='growth'?'横轴：总营业额同比　纵轴：同店营业额同比':'横轴：同比增量（'+spec.unit+'）　纵轴：同店营业额同比';$('bubble-title').textContent=next==='growth'?'总盘增速与同店表现':'同比增量与同店表现';main.dataset.mode=next;renderChart()}
+function syncMetadata(){
+ document.title=spec.title;document.querySelector('.badge').textContent=spec.synthetic?'合成数据 · 视觉试稿 B':'输入数据 · 视觉试稿 B';document.querySelector('.deck').textContent=spec.question;
+ document.querySelector('.source').textContent=metadataText();document.querySelector('.full-data > .hint').textContent=metadataText()+'同店指标单列，不用于总盘加总。';
+ document.querySelector('.aside > .hint').textContent='同比增量 · '+spec.unit+'；点击条形联动主图';
+ $('axis-note').textContent=mode==='growth'?'横轴：总营业额同比　纵轴：同店营业额同比':'横轴：同比增量（'+spec.unit+'）　纵轴：同店营业额同比';
+ $('reset').textContent='回到'+(spec.rows.find(r=>r.id==='ID')||spec.rows[0]).name;
+}
+function metricAmount(id,value){const span=document.createElement('span');span.textContent=spec.unit;$(id).replaceChildren(document.createTextNode(value),span)}
+function rebuildData(){
+ syncMetadata();
+ document.querySelector('.hero .eyebrow').textContent=spec.rows.length+'个市场 · 两种增长视角';document.querySelector('.hero .metric-label').textContent=spec.rows.length+'市场营业额同比';document.querySelector('.full-data summary').textContent='查看完整数据与指标口径（'+spec.rows.length+'个市场）';$('rank-chart').setAttribute('aria-label',spec.rows.length+'市场同比营业额增量排序');
+ data=spec.rows.map(d=>({...d,delta:deltaOf(d),growth:growthOf(d)}));totalPrior=knownSum(data.map(d=>d.prior));totalRevenue=knownSum(data.map(d=>d.revenue));totalDelta=knownSum(data.map(d=>d.delta));story=narrative(data);
+ $('total-growth').textContent=pct(growthOf({prior:totalPrior,revenue:totalRevenue}));metricAmount('total',numberText(totalRevenue));metricAmount('delta',signed(totalDelta));
+ const reader=document.querySelector('.reader p');reader.replaceChildren();const strong=document.createElement('strong');strong.id='contribution-text';strong.textContent=story.contribution;reader.append(strong,document.createElement('br'),document.createTextNode(story.risk+' '+(story.falling.length?story.falling.map(d=>d.name).join('、')+'总盘与同店均下降。':'')));
+ document.querySelector('.callout p').textContent=story.risk+' 这不足以判定原因。';
+ document.querySelector('.focus-note').textContent=`当前是市场聚焦，仍显示全部 ${data.length} 个市场；总盘分母不变。`;
+ const body=$('data-body');body.replaceChildren();for(const d of data){const tr=document.createElement('tr');tr.dataset.id=d.id;[d.name,sourceNumber(d.prior),sourceNumber(d.revenue),sourceNumber(d.target),signed(d.delta),pct(d.growth),sourcePercent(d.sameStoreGrowth)].forEach(value=>{const td=document.createElement('td');td.textContent=value;tr.append(td)});body.append(tr)}
+ for(const group of [leaders,dots,labels,$('rank-chart')])group.replaceChildren();for(const map of [groups,labelNodes,leaderNodes,rankGroups])for(const key of Object.keys(map))delete map[key];current={};rankCurrent={};makeDots();makeRanks();updateMetadata();renderChart(false);drawRanks(false);pick(selected);
+}
+$('mode-growth').onclick=()=>setMode('growth');$('mode-delta').onclick=()=>setMode('delta');$('sort').onclick=()=>{sorted=!sorted;$('sort').textContent=sorted?'切换为市场顺序':'切换为增量排序';drawRanks()};$('reset').onclick=()=>pick(data.some(d=>d.id==='ID')?'ID':data[0].id);
 function download(name,content,type){const a=document.createElement('a'),url=URL.createObjectURL(new Blob([content],{type}));a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)}
-$('export-data').onclick=()=>download('市场观察台_完整合成数据.json',JSON.stringify(spec,null,2),'application/json');
-$('export-svg').onclick=async()=>{renderChart(false);await new Promise(requestAnimationFrame);const w=main.clientWidth,h=main.clientHeight,copy=main.cloneNode(true);copy.setAttribute('viewBox',`0 0 ${w} ${h+156}`);copy.setAttribute('width',w);copy.setAttribute('height',h+156);copy.removeAttribute('class');copy.removeAttribute('style');copy.removeAttribute('aria-labelledby');copy.setAttribute('aria-label',(mode==='growth'?'总盘增速与同店表现':'同比增量与同店表现')+'，聚焦'+data.find(d=>d.id===selected).name);copy.querySelectorAll('[tabindex]').forEach(n=>{n.removeAttribute('tabindex');n.removeAttribute('role')});copy.querySelectorAll('g').forEach(n=>n.removeAttribute('class'));const bg=S('rect',{x:0,y:0,width:w,height:h+156,fill:COLORS.bg});copy.insertBefore(bg,copy.firstChild);text(copy,'合成数据 · '+(mode==='growth'?'总盘增速与同店表现':'同比增量与同店表现'),12,h+25,14,COLORS.ink);text(copy,'气泡面积＝本期营业额（百万元）；聚焦 '+data.find(d=>d.id===selected).name,12,h+49,12,COLORS.muted);text(copy,'2026年10月 vs 2025年10月 · 八市场全量',12,h+73,12,COLORS.muted);text(copy,'同店：两期均营业的相同门店样本',12,h+97,12,COLORS.muted);text(copy,'来源：独立构造的演示数据，不代表真实经营状况',12,h+121,12,COLORS.muted);download('市场观察台_'+mode+'_'+selected+'.svg',new XMLSerializer().serializeToString(copy),'image/svg+xml')};
-makeRanks();renderChart(false);drawRanks(false);pick('ID');main.dataset.mode=mode;window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{renderChart(false);drawRanks(false)},100)});reduced.addEventListener('change',()=>{renderChart(false);drawRanks(false)});
+$('export-data').onclick=()=>download('市场观察台_完整数据.json',JSON.stringify(spec,null,2),'application/json');
+$('export-svg').onclick=async()=>{renderChart(false);await new Promise(requestAnimationFrame);const w=main.clientWidth,h=main.clientHeight,copy=main.cloneNode(true);copy.removeAttribute('class');copy.removeAttribute('style');copy.setAttribute('aria-label',$('bubble-title').textContent+'，聚焦'+data.find(d=>d.id===selected).name);copy.querySelectorAll('[tabindex]').forEach(n=>{n.removeAttribute('tabindex');n.removeAttribute('role')});copy.querySelectorAll('g').forEach(n=>n.removeAttribute('class'));appendExportMetadata(copy,w,h,COLORS.bg,COLORS.ink,[$('bubble-title').textContent,'气泡面积＝本期营业额（'+spec.unit+'）；聚焦'+data.find(d=>d.id===selected).name]);download('市场观察台_'+mode+'_'+selected+'.svg',new XMLSerializer().serializeToString(copy),'image/svg+xml')};
+rebuildData();main.dataset.mode=mode;window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{renderChart(false);drawRanks(false)},100)});reduced.addEventListener('change',()=>{renderChart(false);drawRanks(false)});
 let beforePrintOpen=false;window.addEventListener('beforeprint',()=>{printing=true;beforePrintOpen=document.querySelector('details').open;document.querySelector('details').open=true;renderChart(false);drawRanks(false)});window.addEventListener('afterprint',()=>{printing=false;document.querySelector('details').open=beforePrintOpen;renderChart(false);drawRanks(false)});
+window.__lab={setData(input){const next=mergeData(input);spec={...spec,...next};document.getElementById('source-data').textContent=JSON.stringify(spec);if(!next.rows.some(r=>r.id===selected))selected=next.rows[0].id;animation++;rankFrame++;rebuildData();return this.getState()},getState(){return JSON.parse(JSON.stringify({data:spec,mode,selected,animating:main.dataset.animating==='true',totalPrior,totalRevenue,totalDelta}))}};
 </script></html>

@@ -1,0 +1,9 @@
+{
+  "title":"实际与目标：分清比例和绩效方向",
+  "synthetic":true,
+  "intro":"原创合成数据。高为优的任务数量和低为优的处理时长使用分开的单位与图形。未知目标及零目标不计算比率。",
+  "charts":[
+    {"id":"task-targets","kind":"bar","title":"任务量与目标共享同一基准","question":"各队是否达到各自任务目标？","unit":"件","period":"2026年10月合成统计窗","scope":"四个虚构团队；同一计数口径","source":"原创合成演示，无真实经营数据","performance_direction":"higher","rows":[{"label":"甲队","value":73,"target":100,"highlight":true},{"label":"乙队","value":112,"target":100},{"label":"目标未知","value":65,"target":null},{"label":"零目标","value":8,"target":0}]},
+    {"id":"service-limit","kind":"bar","title":"处理时长下降是否达标，要按方向判断","question":"哪个班次达到不超过30分钟的目标？","unit":"分钟","period":"2026年10月合成统计窗","scope":"两个虚构班次的平均处理时长；目标为上限","source":"原创合成演示，无真实经营数据","performance_direction":"lower","rows":[{"label":"早班","value":26,"target":30,"highlight":true},{"label":"晚班","value":34,"target":30}]}
+  ]
+}

@@ -9,6 +9,7 @@
 @media print{
 html,body{margin:0;background:white}.hero,header,.toolbar,.export,.market-control,.mobile-copy{display:none}main{max-width:none}.scrolly{display:block;padding:0}.visual{position:static;padding:0;margin:0;break-inside:avoid;page-break-inside:avoid}.plot-head{margin:0 0 8px;break-after:avoid}.plot-head h3{font-size:22px}.plot-head p,.plot-head .unit{font-size:12px}#chart{display:block;width:100%;height:auto}.focus-summary{margin-top:8px;min-height:0;padding:8px 12px;border:1px solid #aeb7ca;break-inside:avoid}.focus-summary p{font-size:12px}.data{break-before:page;margin:0;padding:14px 0 0}.data h2{font-size:24px}.data p{font-size:12px}.table-wrap{margin-top:12px;overflow:visible}table{font-size:11px}th,td{padding:8px}footer{background:white;color:#13234a;font-size:11px;padding:12px 0;break-inside:avoid}
 }
+@media(max-width:380px){.hero h1{font-size:40px;line-height:1.15}}
 </style></head><body>
 <header><div class="brand">增长观察 / OCT 2026</div><div class="synthetic">合成演示数据 · 视觉方向 03</div></header>
 <main><section class="hero"><div><div class="eyebrow">一个增长数字，三层经营问题</div><h1>增长，<br><span>别只看总盘。</span></h1></div><div><p>先看八个市场的营业额。<br>再拆新增量，最后回到同店。</p><div class="period">2026年10月 vs 2025年10月 · 同币种示意<br>同店样本另列；不与总盘营业额混算</div><div class="trail"><strong id="growth-total"></strong><span>总盘营业额同比<br>尚不足以判断资源回报</span></div></div></section>
@@ -20,31 +21,161 @@ html,body{margin:0;background:white}.hero,header,.toolbar,.export,.market-contro
 <footer><span>方向 03 · 连续叙事 / 构图试稿，尚未选定</span><span>交互灵感：<a class="page-link" href="https://pudding.cool/2025/06/hello-stranger/">The Pudding · 30 minutes with a stranger</a>；独立设计与实现</span></footer>
 <script id="source-data" type="application/json">{"title": "增长从哪里来，下一步看哪里？", "question": "总盘营业额增长时，哪些市场贡献大，哪些市场还需核查同店表现？", "synthetic": true, "source": "独立构造的演示数据，不代表真实经营状况", "period": "2026年10月对比2025年10月，同币种示意", "unit": "百万元", "scope": "八个示意市场全量营业额；同店指标为两期均营业的相同门店样本，单列而不用于总盘加总", "rows": [{"id": "VN", "name": "越南", "prior": 380, "revenue": 460, "target": 480, "sameStoreGrowth": 4}, {"id": "ID", "name": "印尼", "prior": 300, "revenue": 340, "target": 400, "sameStoreGrowth": -6}, {"id": "TH", "name": "泰国", "prior": 160, "revenue": 192, "target": 210, "sameStoreGrowth": 2}, {"id": "MY", "name": "马来西亚", "prior": 90, "revenue": 108, "target": 110, "sameStoreGrowth": 5}, {"id": "PH", "name": "菲律宾", "prior": 60, "revenue": 78, "target": 80, "sameStoreGrowth": 8}, {"id": "SG", "name": "新加坡", "prior": 40, "revenue": 42, "target": 45, "sameStoreGrowth": -2}, {"id": "LA", "name": "老挝", "prior": 30, "revenue": 27, "target": 32, "sameStoreGrowth": -8}, {"id": "KH", "name": "柬埔寨", "prior": 20, "revenue": 24, "target": 28, "sameStoreGrowth": 1}]}</script>
 <script>
-'use strict';
-const spec=JSON.parse(document.querySelector('#source-data').textContent), rows=spec.rows.map(r=>({...r,delta:r.revenue-r.prior,growth:100*(r.revenue/r.prior-1)}));
-const totals=rows.reduce((a,r)=>({prior:a.prior+r.prior,revenue:a.revenue+r.revenue,target:a.target+r.target,delta:a.delta+r.delta}),{prior:0,revenue:0,target:0,delta:0});
-const NS='http://www.w3.org/2000/svg', svg=document.querySelector('#chart'), media=matchMedia('(prefers-reduced-motion: reduce)'), fmt=n=>n.toLocaleString('en-US',{maximumFractionDigits:1}), sign=n=>(n>0?'+':n<0?'−':'')+fmt(Math.abs(n));
-let stage=0,selected='ID',raf=0,current=[],target=[],axes=null,manualUntil=0,printing=false;
-const config=[{title:'市场规模与两期变化',sub:'空心：2025年10月　实心：2026年10月',unit:'百万元',domain:[0,500],ticks:[0,100,200,300,400,500]}, {title:'谁贡献了这191？',sub:'线段起点统一归零，长度表示营业额净增量',unit:'百万元',domain:[-10,90],ticks:[-10,0,20,40,60,80]}, {title:'增长回到相同门店',sub:'同店营业额同比；不对八市场百分比求平均',unit:'%',domain:[-10,10],ticks:[-10,-5,0,5,10]}];
-const descriptions=['八市场全量营业额比较。越南与印尼规模领先；线段表示上期到本期的变化。','越南、印尼、泰国贡献152，占净增量191的79.6%。负贡献市场老挝完整保留。','印尼总盘同比+13.3%，同店同比−6.0%。只提示分化；需继续核查门店与价格等因素。'];
-function el(name,attrs={},text){const e=document.createElementNS(NS,name);Object.entries(attrs).forEach(([k,v])=>e.setAttribute(k,v));if(text!==undefined)e.textContent=text;return e}
-function putText(parent,x,y,text,size=15,fill='#13234a',extra={}){const e=el('text',{x,y,fill,'font-family':'Arial, Microsoft YaHei, sans-serif','font-size':size,...extra},text);parent.append(e);return e}
-function dimensions(){const mobile=!printing&&innerWidth<=800;return {w:mobile?360:900,h:mobile?595:565,left:mobile?62:100,right:mobile?65:85,top:64,step:mobile?53:51,bottom:mobile?520:510,mobile}}
-function scale(v,d){const c=config[stage];return d.left+(v-c.domain[0])/(c.domain[1]-c.domain[0])*(d.w-d.left-d.right)}
-function init(){cancelAnimationFrame(raf);const d=dimensions();svg.setAttribute('viewBox',`0 0 ${d.w} ${d.h}`);svg.replaceChildren(el('title',{id:'svg-title'},config[stage].title),el('desc',{id:'svg-desc'},descriptions[stage]),el('rect',{x:0,y:0,width:d.w,height:d.h,fill:'#ffffff'}));axes=el('g');svg.append(axes);current=[];target=[];rows.forEach((r,i)=>{const y=d.top+i*d.step+25,g=el('g',{'data-id':r.id,role:'button',tabindex:'0','aria-label':`聚焦${r.name}`});g.append(el('rect',{x:0,y:y-25,width:d.w,height:d.step,fill:'#ffffff','data-part':'bg'}));putText(g,4,y+5,r.name,d.mobile?14:16,'#13234a',{'data-part':'name'});g.append(el('line',{'data-part':'connector',y1:y,y2:y,stroke:'#234ce7','stroke-width':'4','stroke-linecap':'round'}));g.append(el('circle',{'data-part':'prior',cy:y,r:6,fill:'#ffffff',stroke:'#234ce7','stroke-width':2}));g.append(el('circle',{'data-part':'actual',cy:y,r:7,fill:'#234ce7',stroke:'#ffffff','stroke-width':2}));putText(g,0,y-11,'',d.mobile?13:15,'#234ce7',{'data-part':'value','font-weight':700});g.addEventListener('click',()=>select(r.id));g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();select(r.id)}});svg.append(g);current.push({a:scale(stage===0?r.prior:0,d),b:scale(stage===0?r.revenue:stage===1?r.delta:r.sameStoreGrowth,d)})});update(false)}
-function drawAxes(){const d=dimensions(),c=config[stage];axes.replaceChildren();c.ticks.forEach(v=>{const x=scale(v,d);axes.append(el('line',{x1:x,x2:x,y1:48,y2:d.bottom,stroke:v===0?'#8997bb':'#e2e7f3','stroke-width':v===0?1.5:1}));putText(axes,x,31,(stage===0?fmt(v):sign(v))+(stage===2?'%':''),d.mobile?13:14,'#536183',{'text-anchor':'middle'})});putText(axes,4,d.h-39,'2026年10月 vs 2025年10月 · 全部8市场',d.mobile?13:14,'#536183');putText(axes,4,d.h-18,'合成示例 · 来源：独立构造，非真实经营数据',d.mobile?13:14,'#536183')}
-function paint(){const d=dimensions();rows.forEach((r,i)=>{const g=svg.querySelector(`[data-id="${r.id}"]`),p=current[i],active=r.id===selected,color=stage===2&&r.sameStoreGrowth<0?'#c74229':stage===1&&r.delta<0?'#c74229':'#234ce7';g.querySelector('[data-part=bg]').setAttribute('fill',active?'#eef2ff':'none');const line=g.querySelector('[data-part=connector]');line.setAttribute('x1',p.a);line.setAttribute('x2',p.b);line.setAttribute('stroke',color);const a=g.querySelector('[data-part=prior]');a.setAttribute('cx',p.a);a.setAttribute('opacity',stage===0?1:0);const b=g.querySelector('[data-part=actual]');b.setAttribute('cx',p.b);b.setAttribute('fill',color);b.setAttribute('r',active?9:7);const val=g.querySelector('[data-part=value]');val.textContent=stage===0?`${fmt(r.prior)} → ${fmt(r.revenue)}`:stage===1?sign(r.delta):sign(r.sameStoreGrowth)+'%';val.setAttribute('x',stage===0?Math.max(p.b+10,d.left+70):p.b+(p.b<p.a?-13:12));val.setAttribute('text-anchor',stage!==0&&p.b<p.a?'end':'start');val.setAttribute('fill',color);g.setAttribute('aria-pressed',active?'true':'false');g.setAttribute('aria-label',`${r.name}，${stage===0?'上期'+r.prior+'，本期'+r.revenue+'百万元':stage===1?'净增量'+sign(r.delta)+'百万元':'同店同比'+sign(r.sameStoreGrowth)+'%'}，点击聚焦`)});svg.dataset.stage=String(stage);svg.dataset.selected=selected}
-function update(animate=true){cancelAnimationFrame(raf);const d=dimensions(),c=config[stage];target=rows.map(r=>({a:scale(stage===0?r.prior:0,d),b:scale(stage===0?r.revenue:stage===1?r.delta:r.sameStoreGrowth,d)}));drawAxes();document.querySelector('#plot-title').textContent=c.title;document.querySelector('#plot-subtitle').textContent='合成演示 · '+c.sub;document.querySelector('#unit').textContent=c.unit;svg.querySelector('title').textContent=c.title;svg.querySelector('desc').textContent=descriptions[stage]+' 范围：'+spec.scope;document.querySelectorAll('.stage-btn').forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.stage===stage)));document.querySelectorAll('.step').forEach(b=>b.classList.toggle('active',+b.dataset.stage===stage));document.querySelector('#mobile-copy').innerHTML=`<p><strong>${['先看规模','再拆增量','回到同店'][stage]}</strong>　${descriptions[stage]}</p>`;document.querySelector('#motion-state').textContent=media.matches?'减少动态效果已启用':'同一市场随视角连续变换';if(!animate||media.matches){current=target.map(v=>({...v}));paint();svg.dataset.animating='false';return}const from=current.map(v=>({...v})),start=performance.now();svg.dataset.animating='true';function frame(now){const t=Math.min(1,(now-start)/520),e=1-Math.pow(1-t,3);current=target.map((v,i)=>({a:from[i].a+(v.a-from[i].a)*e,b:from[i].b+(v.b-from[i].b)*e}));paint();if(t<1)raf=requestAnimationFrame(frame);else svg.dataset.animating='false'}raf=requestAnimationFrame(frame)}
+ 'use strict';
+
+// The public transfer boundary accepts finite numbers only; null never becomes zero.
+function validateData(input) {
+  if (!input || typeof input !== 'object' || !Array.isArray(input.rows) || !input.rows.length || input.rows.length > 8) throw new TypeError('rows 必须包含 1–8 个市场');
+  const ids = new Set();
+  for (const key of ['title', 'question', 'period', 'source', 'unit', 'scope']) if (typeof input[key] !== 'string' || !input[key].trim()) throw new TypeError(key + ' 必须为非空文本');
+  if (typeof input.synthetic !== 'boolean') throw new TypeError('synthetic 必须为 boolean');
+  const supported = new Set(['title', 'question', 'period', 'source', 'unit', 'scope', 'synthetic', 'rows']);
+  if (Object.keys(input).some(key => !supported.has(key))) throw new TypeError('不支持的元数据字段');
+  const copy = JSON.parse(JSON.stringify(input));
+  for (const [i, row] of input.rows.entries()) {
+    if (!row || typeof row !== 'object' || !/^[A-Za-z][A-Za-z0-9_-]*$/.test(row.id) || ids.has(row.id) || typeof row.name !== 'string' || !row.name.trim()) throw new TypeError('市场 id/name 无效或 id 重复');
+    ids.add(row.id);
+    for (const key of ['revenue', 'prior', 'target', 'sameStoreGrowth']) {
+      const value = row[key];
+      if (key !== 'revenue' && (value === null || value === undefined)) { copy.rows[i][key] = null; continue; }
+      if (typeof value !== 'number' || !Number.isFinite(value) || (key !== 'sameStoreGrowth' && value < 0)) throw new TypeError(key + ' 必须为有限数字；缺失值使用 null');
+    }
+  }
+  return copy;
+}
+// Sum the input decimal representations before converting back to Number.
+// This keeps 1e-12 + (-1e-12) at zero instead of a floating-point residual.
+function knownSum(values) {
+ if(values.some(value=>value===null))return null;
+ if(!values.length)return 0;
+ const parts=values.map(value=>{const [coefficient,exponent='0']=value.toString().split('e'),fraction=(coefficient.split('.')[1]||'').length;return {integer:BigInt(coefficient.replace('.','')),power:Number(exponent)-fraction}});
+ const power=Math.min(...parts.map(part=>part.power));
+ const integer=parts.reduce((sum,part)=>sum+part.integer*10n**BigInt(part.power-power),0n);
+ const result=Number(integer.toString()+'e'+power);
+ if(!Number.isFinite(result))throw new TypeError('金额合计超出有限数字范围');
+ return result===0?0:result;
+}
+const deltaOf = r => r.prior === null ? null : knownSum([r.revenue,-r.prior]);
+const growthOf = r => r.prior === null || r.prior === 0 ? null : deltaOf(r)/r.prior*100;
+function niceDomain(values, includeZero = true) {
+  const finite = values.filter(value => typeof value === 'number' && Number.isFinite(value));
+  if (includeZero || !finite.length) finite.push(0);
+  let lo = Math.min(...finite), hi = Math.max(...finite);
+  if (lo === hi) { if (lo === 0) return { domain: [0, 1], ticks: [0, .2, .4, .6, .8, 1] }; lo = Math.min(0, lo); hi = Math.max(0, hi); }
+  const raw = (hi - lo) / 4, power = 10 ** Math.floor(Math.log10(raw));
+  const step = [1, 2, 5, 10].find(value => value * power >= raw) * power;
+  lo = Math.floor(lo / step) * step; hi = Math.ceil(hi / step) * step;
+  const ticks = [], count = Math.round((hi - lo) / step);
+  for (let index = 0; index <= count; index++) { const value = lo + index * step; ticks.push(Math.abs(value) < step * 1e-10 ? 0 : Number(value.toPrecision(12))); }
+  return { domain: [lo, hi], ticks };
+}
+
+// Preserve nonzero readings at every magnitude; signed zero is displayed as 0.
+function numberText(value) {
+  if (value === null) return '未提供';
+  if (value === 0) return '0';
+  const magnitude = Math.abs(value);
+  if (magnitude < 1e-5 || magnitude >= 1e9) return value.toExponential(5).replace(/(\.\d*?[1-9])0+e/, '$1e').replace(/\.0+e/, 'e').replace('e+', 'e');
+  return value.toLocaleString('zh-CN', { maximumSignificantDigits: 6 });
+}
+function textWidth(value,size=12){const canvas=document.createElement('canvas'),context=canvas.getContext('2d');context.font=size+'px Microsoft YaHei, Arial, sans-serif';return context.measureText(value).width;}
+function sourceNumber(value){return value===null?'未提供':value===0?'0':String(value)}
+function sourcePercent(value){return value===null?'未提供':(value>0?'+':value<0?'−':'')+sourceNumber(Math.abs(value))+'%'}
+function signedNumber(value) { return value === null ? '未提供' : (value > 0 ? '+' : value < 0 ? '−' : '') + numberText(Math.abs(value)); }
+function displayPercent(value, signed = true) {
+  if (value === null) return '不适用/未提供';
+  if (value === 0) return '0%';
+  const magnitude = Math.abs(value);
+  let reading;
+  if (magnitude >= .01 && magnitude < 1e9) reading = magnitude.toLocaleString('zh-CN', { maximumFractionDigits: 2 });
+  else if (magnitude < 1e-5 || magnitude >= 1e9) reading = magnitude.toExponential(2).replace(/(\.\d*?[1-9])0+e/, '$1e').replace(/\.0+e/, 'e').replace('e+', 'e');
+  else reading = magnitude.toLocaleString('zh-CN', { maximumSignificantDigits: 3 });
+  return (value < 0 ? '−' : signed ? '+' : '') + reading + '%';
+}
+function percentText(value) { return displayPercent(value); }
+function metadataText() { return '期间：' + spec.period + '；范围：' + spec.scope + '；金额单位：' + spec.unit + '（输入数值按该单位显示，不作换算）；来源：' + spec.source + '。'; }
+function mergeData(input) {
+  if (!input || typeof input !== 'object' || Array.isArray(input)) throw new TypeError('setData 需要数据对象');
+  return validateData({ ...spec, ...input });
+}
+// Standalone exports carry all metadata, wrapped at a readable font size.
+function appendExportMetadata(copy, width, height, background, ink, extra = []) {
+  const fontSize = 13, lineHeight = 20, padding = 10, canvas = document.createElement('canvas'), context = canvas.getContext('2d');
+  context.font = fontSize + 'px Microsoft YaHei, Arial, sans-serif';
+  const paragraphs = [...extra, '题目：' + spec.title, '问题：' + spec.question, '期间：' + spec.period, '范围：' + spec.scope, '金额单位：' + spec.unit + '；输入数值按该单位显示，不作换算', '来源：' + spec.source];
+  const lines = [];
+  for (const paragraph of paragraphs) {
+    let line = '';
+    for (const character of paragraph) {
+      if (line && context.measureText(line + character).width > width - padding * 2) { lines.push(line); line = character; } else line += character;
+    }
+    if (line) lines.push(line);
+  }
+  const totalHeight = height + 25 + lines.length * lineHeight;
+  copy.setAttribute('viewBox', '0 0 ' + width + ' ' + totalHeight); copy.setAttribute('width', width); copy.setAttribute('height', totalHeight);
+  const ns = 'http://www.w3.org/2000/svg', bg = document.createElementNS(ns, 'rect');
+  Object.entries({ x: 0, y: 0, width, height: totalHeight, fill: background }).forEach(([key, value]) => bg.setAttribute(key, value)); copy.insertBefore(bg, copy.firstChild);
+  lines.forEach((line, i) => { const text = document.createElementNS(ns, 'text'); Object.entries({ x: padding, y: height + 25 + i * lineHeight, fill: ink, 'font-size': fontSize, 'font-family': 'Microsoft YaHei, Arial, sans-serif' }).forEach(([key, value]) => text.setAttribute(key, value)); text.textContent = line; copy.append(text); });
+  const metadata = document.createElementNS(ns, 'metadata'); metadata.textContent = JSON.stringify({ title: spec.title, question: spec.question, period: spec.period, unit: spec.unit, source: spec.source, scope: spec.scope, synthetic: spec.synthetic, rows: spec.rows }); copy.append(metadata);
+}
+function narrative(data) {
+  const net = knownSum(data.map(deltaOf)), top = [...data].filter(r => deltaOf(r) !== null && deltaOf(r) > 0).sort((a,b) => deltaOf(b)-deltaOf(a)).slice(0,3);
+  const amount = knownSum(top.map(deltaOf));
+  const contribution = top.length ? `${top.map(r=>r.name).join('、')}合计贡献 ${numberText(amount)} ${spec.unit}；` + (net === null || net === 0 ? '净增量缺失或为0，不计算份额。' : `占总盘净增量 ${numberText(net)} 的 ${displayPercent(amount/net*100,false)}。`) : '没有已知的正增量市场。';
+  const diverging = data.filter(r=>growthOf(r)>0 && r.sameStoreGrowth!==null && r.sameStoreGrowth<0);
+  const falling = data.filter(r=>growthOf(r)!==null && growthOf(r)<0 && r.sameStoreGrowth!==null && r.sameStoreGrowth<0);
+  const risk = diverging.length ? `${diverging.map(r=>r.name).join('、')}总盘增长、同店下降，需继续核查。` : '当前已知数据中，没有总盘增长、同店下降的市场。';
+  return {net, top, amount, contribution, diverging, falling, risk};
+}
+
+let spec=validateData(JSON.parse(document.querySelector('#source-data').textContent)), rows=[], totals={}, story, config=[], descriptions=[];
+const NS='http://www.w3.org/2000/svg', svg=document.querySelector('#chart'), media=matchMedia('(prefers-reduced-motion: reduce)');
+const fmt=numberText,sign=signedNumber,percent=percentText;
+let stage=0, selected='ID', raf=0, current=[], target=[], axes=null, manualUntil=0, printing=false, transitioning=false;
+function el(name,attrs={},value){const e=document.createElementNS(NS,name);Object.entries(attrs).forEach(([k,v])=>e.setAttribute(k,v));if(value!==undefined)e.textContent=value;return e}
+function putText(parent,x,y,value,size=15,fill='#13234a',extra={}){const e=el('text',{x,y,fill,'font-family':'Arial, Microsoft YaHei, sans-serif','font-size':size,...extra},value);parent.append(e);return e}
+function dimensions(){const mobile=!printing&&innerWidth<=800;return {w:mobile?svg.clientWidth:900,h:mobile?rows.length*64+120:565,left:mobile?66:100,right:mobile?Math.max(24,...config[stage].ticks.map(v=>textWidth((stage===2?signedNumber(v)+'%':fmt(v)),12)/2+5)):85,top:64,step:mobile?64:51,bottom:mobile?rows.length*64+60:510,mobile}}
+function scale(v,d){const c=config[stage];return d.left+((v??0)-c.domain[0])/(c.domain[1]-c.domain[0])*(d.w-d.left-d.right)}
+function syncMetadata(){
+ document.title=spec.title;document.querySelector('.brand').textContent='增长观察';document.querySelector('.synthetic').textContent=spec.synthetic?'合成演示数据 · 视觉方向 03':'输入数据 · 视觉方向 03';
+ document.querySelector('.hero .eyebrow').textContent=spec.rows.length+'个市场 · 三层经营问题';document.querySelector('.hero > div:nth-child(2) > p').textContent=spec.question;
+ document.querySelector('.data > p').textContent=metadataText()+'同店指标单列，不与总盘混算。';
+ document.querySelector('.step[data-stage="1"] > p').textContent='换成同一条零基线后比较增量；全部'+spec.rows.length+'个市场保留。';
+}
+function rebuildData(){
+ syncMetadata();
+  document.querySelector('.hero .period').textContent=spec.period+'；同店样本单列，不与总盘混算';
+  rows=spec.rows.map(r=>({...r,delta:deltaOf(r),growth:growthOf(r)}));
+  totals={prior:knownSum(rows.map(r=>r.prior)),revenue:knownSum(rows.map(r=>r.revenue)),target:knownSum(rows.map(r=>r.target)),delta:knownSum(rows.map(r=>r.delta))};
+  story=narrative(rows);
+  config=[{title:'市场规模与两期变化',sub:'空心：上期　实心：本期；缺失上期不画连线',unit:spec.unit,...niceDomain(rows.flatMap(r=>[r.prior,r.revenue]))}, {title:`谁贡献了这 ${fmt(totals.delta)}？`,sub:'线段起点统一归零；缺失上期不计算增量',unit:spec.unit,...niceDomain(rows.map(r=>r.delta))}, {title:'增长回到相同门店',sub:'同店营业额同比；不对市场百分比求平均',unit:'%',...niceDomain(rows.map(r=>r.sameStoreGrowth))}];
+  const leaders=[...rows].sort((a,b)=>b.revenue-a.revenue).slice(0,2).map(r=>r.name).join('、');
+  descriptions=[`${leaders}的营业额规模领先；线段表示上期到本期的变化。`,story.contribution,story.risk+' 同店缺失时不画点。'];
+  document.querySelector('#growth-total').textContent=percent(growthOf(totals));
+  const steps=document.querySelectorAll('.step');
+  steps[0].querySelector('p').textContent=descriptions[0];steps[0].querySelector('.big-fact').textContent=fmt(totals.revenue);steps[0].querySelectorAll('p')[1].textContent=`本期营业额，${spec.unit}。比上期变化 ${sign(totals.delta)}。`;
+  steps[1].querySelector('.big-fact').textContent=totals.delta===null||totals.delta===0?'不计算份额':displayPercent(story.amount/totals.delta*100,false);steps[1].querySelectorAll('p')[1].textContent=story.contribution;steps[1].querySelector('.limit').textContent='分母是净增量；缺失或为0时不计算份额。负贡献完整保留。';
+  steps[2].querySelector('h2').textContent=story.diverging.length?'总盘与同店，方向有分化。':'总盘与同店，分开核查。';steps[2].querySelector('p').textContent=story.risk;steps[2].querySelector('.big-fact').textContent=story.diverging.length+' 个市场';steps[2].querySelectorAll('p')[1].textContent='已知总盘增长且同店下降的市场数。';
+  const control=document.querySelector('.market-control');control.replaceChildren();rows.forEach(r=>{const b=document.createElement('button');b.textContent=r.name;b.dataset.id=r.id;b.addEventListener('click',()=>select(r.id));control.append(b)});
+  const body=document.querySelector('tbody');body.replaceChildren();rows.forEach(r=>{const tr=document.createElement('tr');tr.dataset.id=r.id;[r.name,sourceNumber(r.prior),sourceNumber(r.revenue),sourceNumber(r.target),sign(r.delta),percent(r.growth),sourcePercent(r.sameStoreGrowth)].forEach(v=>{const td=document.createElement('td');td.textContent=v;tr.append(td)});body.append(tr)});
+  const foot=document.querySelector('tfoot');foot.replaceChildren();const tr=document.createElement('tr');[`${rows.length}市场总盘`,fmt(totals.prior),fmt(totals.revenue),fmt(totals.target),sign(totals.delta),percent(growthOf(totals)),'不直接平均'].forEach(v=>{const td=document.createElement('td');td.textContent=v;tr.append(td)});foot.append(tr);
+  document.querySelector('.focus-note').textContent=`聚焦保留全部${rows.length}个市场；总盘基准不随选择改变。`;
+}
+function init(){cancelAnimationFrame(raf);const d=dimensions();svg.setAttribute('viewBox',`0 0 ${d.w} ${d.h}`);svg.replaceChildren(el('title',{id:'svg-title'},config[stage].title),el('desc',{id:'svg-desc'},descriptions[stage]),el('rect',{x:0,y:0,width:d.w,height:d.h,fill:'#ffffff'}));axes=el('g');svg.append(axes);current=[];target=[];rows.forEach((r,i)=>{const y=d.top+i*d.step+25,g=el('g',{'data-id':r.id,role:'button',tabindex:'0'});g.append(el('rect',{x:0,y:y-25,width:d.w,height:d.step,fill:'#ffffff','data-part':'bg'}));putText(g,4,y+5,r.name,d.mobile?14:16,'#13234a',{'data-part':'name'});g.append(el('line',{'data-part':'connector',y1:y,y2:y,stroke:'#234ce7','stroke-width':4}));g.append(el('circle',{'data-part':'prior',cy:y,r:6,fill:'#fff',stroke:'#234ce7','stroke-width':2}));g.append(el('circle',{'data-part':'actual',cy:y,r:7,fill:'#234ce7'}));putText(g,0,d.mobile?y+24:y-11,'',d.mobile?14:15,'#234ce7',{'data-part':'value','font-weight':700});g.addEventListener('click',()=>select(r.id));g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();select(r.id)}});svg.append(g);current.push({a:scale(stage===0?r.prior:0,d),b:scale(stage===0?r.revenue:stage===1?r.delta:r.sameStoreGrowth,d)})});svg.append(el('text',{id:'transition-label',x:d.w/2,y:19,'text-anchor':'middle',fill:'#13234a','font-size':14,'font-family':'Microsoft YaHei, Arial'},'切换视角中 · 稳定后显示读数'));update(false)}
+function drawAxes(){const d=dimensions(),c=config[stage];axes.replaceChildren();const ticks=d.mobile&&c.ticks.length>4?c.ticks.filter((_,i)=>i%2===0):c.ticks;ticks.forEach(v=>{const x=scale(v,d);axes.append(el('line',{x1:x,x2:x,y1:48,y2:d.bottom,stroke:v===0?'#8997bb':'#e2e7f3'}));putText(axes,x,39,(stage===0?fmt(v):sign(v))+(stage===2?'%':''),d.mobile?12:14,'#536183',{'text-anchor':'middle','data-axis-tick':'x'})});putText(axes,4,d.h-30,`单位：${spec.unit} · ${rows.length}市场`,d.mobile?12:14,'#536183');putText(axes,4,d.h-10,'期间、来源与范围见下方源数据',d.mobile?12:14,'#536183')}
+function paint(){const d=dimensions();rows.forEach((r,i)=>{const g=svg.querySelector(`[data-id="${r.id}"]`),p=current[i],active=r.id===selected,value=stage===0?r.revenue:stage===1?r.delta:r.sameStoreGrowth,color=value!==null&&value<0?'#c74229':'#234ce7';g.querySelector('[data-part=bg]').setAttribute('fill',active?'#eef2ff':'none');const line=g.querySelector('[data-part=connector]');line.setAttribute('x1',p.a);line.setAttribute('x2',p.b);line.setAttribute('stroke',color);line.setAttribute('visibility',value===null||(stage===0&&r.prior===null)?'hidden':'visible');const a=g.querySelector('[data-part=prior]');a.setAttribute('cx',p.a);a.setAttribute('opacity',stage===0&&r.prior!==null?1:0);const b=g.querySelector('[data-part=actual]');b.setAttribute('cx',p.b);b.setAttribute('fill',color);b.setAttribute('r',active?9:7);b.setAttribute('visibility',value===null?'hidden':'visible');const val=g.querySelector('[data-part=value]');val.textContent=stage===0?`${fmt(r.prior)} → ${fmt(r.revenue)}`:stage===1?sign(r.delta):percent(r.sameStoreGrowth);val.setAttribute('x',d.mobile?d.left:stage===0?Math.min(p.b+10,d.w-125):p.b+(p.b<p.a?-13:12));val.setAttribute('text-anchor',d.mobile?'start':stage!==0&&p.b<p.a?'end':'start');val.setAttribute('fill',color);val.setAttribute('visibility',transitioning?'hidden':'visible');g.setAttribute('aria-pressed',String(active));g.setAttribute('aria-label',transitioning?`${r.name}，切换视角中，点击聚焦`:`${r.name}，${stage===0?'上期'+fmt(r.prior)+'，本期'+fmt(r.revenue)+spec.unit:stage===1?'净增量'+sign(r.delta)+spec.unit:'同店同比'+percent(r.sameStoreGrowth)}，点击聚焦`)});svg.dataset.stage=String(stage);svg.dataset.selected=selected}
+function setTransition(active){transitioning=active;svg.dataset.animating=String(active);axes.setAttribute('visibility',active?'hidden':'visible');document.querySelector('#transition-label').setAttribute('visibility',active?'visible':'hidden');document.querySelector('#unit').style.visibility=active?'hidden':'';document.querySelector('#mobile-copy').style.visibility=active?'hidden':'';document.querySelector('.focus-summary').style.visibility=active?'hidden':'';document.querySelector('#plot-subtitle').textContent=active?'切换视角中 · 稳定后显示数值与刻度':(spec.synthetic?'合成演示':'输入数据')+' · '+config[stage].sub;svg.querySelector('desc').textContent=active?'切换视角中；暂不提供定量读数，稳定后显示。':descriptions[stage]+' '+metadataText();paint()}
+function update(animate=true){cancelAnimationFrame(raf);const d=dimensions(),c=config[stage];target=rows.map(r=>({a:scale(stage===0?r.prior:0,d),b:scale(stage===0?r.revenue:stage===1?r.delta:r.sameStoreGrowth,d)}));drawAxes();document.querySelector('#plot-title').textContent=c.title;document.querySelector('#unit').textContent=c.unit;svg.querySelector('title').textContent=c.title;document.querySelectorAll('.stage-btn').forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.stage===stage)));document.querySelectorAll('.step').forEach(b=>b.classList.toggle('active',+b.dataset.stage===stage));document.querySelector('#mobile-copy').textContent=descriptions[stage];document.querySelector('#motion-state').textContent=media.matches?'减少动态效果已启用':'同一市场随视角连续变换';if(!animate||media.matches){current=target.map(v=>({...v}));setTransition(false);return}const from=current.map(v=>({...v})),start=performance.now();setTransition(true);function frame(now){const t=Math.min(1,(now-start)/520),e=1-Math.pow(1-t,3);current=target.map((v,i)=>({a:from[i].a+(v.a-from[i].a)*e,b:from[i].b+(v.b-from[i].b)*e}));paint();if(t<1)raf=requestAnimationFrame(frame);else setTransition(false)}raf=requestAnimationFrame(frame)}
 function setStage(s,manual=false){if(manual)manualUntil=performance.now()+1800;if(stage===s)return;stage=s;update();refreshSummary()}
-function refreshSummary(){const r=rows.find(r=>r.id===selected);document.querySelector('#focus-text').innerHTML=`<strong>聚焦${r.name}</strong>　营业额 ${fmt(r.revenue)}百万元，增量 ${sign(r.delta)}；总盘同比 ${sign(r.growth)}%，同店同比 ${sign(r.sameStoreGrowth)}%。`+(r.id==='ID'?' <strong>总盘升、同店降，需继续核查。</strong>':'');document.querySelectorAll('.market-control button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.id===selected)));document.querySelectorAll('tbody tr').forEach(tr=>tr.dataset.active=String(tr.dataset.id===selected))}
+function refreshSummary(){const r=rows.find(r=>r.id===selected);document.querySelector('#focus-text').textContent=`聚焦${r.name}　营业额 ${fmt(r.revenue)}${spec.unit}，增量 ${sign(r.delta)}；总盘同比 ${percent(r.growth)}，同店同比 ${percent(r.sameStoreGrowth)}。`+(r.growth>0&&r.sameStoreGrowth!==null&&r.sameStoreGrowth<0?' 总盘升、同店降，需继续核查。':'');document.querySelectorAll('.market-control button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.id===selected)));document.querySelectorAll('tbody tr').forEach(tr=>tr.dataset.active=String(tr.dataset.id===selected))}
 function select(id){selected=id;paint();refreshSummary()}
 function download(data,name,type){const a=document.createElement('a'),url=URL.createObjectURL(new Blob([data],{type}));a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}
-document.querySelector('#growth-total').textContent='+'+fmt(100*totals.delta/totals.prior)+'%';
-const control=document.querySelector('.market-control');rows.forEach(r=>{const b=document.createElement('button');b.textContent=r.name;b.dataset.id=r.id;b.setAttribute('aria-pressed',String(r.id===selected));b.addEventListener('click',()=>select(r.id));control.append(b)});
-document.querySelector('tbody').innerHTML=rows.map(r=>`<tr data-id="${r.id}"><td>${r.name}</td><td>${fmt(r.prior)}</td><td>${fmt(r.revenue)}</td><td>${fmt(r.target)}</td><td>${sign(r.delta)}</td><td>${sign(r.growth)}%</td><td>${sign(r.sameStoreGrowth)}%</td></tr>`).join('');document.querySelector('tfoot').innerHTML=`<tr><td>八市场总盘</td><td>${fmt(totals.prior)}</td><td>${fmt(totals.revenue)}</td><td>${fmt(totals.target)}</td><td>${sign(totals.delta)}</td><td>${sign(100*totals.delta/totals.prior)}%</td><td>不直接平均</td></tr>`;
 document.querySelectorAll('.stage-btn').forEach(b=>b.addEventListener('click',()=>setStage(+b.dataset.stage,true)));
 document.querySelector('#export-data').addEventListener('click',()=>download(JSON.stringify(spec,null,2),'增长观察-源数据.json','application/json'));
-document.querySelector('#export-svg').addEventListener('click',()=>{cancelAnimationFrame(raf);current=target.map(v=>({...v}));paint();svg.dataset.animating='false';const clone=svg.cloneNode(true),d=dimensions();const chars=Array.from('范围：'+spec.scope),scopeLines=[];for(let i=0;i<chars.length;i+=d.mobile?26:65)scopeLines.push(chars.slice(i,i+(d.mobile?26:65)).join(''));const extra=95+scopeLines.length*23;clone.setAttribute('height',d.h+extra);clone.setAttribute('viewBox',`0 0 ${d.w} ${d.h+extra}`);clone.insertBefore(el('rect',{x:0,y:0,width:d.w,height:d.h+extra,fill:'#ffffff'}),clone.firstChild);putText(clone,4,d.h+14,config[stage].title+' · 单位：'+config[stage].unit,15,'#13234a',{'font-weight':700});putText(clone,4,d.h+41,'范围：全部8市场；聚焦'+rows.find(r=>r.id===selected).name+'，未过滤',13,'#536183');putText(clone,4,d.h+69,'合成演示数据 · 不代表真实经营状况',13,'#92311e');scopeLines.forEach((line,i)=>putText(clone,4,d.h+94+i*23,line,13,'#536183'));clone.querySelectorAll('[tabindex]').forEach(e=>e.removeAttribute('tabindex'));download(new XMLSerializer().serializeToString(clone),'增长观察-'+['总量','增量','同店'][stage]+'.svg','image/svg+xml')});
-addEventListener('beforeprint',()=>{printing=true;init();refreshSummary();document.querySelectorAll('details').forEach(e=>e.open=true)});addEventListener('afterprint',()=>{printing=false;init();refreshSummary()});
-const observer=new IntersectionObserver(entries=>{if(printing||innerWidth<=800||performance.now()<manualUntil)return;const e=entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];if(e)setStage(+e.target.dataset.stage)}, {rootMargin:'-15% 0px -35% 0px',threshold:[0,.15,.35,.65]});document.querySelectorAll('.step').forEach(e=>observer.observe(e));let resizeTimer;addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(init,100)});media.addEventListener('change',()=>update(false));init();refreshSummary();window.__chartReady=true;
+document.querySelector('#export-svg').addEventListener('click',()=>{update(false);const clone=svg.cloneNode(true),d=dimensions();appendExportMetadata(clone,d.w,d.h,'#ffffff','#13234a',[config[stage].title+' · 单位：'+config[stage].unit,'全部'+rows.length+'市场；聚焦'+rows.find(r=>r.id===selected).name]);clone.querySelectorAll('[tabindex]').forEach(e=>e.removeAttribute('tabindex'));download(new XMLSerializer().serializeToString(clone),'增长观察-'+['总量','增量','同店'][stage]+'.svg','image/svg+xml')});
+addEventListener('beforeprint',()=>{printing=true;init();refreshSummary()});addEventListener('afterprint',()=>{printing=false;init();refreshSummary()});
+const observer=new IntersectionObserver(entries=>{if(printing||innerWidth<=800||performance.now()<manualUntil)return;const e=entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];if(e)setStage(+e.target.dataset.stage)}, {rootMargin:'-15% 0px -35% 0px',threshold:[0,.15,.35,.65]});document.querySelectorAll('.step').forEach(e=>observer.observe(e));let resizeTimer;addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(init,100)});media.addEventListener('change',()=>update(false));
+window.__lab={setData(input){const next=mergeData(input);spec={...spec,...next};document.getElementById('source-data').textContent=JSON.stringify(spec);if(!next.rows.some(r=>r.id===selected))selected=next.rows[0].id;rebuildData();init();refreshSummary();return this.getState()},getState(){return JSON.parse(JSON.stringify({data:spec,stage,selected,animating:transitioning,totals,domains:config.map(c=>c.domain)}))}};
+rebuildData();init();refreshSummary();window.__chartReady=true;
+
 </script></body></html>

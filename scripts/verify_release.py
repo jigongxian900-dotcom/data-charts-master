@@ -18,7 +18,13 @@ assert len(svgfiles)==54
 for p in svgfiles:
     result=check(p)
     errors.extend(f'{p.name}: {x}' for x in result['errors'])
-assert (ROOT/'docs/index.html').read_text(encoding='utf-8').replace('href="labs/','href="../interaction-lab/')==(ROOT/'examples/dashboard-atlas/atlas.html').read_text(encoding='utf-8')
+hosted=(ROOT/'docs/index.html').read_text(encoding='utf-8').replace('href="labs/','href="../interaction-lab/')
+for name in ['report.html','slides.html']:
+    hosted=hosted.replace('href="'+name+'"','href="../composed/'+name+'"')
+    assert (ROOT/'docs'/name).read_bytes()==(ROOT/'examples/composed'/name).read_bytes()
+hosted=hosted.replace('href="operating-story.html"','href="../operating-story/report.html"')
+assert hosted==(ROOT/'examples/dashboard-atlas/atlas.html').read_text(encoding='utf-8')
+assert (ROOT/'docs/operating-story.html').read_bytes()==(ROOT/'examples/operating-story/report.html').read_bytes()
 assert (ROOT/'docs/source-data.json').read_bytes()==(ROOT/'examples/dashboard-atlas/source-data.json').read_bytes()
 for p in ROOT.rglob('*'):
     if not p.is_file() or any(x in {'.git','__pycache__','node_modules','.test-output'} for x in p.parts):continue

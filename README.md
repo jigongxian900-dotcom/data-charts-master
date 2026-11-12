@@ -131,6 +131,23 @@ Windows 的 Python 命令若为 `py`，将上面的 `python` 改为 `py`。生�
 
 **想修改54例图谱？** 用 Node.js 20+ 运行 `node scripts/build_gallery.js`。它会同步生成示例 HTML、54份 SVG 与公开展示页。[生成文件与目录说明](docs/usage.md#开发与重建)
 
+## 同一份数据，报告与演示两种表达
+
+[先读一份完整经营案例 ↗](https://jigongxian900-dotcom.github.io/data-charts-master/operating-story.html)：同一组八市场合成数据，连续回答增长由谁贡献、目标还差多少、哪些市场需要复核同店表现。三张图按问题换布局，标题和金额随输入计算；不把贡献恒等式写成因果。
+
+[![完整经营案例的增长贡献章节，原值、金额桥与阅读边界同页](docs/assets/operating-story.png)](https://jigongxian900-dotcom.github.io/data-charts-master/operating-story.html)
+
+[打开报告示例](https://jigongxian900-dotcom.github.io/data-charts-master/report.html) · [打开可翻页演示](https://jigongxian900-dotcom.github.io/data-charts-master/slides.html)
+
+报告按问题安排通栏趋势、旁注、比较与分布；演示按比较关系编排，宽屏可切换“聚焦投影”，手机使用重新编排的紧凑图形。同源原值与静态SVG保存在统一资料区。六图教学样例含不同业务，不能连成同一因果故事；上面的经营案例提供同源连续叙事。
+
+```sh
+python scripts/compose_html.py examples/composed/source.json --mode report --theme ruby --out report.html
+python scripts/compose_html.py examples/composed/source.json --mode slides --theme ruby --out slides.html
+```
+
+这两种模式读取与通用助手相同的六类图形合同，叙事由输入明确提供。改变数据必须重新核对标题与业务解释。HTML演示不冒充原生可编辑PowerPoint。[输入与模式说明](references/composed-outputs.md)
+
 ## 范围与许可
 
 54例是按固定合成数据编写的完整实例；Python 助手另支持横条、折线、堆叠、瀑布、箱线和散点六类通用图。迁移时要重算标题、标注、尺度与派生值。

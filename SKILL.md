@@ -1,18 +1,18 @@
 ---
 name: data-charts-master
-description: 按业务问题选择、设计和验证数据图表。覆盖HTML分析交互与动效、独立SVG、可编辑PPTX和科研图；用真实作品拆解提升构图与审美，保留数据口径和不确定性。PPTX按现行生产路线执行，机制图单独验证关系与顺序，持续运行的应用使用项目自身的应用开发流程。
+description: 按业务问题选择、设计和验证数据图表，制作HTML报告、交互叙事、SVG与HTML演示。重视构图、配色和稳定态动效，保留口径与不确定性；PPTX按视觉与编辑需求选择制作工具并实测。
 ---
 
 # Data Charts Master
 
-版本5.0.1 · 2026-11-12。业务选图、视觉导演、语义配色、KPI与复杂组合、HTML交互动效、SVG与PPTX；不固定品牌或引擎。独立评审发现的问题按实际产物修正，版本号不是分数。
+版本5.1.0 · 2026-11-12。业务选图、视觉导演、语义配色、KPI与复杂组合、HTML交互动效、SVG与演示；不固定行业或引擎。独立评审发现的问题按实际产物修正，版本号不是分数。
 
 ## 范围
 
 - 单图或组图按独立问题制作，不为凑数增图。已有HTML保留原文件、叙事和技术栈。
 - 整页报告先定主问题与证据顺序，图表服务内容，不自动升级成应用。
-- 持续运行的看板或岗位工作台，以 适用且已安装的专用工具 为主流程。
-- 流程、机制、架构用 适用且已安装的专用工具；示意图不能代替定量证据。
+- 持续运行的看板或岗位工作台，另核对数据连接、刷新、权限与实际操作；静态图谱不等于生产应用。
+- 流程、机制、架构按真实条件和顺序绘制；示意图不能代替定量证据。
 - 科研图明确样本结构、统计量、误差、尺寸。静态输出与交互HTML分别验收。
 - 用户指定图型或工具时尊重其选择。数据条件不适用时说明具体风险和最小改法；不重复询问已知参数。
 
@@ -38,7 +38,7 @@ description: 按业务问题选择、设计和验证数据图表。覆盖HTML分
 
 ## 视觉判断
 
-本次升级的主要目标是业务适配与审美。数据与运行检查是底线，不能用检查数量抵消选图不对或版式不好。对关键图先用同一数据比较不同表达，说明首选解决什么问题、备选会漏掉什么；不把选项变成换色。
+业务适配与审美共同决定图表质量。数据与运行检查是底线，不能用检查数量抵消选图不对或版式不好。对关键图先用同一数据比较不同表达，说明首选解决什么问题、备选会漏掉什么；不把选项变成换色。
 
 - 用标题、主图、重点标注和来源建立层级。容器按内容选，不能每节重复同一套版。
 - 解释图重比较与注释；探索图重全量查阅与有效筛选。不强制先细读或先扫读。
@@ -60,16 +60,15 @@ description: 按业务问题选择、设计和验证数据图表。覆盖HTML分
 
 - 已有Lieflat、Vivid、Diagram Design：查真实目录、配方和成品；只读主入口摘要不算使用原模板。复制或修改代码/资产前核对所用版本许可，不因格式开放就认定可随意融合。
 - Leon、Tableau精选与获奖、figures4papers、K-Dense用于按需参考，见 [视觉参考](references/visual-reference.md)。作者偏好不自动成为通用禁令。
-- 优先复用现有SVG/CSS、ECharts、D3、Chart.js或Plotly，不因发现新项目换栈。G2实现按需查 适用且已安装的专用工具。
-- AntV远端API预览用 适用且已安装的专用工具；本地制作授权不自动允许把内部数据发送到第三方。
+- 优先复用现有SVG/CSS、ECharts、D3、Chart.js或Plotly，不因发现新项目换栈。远端预览涉及第三方服务时，另确认是否允许发送所用数据。
 
 ### 可运行的基础HTML路径
 
 普通折线、横条、堆叠条、瀑布、原始点+箱线或散点足够时，可用独立实现的SVG助手：
 
 ```powershell
-uv run --no-project python scripts/chart_html.py validate chart-spec.json
-uv run --no-project python scripts/chart_html.py build chart-spec.json --out report.html --layout editorial
+python scripts/chart_html.py validate chart-spec.json
+python scripts/chart_html.py build chart-spec.json --out report.html --layout editorial
 ```
 
 字段与边界见 [HTML交付](references/html-delivery.md)。输出附同源表、下载数据、文件指纹和图形数值记录；不是通用自动选型器，不保证任意数据都自动得到恰当图表。
@@ -77,3 +76,15 @@ uv run --no-project python scripts/chart_html.py build chart-spec.json --out rep
 复杂交互的独立实现样例见 [三种阅读结构](examples/interaction-lab/README.md)。这是固定合成数据的功能示范，复用时重新推导故事与全部派生值，不能只替换JSON。
 
 KPI与复杂组合的完整实物见 [54例经营图谱](examples/dashboard-atlas/README.md)，其中区域与目标状态可联动图、表及导出。Tableau借鉴依据见 [具体作品阅读](references/tableau-dashboard-reading.md)，不以官方收录或模板数量代替新图验收。
+
+## 报告与演示
+
+用户要求整页报告或一套可翻页演示时，按 [组合输出](references/composed-outputs.md) 选择 `compose_html.py --mode report|slides`。沿用同一已核对输入，报告按问题组合，演示区分竖向阅读与宽屏聚焦投影。不要为套版而增图，也不将HTML演示称为原生可编辑PPTX。
+
+需要同源连续叙事时，参考 [八市场经营案例](examples/operating-story/README.md)：原始记录与派生图行分开，按贡献、目标差额、风险复核安排章节。样例的同店字段没有分母定义，不能自行改称同店日店均。六图教学报告用于展示图型，不把不同业务的样例串成因果故事。
+
+## 交互中间态与换数
+
+切换度量时，轴、标签和几何必须共同变化；做不到同步插值时，过渡中隐藏定量读数并明确标记，稳定后恢复。导出和打印取稳定状态。键盘操作重绘图表后保留原控件焦点。
+
+叙事示例提供同源数据接口；换数后重算总量、域、风险条件与说明。不能按市场ID固定写风险，也不能用固定demo声明掩盖换数后矛盾。业务含义、期间、分母或事件定义变化时，仍须由制作者重新核对。

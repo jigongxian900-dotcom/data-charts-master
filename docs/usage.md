@@ -78,6 +78,8 @@ node scripts/build_gallery.js
 | `assets/color-system.json` | 七套配色令牌 |
 | `examples/dashboard-atlas/` | 固定数据54例、生成器与SVG |
 | `examples/interaction-lab/` | 三个完整交互实例 |
+| `examples/composed/` | 六图教学报告与可翻页演示，附同源输入 |
+| `examples/operating-story/` | 一组八市场原始数据组成的连续经营案例 |
 | `examples/representative.json` | 六类通用图的完整输入 |
 | `docs/` | 公开图谱、预览和说明 |
 
@@ -85,6 +87,8 @@ node scripts/build_gallery.js
 
 ```sh
 python scripts/test_chart_html.py
+python scripts/test_compose_html.py
+python scripts/test_operating_story.py
 python scripts/verify_release.py
 ```
 

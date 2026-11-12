@@ -7,7 +7,9 @@ This public snapshot includes independently implemented HTML/SVG examples and sy
 | HTML atlas | 54 examples, seven palettes, local filtering and export | Curated examples; not a universal arbitrary-JSON chart engine |
 | SVG | 54 standalone files | Text uses system fonts; rendering can vary by platform |
 | Interaction labs | Three complete HTML files | Fixed synthetic scenarios; recompute all derived values when reusing |
-| Python helper | Six generic chart types and 14 behavioral tests | Validate the schema before building |
+| Report / presentation | Two runnable outputs from one validated source | Six generic chart kinds; supplied narrative; wide projection and narrow reading are separate |
+| Python helper | Six generic chart types, explicit bar targets and 26 behavioral tests | Validate the schema before building; use declared performance direction for target status |
+| Coherent operating case | One eight-market source, three linked views, 16 focused tests | Synthetic data; target gap is not resource priority; same-store denominator is unspecified |
 | PPTX | Production guidance | Requires a separate authoring tool and real save/reopen verification; no claim that every chart datum is native-editable |
 | Statistical figures | Distribution / interval examples | Synthetic samples and supplied intervals are not empirical evidence |
 

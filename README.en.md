@@ -102,6 +102,23 @@ On Windows, use `py` if that is your Python launcher. Open `sample.html`. The co
 
 To rebuild all 54 curated examples and the hosted gallery, run `node scripts/build_gallery.js` with Node.js 20+. See [usage, updates and troubleshooting](docs/usage.md).
 
+## One source, report and presentation
+
+[Read one coherent operating case](https://jigongxian900-dotcom.github.io/data-charts-master/operating-story.html): one original eight-market synthetic source connects growth contribution, target shortfall and same-store checks. Titles and monetary summaries are derived from input; an arithmetic bridge does not establish causes.
+
+[![Growth-contribution chapter from the coherent operating case](docs/assets/operating-story.png)](https://jigongxian900-dotcom.github.io/data-charts-master/operating-story.html)
+
+[Open the report](https://jigongxian900-dotcom.github.io/data-charts-master/report.html) · [Open the presentation](https://jigongxian900-dotcom.github.io/data-charts-master/slides.html)
+
+The report uses full-width trends, side notes and direct comparisons. The presentation varies layout by question and offers a focused projection mode on wide screens. Phones use dedicated compact geometry. Both preserve source data and static SVGs in one reference section. The six-kind teaching specimen contains different business domains; use the operating case above for a connected story.
+
+```sh
+python scripts/compose_html.py examples/composed/source.json --mode report --theme ruby --out report.html
+python scripts/compose_html.py examples/composed/source.json --mode slides --theme ruby --out slides.html
+```
+
+These modes use the same six-kind input contract. Narrative comes from the supplied input. Review titles and business explanations after changing values. The HTML presentation is not a native editable PowerPoint file. See [the composition guide](references/composed-outputs.md).
+
 ## Scope and license
 
 The 54 examples use fixed synthetic datasets. They do not form an arbitrary-JSON renderer for 54 chart types. A separate Python helper supports six generic types: bar, line, stacked, waterfall, box and scatter. Adaptation requires recalculating titles, scales, labels and derived values.
