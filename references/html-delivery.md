@@ -23,7 +23,7 @@
 
 `validate`先核合同；`build ... --out output.html --layout editorial|analytical|focus` 输出HTML及相邻 `.data.json`。三种布局分别为文字与主图联排、双列对照、单问题定位；均可显示全量，不自动成为用户默认风格。
 
-配色可用输入的 `theme` 或命令参数 `--theme tidal|cobalt|grove|iris|nocturne|graphite|mixue-ruby`。见 [配色体系](color-system.md)。图例用颜色标记与正文色文字，分类色不直接承担小字号文字；深色屏幕版打印自动切到浅色语义色。输入值与图形几何不因主题改变。需要保留品牌色的PDF/PPTX按选定浅底主题另行输出与实看，不能把屏幕换色当作打印也已同步。
+配色可用输入的 `theme` 或命令参数 `--theme tidal|cobalt|grove|iris|nocturne|graphite|ruby`。见 [配色体系](color-system.md)。图例用颜色标记与正文色文字，分类色不直接承担小字号文字；深色屏幕版打印自动切到浅色语义色。输入值与图形几何不因主题改变。需要保留品牌色的PDF/PPTX按选定浅底主题另行输出与实看，不能把屏幕换色当作打印也已同步。
 
 可复跑输入：[representative.json](../examples/representative.json)。它只是合成数据的实现样例，不是业务选图的固定模板；先按业务问题选图，再决定是否使用该助手。
 

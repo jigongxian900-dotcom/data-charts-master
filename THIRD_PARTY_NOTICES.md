@@ -11,4 +11,4 @@ Ideas studied include business-question-led composition, direct annotation, char
 
 These references are not endorsements or dependencies. Their own licenses govern their materials. Three numerical comparison datasets used in private development have been replaced with fresh original synthetic values for this public edition.
 
-The ruby palette is an original brand-adapted option, not official Mixue brand guidelines. No official logo or character artwork is included. All operating values are fictional and do not describe any company.
+All palettes are original general-purpose color systems. All operating values are fictional and do not describe any company.

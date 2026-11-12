@@ -1,52 +1,115 @@
 # Data Charts Master
 
-**Choose the chart that answers the question. Then make it worth reading.**
+**Charts that answer a question. Design that makes people look.** A chart-design skill for Codex, Claude Code and agents that read `SKILL.md`.
 
-[Live gallery](https://jigongxian900-dotcom.github.io/data-charts-master/) · [54-case catalogue](docs/catalog.md) · [中文](README.md) · [MIT](LICENSE)
+[Live gallery ↗](https://jigongxian900-dotcom.github.io/data-charts-master/) · [Motion demos ↗](https://jigongxian900-dotcom.github.io/data-charts-master/#motion) · [中文](README.md) · [MIT](LICENSE)
 
-![KPI cards with trends and comparisons](docs/assets/hero.png)
+[![From numbers to decisions: 54 chart examples and seven palettes](docs/assets/readme-hero.png)](https://jigongxian900-dotcom.github.io/data-charts-master/)
 
-A chart-design skill for business analysis and reporting: 54 curated chart/combination examples, seven original semantic palettes, three interactive narrative labs, and a Python helper for six generic chart types.
+**54** curated chart/combination examples · **7** original semantic palettes · **3** complete interactive narrative labs. Each case includes its question, units, period, scope, source values and limitations.
 
-The gallery includes KPI sparklines, year/month comparisons, target bullets, attainment rings, butterflies, cohorts, retention curves, Marimekko, parallel coordinates, rank/spark tables, arithmetic trees and linked operating overviews. Each example exposes its business question, period, units, scope, raw values and limitations.
+## Preview
 
-![54-example overview](docs/assets/atlas54.png)
+### Quick judgment / KPIs, trends and comparisons
 
-## Use
+<picture>
+  <source media="(max-width: 600px)" srcset="docs/assets/kpi-mobile.png">
+  <img src="docs/assets/kpi-desktop.png" alt="KPI cards with sparklines and year/month comparisons" width="100%">
+</picture>
+
+[Try KPIs](https://jigongxian900-dotcom.github.io/data-charts-master/#kpi-compare) · [Target bullets](https://jigongxian900-dotcom.github.io/data-charts-master/#multi-bullet) · [Attainment states](https://jigongxian900-dotcom.github.io/data-charts-master/#attainment-ring)
+
+### Precise comparison / Shared baselines and direct annotation
+
+![Selected comparison charts](docs/assets/comparison-selection.png)
+
+[Ranked bars](https://jigongxian900-dotcom.github.io/data-charts-master/#rankedbar) · [Dumbbell](https://jigongxian900-dotcom.github.io/data-charts-master/#dumbbell) · [Butterfly](https://jigongxian900-dotcom.github.io/data-charts-master/#butterfly) · [Waterfall](https://jigongxian900-dotcom.github.io/data-charts-master/#waterfall)
+
+### Deeper analysis / Relationships, distribution and time
+
+![Selected analytical charts](docs/assets/analysis-selection.png)
+
+[Cohort retention](https://jigongxian900-dotcom.github.io/data-charts-master/#cohort-triangle) · [Connected scatter](https://jigongxian900-dotcom.github.io/data-charts-master/#connected-scatter) · [Parallel coordinates](https://jigongxian900-dotcom.github.io/data-charts-master/#parallel-coordinates) · [All 54 cases](docs/catalog.md)
+
+## Motion explains a change
+
+These GIFs record actual interaction with the included HTML examples. Open a demo to use its controls.
+
+**Scale → contribution → same-store change.** Persistent objects retain identity while the analytical perspective changes.
+
+[![Three-stage geometric transition](docs/assets/narrative-motion.gif)](https://jigongxian900-dotcom.github.io/data-charts-master/labs/dir-3.html)
+
+[Open narrative demo ↗](https://jigongxian900-dotcom.github.io/data-charts-master/labs/dir-3.html)
+
+**Growth contribution → target gap.** A flow view changes to a shared-zero comparison. Focus stays linked to the table.
+
+[![Flow and target-gap interaction](docs/assets/flow-motion.gif)](https://jigongxian900-dotcom.github.io/data-charts-master/labs/dir-1.html)
+
+[Open flow demo ↗](https://jigongxian900-dotcom.github.io/data-charts-master/labs/dir-1.html) · [Bubble exploration ↗](https://jigongxian900-dotcom.github.io/data-charts-master/labs/dir-2.html)
+
+## Seven palettes, consistent semantics
+
+![Seven original palette systems](docs/assets/palette-strips.png)
+
+`ruby` · `tidal` · `cobalt` · `grove` · `iris` · `nocturne` · `graphite`. Focus, categories, sequence, divergence and performance states have separate roles.
+
+## Mobile reading
+
+Narrow layouts recompose KPI cards, mini-trends and complete readings. Complex charts retain a separate original-detail view. Core information does not require hover.
+
+<picture>
+  <source media="(max-width: 600px)" srcset="docs/assets/mobile-demo.gif">
+  <img src="docs/assets/mobile-showcase.png" alt="Mobile KPI, target and butterfly layouts" width="100%">
+</picture>
+
+## Install and use
+
+**Only browsing?** Open the [gallery](https://jigongxian900-dotcom.github.io/data-charts-master/), or download the [latest release](https://github.com/jigongxian900-dotcom/data-charts-master/releases/latest) and open `docs/index.html`. Viewing needs no Node.js, Python or API key.
+
+**For an agent:** run one command from your project root. Install Git first.
+
+Codex:
 
 ```sh
-git clone https://github.com/jigongxian900-dotcom/data-charts-master.git
-cd data-charts-master
+git clone https://github.com/jigongxian900-dotcom/data-charts-master.git .agents/skills/data-charts-master
 ```
 
-Ask your agent to read `SKILL.md`, or place this folder in your agent's supported custom-skill directory. Provide the business question, data, audience and required output. The skill and gallery are Chinese-first; the English README does not imply a fully translated gallery.
+Claude Code:
 
 ```sh
-node examples/dashboard-atlas/build_atlas.js
+git clone https://github.com/jigongxian900-dotcom/data-charts-master.git .claude/skills/data-charts-master
+```
+
+Open an agent session in that project. Invoke `$data-charts-master` in Codex or `/data-charts-master` in Claude Code. If discovery is unavailable, ask the agent to read the installed `SKILL.md` directly.
+
+```text
+Use data-charts-master. Identify which regions missed target.
+Check periods, units, denominators and missing values before choosing the chart.
+Build an offline HTML with source notes, raw table, mobile layout and SVG export.
+Use the ruby palette. A missing target is unknown, not zero.
+```
+
+### Run a complete example
+
+From the skill folder, with Python 3.10+ (standard library only):
+
+```sh
 python scripts/chart_html.py validate examples/representative.json
-python scripts/chart_html.py build examples/representative.json --out sample.html --theme mixue-ruby
-python scripts/test_chart_html.py
-python scripts/verify_release.py
+python scripts/chart_html.py build examples/representative.json --out sample.html --theme ruby
 ```
 
-Node.js 20+ / Python 3.10+. The generator and Python helper have no third-party dependencies. The HTML works offline without installation.
+On Windows, use `py` if that is your Python launcher. Open `sample.html`. The command also writes `sample.data.json` beside it.
 
-![Seven semantic palettes](docs/assets/palettes.png)
+To rebuild all 54 curated examples and the hosted gallery, run `node scripts/build_gallery.js` with Node.js 20+. See [usage, updates and troubleshooting](docs/usage.md).
 
-[Try the narrative lab](https://jigongxian900-dotcom.github.io/data-charts-master/labs/dir-3.html).
+## Scope and license
 
-![Linked narrative interaction](docs/assets/interaction.gif)
+The 54 examples use fixed synthetic datasets. They do not form an arbitrary-JSON renderer for 54 chart types. A separate Python helper supports six generic types: bar, line, stacked, waterfall, box and scatter. Adaptation requires recalculating titles, scales, labels and derived values.
 
-## Scope
+PPTX guidance requires a separate authoring tool and actual editing checks. The repository does not include a fully native-editable 54-slide deck. The gallery is Chinese-first. This English README does not imply a fully translated chart gallery.
 
-These are curated examples, not a universal arbitrary-JSON renderer for 54 chart types. The Python helper supports bar, line, stacked, waterfall, box and scatter. Adaptation requires recalculating derived values, titles, scales and annotations. PPTX guidance requires a separate authoring tool and actual editing verification; a native-editable 54-slide deck is not bundled.
+All values are synthetic. They do not describe any company's operations. Original code, documents, palettes and data use **MIT**, including commercial use and modification.
 
-All numerical examples use original synthetic data. Process diagrams are conceptual. They do not describe any company's operations. The ruby palette is an original brand-adapted option, not official Mixue visual identity. No official logo or character art is included.
+[Validation](docs/validation.md) · [Capability boundaries](references/capability-evidence.md) · [Contributing](CONTRIBUTING.md)
 
-See [validation](docs/validation.md), [usage](docs/usage.md), [capability boundaries](references/capability-evidence.md) and [contributing](CONTRIBUTING.md).
-
-## Inspiration and license
-
-Inspired by [Lieflat Charts](https://github.com/larashero3-dotcom/lieflat-charts), [Diagram Design](https://github.com/cathrynlavery/diagram-design), [Vivid Figures](https://github.com/yjz211/vivid-illustration-skill) and [Tableau showcase](https://www.tableau.com/data-insights/dashboard-showcase). No upstream source, templates or artwork are bundled. See [notices](THIRD_PARTY_NOTICES.md).
-
-Original code, documentation, palettes and synthetic data: **MIT**, including commercial use and modification.
+Inspired by [Lieflat Charts](https://github.com/larashero3-dotcom/lieflat-charts), [Diagram Design](https://github.com/cathrynlavery/diagram-design), [Vivid Figures](https://github.com/yjz211/vivid-illustration-skill) and [Tableau](https://www.tableau.com/data-insights/dashboard-showcase). The repository does not include upstream source or artwork. See [notices](THIRD_PARTY_NOTICES.md).

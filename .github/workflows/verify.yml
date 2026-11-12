@@ -12,8 +12,8 @@ jobs:
       - name: Behavioral tests
         run: python3 scripts/test_chart_html.py
       - name: Rebuild curated examples
-        run: node examples/dashboard-atlas/build_atlas.js
+        run: node scripts/build_gallery.js
       - name: Check generated files are reproducible
-        run: git diff --exit-code -- examples/dashboard-atlas
+        run: git diff --exit-code -- examples/dashboard-atlas docs/index.html docs/source-data.json docs/labs
       - name: Verify release package
         run: python3 scripts/verify_release.py

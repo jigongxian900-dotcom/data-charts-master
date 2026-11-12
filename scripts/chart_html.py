@@ -473,7 +473,7 @@ def main():
     parser.add_argument('spec',type=Path)
     parser.add_argument('--out',type=Path)
     parser.add_argument('--layout',choices=['editorial','analytical','focus'],default='editorial')
-    parser.add_argument('--theme', help='tidal / cobalt / grove / iris / nocturne / graphite / mixue-ruby; defaults to spec.theme or tidal')
+    parser.add_argument('--theme', help='tidal / cobalt / grove / iris / nocturne / graphite / ruby; defaults to spec.theme or tidal')
     args=parser.parse_args()
     try:
         spec=json.loads(args.spec.read_text(encoding='utf-8-sig'))
