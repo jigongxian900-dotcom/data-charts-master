@@ -1,0 +1,57 @@
+{
+  "boundary": "Portable fixed-source worked example. Original independent-production audit is retained separately.",
+  "files": [
+    {
+      "kind": "input",
+      "role": "input",
+      "path": "quality_daily.csv",
+      "sha256": "bc6d7ac86ff2f921984171562d605f918b2b1af271db28aa0db653732c5af169"
+    },
+    {
+      "kind": "input",
+      "role": "input",
+      "path": "task.md",
+      "sha256": "e4ca8735b172e3599446f12739487f50e61aee001f4b64a4de4a760fba1e8095"
+    },
+    {
+      "kind": "skill",
+      "role": "skill",
+      "path": "SKILL.md",
+      "relative_path": "SKILL.md",
+      "sha256": "c6c56831820be2e563ea88e962d64b88004c7a6464690cb8489da392e8848e4d",
+      "encoding": "LF-normalized UTF-8; input files retain raw bytes"
+    },
+    {
+      "kind": "skill",
+      "role": "skill",
+      "path": "references/business-question-selection.md",
+      "relative_path": "references/business-question-selection.md",
+      "sha256": "731159835a85f333faf080ec74db34346644e51f906ae87bbca2cb44bec4cf91",
+      "encoding": "LF-normalized UTF-8; input files retain raw bytes"
+    },
+    {
+      "kind": "skill",
+      "role": "skill",
+      "path": "references/composition-reasoning.md",
+      "relative_path": "references/composition-reasoning.md",
+      "sha256": "e9ec5220e6bda625c509e0565966f3d395fed51837e0db8d13277c2b3e1ec8e7",
+      "encoding": "LF-normalized UTF-8; input files retain raw bytes"
+    },
+    {
+      "kind": "skill",
+      "role": "skill",
+      "path": "references/art-direction.md",
+      "relative_path": "references/art-direction.md",
+      "sha256": "5a55b287b1b4aee1c687b7d7c5bd4ea9b9219490dccbdd603ec64fd5c7338ece",
+      "encoding": "LF-normalized UTF-8; input files retain raw bytes"
+    },
+    {
+      "kind": "skill",
+      "role": "skill",
+      "path": "references/html-delivery.md",
+      "relative_path": "references/html-delivery.md",
+      "sha256": "ebbefa2bc0df0d0a698c16495dd31740ec1b32033a8c418f9edda72df7cf4afe",
+      "encoding": "LF-normalized UTF-8; input files retain raw bytes"
+    }
+  ]
+}

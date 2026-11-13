@@ -1,0 +1,564 @@
+{
+  "schema_version": "1.0",
+  "researched_at": "2026-11-13",
+  "scope": "9件用于自主组合/变形推理的具体作品；不是模板复制清单或性能/审美评分。",
+  "discovery_entry": "https://www.dkmeco.com/community/visual",
+  "selection_basis": "按可迁移的数据关系和组合机制挑选；DKMECO策展与官方比赛背景仅为发现/认可线索，不把浏览量、入选或作品称号等同业务正确性。",
+  "verification_summary": {
+    "candidate_count": 9,
+    "dkmeco_discovered_count": 9,
+    "original_static_previews_visually_inspected": 8,
+    "curator_only_case_count": 1,
+    "actual_interactions_exercised": 0,
+    "live_browser_boundary": "后台headless Edge；原作应用页受Cookie/提示弹层影响，采用公开PNG导出核看；没有操作用户前台。",
+    "source_images_policy": "静态图片只保留在scratch私有核验目录；研究交付仅含链接与原创文字，不把第三方图像/代码/模板进入公开包。"
+  },
+  "cases": [
+    {
+      "id": "lending-kpi-matrix",
+      "title": "Lending KPIs Dashboard",
+      "author": "Marius Nikiforovas",
+      "curator_url": "https://www.dkmeco.com/community/visual/detail-982",
+      "primary_url": "https://public.tableau.com/app/profile/marius5597/viz/LendingKPIs/LendingKPIs",
+      "business_question": "两个贷款产品在各业务阶段是否达成目标，较上年/上月如何变化，差距是否持续？",
+      "data_relation": "产品×阶段分面；每个单元含实际值、同口径目标、同比/环比参照值与月度序列。各阶段是否为同一批客户，需另外证明。",
+      "composition_or_deformation_mechanism": "把数值、目标横条/刻度、三类变化率和月度微型柱组合成同一个分析单元，再沿产品与业务阶段复制。核心是同单元比较与双维分面，不是寻找一个新奇图名。",
+      "what_to_borrow": [
+        "先定义最小分析单元，再复制其视觉语法。",
+        "数值回答规模；标记回答目标差；微图回答持续性，各元素承担不同问题。",
+        "按上升为好或下降为好定义状态，不能统一把正增长涂成好色。"
+      ],
+      "when_not_to_use": [
+        "不同阶段没有同一批次分母时，不得把列间数量当转化漏斗。",
+        "参照期、币种、口径不同不得直接叠置。",
+        "移动端不能把整张矩阵等比缩成难读小字，应保留产品/阶段切换或纵向单元。"
+      ],
+      "verification_level": {
+        "article": {
+          "status": "read",
+          "url": "https://www.dkmeco.com/community/visual/detail-982"
+        },
+        "primary_preview": {
+          "status": "visually_inspected_published_static_export",
+          "preview_url": "https://public.tableau.com/views/LendingKPIs/LendingKPIs.png?:showVizHome=no",
+          "accessed_date": "2026-11-13",
+          "snapshot_sha256": "773b63735c93a280475bc2d36a9d322ad2168ec0a7b94007e3dca6d4bf2c2204",
+          "preview_type": "published_static_png_export"
+        },
+        "actual_interaction": {
+          "status": "not_exercised",
+          "detail": "仅查看发布页正文与公开静态导出；未验证筛选、悬停、参数或动画。控件可见不代表交互通过。"
+        }
+      },
+      "original_explanation": "复杂度来自一组业务问题共享同一对象，而非组件数量。可迁移成预算、人效、库存周转等卡片，但先证明目标、参照期和序列属于同一指标。",
+      "decomposition": {
+        "operators": [
+          "facet",
+          "layer",
+          "annotate",
+          "repeat"
+        ],
+        "invariants": [
+          "同一单元的实体、指标、单位与期间一致",
+          "比较条与目标刻度共享数轴"
+        ],
+        "ordinary_counterchart": "普通实际/目标分组条+月趋势分面",
+        "semantic_correction": "横条加目标刻度不自动等于时间甘特；此处应按实际/目标比较解释。"
+      },
+      "data_status": "原作发布页标有 MockData；仅作为设计机制，不作为贷款业务事实。"
+    },
+    {
+      "id": "channel-effectiveness-aligned-multiples",
+      "title": "Call Center Dashboard | VOTD — Channel Effectiveness",
+      "author": "Iaroslava Mizai",
+      "curator_url": "https://www.dkmeco.com/community/visual/detail-982",
+      "primary_url": "https://public.tableau.com/app/profile/iaroslava/viz/CallCenterDashboard_17482539625320/CHANNEL",
+      "business_question": "哪个服务渠道在处理量、体验、时效和服务水平之间表现更好，差距集中在哪一维？",
+      "data_relation": "四个渠道共享一组指标行：服务量及趋势、地区分布、联系原因、满意度、情绪、平均时长和SLA组成。",
+      "composition_or_deformation_mechanism": "将多渠道对比分成平行列，纵向用相同指标结构排列；数量、分布、比例与时间微图在跨列重复的固定行中组合。",
+      "what_to_borrow": [
+        "先排比较对象，再用对齐的指标行减少来回找图。",
+        "渠道身份与状态色分离，同一指标跨对象保持尺度或明确标注。",
+        "用业务环节组织复杂页面，而非按图表种类堆卡片。"
+      ],
+      "when_not_to_use": [
+        "渠道用户群、服务问题难度不同，不能仅凭满意度或时长排名判断因果绩效。",
+        "地域不是决策维度时，不必给每个渠道复制一张地图。",
+        "独立缩放的微图不能支持绝对量大小比较。"
+      ],
+      "verification_level": {
+        "article": {
+          "status": "read",
+          "url": "https://www.dkmeco.com/community/visual/detail-982"
+        },
+        "primary_preview": {
+          "status": "visually_inspected_published_static_export",
+          "preview_url": "https://public.tableau.com/views/CallCenterDashboard_17482539625320/CHANNEL.png?:showVizHome=no",
+          "accessed_date": "2026-11-13",
+          "snapshot_sha256": "4752f087d602a245d4a1e758b5a8c1d3f4f83d9c885b0c5099ae82547dab1d8a",
+          "preview_type": "published_static_png_export"
+        },
+        "actual_interaction": {
+          "status": "not_exercised",
+          "detail": "仅查看发布页正文与公开静态导出；未验证筛选、悬停、参数或动画。控件可见不代表交互通过。"
+        }
+      },
+      "original_explanation": "其价值是比较路径稳定：读者固定一行就能横向扫过所有渠道。HTML可把同一结构转为可选择的渠道组；SVG/PPT可保留最关键的两至三个渠道。",
+      "decomposition": {
+        "operators": [
+          "facet",
+          "align",
+          "repeat",
+          "encode_by_metric"
+        ],
+        "invariants": [
+          "同一行的定义和时间窗口一致",
+          "绝对比较需要共享尺度"
+        ],
+        "ordinary_counterchart": "按指标分面的渠道点图或条形图"
+      },
+      "data_status": "原作发布页明确为说明用途的非真实数据，并注明 desktop format。"
+    },
+    {
+      "id": "co2-linked-polar-and-cartesian",
+      "title": "Global CO2 Dashboard – Powered by Tableau Agent #VOTD",
+      "author": "Harim Jung",
+      "curator_url": "https://www.dkmeco.com/community/visual/detail-982",
+      "primary_url": "https://public.tableau.com/app/profile/harim.jung/viz/GlobalCODashboardPoweredbyTableauAgent/TableauAgentClimateDashboard",
+      "business_question": "某国排放规模、按人口/经济产出标准化的排放与历史变化处于什么位置？",
+      "data_relation": "国家×年份；排放总量、人均排放、每GDP排放、收入组及历史序列。多个比率共享排放分子。",
+      "composition_or_deformation_mechanism": "左侧将类别分组的标记转到极坐标，右侧保留常规KPI时间序列与气泡散点。位置、点大小、类别颜色分别编码不同字段；同一国家跨图标注维持对象一致。",
+      "what_to_borrow": [
+        "复杂变形旁保留可读的常规坐标视图，提供精确比较入口。",
+        "用实体键连接总量、强度与变化，不把它们压成一个综合分。",
+        "先写清每个视觉通道含义，再决定是否改为极坐标。"
+      ],
+      "when_not_to_use": [
+        "角度按类别排列，不得宣称其角度是时间。",
+        "总量与强度单位不同，不能因为同心就相加或共用一个数轴。",
+        "共享排放分子的比率可能产生结构相关，不能据散点斜率推出因果。",
+        "极坐标对标签和精确比较不利时，应退回点图/分面条图。"
+      ],
+      "verification_level": {
+        "article": {
+          "status": "read",
+          "url": "https://www.dkmeco.com/community/visual/detail-982"
+        },
+        "primary_preview": {
+          "status": "visually_inspected_published_static_export",
+          "preview_url": "https://public.tableau.com/views/GlobalCODashboardPoweredbyTableauAgent/TableauAgentClimateDashboard.png?:showVizHome=no",
+          "accessed_date": "2026-11-13",
+          "snapshot_sha256": "f9cc277f143eb99c92c1e162a2fc402c291c13376acd06b98b68051aa392df22",
+          "preview_type": "published_static_png_export"
+        },
+        "actual_interaction": {
+          "status": "not_exercised",
+          "detail": "仅查看发布页正文与公开静态导出；未验证筛选、悬停、参数或动画。控件可见不代表交互通过。"
+        }
+      },
+      "original_explanation": "可以借鉴的是一套实体在多个投影中的一致性，不是照搬圆形外观。新业务若只有一维排名，圆形不会自动增加信息。",
+      "decomposition": {
+        "operators": [
+          "project_polar",
+          "layer",
+          "coordinate_views",
+          "highlight_entity"
+        ],
+        "invariants": [
+          "投影前后数据值和排序语义不变",
+          "每个半径/大小通道保留独立单位"
+        ],
+        "ordinary_counterchart": "收入组分面点图+排放强度气泡散点+趋势"
+      }
+    },
+    {
+      "id": "operations-state-units-and-timeline",
+      "title": "OPERATIONAL EFFICIENCY",
+      "author": "Seun Adeyemo",
+      "curator_url": "https://www.dkmeco.com/community/visual/detail-943",
+      "primary_url": "https://public.tableau.com/app/profile/bigxpt/viz/OPERATTIONALEFFICIENCY/EFFICIENCY",
+      "business_question": "任务当前分布、每周进展模式、月度完成/进行状态与具体排程如何共同解释效率？",
+      "data_relation": "任务状态组成、星期×进度分箱、月份×状态量、任务开始结束日期。",
+      "composition_or_deformation_mechanism": "同页并列不同关系：状态比例用六边形单元组成；星期与进度档位用热力矩阵；月状态用上下布置的柱；具体任务用日期区间。它们不是一个可互换的复杂图。",
+      "what_to_borrow": [
+        "先按数据关系分配基础图，再用一致的状态色和任务身份组织成诊断面板。",
+        "单位图可以从方格变为六边形排布，但数量守恒与单元权重必须保持。",
+        "排程用真实起止日期；状态组成用互斥完备分类。"
+      ],
+      "when_not_to_use": [
+        "六边形布局没有两个连续坐标，不得称为二维密度Hexbin或解释空间聚集。",
+        "星期×进度分箱不是日期日历，不得给它写日历趋势结论。",
+        "下方布局的进行中柱不代表业务量为负。",
+        "单位数取整后须处理余数，不能默默改变状态占比。"
+      ],
+      "verification_level": {
+        "article": {
+          "status": "read",
+          "url": "https://www.dkmeco.com/community/visual/detail-943"
+        },
+        "primary_preview": {
+          "status": "visually_inspected_published_static_export",
+          "preview_url": "https://public.tableau.com/views/OPERATTIONALEFFICIENCY/EFFICIENCY.png?:showVizHome=no",
+          "accessed_date": "2026-11-13",
+          "snapshot_sha256": "b33eedc43b9a5f348205215953c656f6dd1c0cdaa48daafdf71db696bf6ec968",
+          "preview_type": "published_static_png_export"
+        },
+        "actual_interaction": {
+          "status": "not_exercised",
+          "detail": "仅查看发布页正文与公开静态导出；未验证筛选、悬停、参数或动画。控件可见不代表交互通过。"
+        }
+      },
+      "original_explanation": "这是辨别图形皮肤和统计编码的好例子。同一六边形外形既可能是密度分箱，也可能只是构成单元；必须回到轴、单元权重与图例判断。",
+      "decomposition": {
+        "operators": [
+          "deform_unit_grid",
+          "facet",
+          "align",
+          "interval"
+        ],
+        "invariants": [
+          "各状态单元权重一致",
+          "真实排程区间须满足开始≤结束"
+        ],
+        "ordinary_counterchart": "100%堆叠条+热力矩阵+日期甘特",
+        "semantic_correction": "原作作者也使用 hexabin 一词；本拆解按可见编码记为状态单元组成，不把作者命名当统计关系证明。"
+      }
+    },
+    {
+      "id": "pricing-context-forecast-action-table",
+      "title": "定价优化仪表板 / Pricing Optimization Dashboard",
+      "author": "Murilo Cremon（优阅达文章署名；原作链接未找到）",
+      "curator_url": "https://www.dkmeco.com/community/visual/detail-960",
+      "primary_url": null,
+      "business_question": "当前价格/折扣相较自身历史、市场与预测偏离多少，哪些具体商品值得进一步审查？",
+      "data_relation": "自家与市场的同期间价格/折扣序列、预测区段、商品级比较及促销状态。",
+      "composition_or_deformation_mechanism": "左侧数字摘要承接参照差；右侧多条同尺度时间线对照，并以虚实线和背景区分历史与预测；下方把聚合差异转成商品级表格。",
+      "what_to_borrow": [
+        "同一比较问题跨概览、趋势、明细保持参照对象一致。",
+        "预测区段在边界、线型和文字上同时区别实际。",
+        "业务需要逐项核查时，用表格承接图表而非强行再加一张图。"
+      ],
+      "when_not_to_use": [
+        "不同产品组合的平均价可能受结构变动影响，不能直接当纯提价。",
+        "预测线不带模型、训练截止与不确定性说明时，不应作为确定结果。",
+        "市场价格可比性、利润约束与需求弹性未证实时，不得把价差标签直接变成最优调价建议。",
+        "高低好坏依业务目标决定，不能复制正负色。"
+      ],
+      "verification_level": {
+        "article": {
+          "status": "read",
+          "url": "https://www.dkmeco.com/community/visual/detail-960"
+        },
+        "curator_preview": {
+          "status": "visually_inspected",
+          "preview_records": [
+            {
+              "preview_url": "https://dkm-website.oss-cn-shenzhen.aliyuncs.com/upload/0/course/visual/%E4%BC%81%E4%B8%9A%E5%BA%94%E7%94%A8%E6%A8%A1%E6%9D%BF/20250828/1.png",
+              "accessed_date": "2026-11-13",
+              "snapshot_sha256": "6071649cffc00bdb073a0ae2e7ea7c5d3cb9301125e0612969da2345f2b1f761",
+              "preview_type": "curator_embedded_screenshot",
+              "actually_viewed": true
+            },
+            {
+              "preview_url": "https://dkm-website.oss-cn-shenzhen.aliyuncs.com/upload/0/course/visual/%E4%BC%81%E4%B8%9A%E5%BA%94%E7%94%A8%E6%A8%A1%E6%9D%BF/20250828/3.png",
+              "accessed_date": "2026-11-13",
+              "snapshot_sha256": "ea056bf7e9f5c0e6a58b99c91167e428ce26c1454c75856c34c44e0f5d68cf97",
+              "preview_type": "curator_embedded_screenshot",
+              "actually_viewed": true
+            }
+          ]
+        },
+        "primary_preview": {
+          "status": "not_found_curator_only",
+          "detail": "文章正文与可解析链接未给出可核验Tableau Public原作；不声称打开过原作。",
+          "preview_url": null
+        },
+        "actual_interaction": {
+          "status": "not_exercised",
+          "detail": "仅查看发布页正文与公开静态导出；未验证筛选、悬停、参数或动画。控件可见不代表交互通过。"
+        }
+      },
+      "original_explanation": "可迁移机制是参照系与决策粒度连续：总体发现偏离，趋势识别持续性，明细定位对象。截图展示的预测和机会标签只可作表达参考，不能继承为可信模型或定价规则。",
+      "decomposition": {
+        "operators": [
+          "layer",
+          "segment_time",
+          "annotate",
+          "overview_to_detail"
+        ],
+        "invariants": [
+          "实际与预测分界显式",
+          "同商品、币种和期间匹配"
+        ],
+        "ordinary_counterchart": "实际与市场折线+差额点图+商品明细表"
+      }
+    },
+    {
+      "id": "confection-ownership-history",
+      "title": "The Confection Connection",
+      "author": "Brian Moore",
+      "curator_url": "https://www.dkmeco.com/community/visual/detail-988",
+      "primary_url": "https://public.tableau.com/app/profile/brian.moore7221/viz/TheConfectionConnection/TheConfectionConnection",
+      "business_question": "看似独立的糖果品牌如何归属于少数企业，所有权集中是如何随时间形成的？",
+      "data_relation": "品牌→所有者层级、当前品牌计数、推出年份、历次收购事件与方向、时间截面所有权。",
+      "composition_or_deformation_mechanism": "长篇叙事将当前所有权概况、品牌单元计数、时间截面带状过渡、推出年份点分布与定向收购链组合；所有者颜色贯穿各章节。",
+      "what_to_borrow": [
+        "全篇使用稳定的实体键和身份色，让不同图对应同一对象。",
+        "把现状、形成过程与结构关系分开提问，再按因果证据强度连接。",
+        "对事件/关系表与汇总指标表分别建模；图形复杂度不能补足缺失边。"
+      ],
+      "when_not_to_use": [
+        "品牌数量份额不能写成营收份额、销量份额或市场份额。",
+        "仅有所有权汇总时，不能生成收购路径或流向；需要事件日期、买方、卖方/品牌身份。",
+        "同一品牌改名、转让、拆分须有身份规则，否则重复计数。",
+        "径向分区适合概览和叙事；精确份额对比应另给排序条图。"
+      ],
+      "verification_level": {
+        "article": {
+          "status": "read",
+          "url": "https://www.dkmeco.com/community/visual/detail-988"
+        },
+        "primary_preview": {
+          "status": "visually_inspected_published_static_export",
+          "preview_url": "https://public.tableau.com/views/TheConfectionConnection/TheConfectionConnection.png?:showVizHome=no",
+          "accessed_date": "2026-11-13",
+          "snapshot_sha256": "a785159bfb8808167b5b90d73c8e34a866d54175fc2e7093f895e5600bd22250",
+          "preview_type": "published_static_png_export"
+        },
+        "actual_interaction": {
+          "status": "not_exercised",
+          "detail": "仅查看发布页正文与公开静态导出；未验证筛选、悬停、参数或动画。控件可见不代表交互通过。"
+        },
+        "official_context": {
+          "status": "read",
+          "url": "https://www.tableau.com/blog/top-10-qualifiers-iron-viz-2026",
+          "detail": "官方Top10预选赛文章用于确认作者与入选背景；不称其为冠军决赛作品。"
+        }
+      },
+      "original_explanation": "长图不是把更多图排下去，而是维护同一批品牌的身份，让读者从静态占有走到历史事件。可迁移到客户集团、产品家族和渠道组织，但不能用聚合份额伪造关系流。",
+      "decomposition": {
+        "operators": [
+          "hierarchy",
+          "unitize",
+          "transition",
+          "event_graph",
+          "editorial_sequence"
+        ],
+        "invariants": [
+          "品牌身份跨期可追踪",
+          "流/链的边有真实事件依据"
+        ],
+        "ordinary_counterchart": "所有者排序条图+品牌推出点图+收购事件时间线"
+      }
+    },
+    {
+      "id": "dim-sum-multiview-nutrient-composition",
+      "title": "Nutrition, Energy Sources, and Ingredients of Dim Sum",
+      "author": "Kevin Wee 黃克文",
+      "curator_url": "https://www.dkmeco.com/community/visual/detail-988",
+      "primary_url": "https://public.tableau.com/app/profile/kevin.wee/viz/NutritionValuesofDimSumIronVizedition/Dashboard",
+      "business_question": "一餐的营养压力来自哪些菜和食材，如何在分餐或替换方案下改变各项摄入？",
+      "data_relation": "菜品×营养素矩阵；占建议日摄入比例；三大供能成分比例；菜品→食材质量层级；原始与调整情景。",
+      "composition_or_deformation_mechanism": "同一分析对象在热力矩阵、固定花瓣顺序的小多图、三元图、食材树图和半圆放射条之间切换。半圆条沿相同食材顺序排布，旁侧营养属性点列形成混合图；底部把调整值、原值刻度与参照线同轴叠置。",
+      "what_to_borrow": [
+        "先统一比率分母（例如各自建议摄入值），再用颜色/固定顺序做多变量轮廓；花瓣面积并不承担精确数值比较。",
+        "三项非负且合计100%的互斥成分可以投影到三元坐标；否则不选三元图。",
+        "径向变形仍保留对象顺序，并把质量与营养属性分配到不同通道。",
+        "情景对比保留原值刻度，不让筛选后丢失变化参照。"
+      ],
+      "when_not_to_use": [
+        "花瓣/颜色适合模式识别，不适合多个指标的精确差额排名。",
+        "营养素不同单位不能直接相加；日摄入比率分母须分别注明。",
+        "径向长短若起点和尺度不同，会破坏比较；优先提供同序横条替代。",
+        "没有菜品配方和质量明细不能从菜名生成食材归因；营养可视化也不等于医学建议。"
+      ],
+      "verification_level": {
+        "article": {
+          "status": "read",
+          "url": "https://www.dkmeco.com/community/visual/detail-988"
+        },
+        "primary_preview": {
+          "status": "visually_inspected_published_static_export",
+          "preview_url": "https://public.tableau.com/views/NutritionValuesofDimSumIronVizedition/Dashboard.png?:showVizHome=no",
+          "accessed_date": "2026-11-13",
+          "snapshot_sha256": "87a38377637c4c7e90d3203fd850a484b894802e4a105f8185711d59fe079161",
+          "preview_type": "published_static_png_export"
+        },
+        "actual_interaction": {
+          "status": "not_exercised",
+          "detail": "仅查看发布页正文与公开静态导出；未验证筛选、悬停、参数或动画。控件可见不代表交互通过。"
+        },
+        "section_previews": {
+          "status": "visually_inspected",
+          "source_preview_url": "https://public.tableau.com/views/NutritionValuesofDimSumIronVizedition/Dashboard.png?:showVizHome=no",
+          "accessed_date": "2026-11-13",
+          "detail": "本地分段截图源自该已查看的公开PNG；不对应独立交互状态。"
+        },
+        "official_context": {
+          "status": "read",
+          "url": "https://www.tableau.com/blog/top-10-qualifiers-iron-viz-2026"
+        }
+      },
+      "original_explanation": "优秀之处是从模式、组成、来源再到可操作情景逐层换图；不是因为莲花、三角和半圆都漂亮就同时使用。相同数据关系可用矩阵+三元散点+排序横条得到更高精度，装饰变形要额外证明阅读收益。",
+      "decomposition": {
+        "operators": [
+          "matrix",
+          "custom_glyph",
+          "project_ternary",
+          "hierarchy",
+          "project_polar",
+          "layer",
+          "scenario"
+        ],
+        "invariants": [
+          "三元成分总和为100%",
+          "情景保持总量与人均分母的关系",
+          "固定属性顺序与图例"
+        ],
+        "ordinary_counterchart": "热力矩阵+三元散点+食材质量排序条+原值/调整值哑铃"
+      }
+    },
+    {
+      "id": "mars-density-productivity-constraint",
+      "title": "Packing For Mars — IronViz '26 Qualifiers",
+      "author": "Ann Pregler",
+      "curator_url": "https://www.dkmeco.com/community/visual/detail-988",
+      "primary_url": "https://public.tableau.com/app/profile/ann.pregler/viz/PackingForMars-IronViz26/PackingForMars",
+      "business_question": "在种植面积受限时，哪些食物能提供更高的每日营养产出，组合后是否满足各项约束？",
+      "data_relation": "食物的每重量营养含量、单位面积日产量、两者组合的单位面积每日营养供给；营养素分面和情景目标。",
+      "composition_or_deformation_mechanism": "先用带大小编码的蜂群分面暴露营养密度与生产率，再通过三组对照条解释分母转换，最后把面积配置情景投射为各项营养达成比和目标条。",
+      "what_to_borrow": [
+        "把看似冲突的排名追溯到不同分母，再构造与决策资源一致的联合指标。",
+        "多变量图之后用一个可复核的两对象例子解释指标变换。",
+        "情景图连接资源投入、各项产出和目标，不只展示一个总分。"
+      ],
+      "when_not_to_use": [
+        "不同营养素的原始数值和横轴不能不加说明直接比较。",
+        "仅有营养密度而无生长周期、单位面积产量等数据，不能推出面积配置的供给能力。",
+        "圆环超过100%后图形饱和会把113%和177%看成同样满；借鉴时应改用可溢出条或明确封顶与超额数字。",
+        "静态预览中部分正文标签重叠；不能照搬其长画布来宣称手机可用。",
+        "资源配置和营养示例的假设不是实际任务成效证据。"
+      ],
+      "verification_level": {
+        "article": {
+          "status": "read",
+          "url": "https://www.dkmeco.com/community/visual/detail-988"
+        },
+        "primary_preview": {
+          "status": "visually_inspected_published_static_export",
+          "preview_url": "https://public.tableau.com/views/PackingForMars-IronViz26/PackingForMars.png?:showVizHome=no",
+          "accessed_date": "2026-11-13",
+          "snapshot_sha256": "eec550b89391320f8eb0154c91e34a2a372ec7d0d0fe8e70914acc5d4f91c988",
+          "preview_type": "published_static_png_export"
+        },
+        "actual_interaction": {
+          "status": "not_exercised",
+          "detail": "仅查看发布页正文与公开静态导出；未验证筛选、悬停、参数或动画。控件可见不代表交互通过。"
+        },
+        "section_previews": {
+          "status": "visually_inspected",
+          "source_preview_url": "https://public.tableau.com/views/PackingForMars-IronViz26/PackingForMars.png?:showVizHome=no",
+          "accessed_date": "2026-11-13",
+          "detail": "本地分段截图源自该已查看的公开PNG；不对应独立交互状态。"
+        },
+        "official_context": {
+          "status": "read",
+          "url": "https://www.tableau.com/blog/top-10-qualifiers-iron-viz-2026"
+        }
+      },
+      "original_explanation": "真正值得学的是在画图前重建决策分母：每克的高含量未必带来每平方米的高供给。复杂图应服务这个推理，而目标图也必须接受超额、零值和假设边界的反证。",
+      "decomposition": {
+        "operators": [
+          "facet",
+          "beeswarm",
+          "size_encode",
+          "derive_metric",
+          "scenario",
+          "reference_line"
+        ],
+        "invariants": [
+          "含量×产量的单位推导正确",
+          "配置面积和产出按同一时间尺度计算"
+        ],
+        "ordinary_counterchart": "单位面积营养产出排序点图+多目标达成条"
+      }
+    },
+    {
+      "id": "portfolio-price-allocation-crossed-counterfactual",
+      "title": "STOCK PERFOMANCE — Performance",
+      "author": "Seun Adeyemo（优阅达原作链接归属）",
+      "curator_url": "https://www.dkmeco.com/community/visual/detail-982",
+      "primary_url": "https://public.tableau.com/app/profile/bigxpt/viz/STOCKPERFOMANCE/unique",
+      "business_question": "投资组合价值如何变化，持仓集中在哪些资产，价格变化与持股数量变化各带来什么差异？",
+      "data_relation": "组合随时间的价值；资产→持仓金额构成；旧/当前价格×旧/当前股数的2×2组合。",
+      "composition_or_deformation_mechanism": "左侧区间时间线和关键值，中间/右侧持仓树图，底部二维旧/新交叉表。它把价格与数量的两个状态交叉，暴露交互项，而非仅用一个增长百分比解释全部变化。",
+      "what_to_borrow": [
+        "时间变化、集中度和构成因素分别用适合关系的图表达。",
+        "两个乘法因素发生变化时，先列2×2组合验证路径，再选择桥图或归因方法。",
+        "树图强调构成时，可补排序条以支持相近持仓精确对比。"
+      ],
+      "when_not_to_use": [
+        "旧/新价格与旧/新数量的混合情景不是已实现利润。",
+        "股价×股数只在资产和币种口径一致、无现金流遗漏时形成可比组合；分红、交易现金流、拆股与汇率需另外处理。",
+        "2×2对照本身不等于无顺序偏差归因；需明确交互项或分摊规则。",
+        "浅色小字和只靠颜色/面积的图不能直接视为可达性范例。",
+        "原作预览的摘要组合价值与2×2当前价格×当前股数显示值未一致，未核其口径；不可声称已完成勾稽或复用数值。"
+      ],
+      "verification_level": {
+        "article": {
+          "status": "read",
+          "url": "https://www.dkmeco.com/community/visual/detail-982"
+        },
+        "primary_preview": {
+          "status": "visually_inspected_published_static_export",
+          "url": "https://public.tableau.com/views/STOCKPERFOMANCE/unique.png?:showVizHome=no",
+          "preview_url": "https://public.tableau.com/views/STOCKPERFOMANCE/unique.png?:showVizHome=no",
+          "accessed_date": "2026-11-13",
+          "snapshot_sha256": "3a80448fd91311dc80d7fa4b03e012685fdd36b76b6c083184d23a2bd9e76ad4",
+          "preview_type": "published_static_png_export"
+        },
+        "actual_interaction": {
+          "status": "not_exercised",
+          "detail": "仅查看发布页正文与公开静态导出；未验证筛选、悬停、参数或动画。控件可见不代表交互通过。"
+        }
+      },
+      "original_explanation": "这个案例可迁移到收入=单价×数量、GMV=订单数×客单价等问题。应学会构造交叉反事实检查，而不是照抄金融指标、配色或把变化都归给价格。",
+      "decomposition": {
+        "operators": [
+          "time_series",
+          "hierarchy",
+          "cross_scenario",
+          "factor_compare"
+        ],
+        "invariants": [
+          "混合情景与真实观测分开",
+          "相同资产集合和估值口径"
+        ],
+        "ordinary_counterchart": "价值趋势+持仓排序条+2×2价格数量表"
+      }
+    }
+  ],
+  "excluded_or_limited_access": [
+    {
+      "id": "bananas",
+      "title": "The World is Going Bananas",
+      "author": "Stephen Detzel",
+      "primary_url": "https://public.tableau.com/app/profile/stephendetzel/viz/TheWorldisGoingBananas/TheWorldisGoingBananas",
+      "reason": "只见封面/导航，不推断未看到的分析章节，不计入候选。"
+    },
+    {
+      "id": "tuna",
+      "title": "The Global Story of Tuna",
+      "author": "Hideaki Yamamoto / Chasoso",
+      "primary_url": "https://public.tableau.com/app/profile/hideaki.y/viz/TunaWorld/Page1",
+      "reason": "只见封面/下一页入口，不推断未看到的分析章节，不计入候选。"
+    },
+    {
+      "id": "superstore-metrics",
+      "title": "Superstore Metric Analysis",
+      "author": "Adrian Zinovei",
+      "primary_url": "https://public.tableau.com/app/profile/adrian.zinovei/viz/SuperstoreMetricAnalysis_17403598546510/VISUAL",
+      "reason": "已见原作静态预览，但主要是常规柱图/KPI/地图的风格排布；对本轮自主组合推理增量弱，未为凑数纳入。"
+    }
+  ]
+}

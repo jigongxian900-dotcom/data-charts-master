@@ -12,3 +12,5 @@ Ideas studied include business-question-led composition, direct annotation, char
 These references are not endorsements or dependencies. Their own licenses govern their materials. Three numerical comparison datasets used in private development have been replaced with fresh original synthetic values for this public edition.
 
 All palettes are original general-purpose color systems. All operating values are fictional and do not describe any company.
+
+The mechanism index in `references/inspiration-library.json` links nine specific works discovered through [DKMECO](https://www.dkmeco.com/community/visual) and Tableau Public. It records observations, evidence boundaries and counterexamples. No workbook, image, template or implementation from those works is redistributed.

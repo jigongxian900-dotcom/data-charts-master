@@ -1,0 +1,246 @@
+{
+  "synthetic": true,
+  "cutoff": "2026-11-12",
+  "event_period": "2026-10",
+  "source_rows": {
+    "stage_events": 12,
+    "renewal_cohorts": 9
+  },
+  "formula": "sum(renewed_by_due_n for mature cohorts) / sum(eligible_n for mature cohorts)",
+  "mature_definition": "renewal_due_date <= cutoff; validated eligible_n == cohort_n",
+  "conversion_trial_to_paid": null,
+  "conversion_status": "not_identifiable_no_customer_linkage",
+  "flow_status": "unsupported_independent_repeatable_stage_event_counts",
+  "priority_product": "Comet",
+  "products": [
+    {
+      "product": "Atlas",
+      "eligible": 100,
+      "renewed": 72,
+      "rate": 0.72,
+      "not_renewed_by_due": 28,
+      "immature_cohort_n": 250,
+      "early_renewed_n": 6,
+      "priority": false
+    },
+    {
+      "product": "Beacon",
+      "eligible": 80,
+      "renewed": 64,
+      "rate": 0.8,
+      "not_renewed_by_due": 16,
+      "immature_cohort_n": 210,
+      "early_renewed_n": 5,
+      "priority": false
+    },
+    {
+      "product": "Comet",
+      "eligible": 40,
+      "renewed": 12,
+      "rate": 0.3,
+      "not_renewed_by_due": 28,
+      "immature_cohort_n": 130,
+      "early_renewed_n": 4,
+      "priority": true
+    }
+  ],
+  "cohorts": [
+    {
+      "product": "Atlas",
+      "first_paid_cohort": "2026-08-01",
+      "renewal_due_date": "2026-10-30",
+      "cohort_n": 100,
+      "eligible_n": 100,
+      "renewed_by_due_n": 72,
+      "early_renewed_n": 0,
+      "mature": true,
+      "rate": 0.72
+    },
+    {
+      "product": "Atlas",
+      "first_paid_cohort": "2026-09-01",
+      "renewal_due_date": "2026-11-30",
+      "cohort_n": 120,
+      "eligible_n": 0,
+      "renewed_by_due_n": null,
+      "early_renewed_n": 6,
+      "mature": false,
+      "rate": null
+    },
+    {
+      "product": "Atlas",
+      "first_paid_cohort": "2026-10-01",
+      "renewal_due_date": "2026-12-30",
+      "cohort_n": 130,
+      "eligible_n": 0,
+      "renewed_by_due_n": null,
+      "early_renewed_n": 0,
+      "mature": false,
+      "rate": null
+    },
+    {
+      "product": "Beacon",
+      "first_paid_cohort": "2026-08-01",
+      "renewal_due_date": "2026-10-30",
+      "cohort_n": 80,
+      "eligible_n": 80,
+      "renewed_by_due_n": 64,
+      "early_renewed_n": 0,
+      "mature": true,
+      "rate": 0.8
+    },
+    {
+      "product": "Beacon",
+      "first_paid_cohort": "2026-09-01",
+      "renewal_due_date": "2026-11-30",
+      "cohort_n": 100,
+      "eligible_n": 0,
+      "renewed_by_due_n": null,
+      "early_renewed_n": 5,
+      "mature": false,
+      "rate": null
+    },
+    {
+      "product": "Beacon",
+      "first_paid_cohort": "2026-10-01",
+      "renewal_due_date": "2026-12-30",
+      "cohort_n": 110,
+      "eligible_n": 0,
+      "renewed_by_due_n": null,
+      "early_renewed_n": 0,
+      "mature": false,
+      "rate": null
+    },
+    {
+      "product": "Comet",
+      "first_paid_cohort": "2026-08-01",
+      "renewal_due_date": "2026-10-30",
+      "cohort_n": 40,
+      "eligible_n": 40,
+      "renewed_by_due_n": 12,
+      "early_renewed_n": 0,
+      "mature": true,
+      "rate": 0.3
+    },
+    {
+      "product": "Comet",
+      "first_paid_cohort": "2026-09-01",
+      "renewal_due_date": "2026-11-30",
+      "cohort_n": 60,
+      "eligible_n": 0,
+      "renewed_by_due_n": null,
+      "early_renewed_n": 4,
+      "mature": false,
+      "rate": null
+    },
+    {
+      "product": "Comet",
+      "first_paid_cohort": "2026-10-01",
+      "renewal_due_date": "2026-12-30",
+      "cohort_n": 70,
+      "eligible_n": 0,
+      "renewed_by_due_n": null,
+      "early_renewed_n": 0,
+      "mature": false,
+      "rate": null
+    }
+  ],
+  "stage_events": [
+    {
+      "product": "Atlas",
+      "period": "2026-10",
+      "stage": "trial",
+      "event_n": 1200
+    },
+    {
+      "product": "Atlas",
+      "period": "2026-10",
+      "stage": "activation",
+      "event_n": 720
+    },
+    {
+      "product": "Atlas",
+      "period": "2026-10",
+      "stage": "payment",
+      "event_n": 300
+    },
+    {
+      "product": "Atlas",
+      "period": "2026-10",
+      "stage": "renewal",
+      "event_n": 260
+    },
+    {
+      "product": "Beacon",
+      "period": "2026-10",
+      "stage": "trial",
+      "event_n": 400
+    },
+    {
+      "product": "Beacon",
+      "period": "2026-10",
+      "stage": "activation",
+      "event_n": 140
+    },
+    {
+      "product": "Beacon",
+      "period": "2026-10",
+      "stage": "payment",
+      "event_n": 200
+    },
+    {
+      "product": "Beacon",
+      "period": "2026-10",
+      "stage": "renewal",
+      "event_n": 190
+    },
+    {
+      "product": "Comet",
+      "period": "2026-10",
+      "stage": "trial",
+      "event_n": 600
+    },
+    {
+      "product": "Comet",
+      "period": "2026-10",
+      "stage": "activation",
+      "event_n": 390
+    },
+    {
+      "product": "Comet",
+      "period": "2026-10",
+      "stage": "payment",
+      "event_n": 150
+    },
+    {
+      "product": "Comet",
+      "period": "2026-10",
+      "stage": "renewal",
+      "event_n": 80
+    }
+  ],
+  "geometry": {
+    "rate_scale": [
+      0,
+      1
+    ],
+    "desktop_track": [
+      190,
+      700
+    ],
+    "mobile_track": [
+      24,
+      306
+    ],
+    "desktop_point_x": {
+      "Atlas": 557.2,
+      "Beacon": 598.0,
+      "Comet": 343.0
+    },
+    "mobile_point_x": {
+      "Atlas": 227.04,
+      "Beacon": 249.60000000000002,
+      "Comet": 108.6
+    }
+  }
+}

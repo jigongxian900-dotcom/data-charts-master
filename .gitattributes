@@ -2,3 +2,6 @@
 *.png binary
 *.gif binary
 *.zip binary
+# Reviewed worked examples retain exact source, HTML and calculation bytes.
+examples/autonomy/** -text whitespace=trailing-space,space-before-tab,cr-at-eol
+docs/autonomy/*.html -text whitespace=trailing-space,space-before-tab,cr-at-eol

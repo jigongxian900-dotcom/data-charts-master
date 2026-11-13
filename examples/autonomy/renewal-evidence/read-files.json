@@ -1,0 +1,63 @@
+{
+  "boundary": "Portable fixed-source worked example. Original independent-production audit is retained separately.",
+  "files": [
+    {
+      "kind": "input",
+      "role": "input",
+      "path": "renewal_cohorts.csv",
+      "sha256": "2334433075b4556d886acaf8bd113fb7ad6a9a819d57fdbefff71b6b819abbe5"
+    },
+    {
+      "kind": "input",
+      "role": "input",
+      "path": "stage_events.csv",
+      "sha256": "65583d069a51e1336c325be4b5ecdef4198c54b5078d52901e1235a1854400ef"
+    },
+    {
+      "kind": "input",
+      "role": "input",
+      "path": "task.md",
+      "sha256": "6bc92e6c3512b2780e8c30859765affa5f1eb991b49ac0098526ab2aa86a8c1d"
+    },
+    {
+      "kind": "skill",
+      "role": "skill",
+      "path": "SKILL.md",
+      "relative_path": "SKILL.md",
+      "sha256": "c6c56831820be2e563ea88e962d64b88004c7a6464690cb8489da392e8848e4d",
+      "encoding": "LF-normalized UTF-8; input files retain raw bytes"
+    },
+    {
+      "kind": "skill",
+      "role": "skill",
+      "path": "references/business-question-selection.md",
+      "relative_path": "references/business-question-selection.md",
+      "sha256": "731159835a85f333faf080ec74db34346644e51f906ae87bbca2cb44bec4cf91",
+      "encoding": "LF-normalized UTF-8; input files retain raw bytes"
+    },
+    {
+      "kind": "skill",
+      "role": "skill",
+      "path": "references/composition-reasoning.md",
+      "relative_path": "references/composition-reasoning.md",
+      "sha256": "e9ec5220e6bda625c509e0565966f3d395fed51837e0db8d13277c2b3e1ec8e7",
+      "encoding": "LF-normalized UTF-8; input files retain raw bytes"
+    },
+    {
+      "kind": "skill",
+      "role": "skill",
+      "path": "references/art-direction.md",
+      "relative_path": "references/art-direction.md",
+      "sha256": "5a55b287b1b4aee1c687b7d7c5bd4ea9b9219490dccbdd603ec64fd5c7338ece",
+      "encoding": "LF-normalized UTF-8; input files retain raw bytes"
+    },
+    {
+      "kind": "skill",
+      "role": "skill",
+      "path": "references/html-delivery.md",
+      "relative_path": "references/html-delivery.md",
+      "sha256": "ebbefa2bc0df0d0a698c16495dd31740ec1b32033a8c418f9edda72df7cf4afe",
+      "encoding": "LF-normalized UTF-8; input files retain raw bytes"
+    }
+  ]
+}

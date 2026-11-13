@@ -1,5 +1,17 @@
 # Public-release validation
 
+## 5.2 composition candidate
+
+Checked locally on 2026-11-13: all 76 behavioral tests passed, including 25 new custom-renderer and geometry tests. Default report, presentation and operating-story output was byte-identical to the 5.1.0 baseline. The 54-case release hygiene check also passed. These results verify contracts and compatibility; they do not score autonomous analysis or aesthetics.
+
+The mechanism library records nine works: eight original static previews inspected, one curator-only case, no original interactions exercised. No third-party artwork, workbook or template is bundled.
+
+Fresh-task production and independent review are separate acceptance gates. Historical scores are not inherited. Three fresh contexts completed two genuine compound/transformed encodings and one valid rejection of unsupported flow. Initial review failed the expanded layout and print-data retention checks. Two same-task technical repairs were independently retested at 320/390/1440; inputs, calculations, original planning and decisions remained byte-identical, with the first failures retained. Repairs are not new unfamiliar tasks.
+
+Portable worked examples are in `examples/autonomy/`, mirrored under `docs/autonomy/`. Only file locations and provenance guards were adapted; all three rebuilt HTML and computed outputs match the reviewed artifacts byte for byte. [Reproduction hashes](autonomy/reproduction.json) bind these examples. These observations cover those task domains and mechanisms, not arbitrary chart mastery. New tests can be reproduced with `python scripts/test_custom_chart.py` and `python scripts/test_chart_geometry.py`; the existing continuous-check configuration remains unchanged.
+
+## Retained 5.1 observations
+
 Checked 2026-11-12 against the 5.1.0 release candidate. These are reproducible engineering checks and scoped browser observations, not external certification or user aesthetic acceptance.
 
 | Check | Result | Scope |

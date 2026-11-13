@@ -117,7 +117,25 @@ python scripts/compose_html.py examples/composed/source.json --mode report --the
 python scripts/compose_html.py examples/composed/source.json --mode slides --theme ruby --out slides.html
 ```
 
-These modes use the same six-kind input contract. Narrative comes from the supplied input. Review titles and business explanations after changing values. The HTML presentation is not a native editable PowerPoint file. See [the composition guide](references/composed-outputs.md).
+These modes accept the six built-in contracts, with an optional author-side registry for new encodings. Narrative comes from the supplied input. Review titles and business explanations after changing values. The HTML presentation is not a native editable PowerPoint file. See [the composition guide](references/composed-outputs.md).
+
+## Design beyond the atlas
+
+The 54 examples are craft references. Start with relationships that must be seen together, then choose marks, shared scales, layers, facets and coordinate or hierarchy transformations. An absent chart name is not a capability limit. Reject an elaborate design when its data conditions do not hold.
+
+The optional author-side renderer accepts original SVG compositions while retaining source-row coverage, exact data, mobile variants and complete static exports. Geometry utilities supply scales, area-correct sectors and hierarchy partitions; they do not choose the business analysis.
+
+[Composition reasoning](references/composition-reasoning.md) · [Nine-work mechanism library](references/inspiration-library.json) · [Using inspiration](references/inspiration-use.md) · [Custom renderers](references/custom-renderers.md)
+
+Eight original static previews were inspected; one work has curator-only evidence. Original interactions were not exercised. The library distributes links and original mechanism analysis, not third-party artwork or templates.
+
+### Three unfamiliar worked tasks
+
+Independent fresh contexts produced two meaningful compound or transformed encodings and one valid refusal of unsupported flow. Initial review found expanded-layout and print defects. Those failures were retained, then repaired and retested on the same tasks; repairs did not increase the unfamiliar-task count.
+
+[Cycle and hierarchy](https://jigongxian900-dotcom.github.io/data-charts-master/autonomy/energy-cycle.html) · [Quality and observation coverage](https://jigongxian900-dotcom.github.io/data-charts-master/autonomy/quality-support.html) · [Refusing invalid flow](https://jigongxian900-dotcom.github.io/data-charts-master/autonomy/renewal-evidence.html)
+
+Sources and portable producers live in `examples/autonomy/`. Their rebuilt HTML and calculations match the reviewed artifacts byte for byte. These are fixed synthetic worked examples, not new arbitrary-input templates. Independent AI review is not external certification.
 
 ## Scope and license
 
@@ -125,7 +143,7 @@ The 54 examples use fixed synthetic datasets. They do not form an arbitrary-JSON
 
 PPTX guidance requires a separate authoring tool and actual editing checks. The repository does not include a fully native-editable 54-slide deck. The gallery is Chinese-first. This English README does not imply a fully translated chart gallery.
 
-All values are synthetic. They do not describe any company's operations. Original code, documents, palettes and data use **MIT**, including commercial use and modification.
+Our operating examples use synthetic values and do not describe any company's operations. Original code, documents, palettes and synthetic data use **MIT**, including commercial use and modification. Third-party works linked in the inspiration library retain their own rights and licenses.
 
 [Validation](docs/validation.md) · [Capability boundaries](references/capability-evidence.md) · [Contributing](CONTRIBUTING.md)
 

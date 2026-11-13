@@ -10,6 +10,7 @@ import re
 import sys
 
 from chart_html import CSS, KIND_NAMES, canonical, digest, esc, fmt, require, svg_chart, theme_css, validate
+from custom_chart import registry_for, render_variant, validate_spec
 
 
 def data_url(content, media):
@@ -28,11 +29,13 @@ def static_svg(svg, theme, chart=None):
     metadata = ''
     if chart is not None:
         metadata = f'<desc>来源：{esc(chart["source"])}；期间：{esc(chart["period"])}；范围：{esc(chart["scope"])}；单位：{esc(chart["unit"])}。缺失值未替换为零。</desc><metadata id="chart-source">{esc(canonical(chart))}</metadata>'
-    return svg.replace('<svg ', '<svg xmlns="http://www.w3.org/2000/svg" ', 1).replace('>', '>' + style + metadata, 1)
+    if not re.search(r'<svg\b[^>]*\bxmlns=', svg):
+        svg = svg.replace('<svg ', '<svg xmlns="http://www.w3.org/2000/svg" ', 1)
+    return svg.replace('>', '>' + style + metadata, 1)
 
 
-def validate_composition(spec):
-    result = validate(spec)
+def validate_composition(spec, renderers=None):
+    result = validate_spec(spec, renderers)
     composition = spec.get('composition', {})
     require(isinstance(composition, dict), 'composition must be an object')
     for key in ['subtitle', 'summary', 'closing']:
@@ -66,7 +69,9 @@ def sections_for(spec):
     return result
 
 
-def chart_panel(c, index, theme):
+def chart_panel(c, index, theme, renderer=None):
+    if renderer is not None:
+        return custom_chart_panel(c, index, theme, renderer)
     desktop, ledger = svg_chart(c)
     mobile, mobile_ledger = svg_chart(c, True)
     compact, compact_ledger = svg_chart(c, compact=True)
@@ -89,6 +94,31 @@ def chart_panel(c, index, theme):
     panel = f'<article class="chart-panel kind-{c["kind"]}" data-chart-id="{esc(c["id"])}"><div class="chart-heading"><span class="eyebrow">{index:02d} / {KIND_NAMES[c["kind"]]}</span><h3>{esc(c["title"])}</h3><p class="question">{esc(c["question"])}</p><p class="scope">{esc(c["period"])} · {esc(unit)}</p>{claims}</div><figure>{desktop}{mobile}<figcaption>{esc(notes)}</figcaption></figure><p class="provenance">来源：{esc(c["source"])}<br>期间：{esc(c["period"])} · 范围：{esc(c["scope"])} · 单位：{esc(unit)}</p><div class="chart-tools"><a href="{export}" download="chart-{index:02d}.svg">下载静态SVG</a>{table}</div></article>'
     panel=panel.replace(f'{desktop}{mobile}',f'{desktop}{mobile}<div class="compact-chart">{compact}</div>')
     return panel, {'desktop': ledger, 'mobile': mobile_ledger, 'compact': compact_ledger, 'data_sha256': digest(c['rows'])}
+
+
+def custom_chart_panel(c, index, theme, renderer):
+    variants = {variant: render_variant(c, renderer, variant, theme)
+                for variant in ['desktop', 'mobile', 'compact']}
+    desktop = variants['desktop']
+    for result in variants.values():
+        require(canonical(sorted(result.coverage, key=lambda row: row['row_index'])) == canonical(sorted(desktop.coverage, key=lambda row: row['row_index'])), 'custom variants must preserve the same coverage')
+        require(result.table_fields == desktop.table_fields, 'custom variants must preserve the same table fields')
+    fields = desktop.table_fields
+    heads = ''.join(f'<th scope="col">{esc(k)}</th>' for k in fields)
+    rows = ''.join('<tr>' + ''.join(f'<td>{esc(fmt(row.get(k))) if k in row else "未提供字段"}</td>' for k in fields) + '</tr>' for row in c['rows'])
+    notes = c.get('note', '')
+    require(isinstance(notes, str), 'custom note must be text')
+    for status, name in [('missing', '缺失'), ('excluded', '排除')]:
+        records = [item for item in desktop.coverage if item['status'] == status]
+        if records:
+            notes += f' {name}{len(records)}条：' + '；'.join(f'第{item["row_index"]+1}条 {item["reason"]}' for item in records) + '。'
+    table = f'<details class="source-table"><summary>同源数据 · {len(c["rows"])}条</summary><div class="table-scroll"><table><caption>{esc(c["scope"])} · {esc(c["unit"])}</caption><thead><tr>{heads}</tr></thead><tbody>{rows}</tbody></table></div></details>'
+    export = data_url(static_svg(desktop.export_svg, theme, c), 'image/svg+xml;charset=utf-8')
+    panel = f'<article class="chart-panel kind-{esc(c["kind"])}" data-chart-id="{esc(c["id"])}"><div class="chart-heading"><span class="eyebrow">{index:02d} / {esc(renderer.label)}</span><h3>{esc(c["title"])}</h3><p class="question">{esc(c["question"])}</p><p class="scope">{esc(c["period"])} · {esc(c["unit"])}</p></div><figure>{desktop.svg}{variants["mobile"].svg}<div class="compact-chart">{variants["compact"].svg}</div><figcaption>{esc(notes)}</figcaption></figure><p class="provenance">来源：{esc(c["source"])}<br>期间：{esc(c["period"])} · 范围：{esc(c["scope"])} · 单位：{esc(c["unit"])}</p><div class="chart-tools"><a href="{export}" download="chart-{index:02d}.svg">下载静态SVG</a>{table}</div></article>'
+    ledger = {variant: result.ledger for variant, result in variants.items()}
+    ledger.update(coverage=desktop.coverage, table_fields=fields, data_sha256=digest(c['rows']),
+                  export={'variant': 'desktop', 'coverage': desktop.coverage, 'data_sha256': digest(c['rows'])})
+    return panel, ledger
 
 
 COMPOSE_CSS = r'''
@@ -134,14 +164,15 @@ document.documentElement.dataset.composeReady='true';
 '''
 
 
-def build(spec, mode='report', theme=None):
-    result = validate_composition(spec)
+def build(spec, mode='report', theme=None, *, renderers=None):
+    result = validate_composition(spec, renderers)
+    registry = registry_for(renderers)
     require(mode in {'report', 'slides'}, 'mode must be report or slides')
     selected = theme_css(theme or spec.get('theme', 'tidal'))
     composition = spec.get('composition', {})
     panels, ledgers, resources = {}, {}, []
     for i, c in enumerate(spec['charts'], 1):
-        panels[c['id']], ledgers[c['id']] = chart_panel(c, i, selected)
+        panels[c['id']], ledgers[c['id']] = chart_panel(c, i, selected, registry.get(c['kind']))
         if mode == 'slides':
             panel, tools = panels[c['id']].rsplit('<div class="chart-tools">', 1)
             panels[c['id']] = panel + '</article>'

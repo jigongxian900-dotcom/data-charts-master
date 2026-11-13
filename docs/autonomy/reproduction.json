@@ -1,0 +1,14 @@
+{
+  "energy-cycle": {
+    "html_sha256": "4c3b24f4ec671ce49baf1711a0f9fe86d71b207010ee3fb8264d787b1ac1e62c",
+    "computed_identical": true
+  },
+  "renewal-evidence": {
+    "html_sha256": "8e2111326beb63cbb38e7cff16edc0fad03bd3949605ed0948e75095c0e6d21f",
+    "computed_identical": true
+  },
+  "quality-support": {
+    "html_sha256": "e1826b5059b1aeb8ef6f4c6a3e4cfec8635a003be37b770305c6e672648bbc39",
+    "computed_identical": true
+  }
+}

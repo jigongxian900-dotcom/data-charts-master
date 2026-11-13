@@ -1,0 +1,1619 @@
+{
+  "synthetic": true,
+  "cutoff": "2026-11-13",
+  "current_start": "2026-11-02",
+  "prior_start": "2026-10-05",
+  "source_sha256": "bc6d7ac86ff2f921984171562d605f918b2b1af271db28aa0db653732c5af169",
+  "source_rows": 146,
+  "units": [
+    {
+      "unit": "Press-C",
+      "current": {
+        "days": 6,
+        "start": "2026-11-02",
+        "end": "2026-11-07",
+        "produced_n": 1440,
+        "inspected_n": 630,
+        "scrap_n": 42,
+        "rework_n": 21,
+        "abnormal_n": 63,
+        "abnormal_rate": 0.1,
+        "known_rework_hours": 5.25,
+        "rework_hours_missing_days": 0,
+        "rework_hours_total": 5.25
+      },
+      "prior_aligned": {
+        "days": 6,
+        "start": "2026-10-05",
+        "end": "2026-10-10",
+        "produced_n": 1440,
+        "inspected_n": 630,
+        "scrap_n": 7,
+        "rework_n": 14,
+        "abnormal_n": 21,
+        "abnormal_rate": 0.03333333333333333,
+        "known_rework_hours": 3.5,
+        "rework_hours_missing_days": 0,
+        "rework_hours_total": 3.5
+      },
+      "change_pp": 6.666666666666668,
+      "benchmark_rate": 0.02,
+      "benchmark_abnormal_n": 12.6,
+      "excess_abnormal_n": 50.4,
+      "priority_daily_excess": 8.4,
+      "priority_exact_decimal": "8.40",
+      "priority_exact": "8.4",
+      "priority_fraction": "42/5",
+      "priority_repeating": false,
+      "coverage_dates": [
+        "2026-11-02",
+        "2026-11-03",
+        "2026-11-04",
+        "2026-11-05",
+        "2026-11-06",
+        "2026-11-07"
+      ],
+      "missing_after_last": [
+        "2026-11-08",
+        "2026-11-09",
+        "2026-11-10",
+        "2026-11-11",
+        "2026-11-12",
+        "2026-11-13"
+      ],
+      "rank": 1,
+      "selected": true,
+      "geometry": {
+        "current_x": 700.0,
+        "prior_x": 380.0,
+        "circle_r": 7.379024325749306
+      }
+    },
+    {
+      "unit": "Kiln-A",
+      "current": {
+        "days": 8,
+        "start": "2026-11-02",
+        "end": "2026-11-09",
+        "produced_n": 3240,
+        "inspected_n": 1500,
+        "scrap_n": 40,
+        "rework_n": 50,
+        "abnormal_n": 90,
+        "abnormal_rate": 0.06,
+        "known_rework_hours": 11.25,
+        "rework_hours_missing_days": 1,
+        "rework_hours_total": null
+      },
+      "prior_aligned": {
+        "days": 8,
+        "start": "2026-10-05",
+        "end": "2026-10-12",
+        "produced_n": 3240,
+        "inspected_n": 1500,
+        "scrap_n": 70,
+        "rework_n": 50,
+        "abnormal_n": 120,
+        "abnormal_rate": 0.08,
+        "known_rework_hours": 12.5,
+        "rework_hours_missing_days": 0,
+        "rework_hours_total": 12.5
+      },
+      "change_pp": -2.0000000000000004,
+      "benchmark_rate": 0.02,
+      "benchmark_abnormal_n": 30.0,
+      "excess_abnormal_n": 60.0,
+      "priority_daily_excess": 7.5,
+      "priority_exact_decimal": "7.50",
+      "priority_exact": "7.5",
+      "priority_fraction": "15/2",
+      "priority_repeating": false,
+      "coverage_dates": [
+        "2026-11-02",
+        "2026-11-03",
+        "2026-11-04",
+        "2026-11-05",
+        "2026-11-06",
+        "2026-11-07",
+        "2026-11-08",
+        "2026-11-09"
+      ],
+      "missing_after_last": [
+        "2026-11-10",
+        "2026-11-11",
+        "2026-11-12",
+        "2026-11-13"
+      ],
+      "rank": 2,
+      "selected": true,
+      "geometry": {
+        "current_x": 507.99999999999994,
+        "prior_x": 604.0,
+        "circle_r": 11.386081729148845
+      }
+    },
+    {
+      "unit": "Glaze-B",
+      "current": {
+        "days": 12,
+        "start": "2026-11-02",
+        "end": "2026-11-13",
+        "produced_n": 11560,
+        "inspected_n": 5600,
+        "scrap_n": 42,
+        "rework_n": 126,
+        "abnormal_n": 168,
+        "abnormal_rate": 0.03,
+        "known_rework_hours": 31.5,
+        "rework_hours_missing_days": 0,
+        "rework_hours_total": 31.5
+      },
+      "prior_aligned": {
+        "days": 12,
+        "start": "2026-10-05",
+        "end": "2026-10-16",
+        "produced_n": 11560,
+        "inspected_n": 5600,
+        "scrap_n": 0,
+        "rework_n": 0,
+        "abnormal_n": 0,
+        "abnormal_rate": 0.0,
+        "known_rework_hours": 0.0,
+        "rework_hours_missing_days": 0,
+        "rework_hours_total": 0.0
+      },
+      "change_pp": 3.0,
+      "benchmark_rate": 0.02,
+      "benchmark_abnormal_n": 112.0,
+      "excess_abnormal_n": 56.0,
+      "priority_daily_excess": 4.666666666666667,
+      "priority_exact_decimal": "4.666666666666666666666666667",
+      "priority_exact": "14/3",
+      "priority_fraction": "14/3",
+      "priority_repeating": true,
+      "coverage_dates": [
+        "2026-11-02",
+        "2026-11-03",
+        "2026-11-04",
+        "2026-11-05",
+        "2026-11-06",
+        "2026-11-07",
+        "2026-11-08",
+        "2026-11-09",
+        "2026-11-10",
+        "2026-11-11",
+        "2026-11-12",
+        "2026-11-13"
+      ],
+      "missing_after_last": [],
+      "rank": 3,
+      "selected": false,
+      "geometry": {
+        "current_x": 364.0,
+        "prior_x": 220.0,
+        "circle_r": 22.0
+      }
+    },
+    {
+      "unit": "Polish-D",
+      "current": {
+        "days": 12,
+        "start": "2026-11-02",
+        "end": "2026-11-13",
+        "produced_n": 3160,
+        "inspected_n": 1400,
+        "scrap_n": 0,
+        "rework_n": 14,
+        "abnormal_n": 14,
+        "abnormal_rate": 0.01,
+        "known_rework_hours": 3.5,
+        "rework_hours_missing_days": 0,
+        "rework_hours_total": 3.5
+      },
+      "prior_aligned": {
+        "days": 12,
+        "start": "2026-10-05",
+        "end": "2026-10-16",
+        "produced_n": 3160,
+        "inspected_n": 1400,
+        "scrap_n": 14,
+        "rework_n": 14,
+        "abnormal_n": 28,
+        "abnormal_rate": 0.02,
+        "known_rework_hours": 3.5,
+        "rework_hours_missing_days": 0,
+        "rework_hours_total": 3.5
+      },
+      "change_pp": -1.0,
+      "benchmark_rate": 0.02,
+      "benchmark_abnormal_n": 28.0,
+      "excess_abnormal_n": 0.0,
+      "priority_daily_excess": 0.0,
+      "priority_exact_decimal": "0",
+      "priority_exact": "0",
+      "priority_fraction": "0",
+      "priority_repeating": false,
+      "coverage_dates": [
+        "2026-11-02",
+        "2026-11-03",
+        "2026-11-04",
+        "2026-11-05",
+        "2026-11-06",
+        "2026-11-07",
+        "2026-11-08",
+        "2026-11-09",
+        "2026-11-10",
+        "2026-11-11",
+        "2026-11-12",
+        "2026-11-13"
+      ],
+      "missing_after_last": [],
+      "rank": 4,
+      "selected": false,
+      "geometry": {
+        "current_x": 268.0,
+        "prior_x": 316.0,
+        "circle_r": 11.0
+      }
+    }
+  ],
+  "method": {
+    "rate": "sum(scrap_n+rework_n)/sum(inspected_n)",
+    "priority": "max(sum(scrap_n+rework_n)-0.02*sum(inspected_n),0)/complete_contiguous_days",
+    "prior_alignment": "2026-10-05 + N consecutive calendar days; N=current complete contiguous observation days",
+    "scale_note": "inspected_n is denominator; produced_n is not denominator. Rework hours unknown does not invalidate inspection counts."
+  },
+  "hours": {
+    "known_subtotal": 51.5,
+    "missing_records": [
+      {
+        "unit": "Kiln-A",
+        "date": "2026-11-05",
+        "rework_n": 5
+      }
+    ],
+    "all_units_total": null,
+    "claim_complete": false
+  },
+  "raw_records": [
+    {
+      "unit": "Kiln-A",
+      "date": "2026-10-05",
+      "produced_n": 330,
+      "inspected_n": 150,
+      "scrap_n": 7,
+      "rework_n": 5,
+      "rework_hours": 1.25
+    },
+    {
+      "unit": "Kiln-A",
+      "date": "2026-10-06",
+      "produced_n": 330,
+      "inspected_n": 150,
+      "scrap_n": 7,
+      "rework_n": 5,
+      "rework_hours": 1.25
+    },
+    {
+      "unit": "Kiln-A",
+      "date": "2026-10-07",
+      "produced_n": 330,
+      "inspected_n": 150,
+      "scrap_n": 7,
+      "rework_n": 5,
+      "rework_hours": 1.25
+    },
+    {
+      "unit": "Kiln-A",
+      "date": "2026-10-08",
+      "produced_n": 330,
+      "inspected_n": 150,
+      "scrap_n": 7,
+      "rework_n": 5,
+      "rework_hours": 1.25
+    },
+    {
+      "unit": "Kiln-A",
+      "date": "2026-10-09",
+      "produced_n": 330,
+      "inspected_n": 150,
+      "scrap_n": 7,
+      "rework_n": 5,
+      "rework_hours": 1.25
+    },
+    {
+      "unit": "Kiln-A",
+      "date": "2026-10-10",
+      "produced_n": 630,
+      "inspected_n": 300,
+      "scrap_n": 14,
+      "rework_n": 10,
+      "rework_hours": 2.5
+    },
+    {
+      "unit": "Kiln-A",
+      "date": "2026-10-11",
+      "produced_n": 630,
+      "inspected_n": 300,
+      "scrap_n": 14,
+      "rework_n": 10,
+      "rework_hours": 2.5
+    },
+    {
+      "unit": "Kiln-A",
+      "date": "2026-10-12",
+      "produced_n": 330,
+      "inspected_n": 150,
+      "scrap_n": 7,
+      "rework_n": 5,
+      "rework_hours": 1.25
+    },
+    {
+      "unit": "Kiln-A",
+      "date": "2026-10-13",
+      "produced_n": 330,
+      "inspected_n": 150,
+      "scrap_n": 7,
+      "rework_n": 5,
+      "rework_hours": 1.25
+    },
+    {
+      "unit": "Kiln-A",
+      "date": "2026-10-14",
+      "produced_n": 330,
+      "inspected_n": 150,
+      "scrap_n": 7,
+      "rework_n": 5,
+      "rework_hours": 1.25
+    },
+    {
+      "unit": "Kiln-A",
+      "date": "2026-10-15",
+      "produced_n": 330,
+      "inspected_n": 150,
+      "scrap_n": 7,
+      "rework_n": 5,
+      "rework_hours": 1.25
+    },
+    {
+      "unit": "Kiln-A",
+      "date": "2026-10-16",
+      "produced_n": 330,
+      "inspected_n": 150,
+      "scrap_n": 7,
+      "rework_n": 5,
+      "rework_hours": 1.25
+    },
+    {
+      "unit": "Kiln-A",
+      "date": "2026-10-17",
+      "produced_n": 630,
+      "inspected_n": 300,
+      "scrap_n": 0,
+      "rework_n": 2,
+      "rework_hours": 0.5
+    },
+    {
+      "unit": "Kiln-A",
+      "date": "2026-10-18",
+      "produced_n": 630,
+      "inspected_n": 300,
+      "scrap_n": 0,
+      "rework_n": 2,
+      "rework_hours": 0.5
+    },
+    {
+      "unit": "Kiln-A",
+      "date": "2026-10-19",
+      "produced_n": 330,
+      "inspected_n": 150,
+      "scrap_n": 0,
+      "rework_n": 1,
+      "rework_hours": 0.25
+    },
+    {
+      "unit": "Kiln-A",
+      "date": "2026-10-20",
+      "produced_n": 330,
+      "inspected_n": 150,
+      "scrap_n": 0,
+      "rework_n": 1,
+      "rework_hours": 0.25
+    },
+    {
+      "unit": "Kiln-A",
+      "date": "2026-10-21",
+      "produced_n": 330,
+      "inspected_n": 150,
+      "scrap_n": 0,
+      "rework_n": 1,
+      "rework_hours": 0.25
+    },
+    {
+      "unit": "Kiln-A",
+      "date": "2026-10-22",
+      "produced_n": 330,
+      "inspected_n": 150,
+      "scrap_n": 0,
+      "rework_n": 1,
+      "rework_hours": 0.25
+    },
+    {
+      "unit": "Kiln-A",
+      "date": "2026-10-23",
+      "produced_n": 330,
+      "inspected_n": 150,
+      "scrap_n": 0,
+      "rework_n": 1,
+      "rework_hours": 0.25
+    },
+    {
+      "unit": "Kiln-A",
+      "date": "2026-10-24",
+      "produced_n": 630,
+      "inspected_n": 300,
+      "scrap_n": 0,
+      "rework_n": 2,
+      "rework_hours": 0.5
+    },
+    {
+      "unit": "Kiln-A",
+      "date": "2026-10-25",
+      "produced_n": 630,
+      "inspected_n": 300,
+      "scrap_n": 0,
+      "rework_n": 2,
+      "rework_hours": 0.5
+    },
+    {
+      "unit": "Kiln-A",
+      "date": "2026-10-26",
+      "produced_n": 330,
+      "inspected_n": 150,
+      "scrap_n": 0,
+      "rework_n": 1,
+      "rework_hours": 0.25
+    },
+    {
+      "unit": "Kiln-A",
+      "date": "2026-10-27",
+      "produced_n": 330,
+      "inspected_n": 150,
+      "scrap_n": 0,
+      "rework_n": 1,
+      "rework_hours": 0.25
+    },
+    {
+      "unit": "Kiln-A",
+      "date": "2026-10-28",
+      "produced_n": 330,
+      "inspected_n": 150,
+      "scrap_n": 0,
+      "rework_n": 1,
+      "rework_hours": 0.25
+    },
+    {
+      "unit": "Kiln-A",
+      "date": "2026-10-29",
+      "produced_n": 330,
+      "inspected_n": 150,
+      "scrap_n": 0,
+      "rework_n": 1,
+      "rework_hours": 0.25
+    },
+    {
+      "unit": "Kiln-A",
+      "date": "2026-10-30",
+      "produced_n": 330,
+      "inspected_n": 150,
+      "scrap_n": 0,
+      "rework_n": 1,
+      "rework_hours": 0.25
+    },
+    {
+      "unit": "Kiln-A",
+      "date": "2026-10-31",
+      "produced_n": 630,
+      "inspected_n": 300,
+      "scrap_n": 0,
+      "rework_n": 2,
+      "rework_hours": 0.5
+    },
+    {
+      "unit": "Kiln-A",
+      "date": "2026-11-02",
+      "produced_n": 330,
+      "inspected_n": 150,
+      "scrap_n": 4,
+      "rework_n": 5,
+      "rework_hours": 1.25
+    },
+    {
+      "unit": "Kiln-A",
+      "date": "2026-11-03",
+      "produced_n": 330,
+      "inspected_n": 150,
+      "scrap_n": 4,
+      "rework_n": 5,
+      "rework_hours": 1.25
+    },
+    {
+      "unit": "Kiln-A",
+      "date": "2026-11-04",
+      "produced_n": 330,
+      "inspected_n": 150,
+      "scrap_n": 4,
+      "rework_n": 5,
+      "rework_hours": 1.25
+    },
+    {
+      "unit": "Kiln-A",
+      "date": "2026-11-05",
+      "produced_n": 330,
+      "inspected_n": 150,
+      "scrap_n": 4,
+      "rework_n": 5,
+      "rework_hours": null
+    },
+    {
+      "unit": "Kiln-A",
+      "date": "2026-11-06",
+      "produced_n": 330,
+      "inspected_n": 150,
+      "scrap_n": 4,
+      "rework_n": 5,
+      "rework_hours": 1.25
+    },
+    {
+      "unit": "Kiln-A",
+      "date": "2026-11-07",
+      "produced_n": 630,
+      "inspected_n": 300,
+      "scrap_n": 8,
+      "rework_n": 10,
+      "rework_hours": 2.5
+    },
+    {
+      "unit": "Kiln-A",
+      "date": "2026-11-08",
+      "produced_n": 630,
+      "inspected_n": 300,
+      "scrap_n": 8,
+      "rework_n": 10,
+      "rework_hours": 2.5
+    },
+    {
+      "unit": "Kiln-A",
+      "date": "2026-11-09",
+      "produced_n": 330,
+      "inspected_n": 150,
+      "scrap_n": 4,
+      "rework_n": 5,
+      "rework_hours": 1.25
+    },
+    {
+      "unit": "Glaze-B",
+      "date": "2026-10-05",
+      "produced_n": 830,
+      "inspected_n": 400,
+      "scrap_n": 0,
+      "rework_n": 0,
+      "rework_hours": 0.0
+    },
+    {
+      "unit": "Glaze-B",
+      "date": "2026-10-06",
+      "produced_n": 830,
+      "inspected_n": 400,
+      "scrap_n": 0,
+      "rework_n": 0,
+      "rework_hours": 0.0
+    },
+    {
+      "unit": "Glaze-B",
+      "date": "2026-10-07",
+      "produced_n": 830,
+      "inspected_n": 400,
+      "scrap_n": 0,
+      "rework_n": 0,
+      "rework_hours": 0.0
+    },
+    {
+      "unit": "Glaze-B",
+      "date": "2026-10-08",
+      "produced_n": 830,
+      "inspected_n": 400,
+      "scrap_n": 0,
+      "rework_n": 0,
+      "rework_hours": 0.0
+    },
+    {
+      "unit": "Glaze-B",
+      "date": "2026-10-09",
+      "produced_n": 830,
+      "inspected_n": 400,
+      "scrap_n": 0,
+      "rework_n": 0,
+      "rework_hours": 0.0
+    },
+    {
+      "unit": "Glaze-B",
+      "date": "2026-10-10",
+      "produced_n": 1630,
+      "inspected_n": 800,
+      "scrap_n": 0,
+      "rework_n": 0,
+      "rework_hours": 0.0
+    },
+    {
+      "unit": "Glaze-B",
+      "date": "2026-10-11",
+      "produced_n": 1630,
+      "inspected_n": 800,
+      "scrap_n": 0,
+      "rework_n": 0,
+      "rework_hours": 0.0
+    },
+    {
+      "unit": "Glaze-B",
+      "date": "2026-10-12",
+      "produced_n": 830,
+      "inspected_n": 400,
+      "scrap_n": 0,
+      "rework_n": 0,
+      "rework_hours": 0.0
+    },
+    {
+      "unit": "Glaze-B",
+      "date": "2026-10-13",
+      "produced_n": 830,
+      "inspected_n": 400,
+      "scrap_n": 0,
+      "rework_n": 0,
+      "rework_hours": 0.0
+    },
+    {
+      "unit": "Glaze-B",
+      "date": "2026-10-14",
+      "produced_n": 830,
+      "inspected_n": 400,
+      "scrap_n": 0,
+      "rework_n": 0,
+      "rework_hours": 0.0
+    },
+    {
+      "unit": "Glaze-B",
+      "date": "2026-10-15",
+      "produced_n": 830,
+      "inspected_n": 400,
+      "scrap_n": 0,
+      "rework_n": 0,
+      "rework_hours": 0.0
+    },
+    {
+      "unit": "Glaze-B",
+      "date": "2026-10-16",
+      "produced_n": 830,
+      "inspected_n": 400,
+      "scrap_n": 0,
+      "rework_n": 0,
+      "rework_hours": 0.0
+    },
+    {
+      "unit": "Glaze-B",
+      "date": "2026-10-17",
+      "produced_n": 1630,
+      "inspected_n": 800,
+      "scrap_n": 20,
+      "rework_n": 20,
+      "rework_hours": 5.0
+    },
+    {
+      "unit": "Glaze-B",
+      "date": "2026-10-18",
+      "produced_n": 1630,
+      "inspected_n": 800,
+      "scrap_n": 20,
+      "rework_n": 20,
+      "rework_hours": 5.0
+    },
+    {
+      "unit": "Glaze-B",
+      "date": "2026-10-19",
+      "produced_n": 830,
+      "inspected_n": 400,
+      "scrap_n": 10,
+      "rework_n": 10,
+      "rework_hours": 2.5
+    },
+    {
+      "unit": "Glaze-B",
+      "date": "2026-10-20",
+      "produced_n": 830,
+      "inspected_n": 400,
+      "scrap_n": 10,
+      "rework_n": 10,
+      "rework_hours": 2.5
+    },
+    {
+      "unit": "Glaze-B",
+      "date": "2026-10-21",
+      "produced_n": 830,
+      "inspected_n": 400,
+      "scrap_n": 10,
+      "rework_n": 10,
+      "rework_hours": 2.5
+    },
+    {
+      "unit": "Glaze-B",
+      "date": "2026-10-22",
+      "produced_n": 830,
+      "inspected_n": 400,
+      "scrap_n": 10,
+      "rework_n": 10,
+      "rework_hours": 2.5
+    },
+    {
+      "unit": "Glaze-B",
+      "date": "2026-10-23",
+      "produced_n": 830,
+      "inspected_n": 400,
+      "scrap_n": 10,
+      "rework_n": 10,
+      "rework_hours": 2.5
+    },
+    {
+      "unit": "Glaze-B",
+      "date": "2026-10-24",
+      "produced_n": 1630,
+      "inspected_n": 800,
+      "scrap_n": 20,
+      "rework_n": 20,
+      "rework_hours": 5.0
+    },
+    {
+      "unit": "Glaze-B",
+      "date": "2026-10-25",
+      "produced_n": 1630,
+      "inspected_n": 800,
+      "scrap_n": 20,
+      "rework_n": 20,
+      "rework_hours": 5.0
+    },
+    {
+      "unit": "Glaze-B",
+      "date": "2026-10-26",
+      "produced_n": 830,
+      "inspected_n": 400,
+      "scrap_n": 10,
+      "rework_n": 10,
+      "rework_hours": 2.5
+    },
+    {
+      "unit": "Glaze-B",
+      "date": "2026-10-27",
+      "produced_n": 830,
+      "inspected_n": 400,
+      "scrap_n": 10,
+      "rework_n": 10,
+      "rework_hours": 2.5
+    },
+    {
+      "unit": "Glaze-B",
+      "date": "2026-10-28",
+      "produced_n": 830,
+      "inspected_n": 400,
+      "scrap_n": 10,
+      "rework_n": 10,
+      "rework_hours": 2.5
+    },
+    {
+      "unit": "Glaze-B",
+      "date": "2026-10-29",
+      "produced_n": 830,
+      "inspected_n": 400,
+      "scrap_n": 10,
+      "rework_n": 10,
+      "rework_hours": 2.5
+    },
+    {
+      "unit": "Glaze-B",
+      "date": "2026-10-30",
+      "produced_n": 830,
+      "inspected_n": 400,
+      "scrap_n": 10,
+      "rework_n": 10,
+      "rework_hours": 2.5
+    },
+    {
+      "unit": "Glaze-B",
+      "date": "2026-10-31",
+      "produced_n": 1630,
+      "inspected_n": 800,
+      "scrap_n": 20,
+      "rework_n": 20,
+      "rework_hours": 5.0
+    },
+    {
+      "unit": "Glaze-B",
+      "date": "2026-11-02",
+      "produced_n": 830,
+      "inspected_n": 400,
+      "scrap_n": 3,
+      "rework_n": 9,
+      "rework_hours": 2.25
+    },
+    {
+      "unit": "Glaze-B",
+      "date": "2026-11-03",
+      "produced_n": 830,
+      "inspected_n": 400,
+      "scrap_n": 3,
+      "rework_n": 9,
+      "rework_hours": 2.25
+    },
+    {
+      "unit": "Glaze-B",
+      "date": "2026-11-04",
+      "produced_n": 830,
+      "inspected_n": 400,
+      "scrap_n": 3,
+      "rework_n": 9,
+      "rework_hours": 2.25
+    },
+    {
+      "unit": "Glaze-B",
+      "date": "2026-11-05",
+      "produced_n": 830,
+      "inspected_n": 400,
+      "scrap_n": 3,
+      "rework_n": 9,
+      "rework_hours": 2.25
+    },
+    {
+      "unit": "Glaze-B",
+      "date": "2026-11-06",
+      "produced_n": 830,
+      "inspected_n": 400,
+      "scrap_n": 3,
+      "rework_n": 9,
+      "rework_hours": 2.25
+    },
+    {
+      "unit": "Glaze-B",
+      "date": "2026-11-07",
+      "produced_n": 1630,
+      "inspected_n": 800,
+      "scrap_n": 6,
+      "rework_n": 18,
+      "rework_hours": 4.5
+    },
+    {
+      "unit": "Glaze-B",
+      "date": "2026-11-08",
+      "produced_n": 1630,
+      "inspected_n": 800,
+      "scrap_n": 6,
+      "rework_n": 18,
+      "rework_hours": 4.5
+    },
+    {
+      "unit": "Glaze-B",
+      "date": "2026-11-09",
+      "produced_n": 830,
+      "inspected_n": 400,
+      "scrap_n": 3,
+      "rework_n": 9,
+      "rework_hours": 2.25
+    },
+    {
+      "unit": "Glaze-B",
+      "date": "2026-11-10",
+      "produced_n": 830,
+      "inspected_n": 400,
+      "scrap_n": 3,
+      "rework_n": 9,
+      "rework_hours": 2.25
+    },
+    {
+      "unit": "Glaze-B",
+      "date": "2026-11-11",
+      "produced_n": 830,
+      "inspected_n": 400,
+      "scrap_n": 3,
+      "rework_n": 9,
+      "rework_hours": 2.25
+    },
+    {
+      "unit": "Glaze-B",
+      "date": "2026-11-12",
+      "produced_n": 830,
+      "inspected_n": 400,
+      "scrap_n": 3,
+      "rework_n": 9,
+      "rework_hours": 2.25
+    },
+    {
+      "unit": "Glaze-B",
+      "date": "2026-11-13",
+      "produced_n": 830,
+      "inspected_n": 400,
+      "scrap_n": 3,
+      "rework_n": 9,
+      "rework_hours": 2.25
+    },
+    {
+      "unit": "Press-C",
+      "date": "2026-10-05",
+      "produced_n": 210,
+      "inspected_n": 90,
+      "scrap_n": 1,
+      "rework_n": 2,
+      "rework_hours": 0.5
+    },
+    {
+      "unit": "Press-C",
+      "date": "2026-10-06",
+      "produced_n": 210,
+      "inspected_n": 90,
+      "scrap_n": 1,
+      "rework_n": 2,
+      "rework_hours": 0.5
+    },
+    {
+      "unit": "Press-C",
+      "date": "2026-10-07",
+      "produced_n": 210,
+      "inspected_n": 90,
+      "scrap_n": 1,
+      "rework_n": 2,
+      "rework_hours": 0.5
+    },
+    {
+      "unit": "Press-C",
+      "date": "2026-10-08",
+      "produced_n": 210,
+      "inspected_n": 90,
+      "scrap_n": 1,
+      "rework_n": 2,
+      "rework_hours": 0.5
+    },
+    {
+      "unit": "Press-C",
+      "date": "2026-10-09",
+      "produced_n": 210,
+      "inspected_n": 90,
+      "scrap_n": 1,
+      "rework_n": 2,
+      "rework_hours": 0.5
+    },
+    {
+      "unit": "Press-C",
+      "date": "2026-10-10",
+      "produced_n": 390,
+      "inspected_n": 180,
+      "scrap_n": 2,
+      "rework_n": 4,
+      "rework_hours": 1.0
+    },
+    {
+      "unit": "Press-C",
+      "date": "2026-10-11",
+      "produced_n": 390,
+      "inspected_n": 180,
+      "scrap_n": 2,
+      "rework_n": 4,
+      "rework_hours": 1.0
+    },
+    {
+      "unit": "Press-C",
+      "date": "2026-10-12",
+      "produced_n": 210,
+      "inspected_n": 90,
+      "scrap_n": 1,
+      "rework_n": 2,
+      "rework_hours": 0.5
+    },
+    {
+      "unit": "Press-C",
+      "date": "2026-10-13",
+      "produced_n": 210,
+      "inspected_n": 90,
+      "scrap_n": 1,
+      "rework_n": 2,
+      "rework_hours": 0.5
+    },
+    {
+      "unit": "Press-C",
+      "date": "2026-10-14",
+      "produced_n": 210,
+      "inspected_n": 90,
+      "scrap_n": 1,
+      "rework_n": 2,
+      "rework_hours": 0.5
+    },
+    {
+      "unit": "Press-C",
+      "date": "2026-10-15",
+      "produced_n": 210,
+      "inspected_n": 90,
+      "scrap_n": 1,
+      "rework_n": 2,
+      "rework_hours": 0.5
+    },
+    {
+      "unit": "Press-C",
+      "date": "2026-10-16",
+      "produced_n": 210,
+      "inspected_n": 90,
+      "scrap_n": 1,
+      "rework_n": 2,
+      "rework_hours": 0.5
+    },
+    {
+      "unit": "Press-C",
+      "date": "2026-10-17",
+      "produced_n": 390,
+      "inspected_n": 180,
+      "scrap_n": 14,
+      "rework_n": 6,
+      "rework_hours": 1.5
+    },
+    {
+      "unit": "Press-C",
+      "date": "2026-10-18",
+      "produced_n": 390,
+      "inspected_n": 180,
+      "scrap_n": 14,
+      "rework_n": 6,
+      "rework_hours": 1.5
+    },
+    {
+      "unit": "Press-C",
+      "date": "2026-10-19",
+      "produced_n": 210,
+      "inspected_n": 90,
+      "scrap_n": 7,
+      "rework_n": 3,
+      "rework_hours": 0.75
+    },
+    {
+      "unit": "Press-C",
+      "date": "2026-10-20",
+      "produced_n": 210,
+      "inspected_n": 90,
+      "scrap_n": 7,
+      "rework_n": 3,
+      "rework_hours": 0.75
+    },
+    {
+      "unit": "Press-C",
+      "date": "2026-10-21",
+      "produced_n": 210,
+      "inspected_n": 90,
+      "scrap_n": 7,
+      "rework_n": 3,
+      "rework_hours": 0.75
+    },
+    {
+      "unit": "Press-C",
+      "date": "2026-10-22",
+      "produced_n": 210,
+      "inspected_n": 90,
+      "scrap_n": 7,
+      "rework_n": 3,
+      "rework_hours": 0.75
+    },
+    {
+      "unit": "Press-C",
+      "date": "2026-10-23",
+      "produced_n": 210,
+      "inspected_n": 90,
+      "scrap_n": 7,
+      "rework_n": 3,
+      "rework_hours": 0.75
+    },
+    {
+      "unit": "Press-C",
+      "date": "2026-10-24",
+      "produced_n": 390,
+      "inspected_n": 180,
+      "scrap_n": 14,
+      "rework_n": 6,
+      "rework_hours": 1.5
+    },
+    {
+      "unit": "Press-C",
+      "date": "2026-10-25",
+      "produced_n": 390,
+      "inspected_n": 180,
+      "scrap_n": 14,
+      "rework_n": 6,
+      "rework_hours": 1.5
+    },
+    {
+      "unit": "Press-C",
+      "date": "2026-10-26",
+      "produced_n": 210,
+      "inspected_n": 90,
+      "scrap_n": 7,
+      "rework_n": 3,
+      "rework_hours": 0.75
+    },
+    {
+      "unit": "Press-C",
+      "date": "2026-10-27",
+      "produced_n": 210,
+      "inspected_n": 90,
+      "scrap_n": 7,
+      "rework_n": 3,
+      "rework_hours": 0.75
+    },
+    {
+      "unit": "Press-C",
+      "date": "2026-10-28",
+      "produced_n": 210,
+      "inspected_n": 90,
+      "scrap_n": 7,
+      "rework_n": 3,
+      "rework_hours": 0.75
+    },
+    {
+      "unit": "Press-C",
+      "date": "2026-10-29",
+      "produced_n": 210,
+      "inspected_n": 90,
+      "scrap_n": 7,
+      "rework_n": 3,
+      "rework_hours": 0.75
+    },
+    {
+      "unit": "Press-C",
+      "date": "2026-10-30",
+      "produced_n": 210,
+      "inspected_n": 90,
+      "scrap_n": 7,
+      "rework_n": 3,
+      "rework_hours": 0.75
+    },
+    {
+      "unit": "Press-C",
+      "date": "2026-10-31",
+      "produced_n": 390,
+      "inspected_n": 180,
+      "scrap_n": 14,
+      "rework_n": 6,
+      "rework_hours": 1.5
+    },
+    {
+      "unit": "Press-C",
+      "date": "2026-11-02",
+      "produced_n": 210,
+      "inspected_n": 90,
+      "scrap_n": 6,
+      "rework_n": 3,
+      "rework_hours": 0.75
+    },
+    {
+      "unit": "Press-C",
+      "date": "2026-11-03",
+      "produced_n": 210,
+      "inspected_n": 90,
+      "scrap_n": 6,
+      "rework_n": 3,
+      "rework_hours": 0.75
+    },
+    {
+      "unit": "Press-C",
+      "date": "2026-11-04",
+      "produced_n": 210,
+      "inspected_n": 90,
+      "scrap_n": 6,
+      "rework_n": 3,
+      "rework_hours": 0.75
+    },
+    {
+      "unit": "Press-C",
+      "date": "2026-11-05",
+      "produced_n": 210,
+      "inspected_n": 90,
+      "scrap_n": 6,
+      "rework_n": 3,
+      "rework_hours": 0.75
+    },
+    {
+      "unit": "Press-C",
+      "date": "2026-11-06",
+      "produced_n": 210,
+      "inspected_n": 90,
+      "scrap_n": 6,
+      "rework_n": 3,
+      "rework_hours": 0.75
+    },
+    {
+      "unit": "Press-C",
+      "date": "2026-11-07",
+      "produced_n": 390,
+      "inspected_n": 180,
+      "scrap_n": 12,
+      "rework_n": 6,
+      "rework_hours": 1.5
+    },
+    {
+      "unit": "Polish-D",
+      "date": "2026-10-05",
+      "produced_n": 230,
+      "inspected_n": 100,
+      "scrap_n": 1,
+      "rework_n": 1,
+      "rework_hours": 0.25
+    },
+    {
+      "unit": "Polish-D",
+      "date": "2026-10-06",
+      "produced_n": 230,
+      "inspected_n": 100,
+      "scrap_n": 1,
+      "rework_n": 1,
+      "rework_hours": 0.25
+    },
+    {
+      "unit": "Polish-D",
+      "date": "2026-10-07",
+      "produced_n": 230,
+      "inspected_n": 100,
+      "scrap_n": 1,
+      "rework_n": 1,
+      "rework_hours": 0.25
+    },
+    {
+      "unit": "Polish-D",
+      "date": "2026-10-08",
+      "produced_n": 230,
+      "inspected_n": 100,
+      "scrap_n": 1,
+      "rework_n": 1,
+      "rework_hours": 0.25
+    },
+    {
+      "unit": "Polish-D",
+      "date": "2026-10-09",
+      "produced_n": 230,
+      "inspected_n": 100,
+      "scrap_n": 1,
+      "rework_n": 1,
+      "rework_hours": 0.25
+    },
+    {
+      "unit": "Polish-D",
+      "date": "2026-10-10",
+      "produced_n": 430,
+      "inspected_n": 200,
+      "scrap_n": 2,
+      "rework_n": 2,
+      "rework_hours": 0.5
+    },
+    {
+      "unit": "Polish-D",
+      "date": "2026-10-11",
+      "produced_n": 430,
+      "inspected_n": 200,
+      "scrap_n": 2,
+      "rework_n": 2,
+      "rework_hours": 0.5
+    },
+    {
+      "unit": "Polish-D",
+      "date": "2026-10-12",
+      "produced_n": 230,
+      "inspected_n": 100,
+      "scrap_n": 1,
+      "rework_n": 1,
+      "rework_hours": 0.25
+    },
+    {
+      "unit": "Polish-D",
+      "date": "2026-10-13",
+      "produced_n": 230,
+      "inspected_n": 100,
+      "scrap_n": 1,
+      "rework_n": 1,
+      "rework_hours": 0.25
+    },
+    {
+      "unit": "Polish-D",
+      "date": "2026-10-14",
+      "produced_n": 230,
+      "inspected_n": 100,
+      "scrap_n": 1,
+      "rework_n": 1,
+      "rework_hours": 0.25
+    },
+    {
+      "unit": "Polish-D",
+      "date": "2026-10-15",
+      "produced_n": 230,
+      "inspected_n": 100,
+      "scrap_n": 1,
+      "rework_n": 1,
+      "rework_hours": 0.25
+    },
+    {
+      "unit": "Polish-D",
+      "date": "2026-10-16",
+      "produced_n": 230,
+      "inspected_n": 100,
+      "scrap_n": 1,
+      "rework_n": 1,
+      "rework_hours": 0.25
+    },
+    {
+      "unit": "Polish-D",
+      "date": "2026-10-17",
+      "produced_n": 430,
+      "inspected_n": 200,
+      "scrap_n": 2,
+      "rework_n": 0,
+      "rework_hours": 0.0
+    },
+    {
+      "unit": "Polish-D",
+      "date": "2026-10-18",
+      "produced_n": 430,
+      "inspected_n": 200,
+      "scrap_n": 2,
+      "rework_n": 0,
+      "rework_hours": 0.0
+    },
+    {
+      "unit": "Polish-D",
+      "date": "2026-10-19",
+      "produced_n": 230,
+      "inspected_n": 100,
+      "scrap_n": 1,
+      "rework_n": 0,
+      "rework_hours": 0.0
+    },
+    {
+      "unit": "Polish-D",
+      "date": "2026-10-20",
+      "produced_n": 230,
+      "inspected_n": 100,
+      "scrap_n": 1,
+      "rework_n": 0,
+      "rework_hours": 0.0
+    },
+    {
+      "unit": "Polish-D",
+      "date": "2026-10-21",
+      "produced_n": 230,
+      "inspected_n": 100,
+      "scrap_n": 1,
+      "rework_n": 0,
+      "rework_hours": 0.0
+    },
+    {
+      "unit": "Polish-D",
+      "date": "2026-10-22",
+      "produced_n": 230,
+      "inspected_n": 100,
+      "scrap_n": 1,
+      "rework_n": 0,
+      "rework_hours": 0.0
+    },
+    {
+      "unit": "Polish-D",
+      "date": "2026-10-23",
+      "produced_n": 230,
+      "inspected_n": 100,
+      "scrap_n": 1,
+      "rework_n": 0,
+      "rework_hours": 0.0
+    },
+    {
+      "unit": "Polish-D",
+      "date": "2026-10-24",
+      "produced_n": 430,
+      "inspected_n": 200,
+      "scrap_n": 2,
+      "rework_n": 0,
+      "rework_hours": 0.0
+    },
+    {
+      "unit": "Polish-D",
+      "date": "2026-10-25",
+      "produced_n": 430,
+      "inspected_n": 200,
+      "scrap_n": 2,
+      "rework_n": 0,
+      "rework_hours": 0.0
+    },
+    {
+      "unit": "Polish-D",
+      "date": "2026-10-26",
+      "produced_n": 230,
+      "inspected_n": 100,
+      "scrap_n": 1,
+      "rework_n": 0,
+      "rework_hours": 0.0
+    },
+    {
+      "unit": "Polish-D",
+      "date": "2026-10-27",
+      "produced_n": 230,
+      "inspected_n": 100,
+      "scrap_n": 1,
+      "rework_n": 0,
+      "rework_hours": 0.0
+    },
+    {
+      "unit": "Polish-D",
+      "date": "2026-10-28",
+      "produced_n": 230,
+      "inspected_n": 100,
+      "scrap_n": 1,
+      "rework_n": 0,
+      "rework_hours": 0.0
+    },
+    {
+      "unit": "Polish-D",
+      "date": "2026-10-29",
+      "produced_n": 230,
+      "inspected_n": 100,
+      "scrap_n": 1,
+      "rework_n": 0,
+      "rework_hours": 0.0
+    },
+    {
+      "unit": "Polish-D",
+      "date": "2026-10-30",
+      "produced_n": 230,
+      "inspected_n": 100,
+      "scrap_n": 1,
+      "rework_n": 0,
+      "rework_hours": 0.0
+    },
+    {
+      "unit": "Polish-D",
+      "date": "2026-10-31",
+      "produced_n": 430,
+      "inspected_n": 200,
+      "scrap_n": 2,
+      "rework_n": 0,
+      "rework_hours": 0.0
+    },
+    {
+      "unit": "Polish-D",
+      "date": "2026-11-02",
+      "produced_n": 230,
+      "inspected_n": 100,
+      "scrap_n": 0,
+      "rework_n": 1,
+      "rework_hours": 0.25
+    },
+    {
+      "unit": "Polish-D",
+      "date": "2026-11-03",
+      "produced_n": 230,
+      "inspected_n": 100,
+      "scrap_n": 0,
+      "rework_n": 1,
+      "rework_hours": 0.25
+    },
+    {
+      "unit": "Polish-D",
+      "date": "2026-11-04",
+      "produced_n": 230,
+      "inspected_n": 100,
+      "scrap_n": 0,
+      "rework_n": 1,
+      "rework_hours": 0.25
+    },
+    {
+      "unit": "Polish-D",
+      "date": "2026-11-05",
+      "produced_n": 230,
+      "inspected_n": 100,
+      "scrap_n": 0,
+      "rework_n": 1,
+      "rework_hours": 0.25
+    },
+    {
+      "unit": "Polish-D",
+      "date": "2026-11-06",
+      "produced_n": 230,
+      "inspected_n": 100,
+      "scrap_n": 0,
+      "rework_n": 1,
+      "rework_hours": 0.25
+    },
+    {
+      "unit": "Polish-D",
+      "date": "2026-11-07",
+      "produced_n": 430,
+      "inspected_n": 200,
+      "scrap_n": 0,
+      "rework_n": 2,
+      "rework_hours": 0.5
+    },
+    {
+      "unit": "Polish-D",
+      "date": "2026-11-08",
+      "produced_n": 430,
+      "inspected_n": 200,
+      "scrap_n": 0,
+      "rework_n": 2,
+      "rework_hours": 0.5
+    },
+    {
+      "unit": "Polish-D",
+      "date": "2026-11-09",
+      "produced_n": 230,
+      "inspected_n": 100,
+      "scrap_n": 0,
+      "rework_n": 1,
+      "rework_hours": 0.25
+    },
+    {
+      "unit": "Polish-D",
+      "date": "2026-11-10",
+      "produced_n": 230,
+      "inspected_n": 100,
+      "scrap_n": 0,
+      "rework_n": 1,
+      "rework_hours": 0.25
+    },
+    {
+      "unit": "Polish-D",
+      "date": "2026-11-11",
+      "produced_n": 230,
+      "inspected_n": 100,
+      "scrap_n": 0,
+      "rework_n": 1,
+      "rework_hours": 0.25
+    },
+    {
+      "unit": "Polish-D",
+      "date": "2026-11-12",
+      "produced_n": 230,
+      "inspected_n": 100,
+      "scrap_n": 0,
+      "rework_n": 1,
+      "rework_hours": 0.25
+    },
+    {
+      "unit": "Polish-D",
+      "date": "2026-11-13",
+      "produced_n": 230,
+      "inspected_n": 100,
+      "scrap_n": 0,
+      "rework_n": 1,
+      "rework_hours": 0.25
+    }
+  ],
+  "geometry": {
+    "rate_domain": [
+      0,
+      0.1
+    ],
+    "circle_area_measure": "current total inspected_n",
+    "circle_r_max": 22,
+    "max_inspected_n": 5600,
+    "desktop": {
+      "rate_x0": 220,
+      "rate_x1": 700,
+      "unit_row_centres": [
+        150,
+        280,
+        410,
+        540
+      ]
+    },
+    "zero_preservation": {
+      "zero_abnormal_rows": 12,
+      "zero_scrap_rows": 39,
+      "zero_rework_rows": 27,
+      "zero_hours_rows": 27
+    }
+  }
+}

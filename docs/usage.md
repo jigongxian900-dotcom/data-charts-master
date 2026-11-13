@@ -62,6 +62,8 @@ Windows 可将 `python` 改为 `py`。成功后生成 `sample.html`、`sample.da
 
 通用助手支持 `bar`、`line`、`stacked`、`waterfall`、`box`、`scatter`。自定义数据先看[输入格式](../references/html-delivery.md)，再运行 `validate`。54例图谱需要按案例修改，不能把任意 JSON 直接传给它。
 
+需要新组合时，按[组合推理](../references/composition-reasoning.md)自主设计；可用[自定义绘图接口](../references/custom-renderers.md)接入同源报告，或沿用适合的可视化库。无需为每个新名称安装模板。
+
 ## 开发与重建
 
 需要 Node.js 20+，无需 npm 依赖：
@@ -89,6 +91,8 @@ node scripts/build_gallery.js
 python scripts/test_chart_html.py
 python scripts/test_compose_html.py
 python scripts/test_operating_story.py
+python scripts/test_custom_chart.py
+python scripts/test_chart_geometry.py
 python scripts/verify_release.py
 ```
 

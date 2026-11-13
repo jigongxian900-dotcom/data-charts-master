@@ -1,0 +1,13 @@
+﻿product,period,stage,event_n
+Atlas,2026-10,trial,1200
+Atlas,2026-10,activation,720
+Atlas,2026-10,payment,300
+Atlas,2026-10,renewal,260
+Beacon,2026-10,trial,400
+Beacon,2026-10,activation,140
+Beacon,2026-10,payment,200
+Beacon,2026-10,renewal,190
+Comet,2026-10,trial,600
+Comet,2026-10,activation,390
+Comet,2026-10,payment,150
+Comet,2026-10,renewal,80

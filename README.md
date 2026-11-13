@@ -64,6 +64,37 @@ KPI 卡片同时交代当前值、迷你趋势、同比和环比。利润率用�
 
 [打开流带与差额实例 ↗](https://jigongxian900-dotcom.github.io/data-charts-master/labs/dir-1.html) · [气泡位置与市场联动 ↗](https://jigongxian900-dotcom.github.io/data-charts-master/labs/dir-2.html)
 
+## 设计图谱里还没有的图
+
+54例提供工艺参考。新任务先推导必须共同看见的关系，再选择标记、共享尺度、分面、叠加、坐标或层级变换。没有同名样例也可以设计；数据条件不成立时，应改用有效的简单表达。
+
+5.2新增可选的作者侧绘图接口：自写SVG可以接入同一报告，保留逐源行覆盖、精确读数、手机重排与完整静态导出。通用数学部件提供尺度、面积正确的扇区和层级分区；业务判断仍由Agent完成。
+
+[组合与变形推理](references/composition-reasoning.md) · [9件作品的机制灵感库](references/inspiration-library.json) · [如何使用灵感](references/inspiration-use.md) · [接入自定义绘图](references/custom-renderers.md)
+
+灵感来自DKMECO与Tableau具体作品，记录原作、机制、适用条件和反例。8件核看原作静态预览，1件仅有策展证据；原作交互未实测。库中只分发链接和原创分析。
+
+```text
+使用 data-charts-master。先判断这道业务问题需要共同看到哪些关系。
+图谱没有合适样例时，请自主组合标记与尺度，或变换坐标、层级。
+说明组合多揭示了什么、最简单的有效备选，以及不能误读的条件。
+输出离线HTML、原始表、派生值、手机布局和包含全部图层的SVG。
+```
+
+### 三道新题的制作实录
+
+三个独立上下文只拿技能与各自输入制作。两题推导出真实图内组合或坐标/层级变换，一题拒绝数据不支持的复杂流向。首轮评审发现展开布局及打印缺陷，保留失败后完成同题技术复验；修复没有增加陌生题数量。
+
+[![24小时周期、层级归属和精确比较的联合表达](docs/assets/autonomy-cycle.png)](https://jigongxian900-dotcom.github.io/data-charts-master/autonomy/energy-cycle.html)
+
+[体验周期与层级视图](https://jigongxian900-dotcom.github.io/data-charts-master/autonomy/energy-cycle.html) · [源数据与制作器](examples/autonomy/energy-cycle/README.md)
+
+[![同天数前后变化、观察覆盖、规模和日均差额联合判断](docs/assets/autonomy-quality.png)](https://jigongxian900-dotcom.github.io/data-charts-master/autonomy/quality-support.html)
+
+[体验质量与工时联合判断](https://jigongxian900-dotcom.github.io/data-charts-master/autonomy/quality-support.html) · [源数据与制作器](examples/autonomy/quality-support/README.md) · [为什么这题拒绝复杂流向](https://jigongxian900-dotcom.github.io/data-charts-master/autonomy/renewal-evidence.html)
+
+这些是固定原创合成数据的推理实录。公开制作器仅适配路径与来源验证，重建HTML及计算与评审实物逐字节一致；换数据仍需重新规划与验证。独立AI评审不等于外部认证或全部图型的能力保证。
+
 ## 七套配色，一套语义
 
 石榴红、潮汐青、钴蓝、林地绿、鸢尾紫、夜航与石墨。每套区分焦点、类别、顺序、发散和绩效状态；换主题保持数据与比例。
@@ -146,15 +177,15 @@ python scripts/compose_html.py examples/composed/source.json --mode report --the
 python scripts/compose_html.py examples/composed/source.json --mode slides --theme ruby --out slides.html
 ```
 
-这两种模式读取与通用助手相同的六类图形合同，叙事由输入明确提供。改变数据必须重新核对标题与业务解释。HTML演示不冒充原生可编辑PowerPoint。[输入与模式说明](references/composed-outputs.md)
+这两种模式可读取六类基础合同，也可通过作者侧注册函数接入新表达；叙事由输入明确提供。改变数据必须重新核对标题与业务解释。HTML演示不冒充原生可编辑PowerPoint。[输入与模式说明](references/composed-outputs.md)
 
 ## 范围与许可
 
-54例是按固定合成数据编写的完整实例；Python 助手另支持横条、折线、堆叠、瀑布、箱线和散点六类通用图。迁移时要重算标题、标注、尺度与派生值。
+54例是按固定合成数据编写的完整实例；Python 基础助手另支持横条、折线、堆叠、瀑布、箱线和散点六类通用图，可选自定义绘图接口用于新的组合与变形。迁移时要重算标题、标注、尺度与派生值。
 
 PPTX 提供制作与验证方法，需要另配制作工具；本仓库没有打包全原生数据可编辑的54页演示文稿。图谱以中文为主，英文 README 不代表图表已全部英文化。
 
-代码、文档、配色和合成数据采用 **MIT**，允许商用和修改。所有数值均为演示数据，不代表任何公司的实际经营。
+原创代码、文档、配色和合成数据采用 **MIT**，允许商用和修改。本仓库生成的经营图表示例均使用合成数据，不代表任何公司的实际经营；灵感库中的第三方作品及其资料仍适用各自权利与许可。
 
 [验证范围](docs/validation.md) · [能力边界](references/capability-evidence.md) · [贡献方式](CONTRIBUTING.md)
 

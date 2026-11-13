@@ -1,0 +1,8 @@
+﻿level,campus,building,energy_kwh
+building,North,Lab,13440
+building,North,Office,4620
+building,South,Hotel,5684
+building,South,Hall,1880
+campus,North,,18060
+campus,South,,7564
+all,,,25624
