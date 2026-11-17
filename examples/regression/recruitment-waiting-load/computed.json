@@ -1,0 +1,2600 @@
+{
+  "all": {
+    "n": 214,
+    "active": 82,
+    "hours": 495.02,
+    "active_hours": 206.03,
+    "active_age30": 25,
+    "outcomes": {
+      "withdrawn": 26,
+      "rejected": 44,
+      "inflight": 82,
+      "offer": 62
+    },
+    "cif": [
+      {
+        "day": 7,
+        "risk": 214,
+        "events": {
+          "offer": 3,
+          "withdrawn": 2,
+          "rejected": 3
+        },
+        "offer_cif": 0.014018691588785047,
+        "event_free": 0.9626168224299065,
+        "censored": 0
+      },
+      {
+        "day": 8,
+        "risk": 206,
+        "events": {
+          "rejected": 2,
+          "withdrawn": 1
+        },
+        "offer_cif": 0.014018691588785047,
+        "event_free": 0.9485981308411215,
+        "censored": 0
+      },
+      {
+        "day": 9,
+        "risk": 203,
+        "events": {
+          "offer": 2,
+          "withdrawn": 2
+        },
+        "offer_cif": 0.023364485981308414,
+        "event_free": 0.9299065420560748,
+        "censored": 0
+      },
+      {
+        "day": 10,
+        "risk": 199,
+        "events": {
+          "offer": 2,
+          "rejected": 2
+        },
+        "offer_cif": 0.03271028037383178,
+        "event_free": 0.9112149532710281,
+        "censored": 0
+      },
+      {
+        "day": 12,
+        "risk": 195,
+        "events": {
+          "offer": 1,
+          "rejected": 1
+        },
+        "offer_cif": 0.03738317757009346,
+        "event_free": 0.9018691588785047,
+        "censored": 0
+      },
+      {
+        "day": 13,
+        "risk": 193,
+        "events": {
+          "rejected": 1,
+          "offer": 1,
+          "withdrawn": 1
+        },
+        "offer_cif": 0.042056074766355145,
+        "event_free": 0.8878504672897196,
+        "censored": 0
+      },
+      {
+        "day": 14,
+        "risk": 190,
+        "events": {
+          "withdrawn": 1,
+          "offer": 1
+        },
+        "offer_cif": 0.04672897196261683,
+        "event_free": 0.8785046728971962,
+        "censored": 0
+      },
+      {
+        "day": 15,
+        "risk": 188,
+        "events": {
+          "rejected": 1,
+          "offer": 1
+        },
+        "offer_cif": 0.05140186915887851,
+        "event_free": 0.8691588785046729,
+        "censored": 2
+      },
+      {
+        "day": 16,
+        "risk": 184,
+        "events": {
+          "offer": 2,
+          "rejected": 1,
+          "withdrawn": 1
+        },
+        "offer_cif": 0.060849248273059736,
+        "event_free": 0.8502641202763105,
+        "censored": 4
+      },
+      {
+        "day": 17,
+        "risk": 176,
+        "events": {
+          "rejected": 1,
+          "withdrawn": 2
+        },
+        "offer_cif": 0.060849248273059736,
+        "event_free": 0.8357709818625098,
+        "censored": 3
+      },
+      {
+        "day": 18,
+        "risk": 170,
+        "events": {
+          "offer": 1,
+          "rejected": 1,
+          "withdrawn": 1
+        },
+        "offer_cif": 0.06576554816636862,
+        "event_free": 0.8210220821825831,
+        "censored": 3
+      },
+      {
+        "day": 19,
+        "risk": 164,
+        "events": {
+          "rejected": 3,
+          "offer": 4
+        },
+        "offer_cif": 0.08579047700009015,
+        "event_free": 0.7859784567235704,
+        "censored": 10
+      },
+      {
+        "day": 20,
+        "risk": 147,
+        "events": {
+          "withdrawn": 3,
+          "offer": 3
+        },
+        "offer_cif": 0.10183085366791812,
+        "event_free": 0.7538977033879144,
+        "censored": 7
+      },
+      {
+        "day": 21,
+        "risk": 134,
+        "events": {
+          "offer": 3,
+          "rejected": 1,
+          "withdrawn": 1
+        },
+        "offer_cif": 0.11870916046018487,
+        "event_free": 0.7257671920674699,
+        "censored": 4
+      },
+      {
+        "day": 22,
+        "risk": 125,
+        "events": {},
+        "offer_cif": 0.11870916046018487,
+        "event_free": 0.7257671920674699,
+        "censored": 3
+      },
+      {
+        "day": 23,
+        "risk": 122,
+        "events": {
+          "offer": 3,
+          "rejected": 2
+        },
+        "offer_cif": 0.13655589469135215,
+        "event_free": 0.6960226350155243,
+        "censored": 3
+      },
+      {
+        "day": 24,
+        "risk": 114,
+        "events": {
+          "rejected": 1,
+          "offer": 1
+        },
+        "offer_cif": 0.14266135640201466,
+        "event_free": 0.6838117115941993,
+        "censored": 2
+      },
+      {
+        "day": 25,
+        "risk": 110,
+        "events": {
+          "offer": 2,
+          "rejected": 1,
+          "withdrawn": 1
+        },
+        "offer_cif": 0.1550942966128183,
+        "event_free": 0.6589458311725921,
+        "censored": 5
+      },
+      {
+        "day": 26,
+        "risk": 101,
+        "events": {
+          "rejected": 1,
+          "withdrawn": 1,
+          "offer": 2
+        },
+        "offer_cif": 0.16814272891326565,
+        "event_free": 0.6328489665716973,
+        "censored": 2
+      },
+      {
+        "day": 27,
+        "risk": 95,
+        "events": {
+          "rejected": 1,
+          "offer": 1
+        },
+        "offer_cif": 0.1748042969824414,
+        "event_free": 0.6195258304333459,
+        "censored": 3
+      },
+      {
+        "day": 28,
+        "risk": 90,
+        "events": {
+          "withdrawn": 2,
+          "rejected": 1
+        },
+        "offer_cif": 0.1748042969824414,
+        "event_free": 0.598874969418901,
+        "censored": 0
+      },
+      {
+        "day": 29,
+        "risk": 87,
+        "events": {
+          "rejected": 2
+        },
+        "offer_cif": 0.1748042969824414,
+        "event_free": 0.5851077287426044,
+        "censored": 6
+      },
+      {
+        "day": 30,
+        "risk": 79,
+        "events": {
+          "withdrawn": 2,
+          "rejected": 3,
+          "offer": 3
+        },
+        "offer_cif": 0.19702357782076815,
+        "event_free": 0.525856313173733,
+        "censored": 1
+      },
+      {
+        "day": 31,
+        "risk": 70,
+        "events": {
+          "rejected": 1
+        },
+        "offer_cif": 0.19702357782076815,
+        "event_free": 0.5183440801283941,
+        "censored": 2
+      },
+      {
+        "day": 32,
+        "risk": 67,
+        "events": {
+          "offer": 5,
+          "withdrawn": 1
+        },
+        "offer_cif": 0.23570597186020054,
+        "event_free": 0.4719252072810752,
+        "censored": 1
+      },
+      {
+        "day": 33,
+        "risk": 60,
+        "events": {
+          "offer": 3,
+          "rejected": 2
+        },
+        "offer_cif": 0.2593022322242543,
+        "event_free": 0.4325981066743189,
+        "censored": 1
+      },
+      {
+        "day": 34,
+        "risk": 54,
+        "events": {
+          "rejected": 3,
+          "offer": 1
+        },
+        "offer_cif": 0.26731330827377875,
+        "event_free": 0.40055380247622124,
+        "censored": 4
+      },
+      {
+        "day": 35,
+        "risk": 46,
+        "events": {
+          "offer": 1,
+          "rejected": 2,
+          "withdrawn": 1
+        },
+        "offer_cif": 0.2760209996319575,
+        "event_free": 0.3657230370435064,
+        "censored": 1
+      },
+      {
+        "day": 37,
+        "risk": 41,
+        "events": {
+          "withdrawn": 1,
+          "offer": 3
+        },
+        "offer_cif": 0.30278122185465306,
+        "event_free": 0.33004274074657897,
+        "censored": 2
+      },
+      {
+        "day": 38,
+        "risk": 35,
+        "events": {
+          "withdrawn": 1
+        },
+        "offer_cif": 0.30278122185465306,
+        "event_free": 0.3206129481538196,
+        "censored": 5
+      },
+      {
+        "day": 39,
+        "risk": 29,
+        "events": {
+          "offer": 1
+        },
+        "offer_cif": 0.3138368407565089,
+        "event_free": 0.3095573292519637,
+        "censored": 1
+      },
+      {
+        "day": 40,
+        "risk": 27,
+        "events": {
+          "rejected": 1,
+          "offer": 1
+        },
+        "offer_cif": 0.3253019270251002,
+        "event_free": 0.28662715671478123,
+        "censored": 1
+      },
+      {
+        "day": 41,
+        "risk": 24,
+        "events": {
+          "offer": 1
+        },
+        "offer_cif": 0.3372447252215494,
+        "event_free": 0.274684358518332,
+        "censored": 1
+      },
+      {
+        "day": 42,
+        "risk": 22,
+        "events": {
+          "offer": 1
+        },
+        "offer_cif": 0.3497303778814736,
+        "event_free": 0.2621987058584078,
+        "censored": 1
+      },
+      {
+        "day": 43,
+        "risk": 20,
+        "events": {
+          "offer": 2,
+          "rejected": 1
+        },
+        "offer_cif": 0.3759502484673144,
+        "event_free": 0.22286889997964665,
+        "censored": 1
+      },
+      {
+        "day": 44,
+        "risk": 16,
+        "events": {
+          "withdrawn": 1,
+          "offer": 1
+        },
+        "offer_cif": 0.3898795547160423,
+        "event_free": 0.19501028748219082,
+        "censored": 1
+      },
+      {
+        "day": 45,
+        "risk": 13,
+        "events": {
+          "rejected": 2
+        },
+        "offer_cif": 0.3898795547160423,
+        "event_free": 0.165008704792623,
+        "censored": 2
+      },
+      {
+        "day": 46,
+        "risk": 9,
+        "events": {
+          "rejected": 2,
+          "offer": 1
+        },
+        "offer_cif": 0.40821385524855597,
+        "event_free": 0.11000580319508202,
+        "censored": 0
+      },
+      {
+        "day": 47,
+        "risk": 6,
+        "events": {
+          "offer": 1,
+          "rejected": 1
+        },
+        "offer_cif": 0.42654815578106964,
+        "event_free": 0.0733372021300547,
+        "censored": 0
+      },
+      {
+        "day": 50,
+        "risk": 4,
+        "events": {
+          "offer": 2
+        },
+        "offer_cif": 0.463216756846097,
+        "event_free": 0.03666860106502735,
+        "censored": 0
+      },
+      {
+        "day": 52,
+        "risk": 2,
+        "events": {
+          "offer": 1
+        },
+        "offer_cif": 0.48155105737861065,
+        "event_free": 0.018334300532513673,
+        "censored": 0
+      },
+      {
+        "day": 53,
+        "risk": 1,
+        "events": {
+          "offer": 1
+        },
+        "offer_cif": 0.4998853579111243,
+        "event_free": 0.0,
+        "censored": 0
+      }
+    ]
+  },
+  "teams": {
+    "T-产品": {
+      "n": 72,
+      "active": 22,
+      "hours": 136.84,
+      "active_hours": 38.97,
+      "active_age30": 7,
+      "outcomes": {
+        "withdrawn": 9,
+        "offer": 24,
+        "rejected": 17,
+        "inflight": 22
+      },
+      "cif": [
+        {
+          "day": 7,
+          "risk": 72,
+          "events": {
+            "offer": 2,
+            "withdrawn": 1,
+            "rejected": 1
+          },
+          "offer_cif": 0.027777777777777776,
+          "event_free": 0.9444444444444444,
+          "censored": 0
+        },
+        {
+          "day": 8,
+          "risk": 68,
+          "events": {
+            "rejected": 1
+          },
+          "offer_cif": 0.027777777777777776,
+          "event_free": 0.9305555555555556,
+          "censored": 0
+        },
+        {
+          "day": 9,
+          "risk": 67,
+          "events": {
+            "offer": 1,
+            "withdrawn": 1
+          },
+          "offer_cif": 0.041666666666666664,
+          "event_free": 0.9027777777777778,
+          "censored": 0
+        },
+        {
+          "day": 10,
+          "risk": 65,
+          "events": {
+            "offer": 2,
+            "rejected": 1
+          },
+          "offer_cif": 0.06944444444444445,
+          "event_free": 0.861111111111111,
+          "censored": 0
+        },
+        {
+          "day": 12,
+          "risk": 62,
+          "events": {
+            "offer": 1
+          },
+          "offer_cif": 0.08333333333333334,
+          "event_free": 0.8472222222222222,
+          "censored": 0
+        },
+        {
+          "day": 13,
+          "risk": 61,
+          "events": {
+            "rejected": 1,
+            "withdrawn": 1
+          },
+          "offer_cif": 0.08333333333333334,
+          "event_free": 0.8194444444444444,
+          "censored": 0
+        },
+        {
+          "day": 14,
+          "risk": 59,
+          "events": {
+            "withdrawn": 1,
+            "offer": 1
+          },
+          "offer_cif": 0.09722222222222224,
+          "event_free": 0.7916666666666666,
+          "censored": 0
+        },
+        {
+          "day": 15,
+          "risk": 57,
+          "events": {
+            "rejected": 1
+          },
+          "offer_cif": 0.09722222222222224,
+          "event_free": 0.7777777777777777,
+          "censored": 1
+        },
+        {
+          "day": 16,
+          "risk": 55,
+          "events": {
+            "offer": 1,
+            "withdrawn": 1
+          },
+          "offer_cif": 0.11136363636363637,
+          "event_free": 0.7494949494949494,
+          "censored": 1
+        },
+        {
+          "day": 17,
+          "risk": 52,
+          "events": {
+            "withdrawn": 1
+          },
+          "offer_cif": 0.11136363636363637,
+          "event_free": 0.7350815850815849,
+          "censored": 2
+        },
+        {
+          "day": 19,
+          "risk": 49,
+          "events": {
+            "offer": 2
+          },
+          "offer_cif": 0.14136696636696638,
+          "event_free": 0.705078255078255,
+          "censored": 4
+        },
+        {
+          "day": 20,
+          "risk": 43,
+          "events": {
+            "withdrawn": 1,
+            "offer": 1
+          },
+          "offer_cif": 0.15776413508971648,
+          "event_free": 0.6722839176327547,
+          "censored": 0
+        },
+        {
+          "day": 21,
+          "risk": 41,
+          "events": {
+            "offer": 1,
+            "withdrawn": 1
+          },
+          "offer_cif": 0.1741613038124666,
+          "event_free": 0.6394895801872544,
+          "censored": 1
+        },
+        {
+          "day": 22,
+          "risk": 38,
+          "events": {},
+          "offer_cif": 0.1741613038124666,
+          "event_free": 0.6394895801872544,
+          "censored": 1
+        },
+        {
+          "day": 23,
+          "risk": 37,
+          "events": {
+            "rejected": 1,
+            "offer": 1
+          },
+          "offer_cif": 0.19144480597968971,
+          "event_free": 0.6049225758528083,
+          "censored": 1
+        },
+        {
+          "day": 24,
+          "risk": 34,
+          "events": {
+            "offer": 1
+          },
+          "offer_cif": 0.20923664644594878,
+          "event_free": 0.5871307353865493,
+          "censored": 0
+        },
+        {
+          "day": 25,
+          "risk": 33,
+          "events": {
+            "offer": 1,
+            "rejected": 1
+          },
+          "offer_cif": 0.22702848691220784,
+          "event_free": 0.5515470544540312,
+          "censored": 2
+        },
+        {
+          "day": 26,
+          "risk": 29,
+          "events": {},
+          "offer_cif": 0.22702848691220784,
+          "event_free": 0.5515470544540312,
+          "censored": 1
+        },
+        {
+          "day": 28,
+          "risk": 28,
+          "events": {
+            "withdrawn": 1
+          },
+          "offer_cif": 0.22702848691220784,
+          "event_free": 0.5318489453663873,
+          "censored": 0
+        },
+        {
+          "day": 29,
+          "risk": 27,
+          "events": {
+            "rejected": 1
+          },
+          "offer_cif": 0.22702848691220784,
+          "event_free": 0.5121508362787434,
+          "censored": 1
+        },
+        {
+          "day": 30,
+          "risk": 25,
+          "events": {
+            "rejected": 2
+          },
+          "offer_cif": 0.22702848691220784,
+          "event_free": 0.47117876937644393,
+          "censored": 1
+        },
+        {
+          "day": 31,
+          "risk": 22,
+          "events": {
+            "rejected": 1
+          },
+          "offer_cif": 0.22702848691220784,
+          "event_free": 0.4497615525866056,
+          "censored": 1
+        },
+        {
+          "day": 32,
+          "risk": 20,
+          "events": {
+            "offer": 1
+          },
+          "offer_cif": 0.24951656454153812,
+          "event_free": 0.4272734749572753,
+          "censored": 0
+        },
+        {
+          "day": 33,
+          "risk": 19,
+          "events": {
+            "offer": 2,
+            "rejected": 1
+          },
+          "offer_cif": 0.29449271980019864,
+          "event_free": 0.35980924206928444,
+          "censored": 1
+        },
+        {
+          "day": 34,
+          "risk": 15,
+          "events": {
+            "rejected": 2
+          },
+          "offer_cif": 0.29449271980019864,
+          "event_free": 0.31183467646004653,
+          "censored": 0
+        },
+        {
+          "day": 35,
+          "risk": 13,
+          "events": {
+            "offer": 1,
+            "rejected": 1
+          },
+          "offer_cif": 0.3184800026048176,
+          "event_free": 0.2638601108508086,
+          "censored": 0
+        },
+        {
+          "day": 37,
+          "risk": 11,
+          "events": {
+            "offer": 2
+          },
+          "offer_cif": 0.36645456821405553,
+          "event_free": 0.2158855452415707,
+          "censored": 1
+        },
+        {
+          "day": 38,
+          "risk": 8,
+          "events": {},
+          "offer_cif": 0.36645456821405553,
+          "event_free": 0.2158855452415707,
+          "censored": 1
+        },
+        {
+          "day": 39,
+          "risk": 7,
+          "events": {},
+          "offer_cif": 0.36645456821405553,
+          "event_free": 0.2158855452415707,
+          "censored": 1
+        },
+        {
+          "day": 40,
+          "risk": 6,
+          "events": {
+            "offer": 1
+          },
+          "offer_cif": 0.402435492420984,
+          "event_free": 0.17990462103464225,
+          "censored": 0
+        },
+        {
+          "day": 42,
+          "risk": 5,
+          "events": {
+            "offer": 1
+          },
+          "offer_cif": 0.4384164166279124,
+          "event_free": 0.1439236968277138,
+          "censored": 0
+        },
+        {
+          "day": 43,
+          "risk": 4,
+          "events": {
+            "rejected": 1
+          },
+          "offer_cif": 0.4384164166279124,
+          "event_free": 0.10794277262078536,
+          "censored": 0
+        },
+        {
+          "day": 44,
+          "risk": 3,
+          "events": {},
+          "offer_cif": 0.4384164166279124,
+          "event_free": 0.10794277262078536,
+          "censored": 1
+        },
+        {
+          "day": 45,
+          "risk": 2,
+          "events": {
+            "rejected": 1
+          },
+          "offer_cif": 0.4384164166279124,
+          "event_free": 0.05397138631039268,
+          "censored": 0
+        },
+        {
+          "day": 46,
+          "risk": 1,
+          "events": {
+            "offer": 1
+          },
+          "offer_cif": 0.4923878029383051,
+          "event_free": 0.0,
+          "censored": 0
+        }
+      ]
+    },
+    "T-研究": {
+      "n": 71,
+      "active": 37,
+      "hours": 218.83,
+      "active_hours": 117.02,
+      "active_age30": 12,
+      "outcomes": {
+        "inflight": 37,
+        "rejected": 7,
+        "offer": 20,
+        "withdrawn": 7
+      },
+      "cif": [
+        {
+          "day": 15,
+          "risk": 71,
+          "events": {},
+          "offer_cif": 0.0,
+          "event_free": 1.0,
+          "censored": 1
+        },
+        {
+          "day": 16,
+          "risk": 70,
+          "events": {},
+          "offer_cif": 0.0,
+          "event_free": 1.0,
+          "censored": 2
+        },
+        {
+          "day": 17,
+          "risk": 68,
+          "events": {
+            "rejected": 1
+          },
+          "offer_cif": 0.0,
+          "event_free": 0.9852941176470589,
+          "censored": 0
+        },
+        {
+          "day": 18,
+          "risk": 67,
+          "events": {},
+          "offer_cif": 0.0,
+          "event_free": 0.9852941176470589,
+          "censored": 2
+        },
+        {
+          "day": 19,
+          "risk": 65,
+          "events": {
+            "rejected": 2,
+            "offer": 1
+          },
+          "offer_cif": 0.015158371040723984,
+          "event_free": 0.9398190045248869,
+          "censored": 4
+        },
+        {
+          "day": 20,
+          "risk": 58,
+          "events": {
+            "withdrawn": 1,
+            "offer": 1
+          },
+          "offer_cif": 0.03136214698080824,
+          "event_free": 0.9074114526447183,
+          "censored": 4
+        },
+        {
+          "day": 21,
+          "risk": 52,
+          "events": {
+            "offer": 1
+          },
+          "offer_cif": 0.0488123672239759,
+          "event_free": 0.8899612324015507,
+          "censored": 2
+        },
+        {
+          "day": 23,
+          "risk": 49,
+          "events": {
+            "offer": 2
+          },
+          "offer_cif": 0.08513731548526368,
+          "event_free": 0.8536362841402628,
+          "censored": 1
+        },
+        {
+          "day": 24,
+          "risk": 46,
+          "events": {},
+          "offer_cif": 0.08513731548526368,
+          "event_free": 0.8536362841402628,
+          "censored": 2
+        },
+        {
+          "day": 25,
+          "risk": 44,
+          "events": {
+            "offer": 1
+          },
+          "offer_cif": 0.1045381401248151,
+          "event_free": 0.8342354595007114,
+          "censored": 2
+        },
+        {
+          "day": 26,
+          "risk": 41,
+          "events": {
+            "withdrawn": 1,
+            "offer": 2
+          },
+          "offer_cif": 0.1452325527833864,
+          "event_free": 0.7731938405128546,
+          "censored": 0
+        },
+        {
+          "day": 27,
+          "risk": 38,
+          "events": {
+            "offer": 1
+          },
+          "offer_cif": 0.16557975911267203,
+          "event_free": 0.7528466341835689,
+          "censored": 2
+        },
+        {
+          "day": 28,
+          "risk": 35,
+          "events": {
+            "rejected": 1,
+            "withdrawn": 1
+          },
+          "offer_cif": 0.16557975911267203,
+          "event_free": 0.7098268265159364,
+          "censored": 0
+        },
+        {
+          "day": 29,
+          "risk": 33,
+          "events": {},
+          "offer_cif": 0.16557975911267203,
+          "event_free": 0.7098268265159364,
+          "censored": 3
+        },
+        {
+          "day": 30,
+          "risk": 30,
+          "events": {
+            "offer": 2
+          },
+          "offer_cif": 0.2129015475470678,
+          "event_free": 0.6625050380815407,
+          "censored": 0
+        },
+        {
+          "day": 32,
+          "risk": 28,
+          "events": {
+            "offer": 2
+          },
+          "offer_cif": 0.2602233359814636,
+          "event_free": 0.615183249647145,
+          "censored": 0
+        },
+        {
+          "day": 34,
+          "risk": 26,
+          "events": {
+            "rejected": 1
+          },
+          "offer_cif": 0.2602233359814636,
+          "event_free": 0.5915223554299471,
+          "censored": 4
+        },
+        {
+          "day": 35,
+          "risk": 21,
+          "events": {
+            "withdrawn": 1
+          },
+          "offer_cif": 0.2602233359814636,
+          "event_free": 0.5633546242189973,
+          "censored": 1
+        },
+        {
+          "day": 37,
+          "risk": 19,
+          "events": {
+            "withdrawn": 1
+          },
+          "offer_cif": 0.2602233359814636,
+          "event_free": 0.5337043808390501,
+          "censored": 0
+        },
+        {
+          "day": 38,
+          "risk": 18,
+          "events": {
+            "withdrawn": 1
+          },
+          "offer_cif": 0.2602233359814636,
+          "event_free": 0.5040541374591029,
+          "censored": 2
+        },
+        {
+          "day": 39,
+          "risk": 15,
+          "events": {
+            "offer": 1
+          },
+          "offer_cif": 0.29382694514540375,
+          "event_free": 0.4704505282951627,
+          "censored": 0
+        },
+        {
+          "day": 40,
+          "risk": 14,
+          "events": {
+            "rejected": 1
+          },
+          "offer_cif": 0.29382694514540375,
+          "event_free": 0.43684691913122253,
+          "censored": 1
+        },
+        {
+          "day": 41,
+          "risk": 12,
+          "events": {},
+          "offer_cif": 0.29382694514540375,
+          "event_free": 0.43684691913122253,
+          "censored": 1
+        },
+        {
+          "day": 42,
+          "risk": 11,
+          "events": {},
+          "offer_cif": 0.29382694514540375,
+          "event_free": 0.43684691913122253,
+          "censored": 1
+        },
+        {
+          "day": 43,
+          "risk": 10,
+          "events": {
+            "offer": 1
+          },
+          "offer_cif": 0.337511637058526,
+          "event_free": 0.3931622272181003,
+          "censored": 1
+        },
+        {
+          "day": 44,
+          "risk": 8,
+          "events": {
+            "withdrawn": 1,
+            "offer": 1
+          },
+          "offer_cif": 0.3866569154607885,
+          "event_free": 0.2948716704135752,
+          "censored": 0
+        },
+        {
+          "day": 45,
+          "risk": 6,
+          "events": {},
+          "offer_cif": 0.3866569154607885,
+          "event_free": 0.2948716704135752,
+          "censored": 1
+        },
+        {
+          "day": 46,
+          "risk": 5,
+          "events": {
+            "rejected": 1
+          },
+          "offer_cif": 0.3866569154607885,
+          "event_free": 0.23589733633086019,
+          "censored": 0
+        },
+        {
+          "day": 50,
+          "risk": 4,
+          "events": {
+            "offer": 2
+          },
+          "offer_cif": 0.5046055836262187,
+          "event_free": 0.11794866816543009,
+          "censored": 0
+        },
+        {
+          "day": 52,
+          "risk": 2,
+          "events": {
+            "offer": 1
+          },
+          "offer_cif": 0.5635799177089337,
+          "event_free": 0.058974334082715046,
+          "censored": 0
+        },
+        {
+          "day": 53,
+          "risk": 1,
+          "events": {
+            "offer": 1
+          },
+          "offer_cif": 0.6225542517916487,
+          "event_free": 0.0,
+          "censored": 0
+        }
+      ]
+    },
+    "T-销售": {
+      "n": 71,
+      "active": 23,
+      "hours": 139.35,
+      "active_hours": 50.04,
+      "active_age30": 6,
+      "outcomes": {
+        "rejected": 20,
+        "inflight": 23,
+        "offer": 18,
+        "withdrawn": 10
+      },
+      "cif": [
+        {
+          "day": 7,
+          "risk": 71,
+          "events": {
+            "rejected": 2,
+            "offer": 1,
+            "withdrawn": 1
+          },
+          "offer_cif": 0.014084507042253521,
+          "event_free": 0.9436619718309859,
+          "censored": 0
+        },
+        {
+          "day": 8,
+          "risk": 67,
+          "events": {
+            "rejected": 1,
+            "withdrawn": 1
+          },
+          "offer_cif": 0.014084507042253521,
+          "event_free": 0.9154929577464789,
+          "censored": 0
+        },
+        {
+          "day": 9,
+          "risk": 65,
+          "events": {
+            "offer": 1,
+            "withdrawn": 1
+          },
+          "offer_cif": 0.028169014084507043,
+          "event_free": 0.8873239436619719,
+          "censored": 0
+        },
+        {
+          "day": 10,
+          "risk": 63,
+          "events": {
+            "rejected": 1
+          },
+          "offer_cif": 0.028169014084507043,
+          "event_free": 0.8732394366197184,
+          "censored": 0
+        },
+        {
+          "day": 12,
+          "risk": 62,
+          "events": {
+            "rejected": 1
+          },
+          "offer_cif": 0.028169014084507043,
+          "event_free": 0.8591549295774649,
+          "censored": 0
+        },
+        {
+          "day": 13,
+          "risk": 61,
+          "events": {
+            "offer": 1
+          },
+          "offer_cif": 0.04225352112676056,
+          "event_free": 0.8450704225352114,
+          "censored": 0
+        },
+        {
+          "day": 15,
+          "risk": 60,
+          "events": {
+            "offer": 1
+          },
+          "offer_cif": 0.056338028169014086,
+          "event_free": 0.8309859154929577,
+          "censored": 0
+        },
+        {
+          "day": 16,
+          "risk": 59,
+          "events": {
+            "rejected": 1,
+            "offer": 1
+          },
+          "offer_cif": 0.07042253521126761,
+          "event_free": 0.8028169014084507,
+          "censored": 1
+        },
+        {
+          "day": 17,
+          "risk": 56,
+          "events": {
+            "withdrawn": 1
+          },
+          "offer_cif": 0.07042253521126761,
+          "event_free": 0.7884808853118712,
+          "censored": 1
+        },
+        {
+          "day": 18,
+          "risk": 54,
+          "events": {
+            "offer": 1,
+            "rejected": 1,
+            "withdrawn": 1
+          },
+          "offer_cif": 0.08502403308741337,
+          "event_free": 0.7446763916834339,
+          "censored": 1
+        },
+        {
+          "day": 19,
+          "risk": 50,
+          "events": {
+            "offer": 1,
+            "rejected": 1
+          },
+          "offer_cif": 0.09991756092108205,
+          "event_free": 0.7148893360160965,
+          "censored": 2
+        },
+        {
+          "day": 20,
+          "risk": 46,
+          "events": {
+            "withdrawn": 1,
+            "offer": 1
+          },
+          "offer_cif": 0.1154586334431711,
+          "event_free": 0.6838071909719184,
+          "censored": 3
+        },
+        {
+          "day": 21,
+          "risk": 41,
+          "events": {
+            "offer": 1,
+            "rejected": 1
+          },
+          "offer_cif": 0.1321368576132179,
+          "event_free": 0.6504507426318248,
+          "censored": 1
+        },
+        {
+          "day": 22,
+          "risk": 38,
+          "events": {},
+          "offer_cif": 0.1321368576132179,
+          "event_free": 0.6504507426318248,
+          "censored": 2
+        },
+        {
+          "day": 23,
+          "risk": 36,
+          "events": {
+            "rejected": 1
+          },
+          "offer_cif": 0.1321368576132179,
+          "event_free": 0.6323826664476074,
+          "censored": 1
+        },
+        {
+          "day": 24,
+          "risk": 34,
+          "events": {
+            "rejected": 1
+          },
+          "offer_cif": 0.1321368576132179,
+          "event_free": 0.613783176257972,
+          "censored": 0
+        },
+        {
+          "day": 25,
+          "risk": 33,
+          "events": {
+            "withdrawn": 1
+          },
+          "offer_cif": 0.1321368576132179,
+          "event_free": 0.5951836860683365,
+          "censored": 1
+        },
+        {
+          "day": 26,
+          "risk": 31,
+          "events": {
+            "rejected": 1
+          },
+          "offer_cif": 0.1321368576132179,
+          "event_free": 0.5759842123241966,
+          "censored": 1
+        },
+        {
+          "day": 27,
+          "risk": 29,
+          "events": {
+            "rejected": 1
+          },
+          "offer_cif": 0.1321368576132179,
+          "event_free": 0.5561226877612933,
+          "censored": 1
+        },
+        {
+          "day": 29,
+          "risk": 27,
+          "events": {
+            "rejected": 1
+          },
+          "offer_cif": 0.1321368576132179,
+          "event_free": 0.5355255511775416,
+          "censored": 2
+        },
+        {
+          "day": 30,
+          "risk": 24,
+          "events": {
+            "withdrawn": 2,
+            "rejected": 1,
+            "offer": 1
+          },
+          "offer_cif": 0.15445042224561545,
+          "event_free": 0.4462712926479514,
+          "censored": 0
+        },
+        {
+          "day": 31,
+          "risk": 20,
+          "events": {},
+          "offer_cif": 0.15445042224561545,
+          "event_free": 0.4462712926479514,
+          "censored": 1
+        },
+        {
+          "day": 32,
+          "risk": 19,
+          "events": {
+            "offer": 2,
+            "withdrawn": 1
+          },
+          "offer_cif": 0.20142634778750507,
+          "event_free": 0.37580740433511695,
+          "censored": 1
+        },
+        {
+          "day": 33,
+          "risk": 15,
+          "events": {
+            "rejected": 1,
+            "offer": 1
+          },
+          "offer_cif": 0.22648017474317952,
+          "event_free": 0.32569975042376803,
+          "censored": 0
+        },
+        {
+          "day": 34,
+          "risk": 13,
+          "events": {
+            "offer": 1
+          },
+          "offer_cif": 0.251534001698854,
+          "event_free": 0.3006459234680936,
+          "censored": 0
+        },
+        {
+          "day": 35,
+          "risk": 12,
+          "events": {
+            "rejected": 1
+          },
+          "offer_cif": 0.251534001698854,
+          "event_free": 0.2755920965124191,
+          "censored": 0
+        },
+        {
+          "day": 37,
+          "risk": 11,
+          "events": {
+            "offer": 1
+          },
+          "offer_cif": 0.27658782865452847,
+          "event_free": 0.25053826955674463,
+          "censored": 1
+        },
+        {
+          "day": 38,
+          "risk": 9,
+          "events": {},
+          "offer_cif": 0.27658782865452847,
+          "event_free": 0.25053826955674463,
+          "censored": 2
+        },
+        {
+          "day": 41,
+          "risk": 7,
+          "events": {
+            "offer": 1
+          },
+          "offer_cif": 0.3123790100197777,
+          "event_free": 0.2147470881914954,
+          "censored": 0
+        },
+        {
+          "day": 43,
+          "risk": 6,
+          "events": {
+            "offer": 1
+          },
+          "offer_cif": 0.3481701913850269,
+          "event_free": 0.17895590682624618,
+          "censored": 0
+        },
+        {
+          "day": 45,
+          "risk": 5,
+          "events": {
+            "rejected": 1
+          },
+          "offer_cif": 0.3481701913850269,
+          "event_free": 0.14316472546099696,
+          "censored": 1
+        },
+        {
+          "day": 46,
+          "risk": 3,
+          "events": {
+            "rejected": 1
+          },
+          "offer_cif": 0.3481701913850269,
+          "event_free": 0.09544315030733132,
+          "censored": 0
+        },
+        {
+          "day": 47,
+          "risk": 2,
+          "events": {
+            "offer": 1,
+            "rejected": 1
+          },
+          "offer_cif": 0.39589176653869257,
+          "event_free": 0.0,
+          "censored": 0
+        }
+      ]
+    }
+  },
+  "sources": {
+    "agency": {
+      "n": 75,
+      "active": 28,
+      "hours": 178.63,
+      "active_hours": 77.65,
+      "active_age30": 2,
+      "outcomes": {
+        "withdrawn": 10,
+        "inflight": 28,
+        "rejected": 12,
+        "offer": 25
+      },
+      "cif": [
+        {
+          "day": 7,
+          "risk": 75,
+          "events": {
+            "offer": 2,
+            "rejected": 1,
+            "withdrawn": 1
+          },
+          "offer_cif": 0.02666666666666667,
+          "event_free": 0.9466666666666667,
+          "censored": 0
+        },
+        {
+          "day": 9,
+          "risk": 71,
+          "events": {
+            "offer": 2,
+            "withdrawn": 1
+          },
+          "offer_cif": 0.05333333333333333,
+          "event_free": 0.9066666666666667,
+          "censored": 0
+        },
+        {
+          "day": 10,
+          "risk": 68,
+          "events": {
+            "rejected": 1
+          },
+          "offer_cif": 0.05333333333333333,
+          "event_free": 0.8933333333333334,
+          "censored": 0
+        },
+        {
+          "day": 14,
+          "risk": 67,
+          "events": {
+            "offer": 1
+          },
+          "offer_cif": 0.06666666666666667,
+          "event_free": 0.88,
+          "censored": 0
+        },
+        {
+          "day": 15,
+          "risk": 66,
+          "events": {
+            "offer": 1
+          },
+          "offer_cif": 0.08,
+          "event_free": 0.8666666666666667,
+          "censored": 2
+        },
+        {
+          "day": 16,
+          "risk": 63,
+          "events": {
+            "offer": 1
+          },
+          "offer_cif": 0.09375661375661376,
+          "event_free": 0.852910052910053,
+          "censored": 2
+        },
+        {
+          "day": 17,
+          "risk": 60,
+          "events": {
+            "withdrawn": 1
+          },
+          "offer_cif": 0.09375661375661376,
+          "event_free": 0.838694885361552,
+          "censored": 1
+        },
+        {
+          "day": 18,
+          "risk": 58,
+          "events": {},
+          "offer_cif": 0.09375661375661376,
+          "event_free": 0.838694885361552,
+          "censored": 2
+        },
+        {
+          "day": 19,
+          "risk": 56,
+          "events": {
+            "rejected": 2
+          },
+          "offer_cif": 0.09375661375661376,
+          "event_free": 0.8087414965986395,
+          "censored": 5
+        },
+        {
+          "day": 20,
+          "risk": 49,
+          "events": {
+            "withdrawn": 2
+          },
+          "offer_cif": 0.09375661375661376,
+          "event_free": 0.7757316395946133,
+          "censored": 4
+        },
+        {
+          "day": 21,
+          "risk": 43,
+          "events": {
+            "offer": 1,
+            "rejected": 1
+          },
+          "offer_cif": 0.11179688444486058,
+          "event_free": 0.7396510982181197,
+          "censored": 1
+        },
+        {
+          "day": 22,
+          "risk": 40,
+          "events": {},
+          "offer_cif": 0.11179688444486058,
+          "event_free": 0.7396510982181197,
+          "censored": 1
+        },
+        {
+          "day": 23,
+          "risk": 39,
+          "events": {
+            "rejected": 1
+          },
+          "offer_cif": 0.11179688444486058,
+          "event_free": 0.7206856854432961,
+          "censored": 0
+        },
+        {
+          "day": 24,
+          "risk": 38,
+          "events": {
+            "offer": 1
+          },
+          "offer_cif": 0.13076229721968416,
+          "event_free": 0.7017202726684726,
+          "censored": 1
+        },
+        {
+          "day": 25,
+          "risk": 36,
+          "events": {},
+          "offer_cif": 0.13076229721968416,
+          "event_free": 0.7017202726684726,
+          "censored": 3
+        },
+        {
+          "day": 26,
+          "risk": 33,
+          "events": {
+            "offer": 1
+          },
+          "offer_cif": 0.15202654790660758,
+          "event_free": 0.6804560219815492,
+          "censored": 0
+        },
+        {
+          "day": 27,
+          "risk": 32,
+          "events": {
+            "offer": 1
+          },
+          "offer_cif": 0.173290798593531,
+          "event_free": 0.6591917712946258,
+          "censored": 2
+        },
+        {
+          "day": 28,
+          "risk": 29,
+          "events": {
+            "rejected": 1
+          },
+          "offer_cif": 0.173290798593531,
+          "event_free": 0.6364610205603284,
+          "censored": 0
+        },
+        {
+          "day": 29,
+          "risk": 28,
+          "events": {
+            "rejected": 1
+          },
+          "offer_cif": 0.173290798593531,
+          "event_free": 0.613730269826031,
+          "censored": 2
+        },
+        {
+          "day": 30,
+          "risk": 25,
+          "events": {
+            "withdrawn": 2,
+            "offer": 2
+          },
+          "offer_cif": 0.2223892201796135,
+          "event_free": 0.515533426653866,
+          "censored": 0
+        },
+        {
+          "day": 32,
+          "risk": 21,
+          "events": {
+            "offer": 2
+          },
+          "offer_cif": 0.27148764176569595,
+          "event_free": 0.46643500506778357,
+          "censored": 0
+        },
+        {
+          "day": 33,
+          "risk": 19,
+          "events": {
+            "rejected": 1
+          },
+          "offer_cif": 0.27148764176569595,
+          "event_free": 0.44188579427474234,
+          "censored": 0
+        },
+        {
+          "day": 34,
+          "risk": 18,
+          "events": {
+            "rejected": 1,
+            "offer": 1
+          },
+          "offer_cif": 0.2960368525587372,
+          "event_free": 0.3927873726886598,
+          "censored": 0
+        },
+        {
+          "day": 35,
+          "risk": 16,
+          "events": {
+            "offer": 1
+          },
+          "offer_cif": 0.3205860633517784,
+          "event_free": 0.3682381618956186,
+          "censored": 0
+        },
+        {
+          "day": 37,
+          "risk": 15,
+          "events": {
+            "withdrawn": 1,
+            "offer": 1
+          },
+          "offer_cif": 0.34513527414481965,
+          "event_free": 0.3191397403095361,
+          "censored": 0
+        },
+        {
+          "day": 38,
+          "risk": 13,
+          "events": {
+            "withdrawn": 1
+          },
+          "offer_cif": 0.34513527414481965,
+          "event_free": 0.2945905295164949,
+          "censored": 1
+        },
+        {
+          "day": 40,
+          "risk": 11,
+          "events": {
+            "offer": 1
+          },
+          "offer_cif": 0.3719162313735919,
+          "event_free": 0.2678095722877226,
+          "censored": 0
+        },
+        {
+          "day": 42,
+          "risk": 10,
+          "events": {
+            "offer": 1
+          },
+          "offer_cif": 0.3986971886023642,
+          "event_free": 0.24102861505895037,
+          "censored": 0
+        },
+        {
+          "day": 43,
+          "risk": 9,
+          "events": {
+            "offer": 1
+          },
+          "offer_cif": 0.42547814583113647,
+          "event_free": 0.2142476578301781,
+          "censored": 0
+        },
+        {
+          "day": 44,
+          "risk": 8,
+          "events": {
+            "withdrawn": 1
+          },
+          "offer_cif": 0.42547814583113647,
+          "event_free": 0.18746670060140583,
+          "censored": 0
+        },
+        {
+          "day": 45,
+          "risk": 7,
+          "events": {
+            "rejected": 1
+          },
+          "offer_cif": 0.42547814583113647,
+          "event_free": 0.16068574337263358,
+          "censored": 1
+        },
+        {
+          "day": 46,
+          "risk": 5,
+          "events": {
+            "rejected": 1,
+            "offer": 1
+          },
+          "offer_cif": 0.4576152945056632,
+          "event_free": 0.09641144602358015,
+          "censored": 0
+        },
+        {
+          "day": 47,
+          "risk": 3,
+          "events": {
+            "offer": 1
+          },
+          "offer_cif": 0.4897524431801899,
+          "event_free": 0.06427429734905345,
+          "censored": 0
+        },
+        {
+          "day": 50,
+          "risk": 2,
+          "events": {
+            "offer": 1
+          },
+          "offer_cif": 0.5218895918547166,
+          "event_free": 0.03213714867452672,
+          "censored": 0
+        },
+        {
+          "day": 53,
+          "risk": 1,
+          "events": {
+            "offer": 1
+          },
+          "offer_cif": 0.5540267405292434,
+          "event_free": 0.0,
+          "censored": 0
+        }
+      ]
+    },
+    "direct": {
+      "n": 69,
+      "active": 24,
+      "hours": 147.74,
+      "active_hours": 52.27,
+      "active_age30": 10,
+      "outcomes": {
+        "withdrawn": 12,
+        "rejected": 17,
+        "offer": 16,
+        "inflight": 24
+      },
+      "cif": [
+        {
+          "day": 7,
+          "risk": 69,
+          "events": {
+            "offer": 1,
+            "rejected": 1
+          },
+          "offer_cif": 0.014492753623188406,
+          "event_free": 0.9710144927536232,
+          "censored": 0
+        },
+        {
+          "day": 8,
+          "risk": 67,
+          "events": {
+            "rejected": 1
+          },
+          "offer_cif": 0.014492753623188406,
+          "event_free": 0.9565217391304347,
+          "censored": 0
+        },
+        {
+          "day": 9,
+          "risk": 66,
+          "events": {
+            "withdrawn": 1
+          },
+          "offer_cif": 0.014492753623188406,
+          "event_free": 0.9420289855072463,
+          "censored": 0
+        },
+        {
+          "day": 10,
+          "risk": 65,
+          "events": {
+            "offer": 1,
+            "rejected": 1
+          },
+          "offer_cif": 0.028985507246376812,
+          "event_free": 0.9130434782608695,
+          "censored": 0
+        },
+        {
+          "day": 12,
+          "risk": 63,
+          "events": {
+            "offer": 1,
+            "rejected": 1
+          },
+          "offer_cif": 0.043478260869565216,
+          "event_free": 0.8840579710144927,
+          "censored": 0
+        },
+        {
+          "day": 13,
+          "risk": 61,
+          "events": {
+            "offer": 1,
+            "withdrawn": 1
+          },
+          "offer_cif": 0.05797101449275362,
+          "event_free": 0.8550724637681159,
+          "censored": 0
+        },
+        {
+          "day": 14,
+          "risk": 59,
+          "events": {
+            "withdrawn": 1
+          },
+          "offer_cif": 0.05797101449275362,
+          "event_free": 0.8405797101449275,
+          "censored": 0
+        },
+        {
+          "day": 15,
+          "risk": 58,
+          "events": {
+            "rejected": 1
+          },
+          "offer_cif": 0.05797101449275362,
+          "event_free": 0.826086956521739,
+          "censored": 0
+        },
+        {
+          "day": 16,
+          "risk": 57,
+          "events": {
+            "withdrawn": 1
+          },
+          "offer_cif": 0.05797101449275362,
+          "event_free": 0.8115942028985506,
+          "censored": 1
+        },
+        {
+          "day": 17,
+          "risk": 55,
+          "events": {
+            "rejected": 1,
+            "withdrawn": 1
+          },
+          "offer_cif": 0.05797101449275362,
+          "event_free": 0.7820816864295124,
+          "censored": 0
+        },
+        {
+          "day": 18,
+          "risk": 53,
+          "events": {
+            "rejected": 1,
+            "withdrawn": 1
+          },
+          "offer_cif": 0.05797101449275362,
+          "event_free": 0.7525691699604742,
+          "censored": 0
+        },
+        {
+          "day": 19,
+          "risk": 51,
+          "events": {
+            "offer": 3
+          },
+          "offer_cif": 0.10223978919631091,
+          "event_free": 0.7083003952569169,
+          "censored": 3
+        },
+        {
+          "day": 20,
+          "risk": 45,
+          "events": {
+            "withdrawn": 1,
+            "offer": 1
+          },
+          "offer_cif": 0.11797979797979795,
+          "event_free": 0.6768203776899429,
+          "censored": 2
+        },
+        {
+          "day": 21,
+          "risk": 41,
+          "events": {
+            "offer": 1,
+            "withdrawn": 1
+          },
+          "offer_cif": 0.13448761206979656,
+          "event_free": 0.6438047495099456,
+          "censored": 1
+        },
+        {
+          "day": 22,
+          "risk": 38,
+          "events": {},
+          "offer_cif": 0.13448761206979656,
+          "event_free": 0.6438047495099456,
+          "censored": 2
+        },
+        {
+          "day": 23,
+          "risk": 36,
+          "events": {
+            "offer": 1
+          },
+          "offer_cif": 0.1523710773339617,
+          "event_free": 0.6259212842457804,
+          "censored": 2
+        },
+        {
+          "day": 24,
+          "risk": 33,
+          "events": {
+            "rejected": 1
+          },
+          "offer_cif": 0.1523710773339617,
+          "event_free": 0.6069539726019689,
+          "censored": 0
+        },
+        {
+          "day": 25,
+          "risk": 32,
+          "events": {
+            "rejected": 1
+          },
+          "offer_cif": 0.1523710773339617,
+          "event_free": 0.5879866609581574,
+          "censored": 0
+        },
+        {
+          "day": 26,
+          "risk": 31,
+          "events": {
+            "rejected": 1,
+            "withdrawn": 1
+          },
+          "offer_cif": 0.1523710773339617,
+          "event_free": 0.5500520376705345,
+          "censored": 2
+        },
+        {
+          "day": 27,
+          "risk": 27,
+          "events": {
+            "rejected": 1
+          },
+          "offer_cif": 0.1523710773339617,
+          "event_free": 0.5296797399790332,
+          "censored": 0
+        },
+        {
+          "day": 28,
+          "risk": 26,
+          "events": {
+            "withdrawn": 2
+          },
+          "offer_cif": 0.1523710773339617,
+          "event_free": 0.48893514459603066,
+          "censored": 0
+        },
+        {
+          "day": 29,
+          "risk": 24,
+          "events": {},
+          "offer_cif": 0.1523710773339617,
+          "event_free": 0.48893514459603066,
+          "censored": 1
+        },
+        {
+          "day": 30,
+          "risk": 23,
+          "events": {
+            "rejected": 2
+          },
+          "offer_cif": 0.1523710773339617,
+          "event_free": 0.44641904506594104,
+          "censored": 0
+        },
+        {
+          "day": 31,
+          "risk": 21,
+          "events": {},
+          "offer_cif": 0.1523710773339617,
+          "event_free": 0.44641904506594104,
+          "censored": 1
+        },
+        {
+          "day": 32,
+          "risk": 20,
+          "events": {
+            "offer": 2
+          },
+          "offer_cif": 0.19701298184055582,
+          "event_free": 0.40177714055934693,
+          "censored": 0
+        },
+        {
+          "day": 33,
+          "risk": 18,
+          "events": {
+            "rejected": 1,
+            "offer": 1
+          },
+          "offer_cif": 0.21933393409385288,
+          "event_free": 0.3571352360527528,
+          "censored": 1
+        },
+        {
+          "day": 34,
+          "risk": 15,
+          "events": {
+            "rejected": 2
+          },
+          "offer_cif": 0.21933393409385288,
+          "event_free": 0.30951720457905246,
+          "censored": 1
+        },
+        {
+          "day": 35,
+          "risk": 12,
+          "events": {
+            "rejected": 1,
+            "withdrawn": 1
+          },
+          "offer_cif": 0.21933393409385288,
+          "event_free": 0.2579310038158771,
+          "censored": 0
+        },
+        {
+          "day": 38,
+          "risk": 10,
+          "events": {},
+          "offer_cif": 0.21933393409385288,
+          "event_free": 0.2579310038158771,
+          "censored": 1
+        },
+        {
+          "day": 39,
+          "risk": 9,
+          "events": {},
+          "offer_cif": 0.21933393409385288,
+          "event_free": 0.2579310038158771,
+          "censored": 1
+        },
+        {
+          "day": 40,
+          "risk": 8,
+          "events": {},
+          "offer_cif": 0.21933393409385288,
+          "event_free": 0.2579310038158771,
+          "censored": 1
+        },
+        {
+          "day": 41,
+          "risk": 7,
+          "events": {},
+          "offer_cif": 0.21933393409385288,
+          "event_free": 0.2579310038158771,
+          "censored": 1
+        },
+        {
+          "day": 42,
+          "risk": 6,
+          "events": {},
+          "offer_cif": 0.21933393409385288,
+          "event_free": 0.2579310038158771,
+          "censored": 1
+        },
+        {
+          "day": 43,
+          "risk": 5,
+          "events": {},
+          "offer_cif": 0.21933393409385288,
+          "event_free": 0.2579310038158771,
+          "censored": 1
+        },
+        {
+          "day": 44,
+          "risk": 4,
+          "events": {
+            "offer": 1
+          },
+          "offer_cif": 0.28381668504782215,
+          "event_free": 0.1934482528619078,
+          "censored": 0
+        },
+        {
+          "day": 45,
+          "risk": 3,
+          "events": {},
+          "offer_cif": 0.28381668504782215,
+          "event_free": 0.1934482528619078,
+          "censored": 1
+        },
+        {
+          "day": 50,
+          "risk": 2,
+          "events": {
+            "offer": 1
+          },
+          "offer_cif": 0.38054081147877605,
+          "event_free": 0.0967241264309539,
+          "censored": 0
+        },
+        {
+          "day": 52,
+          "risk": 1,
+          "events": {
+            "offer": 1
+          },
+          "offer_cif": 0.47726493790972996,
+          "event_free": 0.0,
+          "censored": 0
+        }
+      ]
+    },
+    "referral": {
+      "n": 70,
+      "active": 30,
+      "hours": 168.65,
+      "active_hours": 76.11,
+      "active_age30": 13,
+      "outcomes": {
+        "inflight": 30,
+        "offer": 21,
+        "rejected": 15,
+        "withdrawn": 4
+      },
+      "cif": [
+        {
+          "day": 7,
+          "risk": 70,
+          "events": {
+            "withdrawn": 1,
+            "rejected": 1
+          },
+          "offer_cif": 0.0,
+          "event_free": 0.9714285714285714,
+          "censored": 0
+        },
+        {
+          "day": 8,
+          "risk": 68,
+          "events": {
+            "rejected": 1,
+            "withdrawn": 1
+          },
+          "offer_cif": 0.0,
+          "event_free": 0.9428571428571428,
+          "censored": 0
+        },
+        {
+          "day": 10,
+          "risk": 66,
+          "events": {
+            "offer": 1
+          },
+          "offer_cif": 0.014285714285714285,
+          "event_free": 0.9285714285714286,
+          "censored": 0
+        },
+        {
+          "day": 13,
+          "risk": 65,
+          "events": {
+            "rejected": 1
+          },
+          "offer_cif": 0.014285714285714285,
+          "event_free": 0.9142857142857144,
+          "censored": 0
+        },
+        {
+          "day": 16,
+          "risk": 64,
+          "events": {
+            "rejected": 1,
+            "offer": 1
+          },
+          "offer_cif": 0.028571428571428574,
+          "event_free": 0.8857142857142858,
+          "censored": 1
+        },
+        {
+          "day": 17,
+          "risk": 61,
+          "events": {},
+          "offer_cif": 0.028571428571428574,
+          "event_free": 0.8857142857142858,
+          "censored": 2
+        },
+        {
+          "day": 18,
+          "risk": 59,
+          "events": {
+            "offer": 1
+          },
+          "offer_cif": 0.04358353510895884,
+          "event_free": 0.8707021791767555,
+          "censored": 1
+        },
+        {
+          "day": 19,
+          "risk": 57,
+          "events": {
+            "rejected": 1,
+            "offer": 1
+          },
+          "offer_cif": 0.05885901193662122,
+          "event_free": 0.8401512255214307,
+          "censored": 2
+        },
+        {
+          "day": 20,
+          "risk": 53,
+          "events": {
+            "offer": 2
+          },
+          "offer_cif": 0.0905628317676186,
+          "event_free": 0.8084474056904334,
+          "censored": 1
+        },
+        {
+          "day": 21,
+          "risk": 50,
+          "events": {
+            "offer": 1
+          },
+          "offer_cif": 0.10673177988142726,
+          "event_free": 0.7922784575766247,
+          "censored": 2
+        },
+        {
+          "day": 23,
+          "risk": 47,
+          "events": {
+            "offer": 2,
+            "rejected": 1
+          },
+          "offer_cif": 0.14044575679958152,
+          "event_free": 0.7417074921993934,
+          "censored": 1
+        },
+        {
+          "day": 24,
+          "risk": 43,
+          "events": {},
+          "offer_cif": 0.14044575679958152,
+          "event_free": 0.7417074921993934,
+          "censored": 1
+        },
+        {
+          "day": 25,
+          "risk": 42,
+          "events": {
+            "offer": 2,
+            "withdrawn": 1
+          },
+          "offer_cif": 0.17576516119002883,
+          "event_free": 0.6887283856137224,
+          "censored": 2
+        },
+        {
+          "day": 26,
+          "risk": 37,
+          "events": {
+            "offer": 1
+          },
+          "offer_cif": 0.1943794418822916,
+          "event_free": 0.6701141049214596,
+          "censored": 0
+        },
+        {
+          "day": 27,
+          "risk": 36,
+          "events": {},
+          "offer_cif": 0.1943794418822916,
+          "event_free": 0.6701141049214596,
+          "censored": 1
+        },
+        {
+          "day": 29,
+          "risk": 35,
+          "events": {
+            "rejected": 1
+          },
+          "offer_cif": 0.1943794418822916,
+          "event_free": 0.6509679876379894,
+          "censored": 3
+        },
+        {
+          "day": 30,
+          "risk": 31,
+          "events": {
+            "rejected": 1,
+            "offer": 1
+          },
+          "offer_cif": 0.21537840922545254,
+          "event_free": 0.6089700529516675,
+          "censored": 1
+        },
+        {
+          "day": 31,
+          "risk": 28,
+          "events": {
+            "rejected": 1
+          },
+          "offer_cif": 0.21537840922545254,
+          "event_free": 0.587221122489108,
+          "censored": 1
+        },
+        {
+          "day": 32,
+          "risk": 26,
+          "events": {
+            "withdrawn": 1,
+            "offer": 1
+          },
+          "offer_cif": 0.23796383701349516,
+          "event_free": 0.5420502669130227,
+          "censored": 1
+        },
+        {
+          "day": 33,
+          "risk": 23,
+          "events": {
+            "offer": 2
+          },
+          "offer_cif": 0.28509864283201886,
+          "event_free": 0.494915461094499,
+          "censored": 0
+        },
+        {
+          "day": 34,
+          "risk": 21,
+          "events": {},
+          "offer_cif": 0.28509864283201886,
+          "event_free": 0.494915461094499,
+          "censored": 3
+        },
+        {
+          "day": 35,
+          "risk": 18,
+          "events": {
+            "rejected": 1
+          },
+          "offer_cif": 0.28509864283201886,
+          "event_free": 0.46742015770036016,
+          "censored": 1
+        },
+        {
+          "day": 37,
+          "risk": 16,
+          "events": {
+            "offer": 2
+          },
+          "offer_cif": 0.34352616254456386,
+          "event_free": 0.40899263798781516,
+          "censored": 2
+        },
+        {
+          "day": 38,
+          "risk": 12,
+          "events": {},
+          "offer_cif": 0.34352616254456386,
+          "event_free": 0.40899263798781516,
+          "censored": 3
+        },
+        {
+          "day": 39,
+          "risk": 9,
+          "events": {
+            "offer": 1
+          },
+          "offer_cif": 0.38896978898765444,
+          "event_free": 0.3635490115447246,
+          "censored": 0
+        },
+        {
+          "day": 40,
+          "risk": 8,
+          "events": {
+            "rejected": 1
+          },
+          "offer_cif": 0.38896978898765444,
+          "event_free": 0.318105385101634,
+          "censored": 0
+        },
+        {
+          "day": 41,
+          "risk": 7,
+          "events": {
+            "offer": 1
+          },
+          "offer_cif": 0.434413415430745,
+          "event_free": 0.2726617586585435,
+          "censored": 0
+        },
+        {
+          "day": 43,
+          "risk": 6,
+          "events": {
+            "rejected": 1,
+            "offer": 1
+          },
+          "offer_cif": 0.4798570418738356,
+          "event_free": 0.18177450577236234,
+          "censored": 0
+        },
+        {
+          "day": 44,
+          "risk": 4,
+          "events": {},
+          "offer_cif": 0.4798570418738356,
+          "event_free": 0.18177450577236234,
+          "censored": 1
+        },
+        {
+          "day": 45,
+          "risk": 3,
+          "events": {
+            "rejected": 1
+          },
+          "offer_cif": 0.4798570418738356,
+          "event_free": 0.12118300384824157,
+          "censored": 0
+        },
+        {
+          "day": 46,
+          "risk": 2,
+          "events": {
+            "rejected": 1
+          },
+          "offer_cif": 0.4798570418738356,
+          "event_free": 0.060591501924120786,
+          "censored": 0
+        },
+        {
+          "day": 47,
+          "risk": 1,
+          "events": {
+            "rejected": 1
+          },
+          "offer_cif": 0.4798570418738356,
+          "event_free": 0.0,
+          "censored": 0
+        }
+      ]
+    }
+  }
+}

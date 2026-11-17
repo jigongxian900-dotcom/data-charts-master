@@ -1,0 +1,1609 @@
+{
+  "release": "5.3.0",
+  "legacy_mit_boundary": "0ffed29325bd5c0ec01c819e5e9aec41b92c1947",
+  "legacy_mit_release": "v5.2.0",
+  "new_original_additions_and_changes": "PolyForm-Noncommercial-1.0.0; separate commercial permission",
+  "unchanged_legacy_files": "MIT",
+  "modified_files": "Original MIT grants retained for prior portions; new original changes use new terms",
+  "rights_limit": "Only rights the licensor can grant; no exclusive claim to ideas, user data, or uncopyrightable material",
+  "hash_policy": "Git release bytes; LF-normalized text unless -text or binary",
+  "self_excluded": "LICENSE-SCOPE.json",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "status": "modified-first-party",
+      "release_sha256": "10270a2bfa53c58d6c9ce5469deafb9e5e7133d591a1a37c801649fa9dcc6779",
+      "legacy_sha256": "030f1faa0f61d82bb04d5951f3ecdec988bdda3aeb1278684e6d8733c7c98d48"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/commercial-license.md",
+      "status": "new-first-party",
+      "release_sha256": "6e38ca899d72455ccc4f5f9b751e1dc5f7e7b0692b10c3e282b07485853ab0c3",
+      "legacy_sha256": null
+    },
+    {
+      "path": ".github/workflows/verify.yml",
+      "status": "modified-first-party",
+      "release_sha256": "b3fe52b17fa57897e89d42f97cd26b59ab8576370a5cb32053a4f707869229b5",
+      "legacy_sha256": "d9f20b873476ede3c17a5685fe9bb5ab076fe45faf51d29a0b3fc9995d6e0b24"
+    },
+    {
+      "path": ".gitignore",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "b37bbd33df990a5c42d9e1e72284e7f3415b5eb7519ca808d7d0da04ac8b452a",
+      "legacy_sha256": "b37bbd33df990a5c42d9e1e72284e7f3415b5eb7519ca808d7d0da04ac8b452a"
+    },
+    {
+      "path": "COMMERCIAL.md",
+      "status": "new-first-party",
+      "release_sha256": "838d03dc7919ebd6995d5e27bfac441985dd55d3f8318dd5623664d59a81e077",
+      "legacy_sha256": null
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "status": "modified-first-party",
+      "release_sha256": "3fd6464da321d8fd85895b4c772762e7e4a41b6c6be3faa8a3889e2c572d27e6",
+      "legacy_sha256": "728e6f484b8e5cb3247581c47a48d79fa8709c361bbd46f9f0dbb3970390ead4"
+    },
+    {
+      "path": "LICENSE",
+      "status": "license-text",
+      "release_sha256": "ffcca38841adb694b6f380647e15f17c446a4d1656fed51a1e2041d064c94cc8",
+      "legacy_sha256": "ef6114d53e21cfe6208aa7a35d70800993107754b288d2121cbc9229b06ecb46"
+    },
+    {
+      "path": "LICENSE-SCOPE.md",
+      "status": "new-first-party",
+      "release_sha256": "f8417788acbeed9ada288c26f0081809f6bc1548565025303df9a7cab86f3f71",
+      "legacy_sha256": null
+    },
+    {
+      "path": "LICENSES/MIT-legacy.txt",
+      "status": "license-text",
+      "release_sha256": "ef6114d53e21cfe6208aa7a35d70800993107754b288d2121cbc9229b06ecb46",
+      "legacy_sha256": null
+    },
+    {
+      "path": "NOTICE",
+      "status": "new-first-party",
+      "release_sha256": "6da4bbed483a51bbf27b7602c9261945dde3228e7506626f529b50636ed92ef3",
+      "legacy_sha256": null
+    },
+    {
+      "path": "README.en.md",
+      "status": "modified-first-party",
+      "release_sha256": "dfb8676bccfeafaaf6cd8e81f3c1e3868069b1239a65eaee3bcc00e710429c74",
+      "legacy_sha256": "ba7eb2a5d822ba39fd244b12b2a2b8b99f8846a9dcdc312941d8b2a792e24eab"
+    },
+    {
+      "path": "README.md",
+      "status": "modified-first-party",
+      "release_sha256": "53dcb342bdef093429bbd23635b99a36a169e93963f105e4154c20f045aa89c2",
+      "legacy_sha256": "b4dd66a519a04fe8d987f49e4a8f150aac58ef616a51bf732f573a4796467a37"
+    },
+    {
+      "path": "SKILL.md",
+      "status": "modified-first-party",
+      "release_sha256": "1099e82c479df3725b11bd2c7173d64b7ba6e792c56a300d91e134890bc67f3c",
+      "legacy_sha256": "c6c56831820be2e563ea88e962d64b88004c7a6464690cb8489da392e8848e4d"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "status": "modified-first-party",
+      "release_sha256": "2835a7a058af13459474e4ec88629da7496b25249e977c74ed3487d858746286",
+      "legacy_sha256": "7f3237afada7904d523acac31cd2b5d0169783b4c97fca9b9362535bb354678d"
+    },
+    {
+      "path": "assets/chart-motion.js",
+      "status": "new-first-party",
+      "release_sha256": "0b8665c7f45278f4aa9220e682896bff6f5aed4d3b665bb913ad6ce0c6d3ec51",
+      "legacy_sha256": null
+    },
+    {
+      "path": "assets/color-system.json",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "0e5a6aae55f66a58e99a832c50b2503c44b49424378f238bb1d303c238c8c319",
+      "legacy_sha256": "0e5a6aae55f66a58e99a832c50b2503c44b49424378f238bb1d303c238c8c319"
+    },
+    {
+      "path": "docs/.nojekyll",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "legacy_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/assets/analysis-selection.png",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "20b0910adbaa1676fce9309556666989187bd1dc3c6afa6e731f20744c8ab163",
+      "legacy_sha256": "20b0910adbaa1676fce9309556666989187bd1dc3c6afa6e731f20744c8ab163"
+    },
+    {
+      "path": "docs/assets/atlas54.png",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "fb59870e2cf0002684a18562bcd4b6279d50f541d3fe1ad4f07aff30b0371ae9",
+      "legacy_sha256": "fb59870e2cf0002684a18562bcd4b6279d50f541d3fe1ad4f07aff30b0371ae9"
+    },
+    {
+      "path": "docs/assets/autonomy-cycle.png",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "7a5930292b21adc318ad12d4c97bf04924539b8c0e89e6922c2cdb842bf2e9e9",
+      "legacy_sha256": "7a5930292b21adc318ad12d4c97bf04924539b8c0e89e6922c2cdb842bf2e9e9"
+    },
+    {
+      "path": "docs/assets/autonomy-quality.png",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "69118f16584d131d733a033b9809cd8c6ec22c6a4fcb37e102205cc876afa0c1",
+      "legacy_sha256": "69118f16584d131d733a033b9809cd8c6ec22c6a4fcb37e102205cc876afa0c1"
+    },
+    {
+      "path": "docs/assets/bullet-mobile.png",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "3a9c9faa6ccd324f858793c3a3fdb88889d8d08e6eb129e13bd2c2d0393e5ee5",
+      "legacy_sha256": "3a9c9faa6ccd324f858793c3a3fdb88889d8d08e6eb129e13bd2c2d0393e5ee5"
+    },
+    {
+      "path": "docs/assets/butterfly-mobile.png",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "f6c6fb0a1ea868b3804f17de53a9a94010075579fe953f5babf69e1c37cde5c2",
+      "legacy_sha256": "f6c6fb0a1ea868b3804f17de53a9a94010075579fe953f5babf69e1c37cde5c2"
+    },
+    {
+      "path": "docs/assets/comparison-selection.png",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "fe45d7edb85c267354b5e798401e14a544ee5feaf49ddd4fae52efe2174d8e28",
+      "legacy_sha256": "fe45d7edb85c267354b5e798401e14a544ee5feaf49ddd4fae52efe2174d8e28"
+    },
+    {
+      "path": "docs/assets/flow-motion.gif",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "01fd911b6ae9e78f89fd018e81d9d32ad8861d4027439764df39797c257131b1",
+      "legacy_sha256": "01fd911b6ae9e78f89fd018e81d9d32ad8861d4027439764df39797c257131b1"
+    },
+    {
+      "path": "docs/assets/kpi-desktop.png",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "4b6526278afee9376028af64b393ac7d8faa6f839514bad5ed415a3b72e17223",
+      "legacy_sha256": "4b6526278afee9376028af64b393ac7d8faa6f839514bad5ed415a3b72e17223"
+    },
+    {
+      "path": "docs/assets/kpi-mobile.png",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "fded23faa6433f13a7b603e4cfa9ace8b0c5f5d0ab47e8107529e73f07fb8a03",
+      "legacy_sha256": "fded23faa6433f13a7b603e4cfa9ace8b0c5f5d0ab47e8107529e73f07fb8a03"
+    },
+    {
+      "path": "docs/assets/mobile-demo.gif",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "6d2d6db92f5c33d9114cc61e42700fc9b62c0c51d65b08bbfffca7838396eeb0",
+      "legacy_sha256": "6d2d6db92f5c33d9114cc61e42700fc9b62c0c51d65b08bbfffca7838396eeb0"
+    },
+    {
+      "path": "docs/assets/mobile-showcase.png",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "e06423aa18d6ddbfdad795812b24505338fe38a0004e67d6492d87e14ab832b1",
+      "legacy_sha256": "e06423aa18d6ddbfdad795812b24505338fe38a0004e67d6492d87e14ab832b1"
+    },
+    {
+      "path": "docs/assets/narrative-motion.gif",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "1aedf94e9fb0971c10061b8f3270a230acf6759cda8a821e2d75b0c65b8487b3",
+      "legacy_sha256": "1aedf94e9fb0971c10061b8f3270a230acf6759cda8a821e2d75b0c65b8487b3"
+    },
+    {
+      "path": "docs/assets/operating-story.png",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "e5a17c9a7e8d919568380e7f5f93a3887561dfad62f6e682cef3a9b220ee4f31",
+      "legacy_sha256": "e5a17c9a7e8d919568380e7f5f93a3887561dfad62f6e682cef3a9b220ee4f31"
+    },
+    {
+      "path": "docs/assets/palette-strips.png",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "af354bb3480df826bb77cd3c8a5ae328b53f865c139198ee2e7c604879233583",
+      "legacy_sha256": "af354bb3480df826bb77cd3c8a5ae328b53f865c139198ee2e7c604879233583"
+    },
+    {
+      "path": "docs/assets/readme-hero.png",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "48766166c12d9b7599dbf778a29ea6104fd3f1b579fd1f6775f036a5e50a4743",
+      "legacy_sha256": "48766166c12d9b7599dbf778a29ea6104fd3f1b579fd1f6775f036a5e50a4743"
+    },
+    {
+      "path": "docs/autonomy/energy-cycle.html",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "4c3b24f4ec671ce49baf1711a0f9fe86d71b207010ee3fb8264d787b1ac1e62c",
+      "legacy_sha256": "4c3b24f4ec671ce49baf1711a0f9fe86d71b207010ee3fb8264d787b1ac1e62c"
+    },
+    {
+      "path": "docs/autonomy/quality-support.html",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "e1826b5059b1aeb8ef6f4c6a3e4cfec8635a003be37b770305c6e672648bbc39",
+      "legacy_sha256": "e1826b5059b1aeb8ef6f4c6a3e4cfec8635a003be37b770305c6e672648bbc39"
+    },
+    {
+      "path": "docs/autonomy/renewal-evidence.html",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "8e2111326beb63cbb38e7cff16edc0fad03bd3949605ed0948e75095c0e6d21f",
+      "legacy_sha256": "8e2111326beb63cbb38e7cff16edc0fad03bd3949605ed0948e75095c0e6d21f"
+    },
+    {
+      "path": "docs/autonomy/reproduction.json",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "8d92d819863f966ff3819387e7702948bdff48c645dfbec3b494619842f48ade",
+      "legacy_sha256": "8d92d819863f966ff3819387e7702948bdff48c645dfbec3b494619842f48ade"
+    },
+    {
+      "path": "docs/benchmarks/em2-20261117.json",
+      "status": "new-first-party",
+      "release_sha256": "139015feae79062014d9425efbe7d0e4e06c06ddc29b8df3170d36d8a50c4817",
+      "legacy_sha256": null
+    },
+    {
+      "path": "docs/catalog.md",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "3fa5e3927acad92542540079e56f71c9356656190e4a5aab25a5a3e4c70966b6",
+      "legacy_sha256": "3fa5e3927acad92542540079e56f71c9356656190e4a5aab25a5a3e4c70966b6"
+    },
+    {
+      "path": "docs/desktop/assets/civic-request-overlap.png",
+      "status": "new-first-party",
+      "release_sha256": "bae8006242716380525fb6a14b78ba31dd8c23784ea673b2ceafef40cf3076a2",
+      "legacy_sha256": null
+    },
+    {
+      "path": "docs/desktop/assets/receivables-reconciliation.png",
+      "status": "new-first-party",
+      "release_sha256": "833ae60fc29a7c946c2bd9ea45a1e802858c2810bdc6ba000c815f8922fea184",
+      "legacy_sha256": null
+    },
+    {
+      "path": "docs/desktop/assets/tenant-unit-allocation.png",
+      "status": "new-first-party",
+      "release_sha256": "c4a7fe677276366b594d15373ce6867b89a36203cec95db8886b47bb82b4e67c",
+      "legacy_sha256": null
+    },
+    {
+      "path": "docs/desktop/assets/tenant-unit-motion.gif",
+      "status": "new-first-party",
+      "release_sha256": "0ed9b84b01d1aab9d8933893b82d8b31feabe2715af75509331c61a952845b4c",
+      "legacy_sha256": null
+    },
+    {
+      "path": "docs/desktop/civic-request-overlap.html",
+      "status": "new-first-party",
+      "release_sha256": "ae520cfc9eac3328c721b70d5b247c75f953b6b2f08b05d26e6c77f247ee4468",
+      "legacy_sha256": null
+    },
+    {
+      "path": "docs/desktop/receivables-reconciliation.html",
+      "status": "new-first-party",
+      "release_sha256": "8d0831d6fa29be6efd699241be8a2d09647c6e6d9e3ac4197aba19c49fdba387",
+      "legacy_sha256": null
+    },
+    {
+      "path": "docs/desktop/tenant-unit-allocation.html",
+      "status": "new-first-party",
+      "release_sha256": "7e33dfc7ce75e60609208ad3378b10a0e0841fde1f359790b39d6f6be02f54b3",
+      "legacy_sha256": null
+    },
+    {
+      "path": "docs/index.html",
+      "status": "modified-first-party",
+      "release_sha256": "2d336b45cdc6e269fd31f695501fc620cb74e9e9cd64fa4f8d89e80d31d140a8",
+      "legacy_sha256": "83bf0be7e897b5a8b748d7fe716268ca0042ee9b3cfdd4b6a98e3f744abb54f7"
+    },
+    {
+      "path": "docs/labs/dir-1.html",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "d047c053f47f671b39adc18dc7de66f7cf4cc08e0f3a2b48390543122b7f35a0",
+      "legacy_sha256": "d047c053f47f671b39adc18dc7de66f7cf4cc08e0f3a2b48390543122b7f35a0"
+    },
+    {
+      "path": "docs/labs/dir-2.html",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "aebff3a2b3a72274bbee9d229a421b196ec798ddcc8dbd077d29b61e077693bd",
+      "legacy_sha256": "aebff3a2b3a72274bbee9d229a421b196ec798ddcc8dbd077d29b61e077693bd"
+    },
+    {
+      "path": "docs/labs/dir-3.html",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "447af3f9fa9695cf8da7845367a012103b604df977bd5ed6b48412d3b6674d88",
+      "legacy_sha256": "447af3f9fa9695cf8da7845367a012103b604df977bd5ed6b48412d3b6674d88"
+    },
+    {
+      "path": "docs/operating-story.html",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "5e64e2228d7bf3a02f87e0d479d2b6f5524f3c7b38d59db23c7b969ce9b77636",
+      "legacy_sha256": "5e64e2228d7bf3a02f87e0d479d2b6f5524f3c7b38d59db23c7b969ce9b77636"
+    },
+    {
+      "path": "docs/regression/factorial-outreach-experiment.html",
+      "status": "new-first-party",
+      "release_sha256": "308f925af8b9f6f92e16a511fb2506695a4c2ed7a46ebd1a43111f9195d874eb",
+      "legacy_sha256": null
+    },
+    {
+      "path": "docs/regression/intercity-delivery-scheduling.html",
+      "status": "new-first-party",
+      "release_sha256": "ca4c261b31912c00100a177d942b3a680b627351900bb8e366c034679a38c596",
+      "legacy_sha256": null
+    },
+    {
+      "path": "docs/regression/perishable-inventory-expiry.html",
+      "status": "new-first-party",
+      "release_sha256": "3c2624fe61fa071c03346b6f4b295f2674261c68723ec22abaaf0f11f22751c2",
+      "legacy_sha256": null
+    },
+    {
+      "path": "docs/regression/recruitment-waiting-load.html",
+      "status": "new-first-party",
+      "release_sha256": "8d1a105e55e95f50ee38f2dd1713a0f9c5b21508f7ff8f0b795156ec66540289",
+      "legacy_sha256": null
+    },
+    {
+      "path": "docs/regression/service-error-budget-latency.html",
+      "status": "new-first-party",
+      "release_sha256": "c169213c78da22b35bb57f857e1259a75ecc294ce3c44c707a326825b1c30b76",
+      "legacy_sha256": null
+    },
+    {
+      "path": "docs/regression/venue-booking-capacity.html",
+      "status": "new-first-party",
+      "release_sha256": "a0df9d7c98253af2f2c8d14b1cc7251558fc4a4fbaca20f01e6f2302895b3270",
+      "legacy_sha256": null
+    },
+    {
+      "path": "docs/report.html",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "7abb0ce2bb63c733144253c2e100865210488da73105fbb75c62f7e0a774ae44",
+      "legacy_sha256": "7abb0ce2bb63c733144253c2e100865210488da73105fbb75c62f7e0a774ae44"
+    },
+    {
+      "path": "docs/review-protocol.md",
+      "status": "new-first-party",
+      "release_sha256": "f65a13719013c59393738c8a927dd0dfea9416b2b3708b4815a431edf6b47cd7",
+      "legacy_sha256": null
+    },
+    {
+      "path": "docs/review-rubric.md",
+      "status": "new-first-party",
+      "release_sha256": "7a0100148f7feba469b54e1a75ad5ecaa724d6e424860748c89174a733fd925e",
+      "legacy_sha256": null
+    },
+    {
+      "path": "docs/slides.html",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "5f88edfcaa88af55f30b8f8c979495fc11a4372bd81f0bec4b1959b8224c6df2",
+      "legacy_sha256": "5f88edfcaa88af55f30b8f8c979495fc11a4372bd81f0bec4b1959b8224c6df2"
+    },
+    {
+      "path": "docs/source-data.json",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "6dd8163b2b7161634dadbcb7c86f88e4f5aff937ca3ca2a9cf7562275f93ed10",
+      "legacy_sha256": "6dd8163b2b7161634dadbcb7c86f88e4f5aff937ca3ca2a9cf7562275f93ed10"
+    },
+    {
+      "path": "docs/usage.md",
+      "status": "modified-first-party",
+      "release_sha256": "18133f9b7ccf15e89eb74f2c9f551c59101d0b21c37f51f9d5edd1bcd6c0eec6",
+      "legacy_sha256": "99dc90715bcb019c02679ab765f93a0712c94b1f42bd509621f864205598b34f"
+    },
+    {
+      "path": "docs/validation.md",
+      "status": "modified-first-party",
+      "release_sha256": "963c3080c5e80852810d2eb5017fa1c86594031afc0007fed80795191ff9d826",
+      "legacy_sha256": "35b694fcc113c87986af67ea6fbbfeaade6c7a74c36d18095b2d2481a140e320"
+    },
+    {
+      "path": "examples/autonomous-desktop/README.md",
+      "status": "new-first-party",
+      "release_sha256": "bf5ee3ad75a2f1d0d412e26952df7eda8610a09512e1a5308461aef0c5dd867f",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/autonomous-desktop/civic-request-overlap/README.md",
+      "status": "new-first-party",
+      "release_sha256": "bab3bc7c7f69062514cecef55eb14221bb2cb6a375b31a79fef3d11f5adc2c06",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/autonomous-desktop/civic-request-overlap/artifact.html",
+      "status": "new-first-party",
+      "release_sha256": "ae520cfc9eac3328c721b70d5b247c75f953b6b2f08b05d26e6c77f247ee4468",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/autonomous-desktop/civic-request-overlap/computed.json",
+      "status": "new-first-party",
+      "release_sha256": "a48a52e3c15a5f27dee85aa5a4605eba1cb2612dd9f00e8a584039ce3842f5aa",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/autonomous-desktop/civic-request-overlap/input/brief.md",
+      "status": "new-first-party",
+      "release_sha256": "dd12477a57e5a5bbd65398f9ec451b633cd5f2532898550d77e62f1b5baad849",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/autonomous-desktop/civic-request-overlap/input/data.json",
+      "status": "new-first-party",
+      "release_sha256": "8075b22692016ef518ff0cf6c083f38df57e93fd14ab7a6e57854b48fb045ef6",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/autonomous-desktop/civic-request-overlap/producer.py",
+      "status": "new-first-party",
+      "release_sha256": "80d33cf2bc2433ccba17b7259080cc133acf436a99afc2bc124104148fa28156",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/autonomous-desktop/civic-request-overlap/provenance.json",
+      "status": "new-first-party",
+      "release_sha256": "36f7a1d8a498703b3a4c0743bd63e85ff4ff68c59d9378a42085803decf50c43",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/autonomous-desktop/civic-request-overlap/source.json",
+      "status": "new-first-party",
+      "release_sha256": "8075b22692016ef518ff0cf6c083f38df57e93fd14ab7a6e57854b48fb045ef6",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/autonomous-desktop/receivables-reconciliation/README.md",
+      "status": "new-first-party",
+      "release_sha256": "ee0bbf45995b5d33b950db26be03481309760ef6d38178a6affab08d112b986b",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/autonomous-desktop/receivables-reconciliation/artifact.html",
+      "status": "new-first-party",
+      "release_sha256": "8d0831d6fa29be6efd699241be8a2d09647c6e6d9e3ac4197aba19c49fdba387",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/autonomous-desktop/receivables-reconciliation/computed.json",
+      "status": "new-first-party",
+      "release_sha256": "2bbcce343da35c1a5c920117f914a3fb3c99e0095d97bbd0b4db192c2973a8b3",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/autonomous-desktop/receivables-reconciliation/input/brief.md",
+      "status": "new-first-party",
+      "release_sha256": "464ebd128a770abddc341ce73d5bb8ef7c598fe29e636ac5302cf5f87a334866",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/autonomous-desktop/receivables-reconciliation/input/data.json",
+      "status": "new-first-party",
+      "release_sha256": "74237438b869d0b014d5c3328935582629e46cd3f01c9acdc4e4690301061ef4",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/autonomous-desktop/receivables-reconciliation/producer.py",
+      "status": "new-first-party",
+      "release_sha256": "ba7d790a8ca22ae6b9ca83722ba77d7a1b146a8d3a657a1c88ec53d1b1fc3492",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/autonomous-desktop/receivables-reconciliation/provenance.json",
+      "status": "new-first-party",
+      "release_sha256": "1ff76d135626bc1ff3864c8bf33994bb0b240291266cfcada84a6d013a059bed",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/autonomous-desktop/receivables-reconciliation/source-data.json",
+      "status": "new-first-party",
+      "release_sha256": "74237438b869d0b014d5c3328935582629e46cd3f01c9acdc4e4690301061ef4",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/autonomous-desktop/receivables-reconciliation/template.html",
+      "status": "new-first-party",
+      "release_sha256": "6d08200ffad30503f711c863ccb31fd4be698480d866373a47a724291a2c036f",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/autonomous-desktop/tenant-unit-allocation/README.md",
+      "status": "new-first-party",
+      "release_sha256": "10d613955788c63ea90fcf3cd36ac93aada34bf4f3abce2ab0725a26077f4bff",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/autonomous-desktop/tenant-unit-allocation/artifact.html",
+      "status": "new-first-party",
+      "release_sha256": "7e33dfc7ce75e60609208ad3378b10a0e0841fde1f359790b39d6f6be02f54b3",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/autonomous-desktop/tenant-unit-allocation/computed.json",
+      "status": "new-first-party",
+      "release_sha256": "1e3959bb57a46fc0addebb32c076d3e68c063cc2c0e55e4c4e674ad7f5644b75",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/autonomous-desktop/tenant-unit-allocation/input/brief.md",
+      "status": "new-first-party",
+      "release_sha256": "c35c460c6cc2dc57173b9ecf975e043a4b52408b7008e1e2d09657aa64027a55",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/autonomous-desktop/tenant-unit-allocation/input/data.json",
+      "status": "new-first-party",
+      "release_sha256": "8da670ff4cba54c2c654c210f5ddf19658f899be3a46e115038a6f9f6709788e",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/autonomous-desktop/tenant-unit-allocation/motion-runtime.js",
+      "status": "new-first-party",
+      "release_sha256": "0b8665c7f45278f4aa9220e682896bff6f5aed4d3b665bb913ad6ce0c6d3ec51",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/autonomous-desktop/tenant-unit-allocation/producer.py",
+      "status": "new-first-party",
+      "release_sha256": "2ef959e25e0a8d8054562a29e0cba60e7653e7b24374c60735e2ed8fdcc878f6",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/autonomous-desktop/tenant-unit-allocation/provenance.json",
+      "status": "new-first-party",
+      "release_sha256": "ef2f0a7115a32e1383a5b136e662fae5e44c6415a86995d2405fd55fe82ac4bd",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/autonomous-desktop/tenant-unit-allocation/source-data.json",
+      "status": "new-first-party",
+      "release_sha256": "8da670ff4cba54c2c654c210f5ddf19658f899be3a46e115038a6f9f6709788e",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/autonomy/energy-cycle/README.md",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "c423f11522cb5c6bc275a4af739a150041d09ef6fdf9946011a2ee3d155965af",
+      "legacy_sha256": "c423f11522cb5c6bc275a4af739a150041d09ef6fdf9946011a2ee3d155965af"
+    },
+    {
+      "path": "examples/autonomy/energy-cycle/artifact.html",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "4c3b24f4ec671ce49baf1711a0f9fe86d71b207010ee3fb8264d787b1ac1e62c",
+      "legacy_sha256": "4c3b24f4ec671ce49baf1711a0f9fe86d71b207010ee3fb8264d787b1ac1e62c"
+    },
+    {
+      "path": "examples/autonomy/energy-cycle/computed.json",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "bffb2f8c459d906b7d33512b29eccf2a22212932a2a7b4fd1c216dcfa3fa17c0",
+      "legacy_sha256": "bffb2f8c459d906b7d33512b29eccf2a22212932a2a7b4fd1c216dcfa3fa17c0"
+    },
+    {
+      "path": "examples/autonomy/energy-cycle/decisions.md",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "d7b31d8e7f5ce5d0c105186aa440ceff42108c8ec7c5525004da5eae72e11cd1",
+      "legacy_sha256": "d7b31d8e7f5ce5d0c105186aa440ceff42108c8ec7c5525004da5eae72e11cd1"
+    },
+    {
+      "path": "examples/autonomy/energy-cycle/energy-clock.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "6263a0ee61b4b9380cf469c04828dd6048bdf831352376e206a4f42e4ee3b2c8",
+      "legacy_sha256": "6263a0ee61b4b9380cf469c04828dd6048bdf831352376e206a4f42e4ee3b2c8"
+    },
+    {
+      "path": "examples/autonomy/energy-cycle/producer.py",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "e4e0e6d32540aa0ab12583e6d6a0d51601ef2c98cf48341d08c9f5ed8eb7bb2c",
+      "legacy_sha256": "e4e0e6d32540aa0ab12583e6d6a0d51601ef2c98cf48341d08c9f5ed8eb7bb2c"
+    },
+    {
+      "path": "examples/autonomy/energy-cycle/read-files.json",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "e393f71a95c9d1c926a7b61d826426966a1178b388983fb117918e8a4fe17c88",
+      "legacy_sha256": "e393f71a95c9d1c926a7b61d826426966a1178b388983fb117918e8a4fe17c88"
+    },
+    {
+      "path": "examples/autonomy/energy-cycle/source/control_totals.csv",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "7d6eaa29e4a8530ccc992acfa63eff47d77bfad2c67ed5bfc900f9623e9f6d8e",
+      "legacy_sha256": "7d6eaa29e4a8530ccc992acfa63eff47d77bfad2c67ed5bfc900f9623e9f6d8e"
+    },
+    {
+      "path": "examples/autonomy/energy-cycle/source/energy_hourly.csv",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "13b83d7614a7db1c18cbe2d4e7f4c90559d9023072cdd1496916b8ede6ba8353",
+      "legacy_sha256": "13b83d7614a7db1c18cbe2d4e7f4c90559d9023072cdd1496916b8ede6ba8353"
+    },
+    {
+      "path": "examples/autonomy/energy-cycle/source/task.md",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "e5aa57bfcfb015b2af8dd7163c2e085a4cb9ed94f00c928e3a32755202535525",
+      "legacy_sha256": "e5aa57bfcfb015b2af8dd7163c2e085a4cb9ed94f00c928e3a32755202535525"
+    },
+    {
+      "path": "examples/autonomy/quality-support/README.md",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "ce8acd296b7cf1638c2f16bcd74f9e1b3ee3b53fb83a83103e4b2f4cafab33f8",
+      "legacy_sha256": "ce8acd296b7cf1638c2f16bcd74f9e1b3ee3b53fb83a83103e4b2f4cafab33f8"
+    },
+    {
+      "path": "examples/autonomy/quality-support/artifact.html",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "e1826b5059b1aeb8ef6f4c6a3e4cfec8635a003be37b770305c6e672648bbc39",
+      "legacy_sha256": "e1826b5059b1aeb8ef6f4c6a3e4cfec8635a003be37b770305c6e672648bbc39"
+    },
+    {
+      "path": "examples/autonomy/quality-support/computed.json",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "e396a87d1369ac8c7efaf362f681a514f96a517ac925b82a47bff7f3287f59a9",
+      "legacy_sha256": "e396a87d1369ac8c7efaf362f681a514f96a517ac925b82a47bff7f3287f59a9"
+    },
+    {
+      "path": "examples/autonomy/quality-support/decisions.md",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "3edf90cb3d5b6dc096c71baac34e5769c0ab4c3cc8f32bd92955de8361d212a1",
+      "legacy_sha256": "3edf90cb3d5b6dc096c71baac34e5769c0ab4c3cc8f32bd92955de8361d212a1"
+    },
+    {
+      "path": "examples/autonomy/quality-support/input/quality_daily.csv",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "bc6d7ac86ff2f921984171562d605f918b2b1af271db28aa0db653732c5af169",
+      "legacy_sha256": "bc6d7ac86ff2f921984171562d605f918b2b1af271db28aa0db653732c5af169"
+    },
+    {
+      "path": "examples/autonomy/quality-support/input/task.md",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "e4ca8735b172e3599446f12739487f50e61aee001f4b64a4de4a760fba1e8095",
+      "legacy_sha256": "e4ca8735b172e3599446f12739487f50e61aee001f4b64a4de4a760fba1e8095"
+    },
+    {
+      "path": "examples/autonomy/quality-support/producer.py",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "b661bb0f7609fadb68979824bbc5b4f2a495acdb0788db0f925a705cb98bbe2b",
+      "legacy_sha256": "b661bb0f7609fadb68979824bbc5b4f2a495acdb0788db0f925a705cb98bbe2b"
+    },
+    {
+      "path": "examples/autonomy/quality-support/read-files.json",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "d1d2a5c139e5dbe574cc7b45245ceefc046300138908d230d864d6c91c5c8dc2",
+      "legacy_sha256": "d1d2a5c139e5dbe574cc7b45245ceefc046300138908d230d864d6c91c5c8dc2"
+    },
+    {
+      "path": "examples/autonomy/renewal-evidence/README.md",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "fa058522fec27d44d68e8bdc95938bfd05f9a965e2e4025db65051200ad3df40",
+      "legacy_sha256": "fa058522fec27d44d68e8bdc95938bfd05f9a965e2e4025db65051200ad3df40"
+    },
+    {
+      "path": "examples/autonomy/renewal-evidence/artifact.html",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "8e2111326beb63cbb38e7cff16edc0fad03bd3949605ed0948e75095c0e6d21f",
+      "legacy_sha256": "8e2111326beb63cbb38e7cff16edc0fad03bd3949605ed0948e75095c0e6d21f"
+    },
+    {
+      "path": "examples/autonomy/renewal-evidence/chart-mobile.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "5ba6f8ef9891556f17c873b0caae8836272414ebb25be6798006a570ffdabab4",
+      "legacy_sha256": "5ba6f8ef9891556f17c873b0caae8836272414ebb25be6798006a570ffdabab4"
+    },
+    {
+      "path": "examples/autonomy/renewal-evidence/chart.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "2f2ecd819fac0246adf8fb2333139be23a9f870ce3b6d351e8c223c8349d7b97",
+      "legacy_sha256": "2f2ecd819fac0246adf8fb2333139be23a9f870ce3b6d351e8c223c8349d7b97"
+    },
+    {
+      "path": "examples/autonomy/renewal-evidence/computed.json",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "9e90e62f0e388f5bd544dbd2d7b094e1332406c416d8f861333e994c60f53fd8",
+      "legacy_sha256": "9e90e62f0e388f5bd544dbd2d7b094e1332406c416d8f861333e994c60f53fd8"
+    },
+    {
+      "path": "examples/autonomy/renewal-evidence/decisions.md",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "d0fd45df963b67a6eace9b6632c9735c00bd74f2fd745637afbd67b35bb8a4f0",
+      "legacy_sha256": "d0fd45df963b67a6eace9b6632c9735c00bd74f2fd745637afbd67b35bb8a4f0"
+    },
+    {
+      "path": "examples/autonomy/renewal-evidence/producer.py",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "abaa1d0926254ccd5683038c285fc34483fcf4b945c010f8b88970adc5dc7e98",
+      "legacy_sha256": "abaa1d0926254ccd5683038c285fc34483fcf4b945c010f8b88970adc5dc7e98"
+    },
+    {
+      "path": "examples/autonomy/renewal-evidence/read-files.json",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "8fd8adf1e61b589d905ba121c6f067ec4c529280f074de7b2e86c03a7d57c327",
+      "legacy_sha256": "8fd8adf1e61b589d905ba121c6f067ec4c529280f074de7b2e86c03a7d57c327"
+    },
+    {
+      "path": "examples/autonomy/renewal-evidence/source/renewal_cohorts.csv",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "2334433075b4556d886acaf8bd113fb7ad6a9a819d57fdbefff71b6b819abbe5",
+      "legacy_sha256": "2334433075b4556d886acaf8bd113fb7ad6a9a819d57fdbefff71b6b819abbe5"
+    },
+    {
+      "path": "examples/autonomy/renewal-evidence/source/stage_events.csv",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "65583d069a51e1336c325be4b5ecdef4198c54b5078d52901e1235a1854400ef",
+      "legacy_sha256": "65583d069a51e1336c325be4b5ecdef4198c54b5078d52901e1235a1854400ef"
+    },
+    {
+      "path": "examples/autonomy/renewal-evidence/source/task.md",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "6bc92e6c3512b2780e8c30859765affa5f1eb991b49ac0098526ab2aa86a8c1d",
+      "legacy_sha256": "6bc92e6c3512b2780e8c30859765affa5f1eb991b49ac0098526ab2aa86a8c1d"
+    },
+    {
+      "path": "examples/composed/README.md",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "d8a8e306d5a825c399c9f31af26e8df3607540387e77d0bc1e42ad22cf8d878c",
+      "legacy_sha256": "d8a8e306d5a825c399c9f31af26e8df3607540387e77d0bc1e42ad22cf8d878c"
+    },
+    {
+      "path": "examples/composed/report.html",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "7abb0ce2bb63c733144253c2e100865210488da73105fbb75c62f7e0a774ae44",
+      "legacy_sha256": "7abb0ce2bb63c733144253c2e100865210488da73105fbb75c62f7e0a774ae44"
+    },
+    {
+      "path": "examples/composed/slides.html",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "5f88edfcaa88af55f30b8f8c979495fc11a4372bd81f0bec4b1959b8224c6df2",
+      "legacy_sha256": "5f88edfcaa88af55f30b8f8c979495fc11a4372bd81f0bec4b1959b8224c6df2"
+    },
+    {
+      "path": "examples/composed/source.json",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "47f6164ae73f51c492e236460a779408246534eb7e58730ea5f58c8d2de6d766",
+      "legacy_sha256": "47f6164ae73f51c492e236460a779408246534eb7e58730ea5f58c8d2de6d766"
+    },
+    {
+      "path": "examples/dashboard-atlas/README.md",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "a9c5bb49ac30a4e37390e7157fe08aed5eee21fe3bfeaf4038e14aac92964093",
+      "legacy_sha256": "a9c5bb49ac30a4e37390e7157fe08aed5eee21fe3bfeaf4038e14aac92964093"
+    },
+    {
+      "path": "examples/dashboard-atlas/atlas.html",
+      "status": "modified-first-party",
+      "release_sha256": "81eb73bf8d5cef1f3ff13a1a1efd1a012f78114fe18c07fd3b8561a656ed1ce3",
+      "legacy_sha256": "cf3b67eb61666c22103bf9a32d36e91381148fc9359363c25c743dd9cd1a20c4"
+    },
+    {
+      "path": "examples/dashboard-atlas/build_atlas.js",
+      "status": "modified-first-party",
+      "release_sha256": "3fd23412c72c3565c1c312b583edaf335145f9d4f440f9d4f026115e2a7ffb19",
+      "legacy_sha256": "52900b9b61e8674fdebe54331d1671baa58a34d0343c43e8f90e28358516b1e9"
+    },
+    {
+      "path": "examples/dashboard-atlas/extension-charts.js",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "419d7626f28775720d268e0750bba6c8f27df120c4fa353033bbb01b82508403",
+      "legacy_sha256": "419d7626f28775720d268e0750bba6c8f27df120c4fa353033bbb01b82508403"
+    },
+    {
+      "path": "examples/dashboard-atlas/source-data.json",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "6dd8163b2b7161634dadbcb7c86f88e4f5aff937ca3ca2a9cf7562275f93ed10",
+      "legacy_sha256": "6dd8163b2b7161634dadbcb7c86f88e4f5aff937ca3ca2a9cf7562275f93ed10"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/01-rankedbar.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "6737e598f35e0d69f20dabb994468bfa22f5e155e70fd2e5217ce1289874cd59",
+      "legacy_sha256": "6737e598f35e0d69f20dabb994468bfa22f5e155e70fd2e5217ce1289874cd59"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/02-dot.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "8274c8b575cbae9aedeb1f6266b11c83d9babe7b72890bce8c94b154ea08bac2",
+      "legacy_sha256": "8274c8b575cbae9aedeb1f6266b11c83d9babe7b72890bce8c94b154ea08bac2"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/03-dumbbell.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "9b638b7680c515eeed977738b195507917d2034f2e99747b3f1e019cc651da87",
+      "legacy_sha256": "9b638b7680c515eeed977738b195507917d2034f2e99747b3f1e019cc651da87"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/04-bullet.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "3d0399909ae87b713fa5a2550e0b313bd7d84a91e232d763ce20e03bca2296cc",
+      "legacy_sha256": "3d0399909ae87b713fa5a2550e0b313bd7d84a91e232d763ce20e03bca2296cc"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/05-slope.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "61a11cc9c0fb4b2af8a6d2dea955408e1e82eb3a7d3cc0f98f02ae3dd8b7f277",
+      "legacy_sha256": "61a11cc9c0fb4b2af8a6d2dea955408e1e82eb3a7d3cc0f98f02ae3dd8b7f277"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/06-line.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "11a23140564cbbb01338f7490ea854c62f6b124f7520f08bf9db5189cf370272",
+      "legacy_sha256": "11a23140564cbbb01338f7490ea854c62f6b124f7520f08bf9db5189cf370272"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/07-area.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "c3248a032a0764c585291389bccfd6a2c6e0eab0d6ed65080046fb750c76cf2b",
+      "legacy_sha256": "c3248a032a0764c585291389bccfd6a2c6e0eab0d6ed65080046fb750c76cf2b"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/08-smallmultiples.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "6a954a67bce300b1f852b3c44361c4a37d84365c8d45f55960f8596653c94e0f",
+      "legacy_sha256": "6a954a67bce300b1f852b3c44361c4a37d84365c8d45f55960f8596653c94e0f"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/09-stacked.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "2d075a3760e8c75a90514f173ef0803d2f294a7f170aa1a39a5beb44a70b0666",
+      "legacy_sha256": "2d075a3760e8c75a90514f173ef0803d2f294a7f170aa1a39a5beb44a70b0666"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/10-percentstack.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "b804418a5c1da2dd3c65ab739d9a38830dd2d01651775daabd9c580532fd5e47",
+      "legacy_sha256": "b804418a5c1da2dd3c65ab739d9a38830dd2d01651775daabd9c580532fd5e47"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/11-waterfall.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "9462067c3f14acf5e7244ba646a68bf3a304336b78aaab27f730b1e1e9a584a6",
+      "legacy_sha256": "9462067c3f14acf5e7244ba646a68bf3a304336b78aaab27f730b1e1e9a584a6"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/12-pareto.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "1ed7175768c10501feb4ce50ba63593f71bdce0d09d7120506ea15c8974325fc",
+      "legacy_sha256": "1ed7175768c10501feb4ce50ba63593f71bdce0d09d7120506ea15c8974325fc"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/13-treemap.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "39044e52b426ac01b828b8efa1d0c8e7930ee1aa4f1ee9e86ea045651adabcb9",
+      "legacy_sha256": "39044e52b426ac01b828b8efa1d0c8e7930ee1aa4f1ee9e86ea045651adabcb9"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/14-waffle.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "9e5a95b95238c9904dddfdecac879457f5fb7f99a8b3065102e08b306ff3e92e",
+      "legacy_sha256": "9e5a95b95238c9904dddfdecac879457f5fb7f99a8b3065102e08b306ff3e92e"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/15-donut.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "fdcfe8cd54ede666865003c08bf4d1d8297e05f42beb6319b13dc6c97f1409cf",
+      "legacy_sha256": "fdcfe8cd54ede666865003c08bf4d1d8297e05f42beb6319b13dc6c97f1409cf"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/16-funnel.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "9890cf1529f6df39f81388f70aaf4cde5c1d7ce98645bd8b020debd1cc452336",
+      "legacy_sha256": "9890cf1529f6df39f81388f70aaf4cde5c1d7ce98645bd8b020debd1cc452336"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/17-sankey.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "fff45209f80ae6e6ebeb4d7bf3c7e6e0aebe2db59bc01e53d63b4afea1e80992",
+      "legacy_sha256": "fff45209f80ae6e6ebeb4d7bf3c7e6e0aebe2db59bc01e53d63b4afea1e80992"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/18-heatmap.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "7edefcdbeb3979371b13f3106835ab0acb4876138337d9468d42d83ec9b8ac77",
+      "legacy_sha256": "7edefcdbeb3979371b13f3106835ab0acb4876138337d9468d42d83ec9b8ac77"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/19-scatter.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "55aa184f8df0f15e38775f2907dec0317220c8e946a47c0275d5fa5cfb457e3a",
+      "legacy_sha256": "55aa184f8df0f15e38775f2907dec0317220c8e946a47c0275d5fa5cfb457e3a"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/20-bubble.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "39d2132e813f90bb6ac1891f98b19fc8495cb9b7d3f91e1ba01a25f8c82ecfd0",
+      "legacy_sha256": "39d2132e813f90bb6ac1891f98b19fc8495cb9b7d3f91e1ba01a25f8c82ecfd0"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/21-histogram.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "729b429e1a16b574cc0b714b4141ec3ebed091898b116812982a0858bccd4ead",
+      "legacy_sha256": "729b429e1a16b574cc0b714b4141ec3ebed091898b116812982a0858bccd4ead"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/22-box.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "04c161c81c17b39b90b6fa272abf58c89edf0aa7f131d3e66f52b3e2e62111f0",
+      "legacy_sha256": "04c161c81c17b39b90b6fa272abf58c89edf0aa7f131d3e66f52b3e2e62111f0"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/23-ecdf.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "f534dc32d0dcca825278a5a5c9c94c8044636df25c0409a5a0c5ee668135e229",
+      "legacy_sha256": "f534dc32d0dcca825278a5a5c9c94c8044636df25c0409a5a0c5ee668135e229"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/24-ridgeline.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "7eafd151d1a03b2f22703d3a5f2d41c1522d7245c90d62055c54a0ab5b7d6315",
+      "legacy_sha256": "7eafd151d1a03b2f22703d3a5f2d41c1522d7245c90d62055c54a0ab5b7d6315"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/25-forest.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "26bdbbf6352adbc115a94d46c4b8d1f2e8f3683d4537bf65b5977b8b514b1c8a",
+      "legacy_sha256": "26bdbbf6352adbc115a94d46c4b8d1f2e8f3683d4537bf65b5977b8b514b1c8a"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/26-bump.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "86a0eacfa436a80198eb7c86c32432622bf3aa26e094fb9da5d5f6721c5b4023",
+      "legacy_sha256": "86a0eacfa436a80198eb7c86c32432622bf3aa26e094fb9da5d5f6721c5b4023"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/27-cartogram.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "e2daac44f077b13488a50422b4e6744d1ed0b8fd9118f4a77d85403c53f495f8",
+      "legacy_sha256": "e2daac44f077b13488a50422b4e6744d1ed0b8fd9118f4a77d85403c53f495f8"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/28-calendar.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "613070aa17f87b0a3e9edb2e3cd1329a0ab39b206f736ca6da11fb48e339f67d",
+      "legacy_sha256": "613070aa17f87b0a3e9edb2e3cd1329a0ab39b206f736ca6da11fb48e339f67d"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/29-process.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "0c5b04153e57c528610faf45ea5a40e318956f2b587df232e766196e1dc50e89",
+      "legacy_sha256": "0c5b04153e57c528610faf45ea5a40e318956f2b587df232e766196e1dc50e89"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/30-swimlane.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "9757c1941df53993b8b883ab41ed4828d7ece446cf4964e0f673a8a6202ad9eb",
+      "legacy_sha256": "9757c1941df53993b8b883ab41ed4828d7ece446cf4964e0f673a8a6202ad9eb"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/31-kpi-spark.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "6b8b39690c3121fd99a51e440835713242d669e885622b5a6f707f59683cde1f",
+      "legacy_sha256": "6b8b39690c3121fd99a51e440835713242d669e885622b5a6f707f59683cde1f"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/32-kpi-compare.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "35f424d6f840170dfe8514ee0a3337f9b7ebbd7fa906c71503096020b0bafef3",
+      "legacy_sha256": "35f424d6f840170dfe8514ee0a3337f9b7ebbd7fa906c71503096020b0bafef3"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/33-kpi-target-trend.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "27e0d3d6804c7003472557bc1138b093f47459a329cb91ab93b0043853bea583",
+      "legacy_sha256": "27e0d3d6804c7003472557bc1138b093f47459a329cb91ab93b0043853bea583"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/34-multi-bullet.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "37aa59b1ef41c96222d24736680e5e4bd90be210fc181cb0b2f68003fc1b6811",
+      "legacy_sha256": "37aa59b1ef41c96222d24736680e5e4bd90be210fc181cb0b2f68003fc1b6811"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/35-attainment-ring.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "cad86c0b0411bcfc72dafa5d01b2a8879e29990bf249b55be11f17ce3dd8b6a3",
+      "legacy_sha256": "cad86c0b0411bcfc72dafa5d01b2a8879e29990bf249b55be11f17ce3dd8b6a3"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/36-radial-progress.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "1120434fe4328999ccb6182ab451d15d3385c94c1137772b07bb77984fd8e5e7",
+      "legacy_sha256": "1120434fe4328999ccb6182ab451d15d3385c94c1137772b07bb77984fd8e5e7"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/37-butterfly.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "496e00a829b42bd6f7e6870da862f4f43d08dabbd2335a396d40c1f04bbd9154",
+      "legacy_sha256": "496e00a829b42bd6f7e6870da862f4f43d08dabbd2335a396d40c1f04bbd9154"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/38-likert.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "8a5b079bbf0a341eead61ce136f865f401e26a407634f4dc10da36e656ffe5a7",
+      "legacy_sha256": "8a5b079bbf0a341eead61ce136f865f401e26a407634f4dc10da36e656ffe5a7"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/39-grouped-bars.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "ffb5d58314e56a9360a28f064c21508607de24b25ec9798ed83b900fef974ccd",
+      "legacy_sha256": "ffb5d58314e56a9360a28f064c21508607de24b25ec9798ed83b900fef974ccd"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/40-actual-target.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "fbaf9921e590d690dd5f58d0ceca64fbfe411757bc24501fee084aafb7f815d8",
+      "legacy_sha256": "fbaf9921e590d690dd5f58d0ceca64fbfe411757bc24501fee084aafb7f815d8"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/41-actual-forecast.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "98b0eab24a27fa385133dd008e3c9cc1755eea6b8079ccb05f0f0d470ba60928",
+      "legacy_sha256": "98b0eab24a27fa385133dd008e3c9cc1755eea6b8079ccb05f0f0d470ba60928"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/42-control-chart.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "def5bf5b824105646ad873f224d365f3ba279c1b43169fb3d51d8c4699a73607",
+      "legacy_sha256": "def5bf5b824105646ad873f224d365f3ba279c1b43169fb3d51d8c4699a73607"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/43-cumulative-plan.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "a8e203f552c4a905f459db36f838e9770b58fc35e11c3059c44bbc225560a695",
+      "legacy_sha256": "a8e203f552c4a905f459db36f838e9770b58fc35e11c3059c44bbc225560a695"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/44-cohort-triangle.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "3bdaed1bb8d78497da4b496a1e83e980f02749bbe29ed90e5501e26b5efdebdd",
+      "legacy_sha256": "3bdaed1bb8d78497da4b496a1e83e980f02749bbe29ed90e5501e26b5efdebdd"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/45-retention-curves.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "ad31bc07998fe9aa6f3f2ba7d25413a38ba5a43cec16e84a9c65a185e39bbcff",
+      "legacy_sha256": "ad31bc07998fe9aa6f3f2ba7d25413a38ba5a43cec16e84a9c65a185e39bbcff"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/46-seasonal-smallmultiples.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "8fd3e32796b086dda52791503a446c3b760421677e6d9a72576be8f9935d14e6",
+      "legacy_sha256": "8fd3e32796b086dda52791503a446c3b760421677e6d9a72576be8f9935d14e6"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/47-marimekko.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "6c446c1a3c45a8f7d07c8dd71eb65f4a31a8ee02327f3de2474a2fdff261d666",
+      "legacy_sha256": "6c446c1a3c45a8f7d07c8dd71eb65f4a31a8ee02327f3de2474a2fdff261d666"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/48-parallel-coordinates.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "53a8007159a3cd954fa63518e458623616c8be53e4625070b0a921a56c2b7568",
+      "legacy_sha256": "53a8007159a3cd954fa63518e458623616c8be53e4625070b0a921a56c2b7568"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/49-quadrant-layered.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "719c36465a3deaea3848067e79b41402890462c31954af38519917ef4bccf4bd",
+      "legacy_sha256": "719c36465a3deaea3848067e79b41402890462c31954af38519917ef4bccf4bd"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/50-rank-spark-table.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "4059318692d8dccafd122155c89024b9d8487787e0c9abf0612ea502b4d08678",
+      "legacy_sha256": "4059318692d8dccafd122155c89024b9d8487787e0c9abf0612ea502b4d08678"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/51-margin-scale.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "8a607af49fe1b5653a40b0da5eb35a1076b950f41f67e290cb3d682a5ec21625",
+      "legacy_sha256": "8a607af49fe1b5653a40b0da5eb35a1076b950f41f67e290cb3d682a5ec21625"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/52-connected-scatter.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "d8bf29f4a85458f1a64ba85e514605615db01f6a1d6ac2667a5d652a98e54101",
+      "legacy_sha256": "d8bf29f4a85458f1a64ba85e514605615db01f6a1d6ac2667a5d652a98e54101"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/53-arithmetic-tree.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "12d32250efe74a56ec585b57949496472ac3ab52c3708ecde981fcb2d9ca5778",
+      "legacy_sha256": "12d32250efe74a56ec585b57949496472ac3ab52c3708ecde981fcb2d9ca5778"
+    },
+    {
+      "path": "examples/dashboard-atlas/svg/54-operating-overview.svg",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "5a31fa46dde127c22f12b9e4213414e74cd6273f1c5b48a7a3cfe30fa51edb91",
+      "legacy_sha256": "5a31fa46dde127c22f12b9e4213414e74cd6273f1c5b48a7a3cfe30fa51edb91"
+    },
+    {
+      "path": "examples/interaction-lab/README.md",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "a44126a3576abc201bd07acdc5393a1813b158de23565c700ec4f15a3fe4a60b",
+      "legacy_sha256": "a44126a3576abc201bd07acdc5393a1813b158de23565c700ec4f15a3fe4a60b"
+    },
+    {
+      "path": "examples/interaction-lab/dir-1.html",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "d047c053f47f671b39adc18dc7de66f7cf4cc08e0f3a2b48390543122b7f35a0",
+      "legacy_sha256": "d047c053f47f671b39adc18dc7de66f7cf4cc08e0f3a2b48390543122b7f35a0"
+    },
+    {
+      "path": "examples/interaction-lab/dir-2.html",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "aebff3a2b3a72274bbee9d229a421b196ec798ddcc8dbd077d29b61e077693bd",
+      "legacy_sha256": "aebff3a2b3a72274bbee9d229a421b196ec798ddcc8dbd077d29b61e077693bd"
+    },
+    {
+      "path": "examples/interaction-lab/dir-3.html",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "447af3f9fa9695cf8da7845367a012103b604df977bd5ed6b48412d3b6674d88",
+      "legacy_sha256": "447af3f9fa9695cf8da7845367a012103b604df977bd5ed6b48412d3b6674d88"
+    },
+    {
+      "path": "examples/interaction-lab/spec.json",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "e926f5c55aaa11f2f0fd49083734774fa446505b4c3d01d267f1912423054228",
+      "legacy_sha256": "e926f5c55aaa11f2f0fd49083734774fa446505b4c3d01d267f1912423054228"
+    },
+    {
+      "path": "examples/operating-story/README.md",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "a9866b979d4f73adddbce7f7720a267bb833ef9a617eac1e9cc0088197d9aeb8",
+      "legacy_sha256": "a9866b979d4f73adddbce7f7720a267bb833ef9a617eac1e9cc0088197d9aeb8"
+    },
+    {
+      "path": "examples/operating-story/input.json",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "e926f5c55aaa11f2f0fd49083734774fa446505b4c3d01d267f1912423054228",
+      "legacy_sha256": "e926f5c55aaa11f2f0fd49083734774fa446505b4c3d01d267f1912423054228"
+    },
+    {
+      "path": "examples/operating-story/report.html",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "5e64e2228d7bf3a02f87e0d479d2b6f5524f3c7b38d59db23c7b969ce9b77636",
+      "legacy_sha256": "5e64e2228d7bf3a02f87e0d479d2b6f5524f3c7b38d59db23c7b969ce9b77636"
+    },
+    {
+      "path": "examples/regression/README.md",
+      "status": "new-first-party",
+      "release_sha256": "554fd512240cad92b7d955e983438cdde8551cb2882d4d3251bbc3971072b24f",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/regression/factorial-outreach-experiment/README.md",
+      "status": "new-first-party",
+      "release_sha256": "46ec5e186e969158b8f03b4cac6d1544cb5885eb48c7c2b72c76dad5b093219f",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/regression/factorial-outreach-experiment/artifact.html",
+      "status": "new-first-party",
+      "release_sha256": "308f925af8b9f6f92e16a511fb2506695a4c2ed7a46ebd1a43111f9195d874eb",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/regression/factorial-outreach-experiment/computed.json",
+      "status": "new-first-party",
+      "release_sha256": "e6909560365f70da744e9cc1e40225f2e2f299f40ffc0b9ca3ce5f326ad34bf7",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/regression/factorial-outreach-experiment/input/brief.md",
+      "status": "new-first-party",
+      "release_sha256": "35ceafd16dfb93895a7235864b5bc1a69f7371ab9b75bf3184a0c02d4dee3d9a",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/regression/factorial-outreach-experiment/input/data.json",
+      "status": "new-first-party",
+      "release_sha256": "1056f4ebfb616b2a33975a4a378c4dc2f3e364afba59bb7777f1f192eb085a03",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/regression/factorial-outreach-experiment/provenance.json",
+      "status": "new-first-party",
+      "release_sha256": "bf9b21fc2ddacc2f47eedf91980f9e5ef26ff74136acb4f95239e9a1ebba61b9",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/regression/intercity-delivery-scheduling/README.md",
+      "status": "new-first-party",
+      "release_sha256": "aadc7a53a90530e499e3d9e57cbeecbb467c44f31f314cf7acd73367edef5e1b",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/regression/intercity-delivery-scheduling/artifact.html",
+      "status": "new-first-party",
+      "release_sha256": "ca4c261b31912c00100a177d942b3a680b627351900bb8e366c034679a38c596",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/regression/intercity-delivery-scheduling/computed.json",
+      "status": "new-first-party",
+      "release_sha256": "02cc1f832b150032052daaaa5820d71f644b363c33f1050027ec691eed01b5a3",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/regression/intercity-delivery-scheduling/input/brief.md",
+      "status": "new-first-party",
+      "release_sha256": "e102fa4e7149ec6c32da7829b85103327a291ab8d4e48ebff519edca834744ca",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/regression/intercity-delivery-scheduling/input/data.json",
+      "status": "new-first-party",
+      "release_sha256": "05fdd01633f0a0330a183ec333601d26dd2e309da5fd4dc2a87f0df277adf7f5",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/regression/intercity-delivery-scheduling/provenance.json",
+      "status": "new-first-party",
+      "release_sha256": "ab47b8e03a0e4b9061a8e1ab4de6998b81bb3c4db065d9367260b39bfe7d9077",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/regression/perishable-inventory-expiry/README.md",
+      "status": "new-first-party",
+      "release_sha256": "ca8f4fe5a3c532ccda42680a0263507d512fd092f750abe69d94f11b46b5e50e",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/regression/perishable-inventory-expiry/artifact.html",
+      "status": "new-first-party",
+      "release_sha256": "3c2624fe61fa071c03346b6f4b295f2674261c68723ec22abaaf0f11f22751c2",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/regression/perishable-inventory-expiry/computed.json",
+      "status": "new-first-party",
+      "release_sha256": "4562a7d831c7596f7430276548d5e2c87a80737cd54b4a4bdefa0bbc45152713",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/regression/perishable-inventory-expiry/input/brief.md",
+      "status": "new-first-party",
+      "release_sha256": "e289a6ae6ad4643f1a2a79a2413c60974450394f8f142ee2c257e9eaebcdf039",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/regression/perishable-inventory-expiry/input/data.json",
+      "status": "new-first-party",
+      "release_sha256": "0605c1f582b8db63cb2e54de4e3fe68f29d7b8be7d8bdd1fa5291306ab6041a7",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/regression/perishable-inventory-expiry/provenance.json",
+      "status": "new-first-party",
+      "release_sha256": "f681a3c1b68ecae4215575a532452512d66f9dc6cc244514048bbe4f1c7f06b5",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/regression/recruitment-waiting-load/README.md",
+      "status": "new-first-party",
+      "release_sha256": "6f15f77a689e61aed7ee51e15e6de4d55df1cebf4a0f388a1a818bf0e8a4c82f",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/regression/recruitment-waiting-load/artifact.html",
+      "status": "new-first-party",
+      "release_sha256": "8d1a105e55e95f50ee38f2dd1713a0f9c5b21508f7ff8f0b795156ec66540289",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/regression/recruitment-waiting-load/computed.json",
+      "status": "new-first-party",
+      "release_sha256": "0c1f188ab19ca3ca3ee134076cc3398757797c46c2c9c57d4549cf6ec26ee9c0",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/regression/recruitment-waiting-load/input/brief.md",
+      "status": "new-first-party",
+      "release_sha256": "7a277ea95c813e33044345e603d6b44aaaa8fcaf6b759e9d7b28c99aada5d1a3",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/regression/recruitment-waiting-load/input/data.json",
+      "status": "new-first-party",
+      "release_sha256": "0214b16f3603f4b541d3eb0b6de7320ac18a892fe381d4e280e6df5226ac3fec",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/regression/recruitment-waiting-load/provenance.json",
+      "status": "new-first-party",
+      "release_sha256": "4dfbb5230f7bacf96a8dc42800342e10e9320db9104afd94b048cb83981197a1",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/regression/service-error-budget-latency/README.md",
+      "status": "new-first-party",
+      "release_sha256": "f61889f4f8d475f7ae9164250bc48de4fd56b1c4d392f43b5ddfe58678275034",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/regression/service-error-budget-latency/artifact.html",
+      "status": "new-first-party",
+      "release_sha256": "c169213c78da22b35bb57f857e1259a75ecc294ce3c44c707a326825b1c30b76",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/regression/service-error-budget-latency/computed.json",
+      "status": "new-first-party",
+      "release_sha256": "4960ebac0c27e4d549c92fbb6eea1cdfca830e84819f56989765356c7094fa2b",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/regression/service-error-budget-latency/input/brief.md",
+      "status": "new-first-party",
+      "release_sha256": "5a748b7a0fbb0b1b776f2509e0570a44df6f27866a170f9c008d227f33529c17",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/regression/service-error-budget-latency/input/data.json",
+      "status": "new-first-party",
+      "release_sha256": "eb915e30483a42f77eb4307067b69039e88efbfd2bb7184c31e85ead9f6e145d",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/regression/service-error-budget-latency/provenance.json",
+      "status": "new-first-party",
+      "release_sha256": "f9562449ff312b6d795003cf98ce4f4a0e1bc3fc36b7507e89c9b30025b813eb",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/regression/venue-booking-capacity/README.md",
+      "status": "new-first-party",
+      "release_sha256": "71a2aa2fe10204b915cdc39b5238a3583a80bc24b320f2a2ab57f5b8b720758c",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/regression/venue-booking-capacity/artifact.html",
+      "status": "new-first-party",
+      "release_sha256": "a0df9d7c98253af2f2c8d14b1cc7251558fc4a4fbaca20f01e6f2302895b3270",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/regression/venue-booking-capacity/computed.json",
+      "status": "new-first-party",
+      "release_sha256": "6a1c42e1b71800abe22259a45ef5de5e6936e38d3cf9768f318cba4393d511bf",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/regression/venue-booking-capacity/input/brief.md",
+      "status": "new-first-party",
+      "release_sha256": "b439bb6b7b52461dda705dd4138f651239cc6c199867b6c5b596bd013bc41da2",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/regression/venue-booking-capacity/input/data.json",
+      "status": "new-first-party",
+      "release_sha256": "fd809f80fef9b1f69b65c40877317f7990f450f0bd0ccbe243c2a39502558b63",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/regression/venue-booking-capacity/provenance.json",
+      "status": "new-first-party",
+      "release_sha256": "adce51ecbce1259cf3663d50cfb24f1f19709f2555ef1fa3cbcc7c9990eb68c7",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/representative.json",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "3e5bcc5c79b627f25bfca5ee33aabaa11d19d9958da240acacf391cd563f93dc",
+      "legacy_sha256": "3e5bcc5c79b627f25bfca5ee33aabaa11d19d9958da240acacf391cd563f93dc"
+    },
+    {
+      "path": "examples/target-comparison.json",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "e0c64482b428b8bb9d2eb24b014c3a2daff8d457dfc8c3535955221c4d151431",
+      "legacy_sha256": "e0c64482b428b8bb9d2eb24b014c3a2daff8d457dfc8c3535955221c4d151431"
+    },
+    {
+      "path": "references/art-direction.md",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "5a55b287b1b4aee1c687b7d7c5bd4ea9b9219490dccbdd603ec64fd5c7338ece",
+      "legacy_sha256": "5a55b287b1b4aee1c687b7d7c5bd4ea9b9219490dccbdd603ec64fd5c7338ece"
+    },
+    {
+      "path": "references/atlas-use.md",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "1481e437e6c2052283e8b00b4f669b12ea8618660472287bf2eb18ed71ef366c",
+      "legacy_sha256": "1481e437e6c2052283e8b00b4f669b12ea8618660472287bf2eb18ed71ef366c"
+    },
+    {
+      "path": "references/autonomous-quality-loop.md",
+      "status": "new-first-party",
+      "release_sha256": "00403b35d1977de78d700356edf5e3f729f1c2bdcd6947679d07a9040606fbe0",
+      "legacy_sha256": null
+    },
+    {
+      "path": "references/business-question-selection.md",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "731159835a85f333faf080ec74db34346644e51f906ae87bbca2cb44bec4cf91",
+      "legacy_sha256": "731159835a85f333faf080ec74db34346644e51f906ae87bbca2cb44bec4cf91"
+    },
+    {
+      "path": "references/capability-evidence.md",
+      "status": "modified-first-party",
+      "release_sha256": "9d97e814e2e2e71b1dd73ff15fedc367da0da0bdc206bc41184aa52ab5384768",
+      "legacy_sha256": "af5497fb78d3bc637ac281a1fe874694efc9d08a70f0008b07c14ab967c9e803"
+    },
+    {
+      "path": "references/chart-catalog.md",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "f4ffbcd7a9b9718ea7c0740f81eac3705b862cffcaaf48d2c3040c628d2e7351",
+      "legacy_sha256": "f4ffbcd7a9b9718ea7c0740f81eac3705b862cffcaaf48d2c3040c628d2e7351"
+    },
+    {
+      "path": "references/color-system.md",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "87997b81992fb864a30a06e5f7fd6a8986d82a87ea701d09c20ce60b82594a2e",
+      "legacy_sha256": "87997b81992fb864a30a06e5f7fd6a8986d82a87ea701d09c20ce60b82594a2e"
+    },
+    {
+      "path": "references/composed-outputs.md",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "330091ec021537abbe5e6709d25126bd1368f260b4958fbdb90d80d095eb4760",
+      "legacy_sha256": "330091ec021537abbe5e6709d25126bd1368f260b4958fbdb90d80d095eb4760"
+    },
+    {
+      "path": "references/composition-reasoning.md",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "e9ec5220e6bda625c509e0565966f3d395fed51837e0db8d13277c2b3e1ec8e7",
+      "legacy_sha256": "e9ec5220e6bda625c509e0565966f3d395fed51837e0db8d13277c2b3e1ec8e7"
+    },
+    {
+      "path": "references/custom-renderers.md",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "7e52fc43461de2ad9f24b5de62346e7b66978074c37df71fa19cf742183e2647",
+      "legacy_sha256": "7e52fc43461de2ad9f24b5de62346e7b66978074c37df71fa19cf742183e2647"
+    },
+    {
+      "path": "references/dashboard-chart-patterns.md",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "18def877512fe202e2b7c54b7e172b4f3069c9cfd10fb1e1558a76a315045ce5",
+      "legacy_sha256": "18def877512fe202e2b7c54b7e172b4f3069c9cfd10fb1e1558a76a315045ce5"
+    },
+    {
+      "path": "references/evaluation.md",
+      "status": "modified-first-party",
+      "release_sha256": "be0ffa71765aba9b870b71bf21e06b53e0c16083e38a57d9b6e864df5e78d95a",
+      "legacy_sha256": "f8a95f81815aa312cc022f7688f418843eb072ee6395f38f60da8abd273a94d3"
+    },
+    {
+      "path": "references/html-delivery.md",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "ebbefa2bc0df0d0a698c16495dd31740ec1b32033a8c418f9edda72df7cf4afe",
+      "legacy_sha256": "ebbefa2bc0df0d0a698c16495dd31740ec1b32033a8c418f9edda72df7cf4afe"
+    },
+    {
+      "path": "references/inspiration-library.json",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "0e1d0fe33cf1e28d798672583823af5b0d72d70ba5dd1574c5629aaa8df12133",
+      "legacy_sha256": "0e1d0fe33cf1e28d798672583823af5b0d72d70ba5dd1574c5629aaa8df12133"
+    },
+    {
+      "path": "references/inspiration-use.md",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "13d09f318fab60f8406f94756d9e2decc608410dd7c8a7fe8afa914845e155c6",
+      "legacy_sha256": "13d09f318fab60f8406f94756d9e2decc608410dd7c8a7fe8afa914845e155c6"
+    },
+    {
+      "path": "references/interaction-motion-design.md",
+      "status": "new-first-party",
+      "release_sha256": "c30546662fbaff312224be2326e1fe1f386b417e394f68330d964ee73d4b1dec",
+      "legacy_sha256": null
+    },
+    {
+      "path": "references/interaction-motion-vector.md",
+      "status": "modified-first-party",
+      "release_sha256": "b276ffadfbf889f852cd016e37ddeb1194b353073d0952d3e3bbb3e8c453d566",
+      "legacy_sha256": "51820b0d2ba818e93f63369a31a3763bb12ca93ae8988234fda1b7623fb74b80"
+    },
+    {
+      "path": "references/motion-runtime.md",
+      "status": "new-first-party",
+      "release_sha256": "13e10a2b027242ef5e368c0f385e2eac1fde864fbb752f5cb0c1a8834d07cf2c",
+      "legacy_sha256": null
+    },
+    {
+      "path": "references/tableau-dashboard-reading.md",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "83778bc889147fb35653454440ec0380677a63d67d11640a614e533e58cd746c",
+      "legacy_sha256": "83778bc889147fb35653454440ec0380677a63d67d11640a614e533e58cd746c"
+    },
+    {
+      "path": "references/visual-reference.md",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "f110f0a500c3b9f9a00b6908460a19080c579012a9b42afbee09dd3c4c051d9c",
+      "legacy_sha256": "f110f0a500c3b9f9a00b6908460a19080c579012a9b42afbee09dd3c4c051d9c"
+    },
+    {
+      "path": "scripts/build_gallery.js",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "76c9ac539742b4fce07091f38b5783664630ee8a722038cb2410e20915333c0c",
+      "legacy_sha256": "76c9ac539742b4fce07091f38b5783664630ee8a722038cb2410e20915333c0c"
+    },
+    {
+      "path": "scripts/build_operating_story.py",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "50961cf5a2c9e625012e9d9eae367ea6a4d5c6362d84f97e55b0df9ec718f6b0",
+      "legacy_sha256": "50961cf5a2c9e625012e9d9eae367ea6a4d5c6362d84f97e55b0df9ec718f6b0"
+    },
+    {
+      "path": "scripts/chart_geometry.py",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "4c57d5b60f4ea79f5020df0e9c266e96bbbe5f25e37811a99171dab17aff2a2c",
+      "legacy_sha256": "4c57d5b60f4ea79f5020df0e9c266e96bbbe5f25e37811a99171dab17aff2a2c"
+    },
+    {
+      "path": "scripts/chart_html.py",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "80c52f0cd01d261c1e78f4c5b777e241c74c760bef6f346f5a28f9332280efdc",
+      "legacy_sha256": "80c52f0cd01d261c1e78f4c5b777e241c74c760bef6f346f5a28f9332280efdc"
+    },
+    {
+      "path": "scripts/compose_html.py",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "9fef4bf79c706e46d1f46edd5cf9113c9f5b5421571f51e54720fd4ee336401a",
+      "legacy_sha256": "9fef4bf79c706e46d1f46edd5cf9113c9f5b5421571f51e54720fd4ee336401a"
+    },
+    {
+      "path": "scripts/custom_chart.py",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "4028ba0aff41cb1435078be7fa449f403b316ac98ef379629ae09cc7f4556127",
+      "legacy_sha256": "4028ba0aff41cb1435078be7fa449f403b316ac98ef379629ae09cc7f4556127"
+    },
+    {
+      "path": "scripts/rebuild_desktop_examples.py",
+      "status": "new-first-party",
+      "release_sha256": "86c0041408ed6e4f940198537b90f7fb63566897642d7c8f65d3eec31276d842",
+      "legacy_sha256": null
+    },
+    {
+      "path": "scripts/sync_regression_examples.py",
+      "status": "new-first-party",
+      "release_sha256": "2fabb9f9bf4ca8b8a4cfff776771400c8a2898de827f31ee20e14c097d0b6593",
+      "legacy_sha256": null
+    },
+    {
+      "path": "scripts/test_chart_geometry.py",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "5417cf7de5cecac9e0797237e85efd1bdc65688ae852e724671e92ef169ab53b",
+      "legacy_sha256": "5417cf7de5cecac9e0797237e85efd1bdc65688ae852e724671e92ef169ab53b"
+    },
+    {
+      "path": "scripts/test_chart_html.py",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "c7c481f9d798378b4283e098cfca8fa4e9e853fdfafa7069f561232e7f6227a8",
+      "legacy_sha256": "c7c481f9d798378b4283e098cfca8fa4e9e853fdfafa7069f561232e7f6227a8"
+    },
+    {
+      "path": "scripts/test_chart_motion.cjs",
+      "status": "new-first-party",
+      "release_sha256": "2c9002b25219ff51df479331011028980e63da5fe76166cf14b4fbad27357f44",
+      "legacy_sha256": null
+    },
+    {
+      "path": "scripts/test_compose_html.py",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "429e4cc41bcf813510278429cc97fe2dc9e7e5bfeb719cf7b891d2da91e915ee",
+      "legacy_sha256": "429e4cc41bcf813510278429cc97fe2dc9e7e5bfeb719cf7b891d2da91e915ee"
+    },
+    {
+      "path": "scripts/test_custom_chart.py",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "84b023fbfb5e6120b2f59c1b7f1446cecbfe97b3bd47df54b85e58685bef4018",
+      "legacy_sha256": "84b023fbfb5e6120b2f59c1b7f1446cecbfe97b3bd47df54b85e58685bef4018"
+    },
+    {
+      "path": "scripts/test_operating_story.py",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "4030dab5d686968f771f88effabdd681c01979ddadbe7ee4b663e33bc18398b6",
+      "legacy_sha256": "4030dab5d686968f771f88effabdd681c01979ddadbe7ee4b663e33bc18398b6"
+    },
+    {
+      "path": "scripts/validate_svg.py",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "6a4ad8a55a8f8fb49d6dcff38b144b611bde73ab9e4bebc987fc0eb605ef6091",
+      "legacy_sha256": "6a4ad8a55a8f8fb49d6dcff38b144b611bde73ab9e4bebc987fc0eb605ef6091"
+    },
+    {
+      "path": "scripts/verify_release.py",
+      "status": "unchanged-legacy-MIT",
+      "release_sha256": "286397d50c07da621279d41685298255c726704ac614a384441d6bf35b414795",
+      "legacy_sha256": "286397d50c07da621279d41685298255c726704ac614a384441d6bf35b414795"
+    }
+  ]
+}

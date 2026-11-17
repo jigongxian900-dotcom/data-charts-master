@@ -1,0 +1,2293 @@
+{
+  "dataset_id": "D03",
+  "synthetic": true,
+  "snapshot_day": 45,
+  "summary": {
+    "request_count": 126,
+    "open_count": 54,
+    "closed_count": 72,
+    "urgent_open": 7,
+    "work_minutes": 11959,
+    "open_wait_median": 11.5,
+    "closed_duration_median": 10.5
+  },
+  "combinations": [
+    {
+      "id": "street",
+      "tags": [
+        "street"
+      ],
+      "request_ids": [
+        "Q000",
+        "Q014",
+        "Q028",
+        "Q042",
+        "Q056",
+        "Q070",
+        "Q084",
+        "Q098",
+        "Q112"
+      ],
+      "request_count": 9,
+      "open_count": 6,
+      "closed_count": 3,
+      "urgent_open": 1,
+      "work_minutes": 834,
+      "open_wait_median": 29.5,
+      "closed_duration_median": 5
+    },
+    {
+      "id": "noise",
+      "tags": [
+        "noise"
+      ],
+      "request_ids": [
+        "Q001",
+        "Q015",
+        "Q029",
+        "Q043",
+        "Q057",
+        "Q071",
+        "Q085",
+        "Q099",
+        "Q113"
+      ],
+      "request_count": 9,
+      "open_count": 2,
+      "closed_count": 7,
+      "urgent_open": 0,
+      "work_minutes": 735,
+      "open_wait_median": 7.0,
+      "closed_duration_median": 8
+    },
+    {
+      "id": "waste",
+      "tags": [
+        "waste"
+      ],
+      "request_ids": [
+        "Q002",
+        "Q016",
+        "Q030",
+        "Q044",
+        "Q058",
+        "Q072",
+        "Q086",
+        "Q100",
+        "Q114"
+      ],
+      "request_count": 9,
+      "open_count": 5,
+      "closed_count": 4,
+      "urgent_open": 1,
+      "work_minutes": 756,
+      "open_wait_median": 40,
+      "closed_duration_median": 9.5
+    },
+    {
+      "id": "access",
+      "tags": [
+        "access"
+      ],
+      "request_ids": [
+        "Q003",
+        "Q017",
+        "Q031",
+        "Q045",
+        "Q059",
+        "Q073",
+        "Q087",
+        "Q101",
+        "Q115"
+      ],
+      "request_count": 9,
+      "open_count": 3,
+      "closed_count": 6,
+      "urgent_open": 1,
+      "work_minutes": 899,
+      "open_wait_median": 6,
+      "closed_duration_median": 8.0
+    },
+    {
+      "id": "lighting",
+      "tags": [
+        "lighting"
+      ],
+      "request_ids": [
+        "Q004",
+        "Q018",
+        "Q032",
+        "Q046",
+        "Q060",
+        "Q074",
+        "Q088",
+        "Q102",
+        "Q116"
+      ],
+      "request_count": 9,
+      "open_count": 5,
+      "closed_count": 4,
+      "urgent_open": 0,
+      "work_minutes": 921,
+      "open_wait_median": 11,
+      "closed_duration_median": 10.5
+    },
+    {
+      "id": "street|noise",
+      "tags": [
+        "street",
+        "noise"
+      ],
+      "request_ids": [
+        "Q005",
+        "Q019",
+        "Q033",
+        "Q047",
+        "Q061",
+        "Q075",
+        "Q089",
+        "Q103",
+        "Q117"
+      ],
+      "request_count": 9,
+      "open_count": 4,
+      "closed_count": 5,
+      "urgent_open": 0,
+      "work_minutes": 1012,
+      "open_wait_median": 8.5,
+      "closed_duration_median": 9
+    },
+    {
+      "id": "street|waste",
+      "tags": [
+        "street",
+        "waste"
+      ],
+      "request_ids": [
+        "Q006",
+        "Q020",
+        "Q034",
+        "Q048",
+        "Q062",
+        "Q076",
+        "Q090",
+        "Q104",
+        "Q118"
+      ],
+      "request_count": 9,
+      "open_count": 6,
+      "closed_count": 3,
+      "urgent_open": 1,
+      "work_minutes": 816,
+      "open_wait_median": 13.5,
+      "closed_duration_median": 8
+    },
+    {
+      "id": "noise|waste",
+      "tags": [
+        "noise",
+        "waste"
+      ],
+      "request_ids": [
+        "Q007",
+        "Q021",
+        "Q035",
+        "Q049",
+        "Q063",
+        "Q077",
+        "Q091",
+        "Q105",
+        "Q119"
+      ],
+      "request_count": 9,
+      "open_count": 1,
+      "closed_count": 8,
+      "urgent_open": 0,
+      "work_minutes": 813,
+      "open_wait_median": 11,
+      "closed_duration_median": 13.5
+    },
+    {
+      "id": "waste|access",
+      "tags": [
+        "waste",
+        "access"
+      ],
+      "request_ids": [
+        "Q008",
+        "Q022",
+        "Q036",
+        "Q050",
+        "Q064",
+        "Q078",
+        "Q092",
+        "Q106",
+        "Q120"
+      ],
+      "request_count": 9,
+      "open_count": 5,
+      "closed_count": 4,
+      "urgent_open": 1,
+      "work_minutes": 957,
+      "open_wait_median": 8,
+      "closed_duration_median": 14.5
+    },
+    {
+      "id": "access|lighting",
+      "tags": [
+        "access",
+        "lighting"
+      ],
+      "request_ids": [
+        "Q009",
+        "Q023",
+        "Q037",
+        "Q051",
+        "Q065",
+        "Q079",
+        "Q093",
+        "Q107",
+        "Q121"
+      ],
+      "request_count": 9,
+      "open_count": 0,
+      "closed_count": 9,
+      "urgent_open": 0,
+      "work_minutes": 1062,
+      "open_wait_median": null,
+      "closed_duration_median": 9
+    },
+    {
+      "id": "street|noise|waste",
+      "tags": [
+        "street",
+        "noise",
+        "waste"
+      ],
+      "request_ids": [
+        "Q010",
+        "Q024",
+        "Q038",
+        "Q052",
+        "Q066",
+        "Q080",
+        "Q094",
+        "Q108",
+        "Q122"
+      ],
+      "request_count": 9,
+      "open_count": 5,
+      "closed_count": 4,
+      "urgent_open": 1,
+      "work_minutes": 573,
+      "open_wait_median": 25,
+      "closed_duration_median": 11.5
+    },
+    {
+      "id": "noise|access|lighting",
+      "tags": [
+        "noise",
+        "access",
+        "lighting"
+      ],
+      "request_ids": [
+        "Q011",
+        "Q025",
+        "Q039",
+        "Q053",
+        "Q067",
+        "Q081",
+        "Q095",
+        "Q109",
+        "Q123"
+      ],
+      "request_count": 9,
+      "open_count": 2,
+      "closed_count": 7,
+      "urgent_open": 0,
+      "work_minutes": 811,
+      "open_wait_median": 12.0,
+      "closed_duration_median": 17
+    },
+    {
+      "id": "street|waste|lighting",
+      "tags": [
+        "street",
+        "waste",
+        "lighting"
+      ],
+      "request_ids": [
+        "Q012",
+        "Q026",
+        "Q040",
+        "Q054",
+        "Q068",
+        "Q082",
+        "Q096",
+        "Q110",
+        "Q124"
+      ],
+      "request_count": 9,
+      "open_count": 7,
+      "closed_count": 2,
+      "urgent_open": 1,
+      "work_minutes": 864,
+      "open_wait_median": 12,
+      "closed_duration_median": 11.0
+    },
+    {
+      "id": "street|noise|access|lighting",
+      "tags": [
+        "street",
+        "noise",
+        "access",
+        "lighting"
+      ],
+      "request_ids": [
+        "Q013",
+        "Q027",
+        "Q041",
+        "Q055",
+        "Q069",
+        "Q083",
+        "Q097",
+        "Q111",
+        "Q125"
+      ],
+      "request_count": 9,
+      "open_count": 3,
+      "closed_count": 6,
+      "urgent_open": 0,
+      "work_minutes": 906,
+      "open_wait_median": 12,
+      "closed_duration_median": 14.0
+    }
+  ],
+  "districts": {
+    "Central": {
+      "request_count": 42,
+      "open_count": 14,
+      "closed_count": 28,
+      "urgent_open": 0,
+      "work_minutes": 3598,
+      "open_wait_median": 19.0,
+      "closed_duration_median": 11.5
+    },
+    "North": {
+      "request_count": 42,
+      "open_count": 20,
+      "closed_count": 22,
+      "urgent_open": 7,
+      "work_minutes": 4445,
+      "open_wait_median": 11.5,
+      "closed_duration_median": 10.5
+    },
+    "South": {
+      "request_count": 42,
+      "open_count": 20,
+      "closed_count": 22,
+      "urgent_open": 0,
+      "work_minutes": 3916,
+      "open_wait_median": 8.5,
+      "closed_duration_median": 8.5
+    }
+  },
+  "requests": [
+    {
+      "request_id": "Q000",
+      "district": "North",
+      "tags": [
+        "street"
+      ],
+      "created_day": 6,
+      "closed_day": null,
+      "urgent": true,
+      "work_minutes": 92,
+      "combination_id": "street",
+      "open_wait_days": 39,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q001",
+      "district": "Central",
+      "tags": [
+        "noise"
+      ],
+      "created_day": 3,
+      "closed_day": 10,
+      "urgent": false,
+      "work_minutes": 64,
+      "combination_id": "noise",
+      "open_wait_days": null,
+      "closed_duration_days": 7
+    },
+    {
+      "request_id": "Q002",
+      "district": "South",
+      "tags": [
+        "waste"
+      ],
+      "created_day": 14,
+      "closed_day": 33,
+      "urgent": false,
+      "work_minutes": 72,
+      "combination_id": "waste",
+      "open_wait_days": null,
+      "closed_duration_days": 19
+    },
+    {
+      "request_id": "Q003",
+      "district": "North",
+      "tags": [
+        "access"
+      ],
+      "created_day": 31,
+      "closed_day": 36,
+      "urgent": false,
+      "work_minutes": 18,
+      "combination_id": "access",
+      "open_wait_days": null,
+      "closed_duration_days": 5
+    },
+    {
+      "request_id": "Q004",
+      "district": "Central",
+      "tags": [
+        "lighting"
+      ],
+      "created_day": 40,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 156,
+      "combination_id": "lighting",
+      "open_wait_days": 5,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q005",
+      "district": "South",
+      "tags": [
+        "street",
+        "noise"
+      ],
+      "created_day": 36,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 124,
+      "combination_id": "street|noise",
+      "open_wait_days": 9,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q006",
+      "district": "North",
+      "tags": [
+        "street",
+        "waste"
+      ],
+      "created_day": 26,
+      "closed_day": 34,
+      "urgent": false,
+      "work_minutes": 174,
+      "combination_id": "street|waste",
+      "open_wait_days": null,
+      "closed_duration_days": 8
+    },
+    {
+      "request_id": "Q007",
+      "district": "Central",
+      "tags": [
+        "noise",
+        "waste"
+      ],
+      "created_day": 16,
+      "closed_day": 36,
+      "urgent": false,
+      "work_minutes": 48,
+      "combination_id": "noise|waste",
+      "open_wait_days": null,
+      "closed_duration_days": 20
+    },
+    {
+      "request_id": "Q008",
+      "district": "South",
+      "tags": [
+        "waste",
+        "access"
+      ],
+      "created_day": 0,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 156,
+      "combination_id": "waste|access",
+      "open_wait_days": 45,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q009",
+      "district": "North",
+      "tags": [
+        "access",
+        "lighting"
+      ],
+      "created_day": 2,
+      "closed_day": 20,
+      "urgent": true,
+      "work_minutes": 121,
+      "combination_id": "access|lighting",
+      "open_wait_days": null,
+      "closed_duration_days": 18
+    },
+    {
+      "request_id": "Q010",
+      "district": "Central",
+      "tags": [
+        "street",
+        "noise",
+        "waste"
+      ],
+      "created_day": 16,
+      "closed_day": 36,
+      "urgent": false,
+      "work_minutes": 34,
+      "combination_id": "street|noise|waste",
+      "open_wait_days": null,
+      "closed_duration_days": 20
+    },
+    {
+      "request_id": "Q011",
+      "district": "South",
+      "tags": [
+        "noise",
+        "access",
+        "lighting"
+      ],
+      "created_day": 29,
+      "closed_day": 45,
+      "urgent": false,
+      "work_minutes": 23,
+      "combination_id": "noise|access|lighting",
+      "open_wait_days": null,
+      "closed_duration_days": 16
+    },
+    {
+      "request_id": "Q012",
+      "district": "North",
+      "tags": [
+        "street",
+        "waste",
+        "lighting"
+      ],
+      "created_day": 30,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 176,
+      "combination_id": "street|waste|lighting",
+      "open_wait_days": 15,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q013",
+      "district": "Central",
+      "tags": [
+        "street",
+        "noise",
+        "access",
+        "lighting"
+      ],
+      "created_day": 21,
+      "closed_day": 42,
+      "urgent": false,
+      "work_minutes": 147,
+      "combination_id": "street|noise|access|lighting",
+      "open_wait_days": null,
+      "closed_duration_days": 21
+    },
+    {
+      "request_id": "Q014",
+      "district": "South",
+      "tags": [
+        "street"
+      ],
+      "created_day": 29,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 48,
+      "combination_id": "street",
+      "open_wait_days": 16,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q015",
+      "district": "North",
+      "tags": [
+        "noise"
+      ],
+      "created_day": 37,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 23,
+      "combination_id": "noise",
+      "open_wait_days": 8,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q016",
+      "district": "Central",
+      "tags": [
+        "waste"
+      ],
+      "created_day": 1,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 113,
+      "combination_id": "waste",
+      "open_wait_days": 44,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q017",
+      "district": "South",
+      "tags": [
+        "access"
+      ],
+      "created_day": 39,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 150,
+      "combination_id": "access",
+      "open_wait_days": 6,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q018",
+      "district": "North",
+      "tags": [
+        "lighting"
+      ],
+      "created_day": 27,
+      "closed_day": 32,
+      "urgent": true,
+      "work_minutes": 36,
+      "combination_id": "lighting",
+      "open_wait_days": null,
+      "closed_duration_days": 5
+    },
+    {
+      "request_id": "Q019",
+      "district": "Central",
+      "tags": [
+        "street",
+        "noise"
+      ],
+      "created_day": 21,
+      "closed_day": 24,
+      "urgent": false,
+      "work_minutes": 110,
+      "combination_id": "street|noise",
+      "open_wait_days": null,
+      "closed_duration_days": 3
+    },
+    {
+      "request_id": "Q020",
+      "district": "South",
+      "tags": [
+        "street",
+        "waste"
+      ],
+      "created_day": 22,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 69,
+      "combination_id": "street|waste",
+      "open_wait_days": 23,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q021",
+      "district": "North",
+      "tags": [
+        "noise",
+        "waste"
+      ],
+      "created_day": 34,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 149,
+      "combination_id": "noise|waste",
+      "open_wait_days": 11,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q022",
+      "district": "Central",
+      "tags": [
+        "waste",
+        "access"
+      ],
+      "created_day": 7,
+      "closed_day": 19,
+      "urgent": false,
+      "work_minutes": 17,
+      "combination_id": "waste|access",
+      "open_wait_days": null,
+      "closed_duration_days": 12
+    },
+    {
+      "request_id": "Q023",
+      "district": "South",
+      "tags": [
+        "access",
+        "lighting"
+      ],
+      "created_day": 12,
+      "closed_day": 30,
+      "urgent": false,
+      "work_minutes": 142,
+      "combination_id": "access|lighting",
+      "open_wait_days": null,
+      "closed_duration_days": 18
+    },
+    {
+      "request_id": "Q024",
+      "district": "North",
+      "tags": [
+        "street",
+        "noise",
+        "waste"
+      ],
+      "created_day": 8,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 97,
+      "combination_id": "street|noise|waste",
+      "open_wait_days": 37,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q025",
+      "district": "Central",
+      "tags": [
+        "noise",
+        "access",
+        "lighting"
+      ],
+      "created_day": 27,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 16,
+      "combination_id": "noise|access|lighting",
+      "open_wait_days": 18,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q026",
+      "district": "South",
+      "tags": [
+        "street",
+        "waste",
+        "lighting"
+      ],
+      "created_day": 0,
+      "closed_day": 3,
+      "urgent": false,
+      "work_minutes": 155,
+      "combination_id": "street|waste|lighting",
+      "open_wait_days": null,
+      "closed_duration_days": 3
+    },
+    {
+      "request_id": "Q027",
+      "district": "North",
+      "tags": [
+        "street",
+        "noise",
+        "access",
+        "lighting"
+      ],
+      "created_day": 22,
+      "closed_day": 44,
+      "urgent": true,
+      "work_minutes": 53,
+      "combination_id": "street|noise|access|lighting",
+      "open_wait_days": null,
+      "closed_duration_days": 22
+    },
+    {
+      "request_id": "Q028",
+      "district": "Central",
+      "tags": [
+        "street"
+      ],
+      "created_day": 3,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 50,
+      "combination_id": "street",
+      "open_wait_days": 42,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q029",
+      "district": "South",
+      "tags": [
+        "noise"
+      ],
+      "created_day": 15,
+      "closed_day": 20,
+      "urgent": false,
+      "work_minutes": 148,
+      "combination_id": "noise",
+      "open_wait_days": null,
+      "closed_duration_days": 5
+    },
+    {
+      "request_id": "Q030",
+      "district": "North",
+      "tags": [
+        "waste"
+      ],
+      "created_day": 9,
+      "closed_day": 23,
+      "urgent": false,
+      "work_minutes": 58,
+      "combination_id": "waste",
+      "open_wait_days": null,
+      "closed_duration_days": 14
+    },
+    {
+      "request_id": "Q031",
+      "district": "Central",
+      "tags": [
+        "access"
+      ],
+      "created_day": 3,
+      "closed_day": 12,
+      "urgent": false,
+      "work_minutes": 175,
+      "combination_id": "access",
+      "open_wait_days": null,
+      "closed_duration_days": 9
+    },
+    {
+      "request_id": "Q032",
+      "district": "South",
+      "tags": [
+        "lighting"
+      ],
+      "created_day": 34,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 92,
+      "combination_id": "lighting",
+      "open_wait_days": 11,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q033",
+      "district": "North",
+      "tags": [
+        "street",
+        "noise"
+      ],
+      "created_day": 37,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 109,
+      "combination_id": "street|noise",
+      "open_wait_days": 8,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q034",
+      "district": "Central",
+      "tags": [
+        "street",
+        "waste"
+      ],
+      "created_day": 28,
+      "closed_day": 36,
+      "urgent": false,
+      "work_minutes": 34,
+      "combination_id": "street|waste",
+      "open_wait_days": null,
+      "closed_duration_days": 8
+    },
+    {
+      "request_id": "Q035",
+      "district": "South",
+      "tags": [
+        "noise",
+        "waste"
+      ],
+      "created_day": 25,
+      "closed_day": 38,
+      "urgent": false,
+      "work_minutes": 163,
+      "combination_id": "noise|waste",
+      "open_wait_days": null,
+      "closed_duration_days": 13
+    },
+    {
+      "request_id": "Q036",
+      "district": "North",
+      "tags": [
+        "waste",
+        "access"
+      ],
+      "created_day": 43,
+      "closed_day": null,
+      "urgent": true,
+      "work_minutes": 174,
+      "combination_id": "waste|access",
+      "open_wait_days": 2,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q037",
+      "district": "Central",
+      "tags": [
+        "access",
+        "lighting"
+      ],
+      "created_day": 16,
+      "closed_day": 23,
+      "urgent": false,
+      "work_minutes": 40,
+      "combination_id": "access|lighting",
+      "open_wait_days": null,
+      "closed_duration_days": 7
+    },
+    {
+      "request_id": "Q038",
+      "district": "South",
+      "tags": [
+        "street",
+        "noise",
+        "waste"
+      ],
+      "created_day": 24,
+      "closed_day": 32,
+      "urgent": false,
+      "work_minutes": 24,
+      "combination_id": "street|noise|waste",
+      "open_wait_days": null,
+      "closed_duration_days": 8
+    },
+    {
+      "request_id": "Q039",
+      "district": "North",
+      "tags": [
+        "noise",
+        "access",
+        "lighting"
+      ],
+      "created_day": 6,
+      "closed_day": 28,
+      "urgent": false,
+      "work_minutes": 162,
+      "combination_id": "noise|access|lighting",
+      "open_wait_days": null,
+      "closed_duration_days": 22
+    },
+    {
+      "request_id": "Q040",
+      "district": "Central",
+      "tags": [
+        "street",
+        "waste",
+        "lighting"
+      ],
+      "created_day": 3,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 31,
+      "combination_id": "street|waste|lighting",
+      "open_wait_days": 42,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q041",
+      "district": "South",
+      "tags": [
+        "street",
+        "noise",
+        "access",
+        "lighting"
+      ],
+      "created_day": 19,
+      "closed_day": 32,
+      "urgent": false,
+      "work_minutes": 144,
+      "combination_id": "street|noise|access|lighting",
+      "open_wait_days": null,
+      "closed_duration_days": 13
+    },
+    {
+      "request_id": "Q042",
+      "district": "North",
+      "tags": [
+        "street"
+      ],
+      "created_day": 10,
+      "closed_day": 26,
+      "urgent": false,
+      "work_minutes": 163,
+      "combination_id": "street",
+      "open_wait_days": null,
+      "closed_duration_days": 16
+    },
+    {
+      "request_id": "Q043",
+      "district": "Central",
+      "tags": [
+        "noise"
+      ],
+      "created_day": 25,
+      "closed_day": 41,
+      "urgent": false,
+      "work_minutes": 77,
+      "combination_id": "noise",
+      "open_wait_days": null,
+      "closed_duration_days": 16
+    },
+    {
+      "request_id": "Q044",
+      "district": "South",
+      "tags": [
+        "waste"
+      ],
+      "created_day": 35,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 82,
+      "combination_id": "waste",
+      "open_wait_days": 10,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q045",
+      "district": "North",
+      "tags": [
+        "access"
+      ],
+      "created_day": 42,
+      "closed_day": null,
+      "urgent": true,
+      "work_minutes": 29,
+      "combination_id": "access",
+      "open_wait_days": 3,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q046",
+      "district": "Central",
+      "tags": [
+        "lighting"
+      ],
+      "created_day": 6,
+      "closed_day": 16,
+      "urgent": false,
+      "work_minutes": 26,
+      "combination_id": "lighting",
+      "open_wait_days": null,
+      "closed_duration_days": 10
+    },
+    {
+      "request_id": "Q047",
+      "district": "South",
+      "tags": [
+        "street",
+        "noise"
+      ],
+      "created_day": 25,
+      "closed_day": 34,
+      "urgent": false,
+      "work_minutes": 108,
+      "combination_id": "street|noise",
+      "open_wait_days": null,
+      "closed_duration_days": 9
+    },
+    {
+      "request_id": "Q048",
+      "district": "North",
+      "tags": [
+        "street",
+        "waste"
+      ],
+      "created_day": 38,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 116,
+      "combination_id": "street|waste",
+      "open_wait_days": 7,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q049",
+      "district": "Central",
+      "tags": [
+        "noise",
+        "waste"
+      ],
+      "created_day": 8,
+      "closed_day": 24,
+      "urgent": false,
+      "work_minutes": 70,
+      "combination_id": "noise|waste",
+      "open_wait_days": null,
+      "closed_duration_days": 16
+    },
+    {
+      "request_id": "Q050",
+      "district": "South",
+      "tags": [
+        "waste",
+        "access"
+      ],
+      "created_day": 32,
+      "closed_day": 40,
+      "urgent": false,
+      "work_minutes": 45,
+      "combination_id": "waste|access",
+      "open_wait_days": null,
+      "closed_duration_days": 8
+    },
+    {
+      "request_id": "Q051",
+      "district": "North",
+      "tags": [
+        "access",
+        "lighting"
+      ],
+      "created_day": 31,
+      "closed_day": 38,
+      "urgent": false,
+      "work_minutes": 170,
+      "combination_id": "access|lighting",
+      "open_wait_days": null,
+      "closed_duration_days": 7
+    },
+    {
+      "request_id": "Q052",
+      "district": "Central",
+      "tags": [
+        "street",
+        "noise",
+        "waste"
+      ],
+      "created_day": 17,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 31,
+      "combination_id": "street|noise|waste",
+      "open_wait_days": 28,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q053",
+      "district": "South",
+      "tags": [
+        "noise",
+        "access",
+        "lighting"
+      ],
+      "created_day": 24,
+      "closed_day": 30,
+      "urgent": false,
+      "work_minutes": 110,
+      "combination_id": "noise|access|lighting",
+      "open_wait_days": null,
+      "closed_duration_days": 6
+    },
+    {
+      "request_id": "Q054",
+      "district": "North",
+      "tags": [
+        "street",
+        "waste",
+        "lighting"
+      ],
+      "created_day": 36,
+      "closed_day": null,
+      "urgent": true,
+      "work_minutes": 58,
+      "combination_id": "street|waste|lighting",
+      "open_wait_days": 9,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q055",
+      "district": "Central",
+      "tags": [
+        "street",
+        "noise",
+        "access",
+        "lighting"
+      ],
+      "created_day": 13,
+      "closed_day": 19,
+      "urgent": false,
+      "work_minutes": 141,
+      "combination_id": "street|noise|access|lighting",
+      "open_wait_days": null,
+      "closed_duration_days": 6
+    },
+    {
+      "request_id": "Q056",
+      "district": "South",
+      "tags": [
+        "street"
+      ],
+      "created_day": 42,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 119,
+      "combination_id": "street",
+      "open_wait_days": 3,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q057",
+      "district": "North",
+      "tags": [
+        "noise"
+      ],
+      "created_day": 11,
+      "closed_day": 33,
+      "urgent": false,
+      "work_minutes": 46,
+      "combination_id": "noise",
+      "open_wait_days": null,
+      "closed_duration_days": 22
+    },
+    {
+      "request_id": "Q058",
+      "district": "Central",
+      "tags": [
+        "waste"
+      ],
+      "created_day": 23,
+      "closed_day": 28,
+      "urgent": false,
+      "work_minutes": 172,
+      "combination_id": "waste",
+      "open_wait_days": null,
+      "closed_duration_days": 5
+    },
+    {
+      "request_id": "Q059",
+      "district": "South",
+      "tags": [
+        "access"
+      ],
+      "created_day": 2,
+      "closed_day": 16,
+      "urgent": false,
+      "work_minutes": 60,
+      "combination_id": "access",
+      "open_wait_days": null,
+      "closed_duration_days": 14
+    },
+    {
+      "request_id": "Q060",
+      "district": "North",
+      "tags": [
+        "lighting"
+      ],
+      "created_day": 35,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 123,
+      "combination_id": "lighting",
+      "open_wait_days": 10,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q061",
+      "district": "Central",
+      "tags": [
+        "street",
+        "noise"
+      ],
+      "created_day": 31,
+      "closed_day": 42,
+      "urgent": false,
+      "work_minutes": 162,
+      "combination_id": "street|noise",
+      "open_wait_days": null,
+      "closed_duration_days": 11
+    },
+    {
+      "request_id": "Q062",
+      "district": "South",
+      "tags": [
+        "street",
+        "waste"
+      ],
+      "created_day": 41,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 133,
+      "combination_id": "street|waste",
+      "open_wait_days": 4,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q063",
+      "district": "North",
+      "tags": [
+        "noise",
+        "waste"
+      ],
+      "created_day": 15,
+      "closed_day": 19,
+      "urgent": true,
+      "work_minutes": 106,
+      "combination_id": "noise|waste",
+      "open_wait_days": null,
+      "closed_duration_days": 4
+    },
+    {
+      "request_id": "Q064",
+      "district": "Central",
+      "tags": [
+        "waste",
+        "access"
+      ],
+      "created_day": 25,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 162,
+      "combination_id": "waste|access",
+      "open_wait_days": 20,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q065",
+      "district": "South",
+      "tags": [
+        "access",
+        "lighting"
+      ],
+      "created_day": 5,
+      "closed_day": 26,
+      "urgent": false,
+      "work_minutes": 81,
+      "combination_id": "access|lighting",
+      "open_wait_days": null,
+      "closed_duration_days": 21
+    },
+    {
+      "request_id": "Q066",
+      "district": "North",
+      "tags": [
+        "street",
+        "noise",
+        "waste"
+      ],
+      "created_day": 27,
+      "closed_day": 37,
+      "urgent": false,
+      "work_minutes": 100,
+      "combination_id": "street|noise|waste",
+      "open_wait_days": null,
+      "closed_duration_days": 10
+    },
+    {
+      "request_id": "Q067",
+      "district": "Central",
+      "tags": [
+        "noise",
+        "access",
+        "lighting"
+      ],
+      "created_day": 34,
+      "closed_day": 43,
+      "urgent": false,
+      "work_minutes": 31,
+      "combination_id": "noise|access|lighting",
+      "open_wait_days": null,
+      "closed_duration_days": 9
+    },
+    {
+      "request_id": "Q068",
+      "district": "South",
+      "tags": [
+        "street",
+        "waste",
+        "lighting"
+      ],
+      "created_day": 33,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 90,
+      "combination_id": "street|waste|lighting",
+      "open_wait_days": 12,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q069",
+      "district": "North",
+      "tags": [
+        "street",
+        "noise",
+        "access",
+        "lighting"
+      ],
+      "created_day": 25,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 20,
+      "combination_id": "street|noise|access|lighting",
+      "open_wait_days": 20,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q070",
+      "district": "Central",
+      "tags": [
+        "street"
+      ],
+      "created_day": 28,
+      "closed_day": 33,
+      "urgent": false,
+      "work_minutes": 46,
+      "combination_id": "street",
+      "open_wait_days": null,
+      "closed_duration_days": 5
+    },
+    {
+      "request_id": "Q071",
+      "district": "South",
+      "tags": [
+        "noise"
+      ],
+      "created_day": 9,
+      "closed_day": 15,
+      "urgent": false,
+      "work_minutes": 98,
+      "combination_id": "noise",
+      "open_wait_days": null,
+      "closed_duration_days": 6
+    },
+    {
+      "request_id": "Q072",
+      "district": "North",
+      "tags": [
+        "waste"
+      ],
+      "created_day": 3,
+      "closed_day": null,
+      "urgent": true,
+      "work_minutes": 84,
+      "combination_id": "waste",
+      "open_wait_days": 42,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q073",
+      "district": "Central",
+      "tags": [
+        "access"
+      ],
+      "created_day": 8,
+      "closed_day": 21,
+      "urgent": false,
+      "work_minutes": 75,
+      "combination_id": "access",
+      "open_wait_days": null,
+      "closed_duration_days": 13
+    },
+    {
+      "request_id": "Q074",
+      "district": "South",
+      "tags": [
+        "lighting"
+      ],
+      "created_day": 1,
+      "closed_day": 14,
+      "urgent": false,
+      "work_minutes": 144,
+      "combination_id": "lighting",
+      "open_wait_days": null,
+      "closed_duration_days": 13
+    },
+    {
+      "request_id": "Q075",
+      "district": "North",
+      "tags": [
+        "street",
+        "noise"
+      ],
+      "created_day": 25,
+      "closed_day": 28,
+      "urgent": false,
+      "work_minutes": 115,
+      "combination_id": "street|noise",
+      "open_wait_days": null,
+      "closed_duration_days": 3
+    },
+    {
+      "request_id": "Q076",
+      "district": "Central",
+      "tags": [
+        "street",
+        "waste"
+      ],
+      "created_day": 30,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 106,
+      "combination_id": "street|waste",
+      "open_wait_days": 15,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q077",
+      "district": "South",
+      "tags": [
+        "noise",
+        "waste"
+      ],
+      "created_day": 18,
+      "closed_day": 35,
+      "urgent": false,
+      "work_minutes": 139,
+      "combination_id": "noise|waste",
+      "open_wait_days": null,
+      "closed_duration_days": 17
+    },
+    {
+      "request_id": "Q078",
+      "district": "North",
+      "tags": [
+        "waste",
+        "access"
+      ],
+      "created_day": 9,
+      "closed_day": 27,
+      "urgent": false,
+      "work_minutes": 108,
+      "combination_id": "waste|access",
+      "open_wait_days": null,
+      "closed_duration_days": 18
+    },
+    {
+      "request_id": "Q079",
+      "district": "Central",
+      "tags": [
+        "access",
+        "lighting"
+      ],
+      "created_day": 16,
+      "closed_day": 25,
+      "urgent": false,
+      "work_minutes": 79,
+      "combination_id": "access|lighting",
+      "open_wait_days": null,
+      "closed_duration_days": 9
+    },
+    {
+      "request_id": "Q080",
+      "district": "South",
+      "tags": [
+        "street",
+        "noise",
+        "waste"
+      ],
+      "created_day": 42,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 154,
+      "combination_id": "street|noise|waste",
+      "open_wait_days": 3,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q081",
+      "district": "North",
+      "tags": [
+        "noise",
+        "access",
+        "lighting"
+      ],
+      "created_day": 22,
+      "closed_day": 39,
+      "urgent": true,
+      "work_minutes": 60,
+      "combination_id": "noise|access|lighting",
+      "open_wait_days": null,
+      "closed_duration_days": 17
+    },
+    {
+      "request_id": "Q082",
+      "district": "Central",
+      "tags": [
+        "street",
+        "waste",
+        "lighting"
+      ],
+      "created_day": 21,
+      "closed_day": 40,
+      "urgent": false,
+      "work_minutes": 162,
+      "combination_id": "street|waste|lighting",
+      "open_wait_days": null,
+      "closed_duration_days": 19
+    },
+    {
+      "request_id": "Q083",
+      "district": "South",
+      "tags": [
+        "street",
+        "noise",
+        "access",
+        "lighting"
+      ],
+      "created_day": 33,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 152,
+      "combination_id": "street|noise|access|lighting",
+      "open_wait_days": 12,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q084",
+      "district": "North",
+      "tags": [
+        "street"
+      ],
+      "created_day": 11,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 148,
+      "combination_id": "street",
+      "open_wait_days": 34,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q085",
+      "district": "Central",
+      "tags": [
+        "noise"
+      ],
+      "created_day": 39,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 80,
+      "combination_id": "noise",
+      "open_wait_days": 6,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q086",
+      "district": "South",
+      "tags": [
+        "waste"
+      ],
+      "created_day": 39,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 32,
+      "combination_id": "waste",
+      "open_wait_days": 6,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q087",
+      "district": "North",
+      "tags": [
+        "access"
+      ],
+      "created_day": 33,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 168,
+      "combination_id": "access",
+      "open_wait_days": 12,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q088",
+      "district": "Central",
+      "tags": [
+        "lighting"
+      ],
+      "created_day": 32,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 131,
+      "combination_id": "lighting",
+      "open_wait_days": 13,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q089",
+      "district": "South",
+      "tags": [
+        "street",
+        "noise"
+      ],
+      "created_day": 41,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 85,
+      "combination_id": "street|noise",
+      "open_wait_days": 4,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q090",
+      "district": "North",
+      "tags": [
+        "street",
+        "waste"
+      ],
+      "created_day": 33,
+      "closed_day": null,
+      "urgent": true,
+      "work_minutes": 102,
+      "combination_id": "street|waste",
+      "open_wait_days": 12,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q091",
+      "district": "Central",
+      "tags": [
+        "noise",
+        "waste"
+      ],
+      "created_day": 24,
+      "closed_day": 30,
+      "urgent": false,
+      "work_minutes": 80,
+      "combination_id": "noise|waste",
+      "open_wait_days": null,
+      "closed_duration_days": 6
+    },
+    {
+      "request_id": "Q092",
+      "district": "South",
+      "tags": [
+        "waste",
+        "access"
+      ],
+      "created_day": 37,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 62,
+      "combination_id": "waste|access",
+      "open_wait_days": 8,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q093",
+      "district": "North",
+      "tags": [
+        "access",
+        "lighting"
+      ],
+      "created_day": 37,
+      "closed_day": 44,
+      "urgent": false,
+      "work_minutes": 140,
+      "combination_id": "access|lighting",
+      "open_wait_days": null,
+      "closed_duration_days": 7
+    },
+    {
+      "request_id": "Q094",
+      "district": "Central",
+      "tags": [
+        "street",
+        "noise",
+        "waste"
+      ],
+      "created_day": 8,
+      "closed_day": 21,
+      "urgent": false,
+      "work_minutes": 76,
+      "combination_id": "street|noise|waste",
+      "open_wait_days": null,
+      "closed_duration_days": 13
+    },
+    {
+      "request_id": "Q095",
+      "district": "South",
+      "tags": [
+        "noise",
+        "access",
+        "lighting"
+      ],
+      "created_day": 39,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 141,
+      "combination_id": "noise|access|lighting",
+      "open_wait_days": 6,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q096",
+      "district": "North",
+      "tags": [
+        "street",
+        "waste",
+        "lighting"
+      ],
+      "created_day": 25,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 78,
+      "combination_id": "street|waste|lighting",
+      "open_wait_days": 20,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q097",
+      "district": "Central",
+      "tags": [
+        "street",
+        "noise",
+        "access",
+        "lighting"
+      ],
+      "created_day": 29,
+      "closed_day": 44,
+      "urgent": false,
+      "work_minutes": 55,
+      "combination_id": "street|noise|access|lighting",
+      "open_wait_days": null,
+      "closed_duration_days": 15
+    },
+    {
+      "request_id": "Q098",
+      "district": "South",
+      "tags": [
+        "street"
+      ],
+      "created_day": 28,
+      "closed_day": 32,
+      "urgent": false,
+      "work_minutes": 18,
+      "combination_id": "street",
+      "open_wait_days": null,
+      "closed_duration_days": 4
+    },
+    {
+      "request_id": "Q099",
+      "district": "North",
+      "tags": [
+        "noise"
+      ],
+      "created_day": 16,
+      "closed_day": 24,
+      "urgent": true,
+      "work_minutes": 160,
+      "combination_id": "noise",
+      "open_wait_days": null,
+      "closed_duration_days": 8
+    },
+    {
+      "request_id": "Q100",
+      "district": "Central",
+      "tags": [
+        "waste"
+      ],
+      "created_day": 5,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 66,
+      "combination_id": "waste",
+      "open_wait_days": 40,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q101",
+      "district": "South",
+      "tags": [
+        "access"
+      ],
+      "created_day": 23,
+      "closed_day": 30,
+      "urgent": false,
+      "work_minutes": 117,
+      "combination_id": "access",
+      "open_wait_days": null,
+      "closed_duration_days": 7
+    },
+    {
+      "request_id": "Q102",
+      "district": "North",
+      "tags": [
+        "lighting"
+      ],
+      "created_day": 21,
+      "closed_day": 32,
+      "urgent": false,
+      "work_minutes": 136,
+      "combination_id": "lighting",
+      "open_wait_days": null,
+      "closed_duration_days": 11
+    },
+    {
+      "request_id": "Q103",
+      "district": "Central",
+      "tags": [
+        "street",
+        "noise"
+      ],
+      "created_day": 36,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 37,
+      "combination_id": "street|noise",
+      "open_wait_days": 9,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q104",
+      "district": "South",
+      "tags": [
+        "street",
+        "waste"
+      ],
+      "created_day": 16,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 28,
+      "combination_id": "street|waste",
+      "open_wait_days": 29,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q105",
+      "district": "North",
+      "tags": [
+        "noise",
+        "waste"
+      ],
+      "created_day": 31,
+      "closed_day": 45,
+      "urgent": false,
+      "work_minutes": 32,
+      "combination_id": "noise|waste",
+      "open_wait_days": null,
+      "closed_duration_days": 14
+    },
+    {
+      "request_id": "Q106",
+      "district": "Central",
+      "tags": [
+        "waste",
+        "access"
+      ],
+      "created_day": 11,
+      "closed_day": 28,
+      "urgent": false,
+      "work_minutes": 54,
+      "combination_id": "waste|access",
+      "open_wait_days": null,
+      "closed_duration_days": 17
+    },
+    {
+      "request_id": "Q107",
+      "district": "South",
+      "tags": [
+        "access",
+        "lighting"
+      ],
+      "created_day": 4,
+      "closed_day": 7,
+      "urgent": false,
+      "work_minutes": 146,
+      "combination_id": "access|lighting",
+      "open_wait_days": null,
+      "closed_duration_days": 3
+    },
+    {
+      "request_id": "Q108",
+      "district": "North",
+      "tags": [
+        "street",
+        "noise",
+        "waste"
+      ],
+      "created_day": 20,
+      "closed_day": null,
+      "urgent": true,
+      "work_minutes": 16,
+      "combination_id": "street|noise|waste",
+      "open_wait_days": 25,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q109",
+      "district": "Central",
+      "tags": [
+        "noise",
+        "access",
+        "lighting"
+      ],
+      "created_day": 10,
+      "closed_day": 28,
+      "urgent": false,
+      "work_minutes": 120,
+      "combination_id": "noise|access|lighting",
+      "open_wait_days": null,
+      "closed_duration_days": 18
+    },
+    {
+      "request_id": "Q110",
+      "district": "South",
+      "tags": [
+        "street",
+        "waste",
+        "lighting"
+      ],
+      "created_day": 43,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 44,
+      "combination_id": "street|waste|lighting",
+      "open_wait_days": 2,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q111",
+      "district": "North",
+      "tags": [
+        "street",
+        "noise",
+        "access",
+        "lighting"
+      ],
+      "created_day": 40,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 159,
+      "combination_id": "street|noise|access|lighting",
+      "open_wait_days": 5,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q112",
+      "district": "Central",
+      "tags": [
+        "street"
+      ],
+      "created_day": 20,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 150,
+      "combination_id": "street",
+      "open_wait_days": 25,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q113",
+      "district": "South",
+      "tags": [
+        "noise"
+      ],
+      "created_day": 11,
+      "closed_day": 27,
+      "urgent": false,
+      "work_minutes": 39,
+      "combination_id": "noise",
+      "open_wait_days": null,
+      "closed_duration_days": 16
+    },
+    {
+      "request_id": "Q114",
+      "district": "North",
+      "tags": [
+        "waste"
+      ],
+      "created_day": 39,
+      "closed_day": 44,
+      "urgent": false,
+      "work_minutes": 77,
+      "combination_id": "waste",
+      "open_wait_days": null,
+      "closed_duration_days": 5
+    },
+    {
+      "request_id": "Q115",
+      "district": "Central",
+      "tags": [
+        "access"
+      ],
+      "created_day": 29,
+      "closed_day": 33,
+      "urgent": false,
+      "work_minutes": 107,
+      "combination_id": "access",
+      "open_wait_days": null,
+      "closed_duration_days": 4
+    },
+    {
+      "request_id": "Q116",
+      "district": "South",
+      "tags": [
+        "lighting"
+      ],
+      "created_day": 24,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 77,
+      "combination_id": "lighting",
+      "open_wait_days": 21,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q117",
+      "district": "North",
+      "tags": [
+        "street",
+        "noise"
+      ],
+      "created_day": 30,
+      "closed_day": 39,
+      "urgent": true,
+      "work_minutes": 162,
+      "combination_id": "street|noise",
+      "open_wait_days": null,
+      "closed_duration_days": 9
+    },
+    {
+      "request_id": "Q118",
+      "district": "Central",
+      "tags": [
+        "street",
+        "waste"
+      ],
+      "created_day": 21,
+      "closed_day": 39,
+      "urgent": false,
+      "work_minutes": 54,
+      "combination_id": "street|waste",
+      "open_wait_days": null,
+      "closed_duration_days": 18
+    },
+    {
+      "request_id": "Q119",
+      "district": "South",
+      "tags": [
+        "noise",
+        "waste"
+      ],
+      "created_day": 5,
+      "closed_day": 10,
+      "urgent": false,
+      "work_minutes": 26,
+      "combination_id": "noise|waste",
+      "open_wait_days": null,
+      "closed_duration_days": 5
+    },
+    {
+      "request_id": "Q120",
+      "district": "North",
+      "tags": [
+        "waste",
+        "access"
+      ],
+      "created_day": 41,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 179,
+      "combination_id": "waste|access",
+      "open_wait_days": 4,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q121",
+      "district": "Central",
+      "tags": [
+        "access",
+        "lighting"
+      ],
+      "created_day": 14,
+      "closed_day": 30,
+      "urgent": false,
+      "work_minutes": 143,
+      "combination_id": "access|lighting",
+      "open_wait_days": null,
+      "closed_duration_days": 16
+    },
+    {
+      "request_id": "Q122",
+      "district": "South",
+      "tags": [
+        "street",
+        "noise",
+        "waste"
+      ],
+      "created_day": 41,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 41,
+      "combination_id": "street|noise|waste",
+      "open_wait_days": 4,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q123",
+      "district": "North",
+      "tags": [
+        "noise",
+        "access",
+        "lighting"
+      ],
+      "created_day": 9,
+      "closed_day": 29,
+      "urgent": false,
+      "work_minutes": 148,
+      "combination_id": "noise|access|lighting",
+      "open_wait_days": null,
+      "closed_duration_days": 20
+    },
+    {
+      "request_id": "Q124",
+      "district": "Central",
+      "tags": [
+        "street",
+        "waste",
+        "lighting"
+      ],
+      "created_day": 43,
+      "closed_day": null,
+      "urgent": false,
+      "work_minutes": 70,
+      "combination_id": "street|waste|lighting",
+      "open_wait_days": 2,
+      "closed_duration_days": null
+    },
+    {
+      "request_id": "Q125",
+      "district": "South",
+      "tags": [
+        "street",
+        "noise",
+        "access",
+        "lighting"
+      ],
+      "created_day": 20,
+      "closed_day": 25,
+      "urgent": false,
+      "work_minutes": 35,
+      "combination_id": "street|noise|access|lighting",
+      "open_wait_days": null,
+      "closed_duration_days": 5
+    }
+  ],
+  "recomputation": {
+    "selection_states_verified_by_independent_bitmask_algorithm": 768,
+    "unique_ids": true,
+    "exact_combination_conservation": true,
+    "work_conservation": true
+  }
+}

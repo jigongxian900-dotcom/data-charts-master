@@ -1,12 +1,69 @@
 # Data Charts Master · 见数
 
-**让图表回答问题，也让人愿意看。** 面向 Codex、Claude Code 和兼容 `SKILL.md` 的 Agent：业务选图、视觉设计、HTML 交互与 SVG 输出。
+**让 Agent 按业务问题选图，自主设计复杂组合，交付可操作的 HTML 与 SVG。** 面向 Codex、Claude Code 和兼容 `SKILL.md` 的 Agent：从比较关系出发，设计构图、联动与能追踪对象的数据动效。
 
-[在线图谱 ↗](https://jigongxian900-dotcom.github.io/data-charts-master/) · [交互动效 ↗](https://jigongxian900-dotcom.github.io/data-charts-master/#motion) · [安装使用](#安装与第一次使用) · [English](README.en.md) · [MIT](LICENSE)
+[在线图谱 ↗](https://jigongxian900-dotcom.github.io/data-charts-master/) · [自主复杂案例](#autonomous-examples) · [交互动效 ↗](https://jigongxian900-dotcom.github.io/data-charts-master/#motion) · [安装使用](#安装与第一次使用) · [English](README.en.md) · [免费与商用许可](COMMERCIAL.md)
 
-[![见数：从数字到判断，54例图表与七套配色](docs/assets/readme-hero.png)](https://jigongxian900-dotcom.github.io/data-charts-master/)
+[![真实操作：切换匹配目标，持续追踪对象、参照与取舍](docs/desktop/assets/tenant-unit-motion.gif)](https://jigongxian900-dotcom.github.io/data-charts-master/desktop/tenant-unit-allocation.html)
 
 **54** 个图表与组合实例 · **7** 套原创语义配色 · **3** 个交互叙事实例。示例可离线打开，附原始值、业务问题、适用条件与阅读边界。
+
+## 先体验，再安装
+
+1. [打开在线图谱](https://jigongxian900-dotcom.github.io/data-charts-master/)，直接操作筛选、聚焦、表格和导出。
+2. [体验对象连续变换](https://jigongxian900-dotcom.github.io/data-charts-master/labs/dir-3.html)，看同一对象如何随分析问题重排。
+3. 再看[安装与第一张图](#安装与第一次使用)。需要已有Agent环境；浏览在线样例无需安装。
+
+新增动效机制用于稳定ID追踪、从可见帧反向切换、运行时减少动态和稳定出口。复杂路径、坐标、单位与业务含义仍由作者核对；不承诺任意图一键正确。
+
+**许可从v5.3分界：**新增原创内容与修改采用非商用许可，商用另行授权；标准条款允许的机构范围、历史MIT权利和生成HTML的内嵌代码范围，见[授权说明](COMMERCIAL.md)。旧版MIT授权不追回。当前没有自助付款页或已售数量声明。
+
+<a id="autonomous-examples"></a>
+
+## 不查同名模板，解决新业务问题
+
+下面三例只提供原始问题与合成数据。Agent 自主选择表达、实现分析操作，并在首次交付前完成独立实看与修正。它们展示自主制作过程，不是把任意 JSON 送进同一套模板。
+
+| 业务问题 | 联合表达与操作 | 在线体验 / 可复现源 |
+|---|---|---|
+| 应收核对 | 多对多关系、带符号核对、双端追踪与计量基准切换 | [体验](https://jigongxian900-dotcom.github.io/data-charts-master/desktop/receivables-reconciliation.html) · [问题、数据与制作器](examples/autonomous-desktop/receivables-reconciliation/README.md) |
+| 租户与房源分配 | 硬约束下的全局匹配，比较偏好、公平与经济取舍 | [体验](https://jigongxian900-dotcom.github.io/data-charts-master/desktop/tenant-unit-allocation.html) · [问题、数据与制作器](examples/autonomous-desktop/tenant-unit-allocation/README.md) |
+| 市政请求与工作量 | 重叠集合的精确划分、选择语义与负荷联动 | [体验](https://jigongxian900-dotcom.github.io/data-charts-master/desktop/civic-request-overlap.html) · [问题、数据与制作器](examples/autonomous-desktop/civic-request-overlap/README.md) |
+
+[直接交付成品的使用指令](docs/usage.md#第一次任务) · [自主质量流程](references/autonomous-quality-loop.md)
+
+另有六个含同题修正的回归实录：[配送排班](https://jigongxian900-dotcom.github.io/data-charts-master/regression/intercity-delivery-scheduling.html)、[双因素投放](https://jigongxian900-dotcom.github.io/data-charts-master/regression/factorial-outreach-experiment.html)、[易腐库存](https://jigongxian900-dotcom.github.io/data-charts-master/regression/perishable-inventory-expiry.html)、[招聘等待与负荷](https://jigongxian900-dotcom.github.io/data-charts-master/regression/recruitment-waiting-load.html)、[错误预算与时延](https://jigongxian900-dotcom.github.io/data-charts-master/regression/service-error-budget-latency.html)、[预约容量](https://jigongxian900-dotcom.github.io/data-charts-master/regression/venue-booking-capacity.html)。[原始问题与完整HTML源](examples/regression/README.md) · [逐题验证与范围](docs/validation.md)。回归结果与陌生题首次交付分开记录。
+
+<details>
+<summary>查看三份真实桌面作品</summary>
+
+[![应收核对：多对多、带符号核对与双端追踪](docs/desktop/assets/receivables-reconciliation.png)](https://jigongxian900-dotcom.github.io/data-charts-master/desktop/receivables-reconciliation.html)
+
+[![租户与房源分配：匹配、公平与经济取舍](docs/desktop/assets/tenant-unit-allocation.png)](https://jigongxian900-dotcom.github.io/data-charts-master/desktop/tenant-unit-allocation.html)
+
+[![市政请求：重叠集合与工作量联动](docs/desktop/assets/civic-request-overlap.png)](https://jigongxian900-dotcom.github.io/data-charts-master/desktop/civic-request-overlap.html)
+
+</details>
+
+## 动效用于解释变化
+
+下面是实际 HTML 交互的录屏。点击链接即可操作；GIF 是预览，不替代交互。
+
+### 同一组对象，三种判断
+
+规模 → 增量 → 同店。对象身份保持连续，位置和编码随问题变化，避免重新寻找同一市场。
+
+[![从规模到增量再到同店的真实几何动效](docs/assets/narrative-motion.gif)](https://jigongxian900-dotcom.github.io/data-charts-master/labs/dir-3.html)
+
+[打开叙事实例 ↗](https://jigongxian900-dotcom.github.io/data-charts-master/labs/dir-3.html)
+
+### 从增长贡献，切到目标差额
+
+流带展示增量关系；差额视角改用共零基线，清楚区分超额和缺口。聚焦对象与原始表同步。
+
+[![增长贡献与目标缺口切换，保留市场身份](docs/assets/flow-motion.gif)](https://jigongxian900-dotcom.github.io/data-charts-master/labs/dir-1.html)
+
+[打开流带与差额实例 ↗](https://jigongxian900-dotcom.github.io/data-charts-master/labs/dir-1.html) · [气泡位置与市场联动 ↗](https://jigongxian900-dotcom.github.io/data-charts-master/labs/dir-2.html)
 
 ## 先看效果
 
@@ -43,26 +100,6 @@ KPI 卡片同时交代当前值、迷你趋势、同比和环比。利润率用�
 ![54例图表与组合总览](docs/assets/atlas54.png)
 
 </details>
-
-## 动效用于解释变化
-
-下面是实际 HTML 交互的录屏。点击链接即可操作；GIF 是预览，不替代交互。
-
-### 同一组对象，三种判断
-
-规模 → 增量 → 同店。对象身份保持连续，位置和编码随问题变化，避免重新寻找同一市场。
-
-[![从规模到增量再到同店的真实几何动效](docs/assets/narrative-motion.gif)](https://jigongxian900-dotcom.github.io/data-charts-master/labs/dir-3.html)
-
-[打开叙事实例 ↗](https://jigongxian900-dotcom.github.io/data-charts-master/labs/dir-3.html)
-
-### 从增长贡献，切到目标差额
-
-流带展示增量关系；差额视角改用共零基线，清楚区分超额和缺口。聚焦对象与原始表同步。
-
-[![增长贡献与目标缺口切换，保留市场身份](docs/assets/flow-motion.gif)](https://jigongxian900-dotcom.github.io/data-charts-master/labs/dir-1.html)
-
-[打开流带与差额实例 ↗](https://jigongxian900-dotcom.github.io/data-charts-master/labs/dir-1.html) · [气泡位置与市场联动 ↗](https://jigongxian900-dotcom.github.io/data-charts-master/labs/dir-2.html)
 
 ## 设计图谱里还没有的图
 
@@ -185,8 +222,12 @@ python scripts/compose_html.py examples/composed/source.json --mode slides --the
 
 PPTX 提供制作与验证方法，需要另配制作工具；本仓库没有打包全原生数据可编辑的54页演示文稿。图谱以中文为主，英文 README 不代表图表已全部英文化。
 
-原创代码、文档、配色和合成数据采用 **MIT**，允许商用和修改。本仓库生成的经营图表示例均使用合成数据，不代表任何公司的实际经营；灵感库中的第三方作品及其资料仍适用各自权利与许可。
+v5.3起的新增原创内容与修改按 [PolyForm Noncommercial](LICENSE) 提供，商业用途需另行取得授权。旧MIT版本及其已有部分继续保留原授权，详见[逐文件范围](LICENSE-SCOPE.md)。这是源码公开与商业授权模式，不称为无限制免费商用开源。本仓库生成的经营示例为合成数据，不代表公司的实际经营；第三方作品仍按其权利与许可。
 
 [验证范围](docs/validation.md) · [能力边界](references/capability-evidence.md) · [贡献方式](CONTRIBUTING.md)
 
 视觉与仓库呈现参考 [Lieflat Charts](https://github.com/larashero3-dotcom/lieflat-charts)、[Diagram Design](https://github.com/cathrynlavery/diagram-design)、[Vivid Figures](https://github.com/yjz211/vivid-illustration-skill) 和 [Tableau](https://www.tableau.com/data-insights/dashboard-showcase)。独立实现，未打包上述项目的源码、模板或图像。[第三方说明](THIRD_PARTY_NOTICES.md)
+
+## 一起把好图做出来
+
+如果它帮你完成了一张有用的图，欢迎Star留存、提交问题或分享原创合成案例。试用、下载和授权咨询均不以Star为条件。反馈请说明业务问题、期望读法、实际结果与最小复现数据；不必提供内部明细。

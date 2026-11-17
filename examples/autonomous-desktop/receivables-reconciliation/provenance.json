@@ -1,0 +1,32 @@
+{
+  "example": "receivables-reconciliation",
+  "title": "应收与跨主体收款核对",
+  "synthetic": true,
+  "original_artifact_sha256": "8d0831d6fa29be6efd699241be8a2d09647c6e6d9e3ac4197aba19c49fdba387",
+  "public_artifact_sha256": "8d0831d6fa29be6efd699241be8a2d09647c6e6d9e3ac4197aba19c49fdba387",
+  "original_computed_sha256": "8936253f9854db6f2f9c3d8c0d39f334a115afeb8e435d7c264e8cdd5f4e210b",
+  "public_computed_sha256": "2bbcce343da35c1a5c920117f914a3fb3c99e0095d97bbd0b4db192c2973a8b3",
+  "original_producer_sha256": "b1c1becd61d0992c8d100b9f6e2d6efd093338c1399aea70a9f00e23e181c854",
+  "public_producer_sha256": "ba7d790a8ca22ae6b9ca83722ba77d7a1b146a8d3a657a1c88ec53d1b1fc3492",
+  "allowed_changes": [
+    "Explicit LF output for HTML and computed JSON; input bytes unchanged."
+  ],
+  "verified": {
+    "source_input_bytes_preserved": true,
+    "producer_ast_equal_ignoring_only_write_text_newline": true,
+    "html_equal_after_exact_allowed_normalization": true,
+    "computed_json_equal": true,
+    "computed_bytes_equal_after_lf": true,
+    "docs_mirror_bytes_equal": true
+  },
+  "files_sha256": {
+    "artifact.html": "8d0831d6fa29be6efd699241be8a2d09647c6e6d9e3ac4197aba19c49fdba387",
+    "computed.json": "2bbcce343da35c1a5c920117f914a3fb3c99e0095d97bbd0b4db192c2973a8b3",
+    "producer.py": "ba7d790a8ca22ae6b9ca83722ba77d7a1b146a8d3a657a1c88ec53d1b1fc3492",
+    "source-data.json": "74237438b869d0b014d5c3328935582629e46cd3f01c9acdc4e4690301061ef4",
+    "template.html": "6d08200ffad30503f711c863ccb31fd4be698480d866373a47a724291a2c036f",
+    "input/brief.md": "464ebd128a770abddc341ce73d5bb8ef7c598fe29e636ac5302cf5f87a334866",
+    "input/data.json": "74237438b869d0b014d5c3328935582629e46cd3f01c9acdc4e4690301061ef4"
+  },
+  "scope": "A fixed reproducible worked example, not a general renderer for arbitrary JSON. No independent rating or certification is asserted."
+}

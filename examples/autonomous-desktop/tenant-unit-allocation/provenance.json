@@ -1,0 +1,39 @@
+{
+  "example": "tenant-unit-allocation",
+  "title": "商业街铺位的整体安排",
+  "synthetic": true,
+  "original_artifact_sha256": "83aef096aad1d35257000c1873019aac6f4457c1a87d699a9a86fb067c6dd909",
+  "public_artifact_sha256": "7e33dfc7ce75e60609208ad3378b10a0e0841fde1f359790b39d6f6be02f54b3",
+  "original_computed_sha256": "0f5c0e894b22650c0b606e112801364a59d475600a71c294063c8ccc9ded13e9",
+  "public_computed_sha256": "1e3959bb57a46fc0addebb32c076d3e68c063cc2c0e55e4c4e674ad7f5644b75",
+  "original_producer_sha256": "dfd5195f141c6e8615a21d9660a8115fd973c75ddf35877a4379ee805034aeb1",
+  "public_producer_sha256": "2ef959e25e0a8d8054562a29e0cba60e7653e7b24374c60735e2ed8fdcc878f6",
+  "allowed_changes": [
+    "Explicit LF output for HTML and computed JSON; input bytes unchanged.",
+    "ChartMotion first-line license comment replaced with the public SPDX header; executable runtime body unchanged."
+  ],
+  "verified": {
+    "source_input_bytes_preserved": true,
+    "producer_ast_equal_ignoring_only_write_text_newline": true,
+    "html_equal_after_exact_allowed_normalization": true,
+    "computed_json_equal": true,
+    "computed_bytes_equal_after_lf": true,
+    "docs_mirror_bytes_equal": true
+  },
+  "files_sha256": {
+    "artifact.html": "7e33dfc7ce75e60609208ad3378b10a0e0841fde1f359790b39d6f6be02f54b3",
+    "computed.json": "1e3959bb57a46fc0addebb32c076d3e68c063cc2c0e55e4c4e674ad7f5644b75",
+    "motion-runtime.js": "0b8665c7f45278f4aa9220e682896bff6f5aed4d3b665bb913ad6ce0c6d3ec51",
+    "producer.py": "2ef959e25e0a8d8054562a29e0cba60e7653e7b24374c60735e2ed8fdcc878f6",
+    "source-data.json": "8da670ff4cba54c2c654c210f5ddf19658f899be3a46e115038a6f9f6709788e",
+    "input/brief.md": "c35c460c6cc2dc57173b9ecf975e043a4b52408b7008e1e2d09657aa64027a55",
+    "input/data.json": "8da670ff4cba54c2c654c210f5ddf19658f899be3a46e115038a6f9f6709788e"
+  },
+  "scope": "A fixed reproducible worked example, not a general renderer for arbitrary JSON. No independent rating or certification is asserted.",
+  "runtime": {
+    "original_sha256": "f616aaefe25f71d06b0fcfde25b1a2be222ee0af8af3a2b688a77213a0ddb1cb",
+    "public_sha256": "0b8665c7f45278f4aa9220e682896bff6f5aed4d3b665bb913ad6ce0c6d3ec51",
+    "executable_body_sha256_after_first_line": "1e7a9c8827bda7279d5132541bee6478aba88d96a3ba3b52c9e5fcd5eb8ae14c",
+    "body_matches_public_asset": true
+  }
+}

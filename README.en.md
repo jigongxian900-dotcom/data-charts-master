@@ -1,12 +1,24 @@
 # Data Charts Master
 
-**Charts that answer a question. Design that makes people look.** A chart-design skill for Codex, Claude Code and agents that read `SKILL.md`.
+**Turn business questions into custom, interactive HTML and SVG charts.** A chart-design skill for Codex, Claude Code and agents that read `SKILL.md`. Choose the visual structure from the comparison, then design composition, linked exploration and meaningful data motion.
 
-[Live gallery ↗](https://jigongxian900-dotcom.github.io/data-charts-master/) · [Motion demos ↗](https://jigongxian900-dotcom.github.io/data-charts-master/#motion) · [中文](README.md) · [MIT](LICENSE)
+[Live gallery ↗](https://jigongxian900-dotcom.github.io/data-charts-master/) · [Motion demos ↗](https://jigongxian900-dotcom.github.io/data-charts-master/#motion) · [中文](README.md) · [Usage and commercial permission](COMMERCIAL.md)
 
-[![From numbers to decisions: 54 chart examples and seven palettes](docs/assets/readme-hero.png)](https://jigongxian900-dotcom.github.io/data-charts-master/)
+[![Actual interaction: switch matching objectives and trace objects and tradeoffs](docs/desktop/assets/tenant-unit-motion.gif)](https://jigongxian900-dotcom.github.io/data-charts-master/desktop/tenant-unit-allocation.html)
 
 **54** curated chart/combination examples · **7** original semantic palettes · **3** complete interactive narrative labs. Each case includes its question, units, period, scope, source values and limitations.
+
+## Custom charts for unfamiliar business questions
+
+Three cases start from original questions and synthetic data. The agent chooses the visual form, implements the analysis, then completes an independent internal review and fixes before its first delivery. These are worked cases, not one universal JSON template.
+
+- [Receivables reconciliation](https://jigongxian900-dotcom.github.io/data-charts-master/desktop/receivables-reconciliation.html): signed many-to-many relationships, two-sided tracing and measurement bases. [Source and builder](examples/autonomous-desktop/receivables-reconciliation/README.md).
+- [Tenant–unit allocation](https://jigongxian900-dotcom.github.io/data-charts-master/desktop/tenant-unit-allocation.html): constrained global matching, preference, fairness and economic tradeoffs. [Source and builder](examples/autonomous-desktop/tenant-unit-allocation/README.md).
+- [Civic request overlap](https://jigongxian900-dotcom.github.io/data-charts-master/desktop/civic-request-overlap.html): exact set partitions and linked workload exploration. [Source and builder](examples/autonomous-desktop/civic-request-overlap/README.md).
+
+[Autonomous production and review](references/autonomous-quality-loop.md) · [Installation and first task](docs/usage.md)
+
+Six additional [regression records](examples/regression/README.md) cover delivery scheduling, outreach experiments, perishable inventory, recruitment, service reliability and booking capacity. Some include same-task repairs. They are recorded separately from unfamiliar first submissions. See [scoped validation](docs/validation.md).
 
 ## Preview
 
@@ -55,7 +67,7 @@ These GIFs record actual interaction with the included HTML examples. Open a dem
 
 ## Mobile reading
 
-Narrow layouts recompose KPI cards, mini-trends and complete readings. Complex charts retain a separate original-detail view. Core information does not require hover.
+The 54-case gallery recomposes KPI cards, mini-trends and complete readings for narrow layouts. The complex worked examples prioritize desktop and retain basic narrow-screen access. Core information does not require hover.
 
 <picture>
   <source media="(max-width: 600px)" srcset="docs/assets/mobile-demo.gif">
@@ -137,14 +149,24 @@ Independent fresh contexts produced two meaningful compound or transformed encod
 
 Sources and portable producers live in `examples/autonomy/`. Their rebuilt HTML and calculations match the reviewed artifacts byte for byte. These are fixed synthetic worked examples, not new arbitrary-input templates. Independent AI review is not external certification.
 
+## Try the work, then install
+
+[Explore the gallery](https://jigongxian900-dotcom.github.io/data-charts-master/) · [Track objects through a real view change](https://jigongxian900-dotcom.github.io/data-charts-master/labs/dir-3.html) · [Commercial permission](COMMERCIAL.md)
+
+The new optional motion mechanism preserves IDs, reverses from the visible frame, responds to runtime reduced-motion preferences and provides stable exports. Authors still define meaningful interaction, scales, units and path compatibility. Online examples need no installation; production through the Skill needs an existing compatible agent environment.
+
+From v5.3, new original additions and changes use PolyForm Noncommercial, with separate commercial permission. Historical MIT grants remain valid. Self-service payment is not enabled and no sales volume is claimed.
+
 ## Scope and license
 
 The 54 examples use fixed synthetic datasets. They do not form an arbitrary-JSON renderer for 54 chart types. A separate Python helper supports six generic types: bar, line, stacked, waterfall, box and scatter. Adaptation requires recalculating titles, scales, labels and derived values.
 
 PPTX guidance requires a separate authoring tool and actual editing checks. The repository does not include a fully native-editable 54-slide deck. The gallery is Chinese-first. This English README does not imply a fully translated chart gallery.
 
-Our operating examples use synthetic values and do not describe any company's operations. Original code, documents, palettes and synthetic data use **MIT**, including commercial use and modification. Third-party works linked in the inspiration library retain their own rights and licenses.
+Our operating examples are synthetic. New original additions and changes from v5.3 use [PolyForm Noncommercial](LICENSE); commercial use requires separate permission. [License scope](LICENSE-SCOPE.md) preserves historical MIT grants and distinguishes unchanged, modified and new material. This is source-available, not unrestricted free commercial open source. Linked third-party works retain their own rights.
 
 [Validation](docs/validation.md) · [Capability boundaries](references/capability-evidence.md) · [Contributing](CONTRIBUTING.md)
 
 Inspired by [Lieflat Charts](https://github.com/larashero3-dotcom/lieflat-charts), [Diagram Design](https://github.com/cathrynlavery/diagram-design), [Vivid Figures](https://github.com/yjz211/vivid-illustration-skill) and [Tableau](https://www.tableau.com/data-insights/dashboard-showcase). The repository does not include upstream source or artwork. See [notices](THIRD_PARTY_NOTICES.md).
+
+Useful results deserve real feedback. Star the project to find it again, report a reproducible issue or contribute an original synthetic case. No Star is required to download, try or discuss a license.

@@ -1,0 +1,34 @@
+{
+  "example": "venue-booking-capacity",
+  "title": "Venue booking and occupancy capacity",
+  "source_case": "B06",
+  "frozen_variant": "B06-c3",
+  "synthetic": true,
+  "class": "regression",
+  "original_artifact_sha256": "cd556ac43e390d7de0629dcf71ab22bdfb02e8afd5559487e4b24d31257730fe",
+  "public_artifact_sha256": "a0df9d7c98253af2f2c8d14b1cc7251558fc4a4fbaca20f01e6f2302895b3270",
+  "original_computed_sha256": "6a1c42e1b71800abe22259a45ef5de5e6936e38d3cf9768f318cba4393d511bf",
+  "public_computed_sha256": "6a1c42e1b71800abe22259a45ef5de5e6936e38d3cf9768f318cba4393d511bf",
+  "original_input_sha256": {
+    "input/brief.md": "b439bb6b7b52461dda705dd4138f651239cc6c199867b6c5b596bd013bc41da2",
+    "input/data.json": "fd809f80fef9b1f69b65c40877317f7990f450f0bd0ccbe243c2a39502558b63"
+  },
+  "files_sha256": {
+    "artifact.html": "a0df9d7c98253af2f2c8d14b1cc7251558fc4a4fbaca20f01e6f2302895b3270",
+    "computed.json": "6a1c42e1b71800abe22259a45ef5de5e6936e38d3cf9768f318cba4393d511bf",
+    "input/brief.md": "b439bb6b7b52461dda705dd4138f651239cc6c199867b6c5b596bd013bc41da2",
+    "input/data.json": "fd809f80fef9b1f69b65c40877317f7990f450f0bd0ccbe243c2a39502558b63"
+  },
+  "allowed_changes": [
+    "Only the exact first-party ChartMotion MIT header is replaced with its PolyForm Noncommercial header.",
+    "HTML line endings are normalized to LF. Input and computed JSON bytes are unchanged."
+  ],
+  "chartmotion_header_replacements": 0,
+  "verified": {
+    "html_equal_after_exact_license_header_and_lf_normalization": true,
+    "computed_bytes_preserved": true,
+    "original_input_bytes_preserved": true,
+    "docs_mirror_bytes_equal": true
+  },
+  "scope": "Frozen synthetic regression record, including same-task revisions. Not a claim of six unfamiliar first submissions, a general-purpose generator, an independent rating, or certification."
+}

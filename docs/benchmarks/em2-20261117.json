@@ -1,0 +1,775 @@
+{
+  "release": "v5.3.0",
+  "candidate": "C3 public derivative",
+  "review_completed": "2026-11-17",
+  "contract": "EM-2.0",
+  "contract_sha256": "7a0100148f7feba469b54e1a75ad5ecaa724d6e424860748c89174a733fd925e",
+  "candidate_manifest_sha256": "32ad64dc2af1b0f7698178bde54aced1b8a8619ad35f4f8a87445a869502a81c",
+  "audit_result_sha256": "efc49ee24939d935d84cf40b734ae9b3f7bf7e966dfc8805c3517f7e82033574",
+  "weights": {
+    "business": 20,
+    "visual": 20,
+    "data": 15,
+    "interaction": 25,
+    "motion": 20
+  },
+  "per_dimension_minimum": {
+    "business": 19,
+    "visual": 19,
+    "data": 14,
+    "interaction": 24,
+    "motion": 19
+  },
+  "each_panel_total_minimum": 95,
+  "all_qualified": true,
+  "regression_cases": 6,
+  "unseen_cases": 3,
+  "cases": [
+    {
+      "id": "B01",
+      "title": "配送排班",
+      "class": "regression_after_review",
+      "revision": "c3r2",
+      "primary": {
+        "business": 20,
+        "visual": 19.5,
+        "data": 15,
+        "interaction": 25,
+        "motion": 20
+      },
+      "cross": {
+        "business": 20,
+        "visual": 19.5,
+        "data": 15,
+        "interaction": 25,
+        "motion": 20
+      },
+      "totals": {
+        "primary": 99.5,
+        "cross": 99.5
+      },
+      "qualified": true,
+      "hard_failures": [],
+      "required_fixes": [],
+      "untested_required": [],
+      "scored_artifact_sha256": "c26a99e0bf622d0dae8cb6493445d8a31a970a79ca2871332feb0295a2a0e94c",
+      "public_artifact_sha256": "ca4c261b31912c00100a177d942b3a680b627351900bb8e366c034679a38c596",
+      "limited_publication_difference": "exact first-party license comment and/or LF only",
+      "public_page": "docs/regression/intercity-delivery-scheduling.html",
+      "source": "examples/regression/intercity-delivery-scheduling",
+      "source_grade_summary_hashes": [
+        {
+          "role": "business",
+          "summary_sha256": "3daf08a38a85364e8c906bd96ec3771a6c9b654efa51d521e6c6bebb2accd8a4"
+        },
+        {
+          "role": "visual",
+          "summary_sha256": "297d293907fe9696307da1cf202fc7ec2801026f3d349a504c1c2ca756f2af1c"
+        },
+        {
+          "role": "motion",
+          "summary_sha256": "88fd398ef89c36c29ea60ab564df3dafe9f25276d74722c859316093fe9862c7"
+        }
+      ],
+      "frozen_role_record_hashes": [
+        {
+          "label": "business business_data_primary_sha256",
+          "sha256": "0a57f81d17aeccf1b42f92948152e9c43f1ee7ed8d05dd31baf075093e999951"
+        },
+        {
+          "label": "business visual_cross_sha256",
+          "sha256": "dd2e6d6fb98208c8e5c1107de95305ec94e2b6a9fedf8a4a927b46a6c85b09db"
+        },
+        {
+          "label": "business frozen_path",
+          "sha256": "ef589349224fd8a2bec74bb86fb27c3d5f878776923e7ef17a8ee2ab65eb681d"
+        },
+        {
+          "label": "visual visual_primary",
+          "sha256": "8eab748b5cb54d9163418f4ceaec8de21023b7a5757e5ff542ad73724da60735"
+        },
+        {
+          "label": "visual interaction_motion_cross",
+          "sha256": "2ae8c8b6ffb74b3c917fd26d2db7520d0c38f60104acfc3d4b5876e2c4f98ed4"
+        },
+        {
+          "label": "motion primary",
+          "sha256": "3987762d6ecbac8ac29df19dc382cc51b16b3ed120987ba2e4333621ea1054d7"
+        },
+        {
+          "label": "motion cross",
+          "sha256": "e3f03b722e766af7390336138d9123786c034162bf25af6fd5a42988b2ed4ede"
+        },
+        {
+          "label": "motion summary_path",
+          "sha256": "a482ed43a5fbbbf3eebb77fa1960d45e448e7b2aec480b153abc4374b56b29c9"
+        }
+      ]
+    },
+    {
+      "id": "B02",
+      "title": "双因素投放",
+      "class": "regression_after_review",
+      "revision": "c3",
+      "primary": {
+        "business": 20,
+        "visual": 19.5,
+        "data": 15,
+        "interaction": 25,
+        "motion": 20
+      },
+      "cross": {
+        "business": 20,
+        "visual": 19,
+        "data": 15,
+        "interaction": 25,
+        "motion": 20
+      },
+      "totals": {
+        "primary": 99.5,
+        "cross": 99
+      },
+      "qualified": true,
+      "hard_failures": [],
+      "required_fixes": [],
+      "untested_required": [],
+      "scored_artifact_sha256": "52c8cc9730ee1dadf6991a94ce840292d74912ae53ad348fe409570dd781d854",
+      "public_artifact_sha256": "308f925af8b9f6f92e16a511fb2506695a4c2ed7a46ebd1a43111f9195d874eb",
+      "limited_publication_difference": "exact first-party license comment and/or LF only",
+      "public_page": "docs/regression/factorial-outreach-experiment.html",
+      "source": "examples/regression/factorial-outreach-experiment",
+      "source_grade_summary_hashes": [
+        {
+          "role": "business",
+          "summary_sha256": "3daf08a38a85364e8c906bd96ec3771a6c9b654efa51d521e6c6bebb2accd8a4"
+        },
+        {
+          "role": "visual",
+          "summary_sha256": "297d293907fe9696307da1cf202fc7ec2801026f3d349a504c1c2ca756f2af1c"
+        },
+        {
+          "role": "motion",
+          "summary_sha256": "88fd398ef89c36c29ea60ab564df3dafe9f25276d74722c859316093fe9862c7"
+        }
+      ],
+      "frozen_role_record_hashes": [
+        {
+          "label": "business business_data_primary_sha256",
+          "sha256": "dbd1e71c1e9632afcfb868e7ab11a18cbb3fcb746a5fe250e902c341bd87b171"
+        },
+        {
+          "label": "business visual_cross_sha256",
+          "sha256": "abc2052a196bbf504e46ca660c119ddf6d6e44376149ed88116e598ae4146794"
+        },
+        {
+          "label": "business frozen_path",
+          "sha256": "6d869d5f99ada0f96d317a6344748f632d93bccbafd594b5236211072946f524"
+        },
+        {
+          "label": "visual visual_primary",
+          "sha256": "8983747d1f5b139154edea0af4e6c684233558cbdf39359fd4284f8378027b05"
+        },
+        {
+          "label": "visual interaction_motion_cross",
+          "sha256": "8fd0eb11ed44b248cb8368add49bcda38cb7f8cea19a289cc6592608c096e147"
+        },
+        {
+          "label": "motion primary",
+          "sha256": "c3590f76b9534e569f123d22ae24c668be7372b80c82f91026fec2f1170f70cb"
+        },
+        {
+          "label": "motion cross",
+          "sha256": "cfe842bd50d467cc26c961a7a3b9afea6c1ce940d040582d0af610fcc06ca21c"
+        },
+        {
+          "label": "motion summary_path",
+          "sha256": "1420c4c0f586f21ff26ba9f1ad650aa4a5ae07c3a5a9ea7bed349c208245b986"
+        }
+      ]
+    },
+    {
+      "id": "B03",
+      "title": "易腐库存",
+      "class": "regression_after_review",
+      "revision": "c3r1",
+      "primary": {
+        "business": 20,
+        "visual": 19.5,
+        "data": 15,
+        "interaction": 25,
+        "motion": 20
+      },
+      "cross": {
+        "business": 20,
+        "visual": 19.5,
+        "data": 15,
+        "interaction": 25,
+        "motion": 20
+      },
+      "totals": {
+        "primary": 99.5,
+        "cross": 99.5
+      },
+      "qualified": true,
+      "hard_failures": [],
+      "required_fixes": [],
+      "untested_required": [],
+      "scored_artifact_sha256": "ad83124af5a8bd2c45829d89233f2795c4ed4f64e134ac9123fed31805d93ea0",
+      "public_artifact_sha256": "3c2624fe61fa071c03346b6f4b295f2674261c68723ec22abaaf0f11f22751c2",
+      "limited_publication_difference": "exact first-party license comment and/or LF only",
+      "public_page": "docs/regression/perishable-inventory-expiry.html",
+      "source": "examples/regression/perishable-inventory-expiry",
+      "source_grade_summary_hashes": [
+        {
+          "role": "business",
+          "summary_sha256": "3daf08a38a85364e8c906bd96ec3771a6c9b654efa51d521e6c6bebb2accd8a4"
+        },
+        {
+          "role": "visual",
+          "summary_sha256": "297d293907fe9696307da1cf202fc7ec2801026f3d349a504c1c2ca756f2af1c"
+        },
+        {
+          "role": "motion",
+          "summary_sha256": "88fd398ef89c36c29ea60ab564df3dafe9f25276d74722c859316093fe9862c7"
+        }
+      ],
+      "frozen_role_record_hashes": [
+        {
+          "label": "business business_data_primary_sha256",
+          "sha256": "277f6671c916fc3eeefa5a8c5f69a414dfaac82b618c2867bc9f23e93cbd8b7b"
+        },
+        {
+          "label": "business visual_cross_sha256",
+          "sha256": "30aeb65d203dcf4b7afaca464e26e5a95b5521fbc2a6fcb2b309c7fbc231cc41"
+        },
+        {
+          "label": "business frozen_path",
+          "sha256": "fe02051f21a3ef0ac52702ff8a11572437b49972e84f9f15ce0dc315ffe9d7e1"
+        },
+        {
+          "label": "visual visual_primary",
+          "sha256": "c1661c9bc88744d8769368c0397833cba282e51b417c1bcff34cde5457eb0180"
+        },
+        {
+          "label": "visual interaction_motion_cross",
+          "sha256": "03945fe2f2e41c49b0ac43c4f1c096d2fd9b9e1f7679136f71e608bbe093b49e"
+        },
+        {
+          "label": "motion primary",
+          "sha256": "b6b30baaf5ef611d86b8575950842b5e50be9ca510cf3d4a1f3f995696a1d8f3"
+        },
+        {
+          "label": "motion cross",
+          "sha256": "0ee768bc98747227c1684b09d2afea8e2a3a2cf80444a5d954c3115b8457a7bc"
+        },
+        {
+          "label": "motion summary_path",
+          "sha256": "53e476016264e9179d70a0e7684187bbe0ca8ce46764577e4c936fabd9b6c67f"
+        }
+      ]
+    },
+    {
+      "id": "B04",
+      "title": "招聘等待与负荷",
+      "class": "regression_after_review",
+      "revision": "c3r1",
+      "primary": {
+        "business": 20,
+        "visual": 19.5,
+        "data": 15,
+        "interaction": 25,
+        "motion": 20
+      },
+      "cross": {
+        "business": 20,
+        "visual": 19.5,
+        "data": 15,
+        "interaction": 25,
+        "motion": 20
+      },
+      "totals": {
+        "primary": 99.5,
+        "cross": 99.5
+      },
+      "qualified": true,
+      "hard_failures": [],
+      "required_fixes": [],
+      "untested_required": [],
+      "scored_artifact_sha256": "b6864570d6ce308dead22d59b30fc538e6606b7b77c7758c0b28c57e8a43ff3b",
+      "public_artifact_sha256": "8d1a105e55e95f50ee38f2dd1713a0f9c5b21508f7ff8f0b795156ec66540289",
+      "limited_publication_difference": "exact first-party license comment and/or LF only",
+      "public_page": "docs/regression/recruitment-waiting-load.html",
+      "source": "examples/regression/recruitment-waiting-load",
+      "source_grade_summary_hashes": [
+        {
+          "role": "business",
+          "summary_sha256": "3daf08a38a85364e8c906bd96ec3771a6c9b654efa51d521e6c6bebb2accd8a4"
+        },
+        {
+          "role": "visual",
+          "summary_sha256": "297d293907fe9696307da1cf202fc7ec2801026f3d349a504c1c2ca756f2af1c"
+        },
+        {
+          "role": "motion",
+          "summary_sha256": "88fd398ef89c36c29ea60ab564df3dafe9f25276d74722c859316093fe9862c7"
+        }
+      ],
+      "frozen_role_record_hashes": [
+        {
+          "label": "business business_data_primary_sha256",
+          "sha256": "d7f8d8ce8e2b197d4bfffb034f2d7b6f1f5593d05e9e3f103ae3d5af93e05ec3"
+        },
+        {
+          "label": "business visual_cross_sha256",
+          "sha256": "8836006a363ffaf038c25cc7f5501fe996ef3ed4cd35040dbb5aa9588d5d9034"
+        },
+        {
+          "label": "business frozen_path",
+          "sha256": "b7fb9522544f821cc73e3e548b485354e11494631c049d9ddcda6ee8212f76de"
+        },
+        {
+          "label": "visual visual_primary",
+          "sha256": "0adf2bc1f83ba1d2bb737aae4bb8bd112275e6c57955ae952ecbff59acd81bb3"
+        },
+        {
+          "label": "visual interaction_motion_cross",
+          "sha256": "f939c3287f4ba2b14341fd43a4c363ef04915ae87b2538b3b8fed6a8e5759e22"
+        },
+        {
+          "label": "motion primary",
+          "sha256": "c44a4439dba9faec2574f496421cdd93537be5bf660a9d0b76cbe28825e67270"
+        },
+        {
+          "label": "motion cross",
+          "sha256": "3a48d4af87cd2f7f68be546ad5558aac6b656fe3575e3b071691b78a4f870827"
+        },
+        {
+          "label": "motion summary_path",
+          "sha256": "3cb915879cbaae7f1ceba55d3ee30c467f71a655ee9784e96aceaff4a57b038a"
+        }
+      ]
+    },
+    {
+      "id": "B05",
+      "title": "错误预算与时延",
+      "class": "regression_after_review",
+      "revision": "c3r1",
+      "primary": {
+        "business": 20,
+        "visual": 19.5,
+        "data": 15,
+        "interaction": 25,
+        "motion": 20
+      },
+      "cross": {
+        "business": 20,
+        "visual": 19.5,
+        "data": 15,
+        "interaction": 25,
+        "motion": 20
+      },
+      "totals": {
+        "primary": 99.5,
+        "cross": 99.5
+      },
+      "qualified": true,
+      "hard_failures": [],
+      "required_fixes": [],
+      "untested_required": [],
+      "scored_artifact_sha256": "92737ebac21db138000b7e65084f876c436121f2f3ac83b67bfbc106f8846745",
+      "public_artifact_sha256": "c169213c78da22b35bb57f857e1259a75ecc294ce3c44c707a326825b1c30b76",
+      "limited_publication_difference": "exact first-party license comment and/or LF only",
+      "public_page": "docs/regression/service-error-budget-latency.html",
+      "source": "examples/regression/service-error-budget-latency",
+      "source_grade_summary_hashes": [
+        {
+          "role": "business",
+          "summary_sha256": "3daf08a38a85364e8c906bd96ec3771a6c9b654efa51d521e6c6bebb2accd8a4"
+        },
+        {
+          "role": "visual",
+          "summary_sha256": "297d293907fe9696307da1cf202fc7ec2801026f3d349a504c1c2ca756f2af1c"
+        },
+        {
+          "role": "motion",
+          "summary_sha256": "88fd398ef89c36c29ea60ab564df3dafe9f25276d74722c859316093fe9862c7"
+        }
+      ],
+      "frozen_role_record_hashes": [
+        {
+          "label": "business business_data_primary_sha256",
+          "sha256": "c634e0979437b6cf9f8495711ff6926a0c5d9c2941ec26e483d6fc2ecaaad09b"
+        },
+        {
+          "label": "business visual_cross_sha256",
+          "sha256": "e5e5b821370fa79ea7f8a8825e34710fb74b06ea3e1170d57526e3048726e983"
+        },
+        {
+          "label": "business frozen_path",
+          "sha256": "f7d60b2bc2ea37589f4fe63cb75be80fa8d724937e9f0ceaea2ddd4e1aca5da9"
+        },
+        {
+          "label": "visual visual_primary",
+          "sha256": "e60c7a9404120d653653e77a9616e4b43267b2f02138d7e6d6ef95e2ede33545"
+        },
+        {
+          "label": "visual interaction_motion_cross",
+          "sha256": "917b2110fd3c9d76ae8c50715699ac3cadd1a104d8c489e8b641548db7925da4"
+        },
+        {
+          "label": "motion primary",
+          "sha256": "8c88cd30a76673f206790b202bfafb84e4e978ab7ce7383dbf30c38d8dc0b38d"
+        },
+        {
+          "label": "motion cross",
+          "sha256": "a2b52f50e3f8f500cc503e1972f8efc389a46bb90f3ea6bf1bc03b5b1c543ee4"
+        },
+        {
+          "label": "motion summary_path",
+          "sha256": "6f140f27b711f7399761be4daac1440efd52285eb81476e3a40cf751af0cd55e"
+        }
+      ]
+    },
+    {
+      "id": "B06",
+      "title": "预约容量",
+      "class": "regression_after_review",
+      "revision": "c3",
+      "primary": {
+        "business": 20,
+        "visual": 19,
+        "data": 15,
+        "interaction": 25,
+        "motion": 20
+      },
+      "cross": {
+        "business": 20,
+        "visual": 19.5,
+        "data": 15,
+        "interaction": 24.5,
+        "motion": 20
+      },
+      "totals": {
+        "primary": 99,
+        "cross": 99.0
+      },
+      "qualified": true,
+      "hard_failures": [],
+      "required_fixes": [],
+      "untested_required": [],
+      "scored_artifact_sha256": "cd556ac43e390d7de0629dcf71ab22bdfb02e8afd5559487e4b24d31257730fe",
+      "public_artifact_sha256": "a0df9d7c98253af2f2c8d14b1cc7251558fc4a4fbaca20f01e6f2302895b3270",
+      "limited_publication_difference": "exact first-party license comment and/or LF only",
+      "public_page": "docs/regression/venue-booking-capacity.html",
+      "source": "examples/regression/venue-booking-capacity",
+      "source_grade_summary_hashes": [
+        {
+          "role": "business",
+          "summary_sha256": "6cad5709afd1e1ec61b5e1f2f0ee5d9188d66fd36ed271626037aaca8a7634b6"
+        },
+        {
+          "role": "visual",
+          "summary_sha256": "297d293907fe9696307da1cf202fc7ec2801026f3d349a504c1c2ca756f2af1c"
+        },
+        {
+          "role": "motion",
+          "summary_sha256": "88fd398ef89c36c29ea60ab564df3dafe9f25276d74722c859316093fe9862c7"
+        },
+        {
+          "role": "business independent evidence coverage supplement",
+          "summary_sha256": "d72dff64fcb1ed37feb83bbd862997a639fc1e50be77137393653e35ebe9af44"
+        }
+      ],
+      "frozen_role_record_hashes": [
+        {
+          "label": "business primary",
+          "sha256": "36e27946d465e647edb0c70388cf64fcad9829f760ad85e24f145df5a1061def"
+        },
+        {
+          "label": "visual cross",
+          "sha256": "3dbb1151a3541ab70b26bd502f0443a081b9cb36a92a2ca173312ddcc3e44c23"
+        },
+        {
+          "label": "visual visual_primary",
+          "sha256": "0ad9c9ccc3c32fd371ba781d5c9996df74384dc4e0aaa977825ef9dbc02704c1"
+        },
+        {
+          "label": "visual interaction_motion_cross",
+          "sha256": "4acc5d51b63c272e91dc2d844b3d1f88d85ccf67770a28af0f9861d7fb9143d8"
+        },
+        {
+          "label": "motion primary",
+          "sha256": "a5aaa0372a01c7ee953437c28ab36a0bbef4600cc8c4ece91ec6edecc3f213b2"
+        },
+        {
+          "label": "motion cross",
+          "sha256": "1c05dc28a2ab8bbfade9da90c83bb798c2a4aa3f7bfdd7d219f906f3d8deb16d"
+        },
+        {
+          "label": "motion disposition",
+          "sha256": "adb6192e1a07b97249d01d18384795e2e573a790abd7c8a7636a087b9825d4cd"
+        },
+        {
+          "label": "motion summary_path",
+          "sha256": "3d5bc0328917e311b22f99b00b66fee1c436caca2c3f9c53f86b4fe1edc3ffdf"
+        }
+      ]
+    },
+    {
+      "id": "D01",
+      "title": "应收核对",
+      "class": "unseen_first_delivery_with_internal_quality_review",
+      "revision": "c3",
+      "primary": {
+        "business": 20,
+        "visual": 19.5,
+        "data": 15,
+        "interaction": 25,
+        "motion": 20
+      },
+      "cross": {
+        "business": 19.5,
+        "visual": 19.5,
+        "data": 15,
+        "interaction": 25,
+        "motion": 20
+      },
+      "totals": {
+        "primary": 99.5,
+        "cross": 99.0
+      },
+      "qualified": true,
+      "hard_failures": [],
+      "required_fixes": [],
+      "untested_required": [],
+      "scored_artifact_sha256": "8d0831d6fa29be6efd699241be8a2d09647c6e6d9e3ac4197aba19c49fdba387",
+      "public_artifact_sha256": "8d0831d6fa29be6efd699241be8a2d09647c6e6d9e3ac4197aba19c49fdba387",
+      "limited_publication_difference": "exact first-party license comment and/or LF only",
+      "public_page": "docs/desktop/receivables-reconciliation.html",
+      "source": "examples/autonomous-desktop/receivables-reconciliation",
+      "source_grade_summary_hashes": [
+        {
+          "role": "business",
+          "summary_sha256": "f1d42a762d1e4dbdd96fcbfa0f89fc8a0c7462cfdce655e54ca8cb382783e08b"
+        },
+        {
+          "role": "visual",
+          "summary_sha256": "691ad15005d2541a274f8fa29a4cd999da380368935e946765e8b681f150884d"
+        },
+        {
+          "role": "motion",
+          "summary_sha256": "6f5f3ad1fb49c3b745451cf09249c6613b96d5f39a18b69c6fe9c1a873aa956e"
+        },
+        {
+          "role": "business independent evidence coverage supplement",
+          "summary_sha256": "d72dff64fcb1ed37feb83bbd862997a639fc1e50be77137393653e35ebe9af44"
+        }
+      ],
+      "frozen_role_record_hashes": [
+        {
+          "label": "business primary",
+          "sha256": "1e38911a37b3a818efb182e2bf3f0a79d6d97e6625d80a756feda52ef43ef378"
+        },
+        {
+          "label": "visual cross",
+          "sha256": "e138f24054ccd0a64d9e06d0ceb87841909d3b4eb13ee47b127ba553e0ef42d4"
+        },
+        {
+          "label": "visual original primary",
+          "sha256": "ef2cdb2e3220d3f065eda1285b19d3418afe8ee890c150bf0567b3f6aaaae089"
+        },
+        {
+          "label": "visual combined first freeze",
+          "sha256": "f5aff9d0098ab2991d838998cf8cfe4a54a0c189d33b065a1c45be74091f7335"
+        },
+        {
+          "label": "visual evidence",
+          "sha256": "3c18d8fe7f9fd2e377322b89747806a70ffcf045aa9729706a7cbb9d27dbba9e"
+        },
+        {
+          "label": "cross_report_sha256",
+          "sha256": "8f887ac5cd2c8cc0bba3131b3e47b9e6d734b42f849a6d300937c17bdbd74805"
+        },
+        {
+          "label": "motion primary",
+          "sha256": "d19cdc2f1af79459a40cd4271e70a8bd9642bb2bd537aa9d1ff7ffcbce5ee0f4"
+        },
+        {
+          "label": "motion cross",
+          "sha256": "9e12cd738b0c74b59d66c846bd9c5550e2de410907a6312e7ce1ea20a1bb6149"
+        }
+      ]
+    },
+    {
+      "id": "D02",
+      "title": "租户与房源分配",
+      "class": "unseen_first_delivery_with_internal_quality_review",
+      "revision": "c3",
+      "primary": {
+        "business": 20,
+        "visual": 19.5,
+        "data": 15,
+        "interaction": 25,
+        "motion": 20
+      },
+      "cross": {
+        "business": 20,
+        "visual": 19.5,
+        "data": 15,
+        "interaction": 25,
+        "motion": 20
+      },
+      "totals": {
+        "primary": 99.5,
+        "cross": 99.5
+      },
+      "qualified": true,
+      "hard_failures": [],
+      "required_fixes": [],
+      "untested_required": [],
+      "scored_artifact_sha256": "83aef096aad1d35257000c1873019aac6f4457c1a87d699a9a86fb067c6dd909",
+      "public_artifact_sha256": "7e33dfc7ce75e60609208ad3378b10a0e0841fde1f359790b39d6f6be02f54b3",
+      "limited_publication_difference": "exact first-party license comment and/or LF only",
+      "public_page": "docs/desktop/tenant-unit-allocation.html",
+      "source": "examples/autonomous-desktop/tenant-unit-allocation",
+      "source_grade_summary_hashes": [
+        {
+          "role": "business",
+          "summary_sha256": "f1d42a762d1e4dbdd96fcbfa0f89fc8a0c7462cfdce655e54ca8cb382783e08b"
+        },
+        {
+          "role": "visual",
+          "summary_sha256": "691ad15005d2541a274f8fa29a4cd999da380368935e946765e8b681f150884d"
+        },
+        {
+          "role": "motion",
+          "summary_sha256": "6f5f3ad1fb49c3b745451cf09249c6613b96d5f39a18b69c6fe9c1a873aa956e"
+        },
+        {
+          "role": "business independent evidence coverage supplement",
+          "summary_sha256": "d72dff64fcb1ed37feb83bbd862997a639fc1e50be77137393653e35ebe9af44"
+        }
+      ],
+      "frozen_role_record_hashes": [
+        {
+          "label": "business primary",
+          "sha256": "77f3c4a5c4d4670d4fcfd89da5c38474ada1608c058cafc1d75711dcf5287add"
+        },
+        {
+          "label": "visual cross",
+          "sha256": "21460654fbfaedad554448b68c83ef46cb82d1a99a08fabc5b4ac2671415e32c"
+        },
+        {
+          "label": "visual original primary",
+          "sha256": "8417689415d7748766bbc02e334fd16d14a9f0fe4ad118bdff2de365e919668c"
+        },
+        {
+          "label": "visual combined first freeze",
+          "sha256": "2312d0c829eec5ccdcc60efc0fc0adf21c9703c78d5c61f5c06c2f227351ad48"
+        },
+        {
+          "label": "visual evidence",
+          "sha256": "10cfc5955383426f4e055cab28d21044ce23a37b795b35862e15f300db636bb3"
+        },
+        {
+          "label": "cross_report_sha256",
+          "sha256": "8f887ac5cd2c8cc0bba3131b3e47b9e6d734b42f849a6d300937c17bdbd74805"
+        },
+        {
+          "label": "motion primary",
+          "sha256": "08749952d39b9f8c0071e1d6f27b685237c3b0a9d6bc91a5e4b569991b68f979"
+        },
+        {
+          "label": "motion cross",
+          "sha256": "7bc29de84125c1afbd39dec5057c6757eadd5d3748b461e2c046fcec6c608d6b"
+        }
+      ]
+    },
+    {
+      "id": "D03",
+      "title": "市政请求与工作量",
+      "class": "unseen_first_delivery_with_internal_quality_review",
+      "revision": "c3",
+      "primary": {
+        "business": 20,
+        "visual": 19,
+        "data": 15,
+        "interaction": 25,
+        "motion": 20
+      },
+      "cross": {
+        "business": 20,
+        "visual": 19.5,
+        "data": 15,
+        "interaction": 25,
+        "motion": 20
+      },
+      "totals": {
+        "primary": 99,
+        "cross": 99.5
+      },
+      "qualified": true,
+      "hard_failures": [],
+      "required_fixes": [],
+      "untested_required": [],
+      "scored_artifact_sha256": "2a58208d18feb121d4ec2594a845db61708fb0cd622c6bb4c0f2e54b8378c61c",
+      "public_artifact_sha256": "ae520cfc9eac3328c721b70d5b247c75f953b6b2f08b05d26e6c77f247ee4468",
+      "limited_publication_difference": "exact first-party license comment and/or LF only",
+      "public_page": "docs/desktop/civic-request-overlap.html",
+      "source": "examples/autonomous-desktop/civic-request-overlap",
+      "source_grade_summary_hashes": [
+        {
+          "role": "business",
+          "summary_sha256": "f1d42a762d1e4dbdd96fcbfa0f89fc8a0c7462cfdce655e54ca8cb382783e08b"
+        },
+        {
+          "role": "visual",
+          "summary_sha256": "691ad15005d2541a274f8fa29a4cd999da380368935e946765e8b681f150884d"
+        },
+        {
+          "role": "motion",
+          "summary_sha256": "6f5f3ad1fb49c3b745451cf09249c6613b96d5f39a18b69c6fe9c1a873aa956e"
+        },
+        {
+          "role": "business independent evidence coverage supplement",
+          "summary_sha256": "d72dff64fcb1ed37feb83bbd862997a639fc1e50be77137393653e35ebe9af44"
+        }
+      ],
+      "frozen_role_record_hashes": [
+        {
+          "label": "business primary",
+          "sha256": "c98eb7bf055683aa664db4441ec94c6b8215fffea4af658f09c3edcf79c34f61"
+        },
+        {
+          "label": "visual cross",
+          "sha256": "cc9bbefcc212e66042a23e96efcc49b1d8874cdd29eb7bce477b1e26fd0c0a2c"
+        },
+        {
+          "label": "visual original primary",
+          "sha256": "a84e1550821b8d4ab0b0ffe465eb5d04f1a40590a1554300bfff3dbd46943755"
+        },
+        {
+          "label": "visual combined first freeze",
+          "sha256": "dfdf792549fbc47fd8e84a9509cceab4c973f81d4248195bffe73564a5aa692d"
+        },
+        {
+          "label": "visual evidence",
+          "sha256": "69ed1c9c98c91f9c48d757781a44d7017b8e88da864d14c2f2134d25109c2fe6"
+        },
+        {
+          "label": "cross_report_sha256",
+          "sha256": "8f887ac5cd2c8cc0bba3131b3e47b9e6d734b42f849a6d300937c17bdbd74805"
+        },
+        {
+          "label": "motion primary",
+          "sha256": "db2d473255c3bbf19b4a2d237f2111f52f3543124e0bf5b62d5c8abef8b020db"
+        },
+        {
+          "label": "motion cross",
+          "sha256": "fd2536e3e1578f5918f8ff5bd0a5884a16906819bf97f9b4421329817d077532"
+        }
+      ]
+    }
+  ],
+  "interpretation": "Scoped synthetic-case AI review, not a universal score or human third-party certification. Regression repairs are not unfamiliar first submissions. Canonical local 5.3.1 additions are outside this release evidence."
+}

@@ -1,0 +1,31 @@
+{
+  "example": "civic-request-overlap",
+  "title": "复合诉求与联合办理",
+  "synthetic": true,
+  "original_artifact_sha256": "2a58208d18feb121d4ec2594a845db61708fb0cd622c6bb4c0f2e54b8378c61c",
+  "public_artifact_sha256": "ae520cfc9eac3328c721b70d5b247c75f953b6b2f08b05d26e6c77f247ee4468",
+  "original_computed_sha256": "8e01620d5e31c30733e6986fbe2935656032d8749ab75b5f8a499fe857ded88b",
+  "public_computed_sha256": "a48a52e3c15a5f27dee85aa5a4605eba1cb2612dd9f00e8a584039ce3842f5aa",
+  "original_producer_sha256": "c3d603ce5709c322f56db98cd20f4cbb676ae4f9ecd3889889a7e0c8dfa70f6c",
+  "public_producer_sha256": "80d33cf2bc2433ccba17b7259080cc133acf436a99afc2bc124104148fa28156",
+  "allowed_changes": [
+    "Explicit LF output for HTML and computed JSON; input bytes unchanged."
+  ],
+  "verified": {
+    "source_input_bytes_preserved": true,
+    "producer_ast_equal_ignoring_only_write_text_newline": true,
+    "html_equal_after_exact_allowed_normalization": true,
+    "computed_json_equal": true,
+    "computed_bytes_equal_after_lf": true,
+    "docs_mirror_bytes_equal": true
+  },
+  "files_sha256": {
+    "artifact.html": "ae520cfc9eac3328c721b70d5b247c75f953b6b2f08b05d26e6c77f247ee4468",
+    "computed.json": "a48a52e3c15a5f27dee85aa5a4605eba1cb2612dd9f00e8a584039ce3842f5aa",
+    "producer.py": "80d33cf2bc2433ccba17b7259080cc133acf436a99afc2bc124104148fa28156",
+    "source.json": "8075b22692016ef518ff0cf6c083f38df57e93fd14ab7a6e57854b48fb045ef6",
+    "input/brief.md": "dd12477a57e5a5bbd65398f9ec451b633cd5f2532898550d77e62f1b5baad849",
+    "input/data.json": "8075b22692016ef518ff0cf6c083f38df57e93fd14ab7a6e57854b48fb045ef6"
+  },
+  "scope": "A fixed reproducible worked example, not a general renderer for arbitrary JSON. No independent rating or certification is asserted."
+}

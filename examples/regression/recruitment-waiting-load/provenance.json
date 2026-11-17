@@ -1,0 +1,34 @@
+{
+  "example": "recruitment-waiting-load",
+  "title": "Recruitment waiting and workload",
+  "source_case": "B04",
+  "frozen_variant": "B04-c3r1",
+  "synthetic": true,
+  "class": "regression",
+  "original_artifact_sha256": "b6864570d6ce308dead22d59b30fc538e6606b7b77c7758c0b28c57e8a43ff3b",
+  "public_artifact_sha256": "8d1a105e55e95f50ee38f2dd1713a0f9c5b21508f7ff8f0b795156ec66540289",
+  "original_computed_sha256": "0c1f188ab19ca3ca3ee134076cc3398757797c46c2c9c57d4549cf6ec26ee9c0",
+  "public_computed_sha256": "0c1f188ab19ca3ca3ee134076cc3398757797c46c2c9c57d4549cf6ec26ee9c0",
+  "original_input_sha256": {
+    "input/brief.md": "7a277ea95c813e33044345e603d6b44aaaa8fcaf6b759e9d7b28c99aada5d1a3",
+    "input/data.json": "0214b16f3603f4b541d3eb0b6de7320ac18a892fe381d4e280e6df5226ac3fec"
+  },
+  "files_sha256": {
+    "artifact.html": "8d1a105e55e95f50ee38f2dd1713a0f9c5b21508f7ff8f0b795156ec66540289",
+    "computed.json": "0c1f188ab19ca3ca3ee134076cc3398757797c46c2c9c57d4549cf6ec26ee9c0",
+    "input/brief.md": "7a277ea95c813e33044345e603d6b44aaaa8fcaf6b759e9d7b28c99aada5d1a3",
+    "input/data.json": "0214b16f3603f4b541d3eb0b6de7320ac18a892fe381d4e280e6df5226ac3fec"
+  },
+  "allowed_changes": [
+    "Only the exact first-party ChartMotion MIT header is replaced with its PolyForm Noncommercial header.",
+    "HTML line endings are normalized to LF. Input and computed JSON bytes are unchanged."
+  ],
+  "chartmotion_header_replacements": 1,
+  "verified": {
+    "html_equal_after_exact_license_header_and_lf_normalization": true,
+    "computed_bytes_preserved": true,
+    "original_input_bytes_preserved": true,
+    "docs_mirror_bytes_equal": true
+  },
+  "scope": "Frozen synthetic regression record, including same-task revisions. Not a claim of six unfamiliar first submissions, a general-purpose generator, an independent rating, or certification."
+}

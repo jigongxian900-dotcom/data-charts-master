@@ -38,6 +38,25 @@ git clone https://github.com/jigongxian900-dotcom/data-charts-master.git .claude
 
 ## 第一次任务
 
+想直接得到成品，可使用下面的完整指令。这里的“一次交付”是让 Agent 自主选图、生成并自检，不是把任意数据传给固定模板，也不保证每次输出都达到某个审美分数。
+
+```text
+使用 data-charts-master，把附件数据直接制作成可交付成品。
+业务问题：[写你需要判断的问题]。
+受众：[写谁看、看完需要做什么决定]。
+输出：单文件离线 HTML，附同源数据与 SVG 下载。
+桌面效果优先。自主选择合适的基础、组合或变形图表。
+整体视觉要有明确的主次、统一的配色与精细的标签排版。
+交互要帮助比较、聚焦和验证判断，图表与摘要同步更新。
+动效要保持同一对象可追踪，支持中断、减少动态和稳定导出。
+手机保留基本可用，不为手机专门精修。
+自行完成规划、制作和浏览器自检，最后一次交付成品。
+普通设计选择由你决定，不需要逐图向我确认。
+缺失数据保留为空，不能编造来源、结论或可行性。
+```
+
+更具体的业务输入示例：
+
 ```text
 使用 data-charts-master。
 业务问题：哪些区域没有达到目标？是规模差，还是改善不足？
@@ -82,6 +101,8 @@ node scripts/build_gallery.js
 | `examples/interaction-lab/` | 三个完整交互实例 |
 | `examples/composed/` | 六图教学报告与可翻页演示，附同源输入 |
 | `examples/operating-story/` | 一组八市场原始数据组成的连续经营案例 |
+| `examples/autonomous-desktop/` | 三个陌生业务问题的自主制作实录，附输入与可复现制作器 |
+| `examples/regression/` | 六个已知问题的回归成品，包含离线HTML、原始输入和派生值 |
 | `examples/representative.json` | 六类通用图的完整输入 |
 | `docs/` | 公开图谱、预览和说明 |
 
@@ -93,6 +114,8 @@ python scripts/test_compose_html.py
 python scripts/test_operating_story.py
 python scripts/test_custom_chart.py
 python scripts/test_chart_geometry.py
+python scripts/rebuild_desktop_examples.py
+python scripts/sync_regression_examples.py
 python scripts/verify_release.py
 ```
 
@@ -121,3 +144,7 @@ Claude Code 将路径改为 `.claude/skills/data-charts-master`。有本地修�
 From a project root, clone into `.agents/skills/data-charts-master` for Codex or `.claude/skills/data-charts-master` for Claude Code. Open an agent session and invoke the skill. Keep the complete folder. ZIP users should avoid an extra nested directory.
 
 For a runnable sample, enter the skill folder and execute the Python commands above. The output is `sample.html` plus `sample.data.json`. The Node build command rebuilds and synchronizes all public gallery files. Git updates use `pull --ff-only`. To uninstall, remove only the installed skill folder.
+
+## 免费与商业用途
+
+在线样例可以先看效果。新版本新增原创内容与修改按[非商用许可](../LICENSE)提供，标准条款明确允许的组织也可使用；营利企业内部报告、收费服务等新内容商用应先取得单独许可。旧版MIT权利保留，见[范围](../LICENSE-SCOPE.md)。[商用询价](../COMMERCIAL.md)尚未启用自助付款，下载不等于已获商业授权。

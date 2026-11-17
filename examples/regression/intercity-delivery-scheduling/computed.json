@@ -1,0 +1,5040 @@
+{
+  "source_sha256": "05fdd01633f0a0330a183ec333601d26dd2e309da5fd4dc2a87f0df277adf7f5",
+  "definitions": {
+    "late": "depart_min + sum(actual_duration_min) > promise_min",
+    "tardiness": "max(0, arrival_min - promise_min)",
+    "late_rate": "late weight / all selected weight",
+    "stage_net": "sum(weight * (actual segment duration - planned segment duration))",
+    "priority_proxy": "sum(weight * positive stage overrun) among late shipments; diagnostic, not causal benefit"
+  },
+  "rows": [
+    {
+      "shipment": "L000",
+      "route": "R-海湾",
+      "hub": "H-青",
+      "tier": "standard",
+      "packages": 1,
+      "depart_min": 480,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        21,
+        68,
+        35,
+        95
+      ],
+      "promise_min": 745,
+      "planned_total": 220,
+      "actual_total": 219,
+      "arrival_min": 699,
+      "stage_delta": [
+        -4,
+        -2,
+        0,
+        5
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        -4,
+        -6,
+        -6,
+        -1
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L001",
+      "route": "R-丘陵",
+      "hub": "H-白",
+      "tier": "priority",
+      "packages": 2,
+      "depart_min": 500,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        20,
+        65,
+        93,
+        93
+      ],
+      "promise_min": 745,
+      "planned_total": 220,
+      "actual_total": 271,
+      "arrival_min": 771,
+      "stage_delta": [
+        -5,
+        -5,
+        58,
+        3
+      ],
+      "late": true,
+      "tardiness": 26,
+      "cumulative_delta": [
+        -5,
+        -10,
+        48,
+        51
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L002",
+      "route": "R-平原",
+      "hub": "H-松",
+      "tier": "standard",
+      "packages": 3,
+      "depart_min": 520,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        26,
+        72,
+        37,
+        89
+      ],
+      "promise_min": 785,
+      "planned_total": 220,
+      "actual_total": 224,
+      "arrival_min": 744,
+      "stage_delta": [
+        1,
+        2,
+        2,
+        -1
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        1,
+        3,
+        5,
+        4
+      ],
+      "recovered_after_peak": 1
+    },
+    {
+      "shipment": "L003",
+      "route": "R-海湾",
+      "hub": "H-青",
+      "tier": "priority",
+      "packages": 4,
+      "depart_min": 480,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        25,
+        83,
+        27,
+        97
+      ],
+      "promise_min": 725,
+      "planned_total": 220,
+      "actual_total": 232,
+      "arrival_min": 712,
+      "stage_delta": [
+        0,
+        13,
+        -8,
+        7
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        0,
+        13,
+        5,
+        12
+      ],
+      "recovered_after_peak": 1
+    },
+    {
+      "shipment": "L004",
+      "route": "R-丘陵",
+      "hub": "H-白",
+      "tier": "standard",
+      "packages": 5,
+      "depart_min": 500,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        20,
+        73,
+        43,
+        90
+      ],
+      "promise_min": 765,
+      "planned_total": 220,
+      "actual_total": 226,
+      "arrival_min": 726,
+      "stage_delta": [
+        -5,
+        3,
+        8,
+        0
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        -5,
+        -2,
+        6,
+        6
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L005",
+      "route": "R-平原",
+      "hub": "H-松",
+      "tier": "priority",
+      "packages": 6,
+      "depart_min": 520,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        22,
+        150,
+        35,
+        78
+      ],
+      "promise_min": 765,
+      "planned_total": 220,
+      "actual_total": 285,
+      "arrival_min": 805,
+      "stage_delta": [
+        -3,
+        80,
+        0,
+        -12
+      ],
+      "late": true,
+      "tardiness": 40,
+      "cumulative_delta": [
+        -3,
+        77,
+        77,
+        65
+      ],
+      "recovered_after_peak": 12
+    },
+    {
+      "shipment": "L006",
+      "route": "R-海湾",
+      "hub": "H-青",
+      "tier": "standard",
+      "packages": 7,
+      "depart_min": 480,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        26,
+        64,
+        29,
+        81
+      ],
+      "promise_min": 745,
+      "planned_total": 220,
+      "actual_total": 200,
+      "arrival_min": 680,
+      "stage_delta": [
+        1,
+        -6,
+        -6,
+        -9
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        1,
+        -5,
+        -11,
+        -20
+      ],
+      "recovered_after_peak": 21
+    },
+    {
+      "shipment": "L007",
+      "route": "R-丘陵",
+      "hub": "H-白",
+      "tier": "priority",
+      "packages": 1,
+      "depart_min": 500,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        28,
+        86,
+        77,
+        93
+      ],
+      "promise_min": 745,
+      "planned_total": 220,
+      "actual_total": 284,
+      "arrival_min": 784,
+      "stage_delta": [
+        3,
+        16,
+        42,
+        3
+      ],
+      "late": true,
+      "tardiness": 39,
+      "cumulative_delta": [
+        3,
+        19,
+        61,
+        64
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L008",
+      "route": "R-平原",
+      "hub": "H-松",
+      "tier": "standard",
+      "packages": 2,
+      "depart_min": 520,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        28,
+        67,
+        40,
+        90
+      ],
+      "promise_min": 785,
+      "planned_total": 220,
+      "actual_total": 225,
+      "arrival_min": 745,
+      "stage_delta": [
+        3,
+        -3,
+        5,
+        0
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        3,
+        0,
+        5,
+        5
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L009",
+      "route": "R-海湾",
+      "hub": "H-青",
+      "tier": "priority",
+      "packages": 3,
+      "depart_min": 570,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        32,
+        72,
+        39,
+        87
+      ],
+      "promise_min": 815,
+      "planned_total": 220,
+      "actual_total": 230,
+      "arrival_min": 800,
+      "stage_delta": [
+        7,
+        2,
+        4,
+        -3
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        7,
+        9,
+        13,
+        10
+      ],
+      "recovered_after_peak": 3
+    },
+    {
+      "shipment": "L010",
+      "route": "R-丘陵",
+      "hub": "H-白",
+      "tier": "standard",
+      "packages": 4,
+      "depart_min": 590,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        25,
+        68,
+        79,
+        87
+      ],
+      "promise_min": 855,
+      "planned_total": 220,
+      "actual_total": 259,
+      "arrival_min": 849,
+      "stage_delta": [
+        0,
+        -2,
+        44,
+        -3
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        0,
+        -2,
+        42,
+        39
+      ],
+      "recovered_after_peak": 3
+    },
+    {
+      "shipment": "L011",
+      "route": "R-平原",
+      "hub": "H-松",
+      "tier": "priority",
+      "packages": 5,
+      "depart_min": 610,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        22,
+        72,
+        33,
+        85
+      ],
+      "promise_min": 855,
+      "planned_total": 220,
+      "actual_total": 212,
+      "arrival_min": 822,
+      "stage_delta": [
+        -3,
+        2,
+        -2,
+        -5
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        -3,
+        -1,
+        -3,
+        -8
+      ],
+      "recovered_after_peak": 7
+    },
+    {
+      "shipment": "L012",
+      "route": "R-海湾",
+      "hub": "H-青",
+      "tier": "standard",
+      "packages": 6,
+      "depart_min": 570,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        20,
+        72,
+        45,
+        104
+      ],
+      "promise_min": 835,
+      "planned_total": 220,
+      "actual_total": 241,
+      "arrival_min": 811,
+      "stage_delta": [
+        -5,
+        2,
+        10,
+        14
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        -5,
+        -3,
+        7,
+        21
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L013",
+      "route": "R-丘陵",
+      "hub": "H-白",
+      "tier": "priority",
+      "packages": 7,
+      "depart_min": 590,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        20,
+        78,
+        91,
+        100
+      ],
+      "promise_min": 835,
+      "planned_total": 220,
+      "actual_total": 289,
+      "arrival_min": 879,
+      "stage_delta": [
+        -5,
+        8,
+        56,
+        10
+      ],
+      "late": true,
+      "tardiness": 44,
+      "cumulative_delta": [
+        -5,
+        3,
+        59,
+        69
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L014",
+      "route": "R-平原",
+      "hub": "H-松",
+      "tier": "standard",
+      "packages": 1,
+      "depart_min": 610,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        24,
+        61,
+        32,
+        96
+      ],
+      "promise_min": 875,
+      "planned_total": 220,
+      "actual_total": 213,
+      "arrival_min": 823,
+      "stage_delta": [
+        -1,
+        -9,
+        -3,
+        6
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        -1,
+        -10,
+        -13,
+        -7
+      ],
+      "recovered_after_peak": 6
+    },
+    {
+      "shipment": "L015",
+      "route": "R-海湾",
+      "hub": "H-青",
+      "tier": "priority",
+      "packages": 2,
+      "depart_min": 570,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        21,
+        73,
+        28,
+        83
+      ],
+      "promise_min": 815,
+      "planned_total": 220,
+      "actual_total": 205,
+      "arrival_min": 775,
+      "stage_delta": [
+        -4,
+        3,
+        -7,
+        -7
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        -4,
+        -1,
+        -8,
+        -15
+      ],
+      "recovered_after_peak": 14
+    },
+    {
+      "shipment": "L016",
+      "route": "R-丘陵",
+      "hub": "H-白",
+      "tier": "standard",
+      "packages": 3,
+      "depart_min": 590,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        23,
+        71,
+        30,
+        88
+      ],
+      "promise_min": 855,
+      "planned_total": 220,
+      "actual_total": 212,
+      "arrival_min": 802,
+      "stage_delta": [
+        -2,
+        1,
+        -5,
+        -2
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        -2,
+        -1,
+        -6,
+        -8
+      ],
+      "recovered_after_peak": 7
+    },
+    {
+      "shipment": "L017",
+      "route": "R-平原",
+      "hub": "H-松",
+      "tier": "priority",
+      "packages": 4,
+      "depart_min": 610,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        24,
+        61,
+        43,
+        100
+      ],
+      "promise_min": 855,
+      "planned_total": 220,
+      "actual_total": 228,
+      "arrival_min": 838,
+      "stage_delta": [
+        -1,
+        -9,
+        8,
+        10
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        -1,
+        -10,
+        -2,
+        8
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L018",
+      "route": "R-海湾",
+      "hub": "H-青",
+      "tier": "standard",
+      "packages": 5,
+      "depart_min": 660,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        21,
+        76,
+        35,
+        82
+      ],
+      "promise_min": 925,
+      "planned_total": 220,
+      "actual_total": 214,
+      "arrival_min": 874,
+      "stage_delta": [
+        -4,
+        6,
+        0,
+        -8
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        -4,
+        2,
+        2,
+        -6
+      ],
+      "recovered_after_peak": 8
+    },
+    {
+      "shipment": "L019",
+      "route": "R-丘陵",
+      "hub": "H-白",
+      "tier": "priority",
+      "packages": 6,
+      "depart_min": 680,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        27,
+        58,
+        91,
+        89
+      ],
+      "promise_min": 925,
+      "planned_total": 220,
+      "actual_total": 265,
+      "arrival_min": 945,
+      "stage_delta": [
+        2,
+        -12,
+        56,
+        -1
+      ],
+      "late": true,
+      "tardiness": 20,
+      "cumulative_delta": [
+        2,
+        -10,
+        46,
+        45
+      ],
+      "recovered_after_peak": 1
+    },
+    {
+      "shipment": "L020",
+      "route": "R-平原",
+      "hub": "H-松",
+      "tier": "standard",
+      "packages": 7,
+      "depart_min": 700,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        29,
+        165,
+        38,
+        66
+      ],
+      "promise_min": 965,
+      "planned_total": 220,
+      "actual_total": 298,
+      "arrival_min": 998,
+      "stage_delta": [
+        4,
+        95,
+        3,
+        -24
+      ],
+      "late": true,
+      "tardiness": 33,
+      "cumulative_delta": [
+        4,
+        99,
+        102,
+        78
+      ],
+      "recovered_after_peak": 24
+    },
+    {
+      "shipment": "L021",
+      "route": "R-海湾",
+      "hub": "H-青",
+      "tier": "priority",
+      "packages": 1,
+      "depart_min": 660,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        32,
+        65,
+        28,
+        87
+      ],
+      "promise_min": 905,
+      "planned_total": 220,
+      "actual_total": 212,
+      "arrival_min": 872,
+      "stage_delta": [
+        7,
+        -5,
+        -7,
+        -3
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        7,
+        2,
+        -5,
+        -8
+      ],
+      "recovered_after_peak": 15
+    },
+    {
+      "shipment": "L022",
+      "route": "R-丘陵",
+      "hub": "H-白",
+      "tier": "standard",
+      "packages": 2,
+      "depart_min": 680,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        22,
+        64,
+        85,
+        101
+      ],
+      "promise_min": 945,
+      "planned_total": 220,
+      "actual_total": 272,
+      "arrival_min": 952,
+      "stage_delta": [
+        -3,
+        -6,
+        50,
+        11
+      ],
+      "late": true,
+      "tardiness": 7,
+      "cumulative_delta": [
+        -3,
+        -9,
+        41,
+        52
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L023",
+      "route": "R-平原",
+      "hub": "H-松",
+      "tier": "priority",
+      "packages": 3,
+      "depart_min": 700,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        24,
+        61,
+        32,
+        104
+      ],
+      "promise_min": 945,
+      "planned_total": 220,
+      "actual_total": 221,
+      "arrival_min": 921,
+      "stage_delta": [
+        -1,
+        -9,
+        -3,
+        14
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        -1,
+        -10,
+        -13,
+        1
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L024",
+      "route": "R-海湾",
+      "hub": "H-青",
+      "tier": "standard",
+      "packages": 4,
+      "depart_min": 660,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        27,
+        79,
+        42,
+        94
+      ],
+      "promise_min": 925,
+      "planned_total": 220,
+      "actual_total": 242,
+      "arrival_min": 902,
+      "stage_delta": [
+        2,
+        9,
+        7,
+        4
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        2,
+        11,
+        18,
+        22
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L025",
+      "route": "R-丘陵",
+      "hub": "H-白",
+      "tier": "priority",
+      "packages": 5,
+      "depart_min": 680,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        21,
+        68,
+        79,
+        100
+      ],
+      "promise_min": 925,
+      "planned_total": 220,
+      "actual_total": 268,
+      "arrival_min": 948,
+      "stage_delta": [
+        -4,
+        -2,
+        44,
+        10
+      ],
+      "late": true,
+      "tardiness": 23,
+      "cumulative_delta": [
+        -4,
+        -6,
+        38,
+        48
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L026",
+      "route": "R-平原",
+      "hub": "H-松",
+      "tier": "standard",
+      "packages": 6,
+      "depart_min": 700,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        28,
+        65,
+        27,
+        96
+      ],
+      "promise_min": 965,
+      "planned_total": 220,
+      "actual_total": 216,
+      "arrival_min": 916,
+      "stage_delta": [
+        3,
+        -5,
+        -8,
+        6
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        3,
+        -2,
+        -10,
+        -4
+      ],
+      "recovered_after_peak": 7
+    },
+    {
+      "shipment": "L027",
+      "route": "R-海湾",
+      "hub": "H-青",
+      "tier": "priority",
+      "packages": 7,
+      "depart_min": 750,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        22,
+        66,
+        33,
+        101
+      ],
+      "promise_min": 995,
+      "planned_total": 220,
+      "actual_total": 222,
+      "arrival_min": 972,
+      "stage_delta": [
+        -3,
+        -4,
+        -2,
+        11
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        -3,
+        -7,
+        -9,
+        2
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L028",
+      "route": "R-丘陵",
+      "hub": "H-白",
+      "tier": "standard",
+      "packages": 1,
+      "depart_min": 770,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        27,
+        61,
+        40,
+        86
+      ],
+      "promise_min": 1035,
+      "planned_total": 220,
+      "actual_total": 214,
+      "arrival_min": 984,
+      "stage_delta": [
+        2,
+        -9,
+        5,
+        -4
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        2,
+        -7,
+        -2,
+        -6
+      ],
+      "recovered_after_peak": 8
+    },
+    {
+      "shipment": "L029",
+      "route": "R-平原",
+      "hub": "H-松",
+      "tier": "priority",
+      "packages": 2,
+      "depart_min": 790,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        31,
+        80,
+        37,
+        92
+      ],
+      "promise_min": 1035,
+      "planned_total": 220,
+      "actual_total": 240,
+      "arrival_min": 1030,
+      "stage_delta": [
+        6,
+        10,
+        2,
+        2
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        6,
+        16,
+        18,
+        20
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L030",
+      "route": "R-海湾",
+      "hub": "H-青",
+      "tier": "standard",
+      "packages": 3,
+      "depart_min": 750,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        29,
+        84,
+        40,
+        87
+      ],
+      "promise_min": 1015,
+      "planned_total": 220,
+      "actual_total": 240,
+      "arrival_min": 990,
+      "stage_delta": [
+        4,
+        14,
+        5,
+        -3
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        4,
+        18,
+        23,
+        20
+      ],
+      "recovered_after_peak": 3
+    },
+    {
+      "shipment": "L031",
+      "route": "R-丘陵",
+      "hub": "H-白",
+      "tier": "priority",
+      "packages": 4,
+      "depart_min": 770,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        31,
+        84,
+        93,
+        85
+      ],
+      "promise_min": 1015,
+      "planned_total": 220,
+      "actual_total": 293,
+      "arrival_min": 1063,
+      "stage_delta": [
+        6,
+        14,
+        58,
+        -5
+      ],
+      "late": true,
+      "tardiness": 48,
+      "cumulative_delta": [
+        6,
+        20,
+        78,
+        73
+      ],
+      "recovered_after_peak": 5
+    },
+    {
+      "shipment": "L032",
+      "route": "R-平原",
+      "hub": "H-松",
+      "tier": "standard",
+      "packages": 5,
+      "depart_min": 790,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        22,
+        59,
+        29,
+        104
+      ],
+      "promise_min": 1055,
+      "planned_total": 220,
+      "actual_total": 214,
+      "arrival_min": 1004,
+      "stage_delta": [
+        -3,
+        -11,
+        -6,
+        14
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        -3,
+        -14,
+        -20,
+        -6
+      ],
+      "recovered_after_peak": 3
+    },
+    {
+      "shipment": "L033",
+      "route": "R-海湾",
+      "hub": "H-青",
+      "tier": "priority",
+      "packages": 6,
+      "depart_min": 750,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        20,
+        66,
+        31,
+        97
+      ],
+      "promise_min": 995,
+      "planned_total": 220,
+      "actual_total": 214,
+      "arrival_min": 964,
+      "stage_delta": [
+        -5,
+        -4,
+        -4,
+        7
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        -5,
+        -9,
+        -13,
+        -6
+      ],
+      "recovered_after_peak": 1
+    },
+    {
+      "shipment": "L034",
+      "route": "R-丘陵",
+      "hub": "H-白",
+      "tier": "standard",
+      "packages": 7,
+      "depart_min": 770,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        22,
+        83,
+        93,
+        81
+      ],
+      "promise_min": 1035,
+      "planned_total": 220,
+      "actual_total": 279,
+      "arrival_min": 1049,
+      "stage_delta": [
+        -3,
+        13,
+        58,
+        -9
+      ],
+      "late": true,
+      "tardiness": 14,
+      "cumulative_delta": [
+        -3,
+        10,
+        68,
+        59
+      ],
+      "recovered_after_peak": 9
+    },
+    {
+      "shipment": "L035",
+      "route": "R-平原",
+      "hub": "H-松",
+      "tier": "priority",
+      "packages": 1,
+      "depart_min": 790,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        21,
+        144,
+        41,
+        59
+      ],
+      "promise_min": 1035,
+      "planned_total": 220,
+      "actual_total": 265,
+      "arrival_min": 1055,
+      "stage_delta": [
+        -4,
+        74,
+        6,
+        -31
+      ],
+      "late": true,
+      "tardiness": 20,
+      "cumulative_delta": [
+        -4,
+        70,
+        76,
+        45
+      ],
+      "recovered_after_peak": 31
+    },
+    {
+      "shipment": "L036",
+      "route": "R-海湾",
+      "hub": "H-青",
+      "tier": "standard",
+      "packages": 2,
+      "depart_min": 840,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        31,
+        86,
+        44,
+        89
+      ],
+      "promise_min": 1105,
+      "planned_total": 220,
+      "actual_total": 250,
+      "arrival_min": 1090,
+      "stage_delta": [
+        6,
+        16,
+        9,
+        -1
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        6,
+        22,
+        31,
+        30
+      ],
+      "recovered_after_peak": 1
+    },
+    {
+      "shipment": "L037",
+      "route": "R-丘陵",
+      "hub": "H-白",
+      "tier": "priority",
+      "packages": 3,
+      "depart_min": 860,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        22,
+        58,
+        81,
+        86
+      ],
+      "promise_min": 1105,
+      "planned_total": 220,
+      "actual_total": 247,
+      "arrival_min": 1107,
+      "stage_delta": [
+        -3,
+        -12,
+        46,
+        -4
+      ],
+      "late": true,
+      "tardiness": 2,
+      "cumulative_delta": [
+        -3,
+        -15,
+        31,
+        27
+      ],
+      "recovered_after_peak": 4
+    },
+    {
+      "shipment": "L038",
+      "route": "R-平原",
+      "hub": "H-松",
+      "tier": "standard",
+      "packages": 4,
+      "depart_min": 880,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        33,
+        73,
+        34,
+        98
+      ],
+      "promise_min": 1145,
+      "planned_total": 220,
+      "actual_total": 238,
+      "arrival_min": 1118,
+      "stage_delta": [
+        8,
+        3,
+        -1,
+        8
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        8,
+        11,
+        10,
+        18
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L039",
+      "route": "R-海湾",
+      "hub": "H-青",
+      "tier": "priority",
+      "packages": 5,
+      "depart_min": 840,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        25,
+        73,
+        39,
+        103
+      ],
+      "promise_min": 1085,
+      "planned_total": 220,
+      "actual_total": 240,
+      "arrival_min": 1080,
+      "stage_delta": [
+        0,
+        3,
+        4,
+        13
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        0,
+        3,
+        7,
+        20
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L040",
+      "route": "R-丘陵",
+      "hub": "H-白",
+      "tier": "standard",
+      "packages": 6,
+      "depart_min": 860,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        32,
+        58,
+        28,
+        93
+      ],
+      "promise_min": 1125,
+      "planned_total": 220,
+      "actual_total": 211,
+      "arrival_min": 1071,
+      "stage_delta": [
+        7,
+        -12,
+        -7,
+        3
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        7,
+        -5,
+        -12,
+        -9
+      ],
+      "recovered_after_peak": 16
+    },
+    {
+      "shipment": "L041",
+      "route": "R-平原",
+      "hub": "H-松",
+      "tier": "priority",
+      "packages": 7,
+      "depart_min": 880,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        23,
+        64,
+        28,
+        86
+      ],
+      "promise_min": 1125,
+      "planned_total": 220,
+      "actual_total": 201,
+      "arrival_min": 1081,
+      "stage_delta": [
+        -2,
+        -6,
+        -7,
+        -4
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        -2,
+        -8,
+        -15,
+        -19
+      ],
+      "recovered_after_peak": 17
+    },
+    {
+      "shipment": "L042",
+      "route": "R-海湾",
+      "hub": "H-青",
+      "tier": "standard",
+      "packages": 1,
+      "depart_min": 840,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        31,
+        60,
+        33,
+        86
+      ],
+      "promise_min": 1105,
+      "planned_total": 220,
+      "actual_total": 210,
+      "arrival_min": 1050,
+      "stage_delta": [
+        6,
+        -10,
+        -2,
+        -4
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        6,
+        -4,
+        -6,
+        -10
+      ],
+      "recovered_after_peak": 16
+    },
+    {
+      "shipment": "L043",
+      "route": "R-丘陵",
+      "hub": "H-白",
+      "tier": "priority",
+      "packages": 2,
+      "depart_min": 860,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        30,
+        85,
+        79,
+        102
+      ],
+      "promise_min": 1105,
+      "planned_total": 220,
+      "actual_total": 296,
+      "arrival_min": 1156,
+      "stage_delta": [
+        5,
+        15,
+        44,
+        12
+      ],
+      "late": true,
+      "tardiness": 51,
+      "cumulative_delta": [
+        5,
+        20,
+        64,
+        76
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L044",
+      "route": "R-平原",
+      "hub": "H-松",
+      "tier": "standard",
+      "packages": 3,
+      "depart_min": 880,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        24,
+        77,
+        41,
+        81
+      ],
+      "promise_min": 1145,
+      "planned_total": 220,
+      "actual_total": 223,
+      "arrival_min": 1103,
+      "stage_delta": [
+        -1,
+        7,
+        6,
+        -9
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        -1,
+        6,
+        12,
+        3
+      ],
+      "recovered_after_peak": 9
+    },
+    {
+      "shipment": "L045",
+      "route": "R-海湾",
+      "hub": "H-青",
+      "tier": "priority",
+      "packages": 4,
+      "depart_min": 930,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        26,
+        69,
+        42,
+        93
+      ],
+      "promise_min": 1175,
+      "planned_total": 220,
+      "actual_total": 230,
+      "arrival_min": 1160,
+      "stage_delta": [
+        1,
+        -1,
+        7,
+        3
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        1,
+        0,
+        7,
+        10
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L046",
+      "route": "R-丘陵",
+      "hub": "H-白",
+      "tier": "standard",
+      "packages": 5,
+      "depart_min": 950,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        20,
+        80,
+        86,
+        89
+      ],
+      "promise_min": 1215,
+      "planned_total": 220,
+      "actual_total": 275,
+      "arrival_min": 1225,
+      "stage_delta": [
+        -5,
+        10,
+        51,
+        -1
+      ],
+      "late": true,
+      "tardiness": 10,
+      "cumulative_delta": [
+        -5,
+        5,
+        56,
+        55
+      ],
+      "recovered_after_peak": 1
+    },
+    {
+      "shipment": "L047",
+      "route": "R-平原",
+      "hub": "H-松",
+      "tier": "priority",
+      "packages": 6,
+      "depart_min": 970,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        28,
+        86,
+        35,
+        81
+      ],
+      "promise_min": 1215,
+      "planned_total": 220,
+      "actual_total": 230,
+      "arrival_min": 1200,
+      "stage_delta": [
+        3,
+        16,
+        0,
+        -9
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        3,
+        19,
+        19,
+        10
+      ],
+      "recovered_after_peak": 9
+    },
+    {
+      "shipment": "L048",
+      "route": "R-海湾",
+      "hub": "H-青",
+      "tier": "standard",
+      "packages": 7,
+      "depart_min": 930,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        21,
+        81,
+        31,
+        80
+      ],
+      "promise_min": 1195,
+      "planned_total": 220,
+      "actual_total": 213,
+      "arrival_min": 1143,
+      "stage_delta": [
+        -4,
+        11,
+        -4,
+        -10
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        -4,
+        7,
+        3,
+        -7
+      ],
+      "recovered_after_peak": 14
+    },
+    {
+      "shipment": "L049",
+      "route": "R-丘陵",
+      "hub": "H-白",
+      "tier": "priority",
+      "packages": 1,
+      "depart_min": 950,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        26,
+        58,
+        75,
+        100
+      ],
+      "promise_min": 1195,
+      "planned_total": 220,
+      "actual_total": 259,
+      "arrival_min": 1209,
+      "stage_delta": [
+        1,
+        -12,
+        40,
+        10
+      ],
+      "late": true,
+      "tardiness": 14,
+      "cumulative_delta": [
+        1,
+        -11,
+        29,
+        39
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L050",
+      "route": "R-平原",
+      "hub": "H-松",
+      "tier": "standard",
+      "packages": 2,
+      "depart_min": 970,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        22,
+        143,
+        45,
+        73
+      ],
+      "promise_min": 1235,
+      "planned_total": 220,
+      "actual_total": 283,
+      "arrival_min": 1253,
+      "stage_delta": [
+        -3,
+        73,
+        10,
+        -17
+      ],
+      "late": true,
+      "tardiness": 18,
+      "cumulative_delta": [
+        -3,
+        70,
+        80,
+        63
+      ],
+      "recovered_after_peak": 17
+    },
+    {
+      "shipment": "L051",
+      "route": "R-海湾",
+      "hub": "H-青",
+      "tier": "priority",
+      "packages": 3,
+      "depart_min": 930,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        31,
+        69,
+        42,
+        80
+      ],
+      "promise_min": 1175,
+      "planned_total": 220,
+      "actual_total": 222,
+      "arrival_min": 1152,
+      "stage_delta": [
+        6,
+        -1,
+        7,
+        -10
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        6,
+        5,
+        12,
+        2
+      ],
+      "recovered_after_peak": 10
+    },
+    {
+      "shipment": "L052",
+      "route": "R-丘陵",
+      "hub": "H-白",
+      "tier": "standard",
+      "packages": 4,
+      "depart_min": 950,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        24,
+        71,
+        29,
+        95
+      ],
+      "promise_min": 1215,
+      "planned_total": 220,
+      "actual_total": 219,
+      "arrival_min": 1169,
+      "stage_delta": [
+        -1,
+        1,
+        -6,
+        5
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        -1,
+        0,
+        -6,
+        -1
+      ],
+      "recovered_after_peak": 1
+    },
+    {
+      "shipment": "L053",
+      "route": "R-平原",
+      "hub": "H-松",
+      "tier": "priority",
+      "packages": 5,
+      "depart_min": 970,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        29,
+        73,
+        35,
+        96
+      ],
+      "promise_min": 1215,
+      "planned_total": 220,
+      "actual_total": 233,
+      "arrival_min": 1203,
+      "stage_delta": [
+        4,
+        3,
+        0,
+        6
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        4,
+        7,
+        7,
+        13
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L054",
+      "route": "R-海湾",
+      "hub": "H-青",
+      "tier": "standard",
+      "packages": 6,
+      "depart_min": 1020,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        24,
+        76,
+        40,
+        100
+      ],
+      "promise_min": 1285,
+      "planned_total": 220,
+      "actual_total": 240,
+      "arrival_min": 1260,
+      "stage_delta": [
+        -1,
+        6,
+        5,
+        10
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        -1,
+        5,
+        10,
+        20
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L055",
+      "route": "R-丘陵",
+      "hub": "H-白",
+      "tier": "priority",
+      "packages": 7,
+      "depart_min": 1040,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        23,
+        80,
+        76,
+        87
+      ],
+      "promise_min": 1285,
+      "planned_total": 220,
+      "actual_total": 266,
+      "arrival_min": 1306,
+      "stage_delta": [
+        -2,
+        10,
+        41,
+        -3
+      ],
+      "late": true,
+      "tardiness": 21,
+      "cumulative_delta": [
+        -2,
+        8,
+        49,
+        46
+      ],
+      "recovered_after_peak": 3
+    },
+    {
+      "shipment": "L056",
+      "route": "R-平原",
+      "hub": "H-松",
+      "tier": "standard",
+      "packages": 1,
+      "depart_min": 1060,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        20,
+        70,
+        39,
+        88
+      ],
+      "promise_min": 1325,
+      "planned_total": 220,
+      "actual_total": 217,
+      "arrival_min": 1277,
+      "stage_delta": [
+        -5,
+        0,
+        4,
+        -2
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        -5,
+        -5,
+        -1,
+        -3
+      ],
+      "recovered_after_peak": 2
+    },
+    {
+      "shipment": "L057",
+      "route": "R-海湾",
+      "hub": "H-青",
+      "tier": "priority",
+      "packages": 2,
+      "depart_min": 1020,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        33,
+        63,
+        36,
+        83
+      ],
+      "promise_min": 1265,
+      "planned_total": 220,
+      "actual_total": 215,
+      "arrival_min": 1235,
+      "stage_delta": [
+        8,
+        -7,
+        1,
+        -7
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        8,
+        1,
+        2,
+        -5
+      ],
+      "recovered_after_peak": 13
+    },
+    {
+      "shipment": "L058",
+      "route": "R-丘陵",
+      "hub": "H-白",
+      "tier": "standard",
+      "packages": 3,
+      "depart_min": 1040,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        31,
+        65,
+        88,
+        94
+      ],
+      "promise_min": 1305,
+      "planned_total": 220,
+      "actual_total": 278,
+      "arrival_min": 1318,
+      "stage_delta": [
+        6,
+        -5,
+        53,
+        4
+      ],
+      "late": true,
+      "tardiness": 13,
+      "cumulative_delta": [
+        6,
+        1,
+        54,
+        58
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L059",
+      "route": "R-平原",
+      "hub": "H-松",
+      "tier": "priority",
+      "packages": 4,
+      "depart_min": 1060,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        31,
+        86,
+        36,
+        95
+      ],
+      "promise_min": 1305,
+      "planned_total": 220,
+      "actual_total": 248,
+      "arrival_min": 1308,
+      "stage_delta": [
+        6,
+        16,
+        1,
+        5
+      ],
+      "late": true,
+      "tardiness": 3,
+      "cumulative_delta": [
+        6,
+        22,
+        23,
+        28
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L060",
+      "route": "R-海湾",
+      "hub": "H-青",
+      "tier": "standard",
+      "packages": 5,
+      "depart_min": 1020,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        27,
+        84,
+        42,
+        89
+      ],
+      "promise_min": 1285,
+      "planned_total": 220,
+      "actual_total": 242,
+      "arrival_min": 1262,
+      "stage_delta": [
+        2,
+        14,
+        7,
+        -1
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        2,
+        16,
+        23,
+        22
+      ],
+      "recovered_after_peak": 1
+    },
+    {
+      "shipment": "L061",
+      "route": "R-丘陵",
+      "hub": "H-白",
+      "tier": "priority",
+      "packages": 6,
+      "depart_min": 1040,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        21,
+        73,
+        76,
+        97
+      ],
+      "promise_min": 1285,
+      "planned_total": 220,
+      "actual_total": 267,
+      "arrival_min": 1307,
+      "stage_delta": [
+        -4,
+        3,
+        41,
+        7
+      ],
+      "late": true,
+      "tardiness": 22,
+      "cumulative_delta": [
+        -4,
+        -1,
+        40,
+        47
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L062",
+      "route": "R-平原",
+      "hub": "H-松",
+      "tier": "standard",
+      "packages": 7,
+      "depart_min": 1060,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        32,
+        80,
+        30,
+        80
+      ],
+      "promise_min": 1325,
+      "planned_total": 220,
+      "actual_total": 222,
+      "arrival_min": 1282,
+      "stage_delta": [
+        7,
+        10,
+        -5,
+        -10
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        7,
+        17,
+        12,
+        2
+      ],
+      "recovered_after_peak": 15
+    },
+    {
+      "shipment": "L063",
+      "route": "R-海湾",
+      "hub": "H-青",
+      "tier": "priority",
+      "packages": 1,
+      "depart_min": 1110,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        27,
+        73,
+        44,
+        93
+      ],
+      "promise_min": 1355,
+      "planned_total": 220,
+      "actual_total": 237,
+      "arrival_min": 1347,
+      "stage_delta": [
+        2,
+        3,
+        9,
+        3
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        2,
+        5,
+        14,
+        17
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L064",
+      "route": "R-丘陵",
+      "hub": "H-白",
+      "tier": "standard",
+      "packages": 2,
+      "depart_min": 1130,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        25,
+        60,
+        45,
+        91
+      ],
+      "promise_min": 1395,
+      "planned_total": 220,
+      "actual_total": 221,
+      "arrival_min": 1351,
+      "stage_delta": [
+        0,
+        -10,
+        10,
+        1
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        0,
+        -10,
+        0,
+        1
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L065",
+      "route": "R-平原",
+      "hub": "H-松",
+      "tier": "priority",
+      "packages": 3,
+      "depart_min": 1150,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        28,
+        151,
+        44,
+        61
+      ],
+      "promise_min": 1395,
+      "planned_total": 220,
+      "actual_total": 284,
+      "arrival_min": 1434,
+      "stage_delta": [
+        3,
+        81,
+        9,
+        -29
+      ],
+      "late": true,
+      "tardiness": 39,
+      "cumulative_delta": [
+        3,
+        84,
+        93,
+        64
+      ],
+      "recovered_after_peak": 29
+    },
+    {
+      "shipment": "L066",
+      "route": "R-海湾",
+      "hub": "H-青",
+      "tier": "standard",
+      "packages": 4,
+      "depart_min": 1110,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        32,
+        79,
+        34,
+        82
+      ],
+      "promise_min": 1375,
+      "planned_total": 220,
+      "actual_total": 227,
+      "arrival_min": 1337,
+      "stage_delta": [
+        7,
+        9,
+        -1,
+        -8
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        7,
+        16,
+        15,
+        7
+      ],
+      "recovered_after_peak": 9
+    },
+    {
+      "shipment": "L067",
+      "route": "R-丘陵",
+      "hub": "H-白",
+      "tier": "priority",
+      "packages": 5,
+      "depart_min": 1130,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        20,
+        79,
+        88,
+        88
+      ],
+      "promise_min": 1375,
+      "planned_total": 220,
+      "actual_total": 275,
+      "arrival_min": 1405,
+      "stage_delta": [
+        -5,
+        9,
+        53,
+        -2
+      ],
+      "late": true,
+      "tardiness": 30,
+      "cumulative_delta": [
+        -5,
+        4,
+        57,
+        55
+      ],
+      "recovered_after_peak": 2
+    },
+    {
+      "shipment": "L068",
+      "route": "R-平原",
+      "hub": "H-松",
+      "tier": "standard",
+      "packages": 6,
+      "depart_min": 1150,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        22,
+        84,
+        35,
+        100
+      ],
+      "promise_min": 1415,
+      "planned_total": 220,
+      "actual_total": 241,
+      "arrival_min": 1391,
+      "stage_delta": [
+        -3,
+        14,
+        0,
+        10
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        -3,
+        11,
+        11,
+        21
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L069",
+      "route": "R-海湾",
+      "hub": "H-青",
+      "tier": "priority",
+      "packages": 7,
+      "depart_min": 1110,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        31,
+        66,
+        42,
+        100
+      ],
+      "promise_min": 1355,
+      "planned_total": 220,
+      "actual_total": 239,
+      "arrival_min": 1349,
+      "stage_delta": [
+        6,
+        -4,
+        7,
+        10
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        6,
+        2,
+        9,
+        19
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L070",
+      "route": "R-丘陵",
+      "hub": "H-白",
+      "tier": "standard",
+      "packages": 1,
+      "depart_min": 1130,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        30,
+        58,
+        83,
+        83
+      ],
+      "promise_min": 1395,
+      "planned_total": 220,
+      "actual_total": 254,
+      "arrival_min": 1384,
+      "stage_delta": [
+        5,
+        -12,
+        48,
+        -7
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        5,
+        -7,
+        41,
+        34
+      ],
+      "recovered_after_peak": 7
+    },
+    {
+      "shipment": "L071",
+      "route": "R-平原",
+      "hub": "H-松",
+      "tier": "priority",
+      "packages": 2,
+      "depart_min": 1150,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        30,
+        67,
+        35,
+        87
+      ],
+      "promise_min": 1395,
+      "planned_total": 220,
+      "actual_total": 219,
+      "arrival_min": 1369,
+      "stage_delta": [
+        5,
+        -3,
+        0,
+        -3
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        5,
+        2,
+        2,
+        -1
+      ],
+      "recovered_after_peak": 6
+    },
+    {
+      "shipment": "L072",
+      "route": "R-海湾",
+      "hub": "H-青",
+      "tier": "standard",
+      "packages": 3,
+      "depart_min": 1200,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        30,
+        74,
+        42,
+        102
+      ],
+      "promise_min": 1465,
+      "planned_total": 220,
+      "actual_total": 248,
+      "arrival_min": 1448,
+      "stage_delta": [
+        5,
+        4,
+        7,
+        12
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        5,
+        9,
+        16,
+        28
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L073",
+      "route": "R-丘陵",
+      "hub": "H-白",
+      "tier": "priority",
+      "packages": 4,
+      "depart_min": 1220,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        22,
+        71,
+        90,
+        102
+      ],
+      "promise_min": 1465,
+      "planned_total": 220,
+      "actual_total": 285,
+      "arrival_min": 1505,
+      "stage_delta": [
+        -3,
+        1,
+        55,
+        12
+      ],
+      "late": true,
+      "tardiness": 40,
+      "cumulative_delta": [
+        -3,
+        -2,
+        53,
+        65
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L074",
+      "route": "R-平原",
+      "hub": "H-松",
+      "tier": "standard",
+      "packages": 5,
+      "depart_min": 1240,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        26,
+        63,
+        44,
+        95
+      ],
+      "promise_min": 1505,
+      "planned_total": 220,
+      "actual_total": 228,
+      "arrival_min": 1468,
+      "stage_delta": [
+        1,
+        -7,
+        9,
+        5
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        1,
+        -6,
+        3,
+        8
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L075",
+      "route": "R-海湾",
+      "hub": "H-青",
+      "tier": "priority",
+      "packages": 6,
+      "depart_min": 1200,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        25,
+        67,
+        44,
+        94
+      ],
+      "promise_min": 1445,
+      "planned_total": 220,
+      "actual_total": 230,
+      "arrival_min": 1430,
+      "stage_delta": [
+        0,
+        -3,
+        9,
+        4
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        0,
+        -3,
+        6,
+        10
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L076",
+      "route": "R-丘陵",
+      "hub": "H-白",
+      "tier": "standard",
+      "packages": 7,
+      "depart_min": 1220,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        22,
+        63,
+        33,
+        94
+      ],
+      "promise_min": 1485,
+      "planned_total": 220,
+      "actual_total": 212,
+      "arrival_min": 1432,
+      "stage_delta": [
+        -3,
+        -7,
+        -2,
+        4
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        -3,
+        -10,
+        -12,
+        -8
+      ],
+      "recovered_after_peak": 5
+    },
+    {
+      "shipment": "L077",
+      "route": "R-平原",
+      "hub": "H-松",
+      "tier": "priority",
+      "packages": 1,
+      "depart_min": 1240,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        25,
+        81,
+        33,
+        102
+      ],
+      "promise_min": 1485,
+      "planned_total": 220,
+      "actual_total": 241,
+      "arrival_min": 1481,
+      "stage_delta": [
+        0,
+        11,
+        -2,
+        12
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        0,
+        11,
+        9,
+        21
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L078",
+      "route": "R-海湾",
+      "hub": "H-青",
+      "tier": "standard",
+      "packages": 2,
+      "depart_min": 1200,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        31,
+        69,
+        36,
+        103
+      ],
+      "promise_min": 1465,
+      "planned_total": 220,
+      "actual_total": 239,
+      "arrival_min": 1439,
+      "stage_delta": [
+        6,
+        -1,
+        1,
+        13
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        6,
+        5,
+        6,
+        19
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L079",
+      "route": "R-丘陵",
+      "hub": "H-白",
+      "tier": "priority",
+      "packages": 3,
+      "depart_min": 1220,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        23,
+        61,
+        92,
+        102
+      ],
+      "promise_min": 1465,
+      "planned_total": 220,
+      "actual_total": 278,
+      "arrival_min": 1498,
+      "stage_delta": [
+        -2,
+        -9,
+        57,
+        12
+      ],
+      "late": true,
+      "tardiness": 33,
+      "cumulative_delta": [
+        -2,
+        -11,
+        46,
+        58
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L080",
+      "route": "R-平原",
+      "hub": "H-松",
+      "tier": "standard",
+      "packages": 4,
+      "depart_min": 1240,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        27,
+        150,
+        31,
+        79
+      ],
+      "promise_min": 1505,
+      "planned_total": 220,
+      "actual_total": 287,
+      "arrival_min": 1527,
+      "stage_delta": [
+        2,
+        80,
+        -4,
+        -11
+      ],
+      "late": true,
+      "tardiness": 22,
+      "cumulative_delta": [
+        2,
+        82,
+        78,
+        67
+      ],
+      "recovered_after_peak": 15
+    },
+    {
+      "shipment": "L081",
+      "route": "R-海湾",
+      "hub": "H-青",
+      "tier": "priority",
+      "packages": 5,
+      "depart_min": 1290,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        20,
+        58,
+        38,
+        102
+      ],
+      "promise_min": 1535,
+      "planned_total": 220,
+      "actual_total": 218,
+      "arrival_min": 1508,
+      "stage_delta": [
+        -5,
+        -12,
+        3,
+        12
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        -5,
+        -17,
+        -14,
+        -2
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L082",
+      "route": "R-丘陵",
+      "hub": "H-白",
+      "tier": "standard",
+      "packages": 6,
+      "depart_min": 1310,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        29,
+        79,
+        75,
+        91
+      ],
+      "promise_min": 1575,
+      "planned_total": 220,
+      "actual_total": 274,
+      "arrival_min": 1584,
+      "stage_delta": [
+        4,
+        9,
+        40,
+        1
+      ],
+      "late": true,
+      "tardiness": 9,
+      "cumulative_delta": [
+        4,
+        13,
+        53,
+        54
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L083",
+      "route": "R-平原",
+      "hub": "H-松",
+      "tier": "priority",
+      "packages": 7,
+      "depart_min": 1330,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        27,
+        78,
+        36,
+        86
+      ],
+      "promise_min": 1575,
+      "planned_total": 220,
+      "actual_total": 227,
+      "arrival_min": 1557,
+      "stage_delta": [
+        2,
+        8,
+        1,
+        -4
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        2,
+        10,
+        11,
+        7
+      ],
+      "recovered_after_peak": 4
+    },
+    {
+      "shipment": "L084",
+      "route": "R-海湾",
+      "hub": "H-青",
+      "tier": "standard",
+      "packages": 1,
+      "depart_min": 1290,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        26,
+        83,
+        40,
+        92
+      ],
+      "promise_min": 1555,
+      "planned_total": 220,
+      "actual_total": 241,
+      "arrival_min": 1531,
+      "stage_delta": [
+        1,
+        13,
+        5,
+        2
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        1,
+        14,
+        19,
+        21
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L085",
+      "route": "R-丘陵",
+      "hub": "H-白",
+      "tier": "priority",
+      "packages": 2,
+      "depart_min": 1310,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        31,
+        74,
+        80,
+        96
+      ],
+      "promise_min": 1555,
+      "planned_total": 220,
+      "actual_total": 281,
+      "arrival_min": 1591,
+      "stage_delta": [
+        6,
+        4,
+        45,
+        6
+      ],
+      "late": true,
+      "tardiness": 36,
+      "cumulative_delta": [
+        6,
+        10,
+        55,
+        61
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L086",
+      "route": "R-平原",
+      "hub": "H-松",
+      "tier": "standard",
+      "packages": 3,
+      "depart_min": 1330,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        21,
+        85,
+        28,
+        92
+      ],
+      "promise_min": 1595,
+      "planned_total": 220,
+      "actual_total": 226,
+      "arrival_min": 1556,
+      "stage_delta": [
+        -4,
+        15,
+        -7,
+        2
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        -4,
+        11,
+        4,
+        6
+      ],
+      "recovered_after_peak": 5
+    },
+    {
+      "shipment": "L087",
+      "route": "R-海湾",
+      "hub": "H-青",
+      "tier": "priority",
+      "packages": 4,
+      "depart_min": 1290,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        29,
+        74,
+        36,
+        100
+      ],
+      "promise_min": 1535,
+      "planned_total": 220,
+      "actual_total": 239,
+      "arrival_min": 1529,
+      "stage_delta": [
+        4,
+        4,
+        1,
+        10
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        4,
+        8,
+        9,
+        19
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L088",
+      "route": "R-丘陵",
+      "hub": "H-白",
+      "tier": "standard",
+      "packages": 5,
+      "depart_min": 1310,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        31,
+        63,
+        31,
+        103
+      ],
+      "promise_min": 1575,
+      "planned_total": 220,
+      "actual_total": 228,
+      "arrival_min": 1538,
+      "stage_delta": [
+        6,
+        -7,
+        -4,
+        13
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        6,
+        -1,
+        -5,
+        8
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L089",
+      "route": "R-平原",
+      "hub": "H-松",
+      "tier": "priority",
+      "packages": 6,
+      "depart_min": 1330,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        28,
+        64,
+        36,
+        101
+      ],
+      "promise_min": 1575,
+      "planned_total": 220,
+      "actual_total": 229,
+      "arrival_min": 1559,
+      "stage_delta": [
+        3,
+        -6,
+        1,
+        11
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        3,
+        -3,
+        -2,
+        9
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L090",
+      "route": "R-海湾",
+      "hub": "H-青",
+      "tier": "standard",
+      "packages": 7,
+      "depart_min": 1380,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        27,
+        72,
+        33,
+        98
+      ],
+      "promise_min": 1645,
+      "planned_total": 220,
+      "actual_total": 230,
+      "arrival_min": 1610,
+      "stage_delta": [
+        2,
+        2,
+        -2,
+        8
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        2,
+        4,
+        2,
+        10
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L091",
+      "route": "R-丘陵",
+      "hub": "H-白",
+      "tier": "priority",
+      "packages": 1,
+      "depart_min": 1400,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        28,
+        86,
+        76,
+        89
+      ],
+      "promise_min": 1645,
+      "planned_total": 220,
+      "actual_total": 279,
+      "arrival_min": 1679,
+      "stage_delta": [
+        3,
+        16,
+        41,
+        -1
+      ],
+      "late": true,
+      "tardiness": 34,
+      "cumulative_delta": [
+        3,
+        19,
+        60,
+        59
+      ],
+      "recovered_after_peak": 1
+    },
+    {
+      "shipment": "L092",
+      "route": "R-平原",
+      "hub": "H-松",
+      "tier": "standard",
+      "packages": 2,
+      "depart_min": 1420,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        23,
+        79,
+        39,
+        85
+      ],
+      "promise_min": 1685,
+      "planned_total": 220,
+      "actual_total": 226,
+      "arrival_min": 1646,
+      "stage_delta": [
+        -2,
+        9,
+        4,
+        -5
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        -2,
+        7,
+        11,
+        6
+      ],
+      "recovered_after_peak": 5
+    },
+    {
+      "shipment": "L093",
+      "route": "R-海湾",
+      "hub": "H-青",
+      "tier": "priority",
+      "packages": 3,
+      "depart_min": 1380,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        21,
+        84,
+        31,
+        90
+      ],
+      "promise_min": 1625,
+      "planned_total": 220,
+      "actual_total": 226,
+      "arrival_min": 1606,
+      "stage_delta": [
+        -4,
+        14,
+        -4,
+        0
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        -4,
+        10,
+        6,
+        6
+      ],
+      "recovered_after_peak": 4
+    },
+    {
+      "shipment": "L094",
+      "route": "R-丘陵",
+      "hub": "H-白",
+      "tier": "standard",
+      "packages": 4,
+      "depart_min": 1400,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        21,
+        78,
+        78,
+        101
+      ],
+      "promise_min": 1665,
+      "planned_total": 220,
+      "actual_total": 278,
+      "arrival_min": 1678,
+      "stage_delta": [
+        -4,
+        8,
+        43,
+        11
+      ],
+      "late": true,
+      "tardiness": 13,
+      "cumulative_delta": [
+        -4,
+        4,
+        47,
+        58
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L095",
+      "route": "R-平原",
+      "hub": "H-松",
+      "tier": "priority",
+      "packages": 5,
+      "depart_min": 1420,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        26,
+        160,
+        40,
+        58
+      ],
+      "promise_min": 1665,
+      "planned_total": 220,
+      "actual_total": 284,
+      "arrival_min": 1704,
+      "stage_delta": [
+        1,
+        90,
+        5,
+        -32
+      ],
+      "late": true,
+      "tardiness": 39,
+      "cumulative_delta": [
+        1,
+        91,
+        96,
+        64
+      ],
+      "recovered_after_peak": 32
+    },
+    {
+      "shipment": "L096",
+      "route": "R-海湾",
+      "hub": "H-青",
+      "tier": "standard",
+      "packages": 6,
+      "depart_min": 1380,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        23,
+        68,
+        36,
+        82
+      ],
+      "promise_min": 1645,
+      "planned_total": 220,
+      "actual_total": 209,
+      "arrival_min": 1589,
+      "stage_delta": [
+        -2,
+        -2,
+        1,
+        -8
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        -2,
+        -4,
+        -3,
+        -11
+      ],
+      "recovered_after_peak": 9
+    },
+    {
+      "shipment": "L097",
+      "route": "R-丘陵",
+      "hub": "H-白",
+      "tier": "priority",
+      "packages": 7,
+      "depart_min": 1400,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        27,
+        71,
+        79,
+        91
+      ],
+      "promise_min": 1645,
+      "planned_total": 220,
+      "actual_total": 268,
+      "arrival_min": 1668,
+      "stage_delta": [
+        2,
+        1,
+        44,
+        1
+      ],
+      "late": true,
+      "tardiness": 23,
+      "cumulative_delta": [
+        2,
+        3,
+        47,
+        48
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L098",
+      "route": "R-平原",
+      "hub": "H-松",
+      "tier": "standard",
+      "packages": 1,
+      "depart_min": 1420,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        28,
+        74,
+        35,
+        88
+      ],
+      "promise_min": 1685,
+      "planned_total": 220,
+      "actual_total": 225,
+      "arrival_min": 1645,
+      "stage_delta": [
+        3,
+        4,
+        0,
+        -2
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        3,
+        7,
+        7,
+        5
+      ],
+      "recovered_after_peak": 2
+    },
+    {
+      "shipment": "L099",
+      "route": "R-海湾",
+      "hub": "H-青",
+      "tier": "priority",
+      "packages": 2,
+      "depart_min": 1470,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        29,
+        70,
+        27,
+        96
+      ],
+      "promise_min": 1715,
+      "planned_total": 220,
+      "actual_total": 222,
+      "arrival_min": 1692,
+      "stage_delta": [
+        4,
+        0,
+        -8,
+        6
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        4,
+        4,
+        -4,
+        2
+      ],
+      "recovered_after_peak": 2
+    },
+    {
+      "shipment": "L100",
+      "route": "R-丘陵",
+      "hub": "H-白",
+      "tier": "standard",
+      "packages": 3,
+      "depart_min": 1490,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        21,
+        71,
+        34,
+        96
+      ],
+      "promise_min": 1755,
+      "planned_total": 220,
+      "actual_total": 222,
+      "arrival_min": 1712,
+      "stage_delta": [
+        -4,
+        1,
+        -1,
+        6
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        -4,
+        -3,
+        -4,
+        2
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L101",
+      "route": "R-平原",
+      "hub": "H-松",
+      "tier": "priority",
+      "packages": 4,
+      "depart_min": 1510,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        20,
+        61,
+        34,
+        98
+      ],
+      "promise_min": 1755,
+      "planned_total": 220,
+      "actual_total": 213,
+      "arrival_min": 1723,
+      "stage_delta": [
+        -5,
+        -9,
+        -1,
+        8
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        -5,
+        -14,
+        -15,
+        -7
+      ],
+      "recovered_after_peak": 2
+    },
+    {
+      "shipment": "L102",
+      "route": "R-海湾",
+      "hub": "H-青",
+      "tier": "standard",
+      "packages": 5,
+      "depart_min": 1470,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        28,
+        72,
+        44,
+        97
+      ],
+      "promise_min": 1735,
+      "planned_total": 220,
+      "actual_total": 241,
+      "arrival_min": 1711,
+      "stage_delta": [
+        3,
+        2,
+        9,
+        7
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        3,
+        5,
+        14,
+        21
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L103",
+      "route": "R-丘陵",
+      "hub": "H-白",
+      "tier": "priority",
+      "packages": 6,
+      "depart_min": 1490,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        25,
+        68,
+        78,
+        100
+      ],
+      "promise_min": 1735,
+      "planned_total": 220,
+      "actual_total": 271,
+      "arrival_min": 1761,
+      "stage_delta": [
+        0,
+        -2,
+        43,
+        10
+      ],
+      "late": true,
+      "tardiness": 26,
+      "cumulative_delta": [
+        0,
+        -2,
+        41,
+        51
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L104",
+      "route": "R-平原",
+      "hub": "H-松",
+      "tier": "standard",
+      "packages": 7,
+      "depart_min": 1510,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        24,
+        77,
+        40,
+        91
+      ],
+      "promise_min": 1775,
+      "planned_total": 220,
+      "actual_total": 232,
+      "arrival_min": 1742,
+      "stage_delta": [
+        -1,
+        7,
+        5,
+        1
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        -1,
+        6,
+        11,
+        12
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L105",
+      "route": "R-海湾",
+      "hub": "H-青",
+      "tier": "priority",
+      "packages": 1,
+      "depart_min": 1470,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        28,
+        63,
+        31,
+        97
+      ],
+      "promise_min": 1715,
+      "planned_total": 220,
+      "actual_total": 219,
+      "arrival_min": 1689,
+      "stage_delta": [
+        3,
+        -7,
+        -4,
+        7
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        3,
+        -4,
+        -8,
+        -1
+      ],
+      "recovered_after_peak": 4
+    },
+    {
+      "shipment": "L106",
+      "route": "R-丘陵",
+      "hub": "H-白",
+      "tier": "standard",
+      "packages": 2,
+      "depart_min": 1490,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        30,
+        79,
+        75,
+        92
+      ],
+      "promise_min": 1755,
+      "planned_total": 220,
+      "actual_total": 276,
+      "arrival_min": 1766,
+      "stage_delta": [
+        5,
+        9,
+        40,
+        2
+      ],
+      "late": true,
+      "tardiness": 11,
+      "cumulative_delta": [
+        5,
+        14,
+        54,
+        56
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L107",
+      "route": "R-平原",
+      "hub": "H-松",
+      "tier": "priority",
+      "packages": 3,
+      "depart_min": 1510,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        32,
+        84,
+        42,
+        96
+      ],
+      "promise_min": 1755,
+      "planned_total": 220,
+      "actual_total": 254,
+      "arrival_min": 1764,
+      "stage_delta": [
+        7,
+        14,
+        7,
+        6
+      ],
+      "late": true,
+      "tardiness": 9,
+      "cumulative_delta": [
+        7,
+        21,
+        28,
+        34
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L108",
+      "route": "R-海湾",
+      "hub": "H-青",
+      "tier": "standard",
+      "packages": 4,
+      "depart_min": 1560,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        25,
+        58,
+        43,
+        98
+      ],
+      "promise_min": 1825,
+      "planned_total": 220,
+      "actual_total": 224,
+      "arrival_min": 1784,
+      "stage_delta": [
+        0,
+        -12,
+        8,
+        8
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        0,
+        -12,
+        -4,
+        4
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L109",
+      "route": "R-丘陵",
+      "hub": "H-白",
+      "tier": "priority",
+      "packages": 5,
+      "depart_min": 1580,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        31,
+        66,
+        90,
+        99
+      ],
+      "promise_min": 1825,
+      "planned_total": 220,
+      "actual_total": 286,
+      "arrival_min": 1866,
+      "stage_delta": [
+        6,
+        -4,
+        55,
+        9
+      ],
+      "late": true,
+      "tardiness": 41,
+      "cumulative_delta": [
+        6,
+        2,
+        57,
+        66
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L110",
+      "route": "R-平原",
+      "hub": "H-松",
+      "tier": "standard",
+      "packages": 6,
+      "depart_min": 1600,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        20,
+        139,
+        42,
+        76
+      ],
+      "promise_min": 1865,
+      "planned_total": 220,
+      "actual_total": 277,
+      "arrival_min": 1877,
+      "stage_delta": [
+        -5,
+        69,
+        7,
+        -14
+      ],
+      "late": true,
+      "tardiness": 12,
+      "cumulative_delta": [
+        -5,
+        64,
+        71,
+        57
+      ],
+      "recovered_after_peak": 14
+    },
+    {
+      "shipment": "L111",
+      "route": "R-海湾",
+      "hub": "H-青",
+      "tier": "priority",
+      "packages": 7,
+      "depart_min": 1560,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        31,
+        68,
+        40,
+        85
+      ],
+      "promise_min": 1805,
+      "planned_total": 220,
+      "actual_total": 224,
+      "arrival_min": 1784,
+      "stage_delta": [
+        6,
+        -2,
+        5,
+        -5
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        6,
+        4,
+        9,
+        4
+      ],
+      "recovered_after_peak": 5
+    },
+    {
+      "shipment": "L112",
+      "route": "R-丘陵",
+      "hub": "H-白",
+      "tier": "standard",
+      "packages": 1,
+      "depart_min": 1580,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        33,
+        76,
+        38,
+        89
+      ],
+      "promise_min": 1845,
+      "planned_total": 220,
+      "actual_total": 236,
+      "arrival_min": 1816,
+      "stage_delta": [
+        8,
+        6,
+        3,
+        -1
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        8,
+        14,
+        17,
+        16
+      ],
+      "recovered_after_peak": 1
+    },
+    {
+      "shipment": "L113",
+      "route": "R-平原",
+      "hub": "H-松",
+      "tier": "priority",
+      "packages": 2,
+      "depart_min": 1600,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        27,
+        83,
+        33,
+        81
+      ],
+      "promise_min": 1845,
+      "planned_total": 220,
+      "actual_total": 224,
+      "arrival_min": 1824,
+      "stage_delta": [
+        2,
+        13,
+        -2,
+        -9
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        2,
+        15,
+        13,
+        4
+      ],
+      "recovered_after_peak": 11
+    },
+    {
+      "shipment": "L114",
+      "route": "R-海湾",
+      "hub": "H-青",
+      "tier": "standard",
+      "packages": 3,
+      "depart_min": 1560,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        28,
+        65,
+        35,
+        96
+      ],
+      "promise_min": 1825,
+      "planned_total": 220,
+      "actual_total": 224,
+      "arrival_min": 1784,
+      "stage_delta": [
+        3,
+        -5,
+        0,
+        6
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        3,
+        -2,
+        -2,
+        4
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L115",
+      "route": "R-丘陵",
+      "hub": "H-白",
+      "tier": "priority",
+      "packages": 4,
+      "depart_min": 1580,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        25,
+        58,
+        91,
+        89
+      ],
+      "promise_min": 1825,
+      "planned_total": 220,
+      "actual_total": 263,
+      "arrival_min": 1843,
+      "stage_delta": [
+        0,
+        -12,
+        56,
+        -1
+      ],
+      "late": true,
+      "tardiness": 18,
+      "cumulative_delta": [
+        0,
+        -12,
+        44,
+        43
+      ],
+      "recovered_after_peak": 1
+    },
+    {
+      "shipment": "L116",
+      "route": "R-平原",
+      "hub": "H-松",
+      "tier": "standard",
+      "packages": 5,
+      "depart_min": 1600,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        31,
+        78,
+        40,
+        103
+      ],
+      "promise_min": 1865,
+      "planned_total": 220,
+      "actual_total": 252,
+      "arrival_min": 1852,
+      "stage_delta": [
+        6,
+        8,
+        5,
+        13
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        6,
+        14,
+        19,
+        32
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L117",
+      "route": "R-海湾",
+      "hub": "H-青",
+      "tier": "priority",
+      "packages": 6,
+      "depart_min": 1650,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        21,
+        62,
+        28,
+        101
+      ],
+      "promise_min": 1895,
+      "planned_total": 220,
+      "actual_total": 212,
+      "arrival_min": 1862,
+      "stage_delta": [
+        -4,
+        -8,
+        -7,
+        11
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        -4,
+        -12,
+        -19,
+        -8
+      ],
+      "recovered_after_peak": 4
+    },
+    {
+      "shipment": "L118",
+      "route": "R-丘陵",
+      "hub": "H-白",
+      "tier": "standard",
+      "packages": 7,
+      "depart_min": 1670,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        23,
+        71,
+        87,
+        85
+      ],
+      "promise_min": 1935,
+      "planned_total": 220,
+      "actual_total": 266,
+      "arrival_min": 1936,
+      "stage_delta": [
+        -2,
+        1,
+        52,
+        -5
+      ],
+      "late": true,
+      "tardiness": 1,
+      "cumulative_delta": [
+        -2,
+        -1,
+        51,
+        46
+      ],
+      "recovered_after_peak": 5
+    },
+    {
+      "shipment": "L119",
+      "route": "R-平原",
+      "hub": "H-松",
+      "tier": "priority",
+      "packages": 1,
+      "depart_min": 1690,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        31,
+        76,
+        38,
+        95
+      ],
+      "promise_min": 1935,
+      "planned_total": 220,
+      "actual_total": 240,
+      "arrival_min": 1930,
+      "stage_delta": [
+        6,
+        6,
+        3,
+        5
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        6,
+        12,
+        15,
+        20
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L120",
+      "route": "R-海湾",
+      "hub": "H-青",
+      "tier": "standard",
+      "packages": 2,
+      "depart_min": 1650,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        29,
+        62,
+        37,
+        93
+      ],
+      "promise_min": 1915,
+      "planned_total": 220,
+      "actual_total": 221,
+      "arrival_min": 1871,
+      "stage_delta": [
+        4,
+        -8,
+        2,
+        3
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        4,
+        -4,
+        -2,
+        1
+      ],
+      "recovered_after_peak": 3
+    },
+    {
+      "shipment": "L121",
+      "route": "R-丘陵",
+      "hub": "H-白",
+      "tier": "priority",
+      "packages": 3,
+      "depart_min": 1670,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        21,
+        66,
+        83,
+        81
+      ],
+      "promise_min": 1915,
+      "planned_total": 220,
+      "actual_total": 251,
+      "arrival_min": 1921,
+      "stage_delta": [
+        -4,
+        -4,
+        48,
+        -9
+      ],
+      "late": true,
+      "tardiness": 6,
+      "cumulative_delta": [
+        -4,
+        -8,
+        40,
+        31
+      ],
+      "recovered_after_peak": 9
+    },
+    {
+      "shipment": "L122",
+      "route": "R-平原",
+      "hub": "H-松",
+      "tier": "standard",
+      "packages": 4,
+      "depart_min": 1690,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        21,
+        80,
+        35,
+        99
+      ],
+      "promise_min": 1955,
+      "planned_total": 220,
+      "actual_total": 235,
+      "arrival_min": 1925,
+      "stage_delta": [
+        -4,
+        10,
+        0,
+        9
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        -4,
+        6,
+        6,
+        15
+      ],
+      "recovered_after_peak": 0
+    },
+    {
+      "shipment": "L123",
+      "route": "R-海湾",
+      "hub": "H-青",
+      "tier": "priority",
+      "packages": 5,
+      "depart_min": 1650,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        26,
+        74,
+        28,
+        82
+      ],
+      "promise_min": 1895,
+      "planned_total": 220,
+      "actual_total": 210,
+      "arrival_min": 1860,
+      "stage_delta": [
+        1,
+        4,
+        -7,
+        -8
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        1,
+        5,
+        -2,
+        -10
+      ],
+      "recovered_after_peak": 15
+    },
+    {
+      "shipment": "L124",
+      "route": "R-丘陵",
+      "hub": "H-白",
+      "tier": "standard",
+      "packages": 6,
+      "depart_min": 1670,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        20,
+        80,
+        33,
+        89
+      ],
+      "promise_min": 1935,
+      "planned_total": 220,
+      "actual_total": 222,
+      "arrival_min": 1892,
+      "stage_delta": [
+        -5,
+        10,
+        -2,
+        -1
+      ],
+      "late": false,
+      "tardiness": 0,
+      "cumulative_delta": [
+        -5,
+        5,
+        3,
+        2
+      ],
+      "recovered_after_peak": 3
+    },
+    {
+      "shipment": "L125",
+      "route": "R-平原",
+      "hub": "H-松",
+      "tier": "priority",
+      "packages": 7,
+      "depart_min": 1690,
+      "planned_duration_min": [
+        25,
+        70,
+        35,
+        90
+      ],
+      "actual_duration_min": [
+        20,
+        159,
+        32,
+        56
+      ],
+      "promise_min": 1935,
+      "planned_total": 220,
+      "actual_total": 267,
+      "arrival_min": 1957,
+      "stage_delta": [
+        -5,
+        89,
+        -3,
+        -34
+      ],
+      "late": true,
+      "tardiness": 22,
+      "cumulative_delta": [
+        -5,
+        84,
+        81,
+        47
+      ],
+      "recovered_after_peak": 37
+    }
+  ],
+  "summary": {
+    "tickets": {
+      "denominator": 126,
+      "late": 40,
+      "late_rate": 0.31746031746031744,
+      "tardiness": 932,
+      "stage_net": [
+        95,
+        917,
+        1610,
+        94
+      ]
+    },
+    "packages": {
+      "denominator": 504,
+      "late": 168,
+      "late_rate": 0.3333333333333333,
+      "tardiness": 3882,
+      "stage_net": [
+        135,
+        4190,
+        6444,
+        297
+      ]
+    }
+  },
+  "hubs": {
+    "H-松": {
+      "tickets": {
+        "denominator": 42,
+        "late": 11,
+        "late_rate": 0.2619047619047619,
+        "tardiness": 257,
+        "stage_net": [
+          30,
+          842,
+          49,
+          -114
+        ]
+      },
+      "packages": {
+        "denominator": 168,
+        "late": 48,
+        "late_rate": 0.2857142857142857,
+        "tardiness": 1192,
+        "stage_net": [
+          113,
+          3832,
+          113,
+          -579
+        ]
+      }
+    },
+    "H-白": {
+      "tickets": {
+        "denominator": 42,
+        "late": 29,
+        "late_rate": 0.6904761904761905,
+        "tardiness": 675,
+        "stage_net": [
+          3,
+          25,
+          1501,
+          107
+        ]
+      },
+      "packages": {
+        "denominator": 168,
+        "late": 120,
+        "late_rate": 0.7142857142857143,
+        "tardiness": 2690,
+        "stage_net": [
+          -99,
+          178,
+          6071,
+          412
+        ]
+      }
+    },
+    "H-青": {
+      "tickets": {
+        "denominator": 42,
+        "late": 0,
+        "late_rate": 0.0,
+        "tardiness": 0,
+        "stage_net": [
+          62,
+          50,
+          60,
+          101
+        ]
+      },
+      "packages": {
+        "denominator": 168,
+        "late": 0,
+        "late_rate": 0.0,
+        "tardiness": 0,
+        "stage_net": [
+          121,
+          180,
+          260,
+          464
+        ]
+      }
+    }
+  },
+  "departure_range": {
+    "field": "depart_min",
+    "inclusive": true,
+    "minimum": 480,
+    "maximum": 1690,
+    "split": 1085,
+    "comparison": "same non-time filters; current range versus early and late halves; descriptive, not intervention effect"
+  }
+}

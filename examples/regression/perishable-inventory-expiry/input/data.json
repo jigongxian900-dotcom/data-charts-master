@@ -1,0 +1,1054 @@
+{
+  "synthetic": true,
+  "dataset_id": "B03",
+  "as_of": "2026-06-01",
+  "lots": [
+    {
+      "lot_id": "W-西-S-甲-0",
+      "site": "W-西",
+      "sku": "S-甲",
+      "qty": 38,
+      "available_day": 0,
+      "expiry_day": 2,
+      "unit_cost_cents": 190
+    },
+    {
+      "lot_id": "W-西-S-甲-1",
+      "site": "W-西",
+      "sku": "S-甲",
+      "qty": 52,
+      "available_day": 0,
+      "expiry_day": 5,
+      "unit_cost_cents": 190
+    },
+    {
+      "lot_id": "W-西-S-甲-2",
+      "site": "W-西",
+      "sku": "S-甲",
+      "qty": 35,
+      "available_day": 0,
+      "expiry_day": 9,
+      "unit_cost_cents": 190
+    },
+    {
+      "lot_id": "W-西-S-甲-3",
+      "site": "W-西",
+      "sku": "S-甲",
+      "qty": 26,
+      "available_day": 3,
+      "expiry_day": 12,
+      "unit_cost_cents": 190
+    },
+    {
+      "lot_id": "W-西-S-乙-0",
+      "site": "W-西",
+      "sku": "S-乙",
+      "qty": 53,
+      "available_day": 0,
+      "expiry_day": 2,
+      "unit_cost_cents": 260
+    },
+    {
+      "lot_id": "W-西-S-乙-1",
+      "site": "W-西",
+      "sku": "S-乙",
+      "qty": 92,
+      "available_day": 0,
+      "expiry_day": 5,
+      "unit_cost_cents": 260
+    },
+    {
+      "lot_id": "W-西-S-乙-2",
+      "site": "W-西",
+      "sku": "S-乙",
+      "qty": 39,
+      "available_day": 0,
+      "expiry_day": 9,
+      "unit_cost_cents": 260
+    },
+    {
+      "lot_id": "W-西-S-乙-3",
+      "site": "W-西",
+      "sku": "S-乙",
+      "qty": 94,
+      "available_day": 3,
+      "expiry_day": 12,
+      "unit_cost_cents": 260
+    },
+    {
+      "lot_id": "W-西-S-丙-0",
+      "site": "W-西",
+      "sku": "S-丙",
+      "qty": 45,
+      "available_day": 0,
+      "expiry_day": 2,
+      "unit_cost_cents": 340
+    },
+    {
+      "lot_id": "W-西-S-丙-1",
+      "site": "W-西",
+      "sku": "S-丙",
+      "qty": 68,
+      "available_day": 0,
+      "expiry_day": 5,
+      "unit_cost_cents": 340
+    },
+    {
+      "lot_id": "W-西-S-丙-2",
+      "site": "W-西",
+      "sku": "S-丙",
+      "qty": 60,
+      "available_day": 0,
+      "expiry_day": 9,
+      "unit_cost_cents": 340
+    },
+    {
+      "lot_id": "W-西-S-丙-3",
+      "site": "W-西",
+      "sku": "S-丙",
+      "qty": 26,
+      "available_day": 3,
+      "expiry_day": 12,
+      "unit_cost_cents": 340
+    },
+    {
+      "lot_id": "W-北-S-甲-0",
+      "site": "W-北",
+      "sku": "S-甲",
+      "qty": 79,
+      "available_day": 0,
+      "expiry_day": 2,
+      "unit_cost_cents": 190
+    },
+    {
+      "lot_id": "W-北-S-甲-1",
+      "site": "W-北",
+      "sku": "S-甲",
+      "qty": 60,
+      "available_day": 0,
+      "expiry_day": 5,
+      "unit_cost_cents": 190
+    },
+    {
+      "lot_id": "W-北-S-甲-2",
+      "site": "W-北",
+      "sku": "S-甲",
+      "qty": 25,
+      "available_day": 0,
+      "expiry_day": 9,
+      "unit_cost_cents": 190
+    },
+    {
+      "lot_id": "W-北-S-甲-3",
+      "site": "W-北",
+      "sku": "S-甲",
+      "qty": 44,
+      "available_day": 3,
+      "expiry_day": 12,
+      "unit_cost_cents": 190
+    },
+    {
+      "lot_id": "W-北-S-乙-0",
+      "site": "W-北",
+      "sku": "S-乙",
+      "qty": 57,
+      "available_day": 0,
+      "expiry_day": 2,
+      "unit_cost_cents": 260
+    },
+    {
+      "lot_id": "W-北-S-乙-1",
+      "site": "W-北",
+      "sku": "S-乙",
+      "qty": 61,
+      "available_day": 0,
+      "expiry_day": 5,
+      "unit_cost_cents": 260
+    },
+    {
+      "lot_id": "W-北-S-乙-2",
+      "site": "W-北",
+      "sku": "S-乙",
+      "qty": 79,
+      "available_day": 0,
+      "expiry_day": 9,
+      "unit_cost_cents": 260
+    },
+    {
+      "lot_id": "W-北-S-乙-3",
+      "site": "W-北",
+      "sku": "S-乙",
+      "qty": 76,
+      "available_day": 3,
+      "expiry_day": 12,
+      "unit_cost_cents": 260
+    },
+    {
+      "lot_id": "W-北-S-丙-0",
+      "site": "W-北",
+      "sku": "S-丙",
+      "qty": 94,
+      "available_day": 0,
+      "expiry_day": 2,
+      "unit_cost_cents": 340
+    },
+    {
+      "lot_id": "W-北-S-丙-1",
+      "site": "W-北",
+      "sku": "S-丙",
+      "qty": 35,
+      "available_day": 0,
+      "expiry_day": 5,
+      "unit_cost_cents": 340
+    },
+    {
+      "lot_id": "W-北-S-丙-2",
+      "site": "W-北",
+      "sku": "S-丙",
+      "qty": 19,
+      "available_day": 0,
+      "expiry_day": 9,
+      "unit_cost_cents": 340
+    },
+    {
+      "lot_id": "W-北-S-丙-3",
+      "site": "W-北",
+      "sku": "S-丙",
+      "qty": 54,
+      "available_day": 3,
+      "expiry_day": 12,
+      "unit_cost_cents": 340
+    },
+    {
+      "lot_id": "W-东-S-甲-0",
+      "site": "W-东",
+      "sku": "S-甲",
+      "qty": 24,
+      "available_day": 0,
+      "expiry_day": 2,
+      "unit_cost_cents": 190
+    },
+    {
+      "lot_id": "W-东-S-甲-1",
+      "site": "W-东",
+      "sku": "S-甲",
+      "qty": 30,
+      "available_day": 0,
+      "expiry_day": 5,
+      "unit_cost_cents": 190
+    },
+    {
+      "lot_id": "W-东-S-甲-2",
+      "site": "W-东",
+      "sku": "S-甲",
+      "qty": 95,
+      "available_day": 0,
+      "expiry_day": 9,
+      "unit_cost_cents": 190
+    },
+    {
+      "lot_id": "W-东-S-甲-3",
+      "site": "W-东",
+      "sku": "S-甲",
+      "qty": 39,
+      "available_day": 3,
+      "expiry_day": 12,
+      "unit_cost_cents": 190
+    },
+    {
+      "lot_id": "W-东-S-乙-0",
+      "site": "W-东",
+      "sku": "S-乙",
+      "qty": 33,
+      "available_day": 0,
+      "expiry_day": 2,
+      "unit_cost_cents": 260
+    },
+    {
+      "lot_id": "W-东-S-乙-1",
+      "site": "W-东",
+      "sku": "S-乙",
+      "qty": 48,
+      "available_day": 0,
+      "expiry_day": 5,
+      "unit_cost_cents": 260
+    },
+    {
+      "lot_id": "W-东-S-乙-2",
+      "site": "W-东",
+      "sku": "S-乙",
+      "qty": 68,
+      "available_day": 0,
+      "expiry_day": 9,
+      "unit_cost_cents": 260
+    },
+    {
+      "lot_id": "W-东-S-乙-3",
+      "site": "W-东",
+      "sku": "S-乙",
+      "qty": 73,
+      "available_day": 3,
+      "expiry_day": 12,
+      "unit_cost_cents": 260
+    },
+    {
+      "lot_id": "W-东-S-丙-0",
+      "site": "W-东",
+      "sku": "S-丙",
+      "qty": 37,
+      "available_day": 0,
+      "expiry_day": 2,
+      "unit_cost_cents": 340
+    },
+    {
+      "lot_id": "W-东-S-丙-1",
+      "site": "W-东",
+      "sku": "S-丙",
+      "qty": 29,
+      "available_day": 0,
+      "expiry_day": 5,
+      "unit_cost_cents": 340
+    },
+    {
+      "lot_id": "W-东-S-丙-2",
+      "site": "W-东",
+      "sku": "S-丙",
+      "qty": 23,
+      "available_day": 0,
+      "expiry_day": 9,
+      "unit_cost_cents": 340
+    },
+    {
+      "lot_id": "W-东-S-丙-3",
+      "site": "W-东",
+      "sku": "S-丙",
+      "qty": 36,
+      "available_day": 3,
+      "expiry_day": 12,
+      "unit_cost_cents": 340
+    }
+  ],
+  "daily_demand": [
+    {
+      "site": "W-西",
+      "sku": "S-甲",
+      "day": 1,
+      "low": 5,
+      "base": 10,
+      "high": 17
+    },
+    {
+      "site": "W-西",
+      "sku": "S-甲",
+      "day": 2,
+      "low": 11,
+      "base": 16,
+      "high": 23
+    },
+    {
+      "site": "W-西",
+      "sku": "S-甲",
+      "day": 3,
+      "low": 10,
+      "base": 15,
+      "high": 22
+    },
+    {
+      "site": "W-西",
+      "sku": "S-甲",
+      "day": 4,
+      "low": 5,
+      "base": 10,
+      "high": 17
+    },
+    {
+      "site": "W-西",
+      "sku": "S-甲",
+      "day": 5,
+      "low": 1,
+      "base": 6,
+      "high": 13
+    },
+    {
+      "site": "W-西",
+      "sku": "S-甲",
+      "day": 6,
+      "low": 18,
+      "base": 23,
+      "high": 30
+    },
+    {
+      "site": "W-西",
+      "sku": "S-甲",
+      "day": 7,
+      "low": 11,
+      "base": 16,
+      "high": 23
+    },
+    {
+      "site": "W-西",
+      "sku": "S-甲",
+      "day": 8,
+      "low": 16,
+      "base": 21,
+      "high": 28
+    },
+    {
+      "site": "W-西",
+      "sku": "S-甲",
+      "day": 9,
+      "low": 7,
+      "base": 12,
+      "high": 19
+    },
+    {
+      "site": "W-西",
+      "sku": "S-甲",
+      "day": 10,
+      "low": 7,
+      "base": 12,
+      "high": 19
+    },
+    {
+      "site": "W-西",
+      "sku": "S-乙",
+      "day": 1,
+      "low": 2,
+      "base": 7,
+      "high": 14
+    },
+    {
+      "site": "W-西",
+      "sku": "S-乙",
+      "day": 2,
+      "low": 12,
+      "base": 17,
+      "high": 24
+    },
+    {
+      "site": "W-西",
+      "sku": "S-乙",
+      "day": 3,
+      "low": 18,
+      "base": 23,
+      "high": 30
+    },
+    {
+      "site": "W-西",
+      "sku": "S-乙",
+      "day": 4,
+      "low": 14,
+      "base": 19,
+      "high": 26
+    },
+    {
+      "site": "W-西",
+      "sku": "S-乙",
+      "day": 5,
+      "low": 19,
+      "base": 24,
+      "high": 31
+    },
+    {
+      "site": "W-西",
+      "sku": "S-乙",
+      "day": 6,
+      "low": 15,
+      "base": 20,
+      "high": 27
+    },
+    {
+      "site": "W-西",
+      "sku": "S-乙",
+      "day": 7,
+      "low": 9,
+      "base": 14,
+      "high": 21
+    },
+    {
+      "site": "W-西",
+      "sku": "S-乙",
+      "day": 8,
+      "low": 8,
+      "base": 13,
+      "high": 20
+    },
+    {
+      "site": "W-西",
+      "sku": "S-乙",
+      "day": 9,
+      "low": 10,
+      "base": 15,
+      "high": 22
+    },
+    {
+      "site": "W-西",
+      "sku": "S-乙",
+      "day": 10,
+      "low": 17,
+      "base": 22,
+      "high": 29
+    },
+    {
+      "site": "W-西",
+      "sku": "S-丙",
+      "day": 1,
+      "low": 2,
+      "base": 7,
+      "high": 14
+    },
+    {
+      "site": "W-西",
+      "sku": "S-丙",
+      "day": 2,
+      "low": 7,
+      "base": 12,
+      "high": 19
+    },
+    {
+      "site": "W-西",
+      "sku": "S-丙",
+      "day": 3,
+      "low": 8,
+      "base": 13,
+      "high": 20
+    },
+    {
+      "site": "W-西",
+      "sku": "S-丙",
+      "day": 4,
+      "low": 10,
+      "base": 15,
+      "high": 22
+    },
+    {
+      "site": "W-西",
+      "sku": "S-丙",
+      "day": 5,
+      "low": 13,
+      "base": 18,
+      "high": 25
+    },
+    {
+      "site": "W-西",
+      "sku": "S-丙",
+      "day": 6,
+      "low": 14,
+      "base": 19,
+      "high": 26
+    },
+    {
+      "site": "W-西",
+      "sku": "S-丙",
+      "day": 7,
+      "low": 3,
+      "base": 8,
+      "high": 15
+    },
+    {
+      "site": "W-西",
+      "sku": "S-丙",
+      "day": 8,
+      "low": 17,
+      "base": 22,
+      "high": 29
+    },
+    {
+      "site": "W-西",
+      "sku": "S-丙",
+      "day": 9,
+      "low": 12,
+      "base": 17,
+      "high": 24
+    },
+    {
+      "site": "W-西",
+      "sku": "S-丙",
+      "day": 10,
+      "low": 12,
+      "base": 17,
+      "high": 24
+    },
+    {
+      "site": "W-北",
+      "sku": "S-甲",
+      "day": 1,
+      "low": 1,
+      "base": 6,
+      "high": 13
+    },
+    {
+      "site": "W-北",
+      "sku": "S-甲",
+      "day": 2,
+      "low": 4,
+      "base": 9,
+      "high": 16
+    },
+    {
+      "site": "W-北",
+      "sku": "S-甲",
+      "day": 3,
+      "low": 16,
+      "base": 21,
+      "high": 28
+    },
+    {
+      "site": "W-北",
+      "sku": "S-甲",
+      "day": 4,
+      "low": 3,
+      "base": 8,
+      "high": 15
+    },
+    {
+      "site": "W-北",
+      "sku": "S-甲",
+      "day": 5,
+      "low": 11,
+      "base": 16,
+      "high": 23
+    },
+    {
+      "site": "W-北",
+      "sku": "S-甲",
+      "day": 6,
+      "low": 17,
+      "base": 22,
+      "high": 29
+    },
+    {
+      "site": "W-北",
+      "sku": "S-甲",
+      "day": 7,
+      "low": 3,
+      "base": 8,
+      "high": 15
+    },
+    {
+      "site": "W-北",
+      "sku": "S-甲",
+      "day": 8,
+      "low": 18,
+      "base": 23,
+      "high": 30
+    },
+    {
+      "site": "W-北",
+      "sku": "S-甲",
+      "day": 9,
+      "low": 6,
+      "base": 11,
+      "high": 18
+    },
+    {
+      "site": "W-北",
+      "sku": "S-甲",
+      "day": 10,
+      "low": 10,
+      "base": 15,
+      "high": 22
+    },
+    {
+      "site": "W-北",
+      "sku": "S-乙",
+      "day": 1,
+      "low": 14,
+      "base": 19,
+      "high": 26
+    },
+    {
+      "site": "W-北",
+      "sku": "S-乙",
+      "day": 2,
+      "low": 5,
+      "base": 10,
+      "high": 17
+    },
+    {
+      "site": "W-北",
+      "sku": "S-乙",
+      "day": 3,
+      "low": 13,
+      "base": 18,
+      "high": 25
+    },
+    {
+      "site": "W-北",
+      "sku": "S-乙",
+      "day": 4,
+      "low": 8,
+      "base": 13,
+      "high": 20
+    },
+    {
+      "site": "W-北",
+      "sku": "S-乙",
+      "day": 5,
+      "low": 16,
+      "base": 21,
+      "high": 28
+    },
+    {
+      "site": "W-北",
+      "sku": "S-乙",
+      "day": 6,
+      "low": 13,
+      "base": 18,
+      "high": 25
+    },
+    {
+      "site": "W-北",
+      "sku": "S-乙",
+      "day": 7,
+      "low": 10,
+      "base": 15,
+      "high": 22
+    },
+    {
+      "site": "W-北",
+      "sku": "S-乙",
+      "day": 8,
+      "low": 8,
+      "base": 13,
+      "high": 20
+    },
+    {
+      "site": "W-北",
+      "sku": "S-乙",
+      "day": 9,
+      "low": 11,
+      "base": 16,
+      "high": 23
+    },
+    {
+      "site": "W-北",
+      "sku": "S-乙",
+      "day": 10,
+      "low": 16,
+      "base": 21,
+      "high": 28
+    },
+    {
+      "site": "W-北",
+      "sku": "S-丙",
+      "day": 1,
+      "low": 6,
+      "base": 11,
+      "high": 18
+    },
+    {
+      "site": "W-北",
+      "sku": "S-丙",
+      "day": 2,
+      "low": 4,
+      "base": 9,
+      "high": 16
+    },
+    {
+      "site": "W-北",
+      "sku": "S-丙",
+      "day": 3,
+      "low": 16,
+      "base": 21,
+      "high": 28
+    },
+    {
+      "site": "W-北",
+      "sku": "S-丙",
+      "day": 4,
+      "low": 12,
+      "base": 17,
+      "high": 24
+    },
+    {
+      "site": "W-北",
+      "sku": "S-丙",
+      "day": 5,
+      "low": 16,
+      "base": 21,
+      "high": 28
+    },
+    {
+      "site": "W-北",
+      "sku": "S-丙",
+      "day": 6,
+      "low": 18,
+      "base": 23,
+      "high": 30
+    },
+    {
+      "site": "W-北",
+      "sku": "S-丙",
+      "day": 7,
+      "low": 4,
+      "base": 9,
+      "high": 16
+    },
+    {
+      "site": "W-北",
+      "sku": "S-丙",
+      "day": 8,
+      "low": 5,
+      "base": 10,
+      "high": 17
+    },
+    {
+      "site": "W-北",
+      "sku": "S-丙",
+      "day": 9,
+      "low": 7,
+      "base": 12,
+      "high": 19
+    },
+    {
+      "site": "W-北",
+      "sku": "S-丙",
+      "day": 10,
+      "low": 13,
+      "base": 18,
+      "high": 25
+    },
+    {
+      "site": "W-东",
+      "sku": "S-甲",
+      "day": 1,
+      "low": 17,
+      "base": 22,
+      "high": 29
+    },
+    {
+      "site": "W-东",
+      "sku": "S-甲",
+      "day": 2,
+      "low": 17,
+      "base": 22,
+      "high": 29
+    },
+    {
+      "site": "W-东",
+      "sku": "S-甲",
+      "day": 3,
+      "low": 3,
+      "base": 8,
+      "high": 15
+    },
+    {
+      "site": "W-东",
+      "sku": "S-甲",
+      "day": 4,
+      "low": 1,
+      "base": 6,
+      "high": 13
+    },
+    {
+      "site": "W-东",
+      "sku": "S-甲",
+      "day": 5,
+      "low": 17,
+      "base": 22,
+      "high": 29
+    },
+    {
+      "site": "W-东",
+      "sku": "S-甲",
+      "day": 6,
+      "low": 7,
+      "base": 12,
+      "high": 19
+    },
+    {
+      "site": "W-东",
+      "sku": "S-甲",
+      "day": 7,
+      "low": 10,
+      "base": 15,
+      "high": 22
+    },
+    {
+      "site": "W-东",
+      "sku": "S-甲",
+      "day": 8,
+      "low": 3,
+      "base": 8,
+      "high": 15
+    },
+    {
+      "site": "W-东",
+      "sku": "S-甲",
+      "day": 9,
+      "low": 14,
+      "base": 19,
+      "high": 26
+    },
+    {
+      "site": "W-东",
+      "sku": "S-甲",
+      "day": 10,
+      "low": 9,
+      "base": 14,
+      "high": 21
+    },
+    {
+      "site": "W-东",
+      "sku": "S-乙",
+      "day": 1,
+      "low": 7,
+      "base": 12,
+      "high": 19
+    },
+    {
+      "site": "W-东",
+      "sku": "S-乙",
+      "day": 2,
+      "low": 15,
+      "base": 20,
+      "high": 27
+    },
+    {
+      "site": "W-东",
+      "sku": "S-乙",
+      "day": 3,
+      "low": 16,
+      "base": 21,
+      "high": 28
+    },
+    {
+      "site": "W-东",
+      "sku": "S-乙",
+      "day": 4,
+      "low": 19,
+      "base": 24,
+      "high": 31
+    },
+    {
+      "site": "W-东",
+      "sku": "S-乙",
+      "day": 5,
+      "low": 1,
+      "base": 6,
+      "high": 13
+    },
+    {
+      "site": "W-东",
+      "sku": "S-乙",
+      "day": 6,
+      "low": 4,
+      "base": 9,
+      "high": 16
+    },
+    {
+      "site": "W-东",
+      "sku": "S-乙",
+      "day": 7,
+      "low": 10,
+      "base": 15,
+      "high": 22
+    },
+    {
+      "site": "W-东",
+      "sku": "S-乙",
+      "day": 8,
+      "low": 7,
+      "base": 12,
+      "high": 19
+    },
+    {
+      "site": "W-东",
+      "sku": "S-乙",
+      "day": 9,
+      "low": 13,
+      "base": 18,
+      "high": 25
+    },
+    {
+      "site": "W-东",
+      "sku": "S-乙",
+      "day": 10,
+      "low": 11,
+      "base": 16,
+      "high": 23
+    },
+    {
+      "site": "W-东",
+      "sku": "S-丙",
+      "day": 1,
+      "low": 11,
+      "base": 16,
+      "high": 23
+    },
+    {
+      "site": "W-东",
+      "sku": "S-丙",
+      "day": 2,
+      "low": 10,
+      "base": 15,
+      "high": 22
+    },
+    {
+      "site": "W-东",
+      "sku": "S-丙",
+      "day": 3,
+      "low": 11,
+      "base": 16,
+      "high": 23
+    },
+    {
+      "site": "W-东",
+      "sku": "S-丙",
+      "day": 4,
+      "low": 6,
+      "base": 11,
+      "high": 18
+    },
+    {
+      "site": "W-东",
+      "sku": "S-丙",
+      "day": 5,
+      "low": 13,
+      "base": 18,
+      "high": 25
+    },
+    {
+      "site": "W-东",
+      "sku": "S-丙",
+      "day": 6,
+      "low": 15,
+      "base": 20,
+      "high": 27
+    },
+    {
+      "site": "W-东",
+      "sku": "S-丙",
+      "day": 7,
+      "low": 11,
+      "base": 16,
+      "high": 23
+    },
+    {
+      "site": "W-东",
+      "sku": "S-丙",
+      "day": 8,
+      "low": 5,
+      "base": 10,
+      "high": 17
+    },
+    {
+      "site": "W-东",
+      "sku": "S-丙",
+      "day": 9,
+      "low": 11,
+      "base": 16,
+      "high": 23
+    },
+    {
+      "site": "W-东",
+      "sku": "S-丙",
+      "day": 10,
+      "low": 10,
+      "base": 15,
+      "high": 22
+    }
+  ],
+  "horizon_days": 10
+}

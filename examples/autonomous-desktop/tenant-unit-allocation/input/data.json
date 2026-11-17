@@ -1,0 +1,424 @@
+{
+  "dataset_id": "D02",
+  "synthetic": true,
+  "tenants": [
+    {
+      "tenant_id": "T0",
+      "min_area_sqm": 16,
+      "required_features": [
+        "power",
+        "water"
+      ]
+    },
+    {
+      "tenant_id": "T1",
+      "min_area_sqm": 18,
+      "required_features": [
+        "power"
+      ]
+    },
+    {
+      "tenant_id": "T2",
+      "min_area_sqm": 22,
+      "required_features": [
+        "power"
+      ]
+    },
+    {
+      "tenant_id": "T3",
+      "min_area_sqm": 26,
+      "required_features": [
+        "power",
+        "vent"
+      ]
+    },
+    {
+      "tenant_id": "T4",
+      "min_area_sqm": 30,
+      "required_features": [
+        "power",
+        "water"
+      ]
+    },
+    {
+      "tenant_id": "T5",
+      "min_area_sqm": 34,
+      "required_features": [
+        "power"
+      ]
+    }
+  ],
+  "units": [
+    {
+      "unit_id": "U0",
+      "area_sqm": 18,
+      "features": [
+        "power",
+        "water"
+      ],
+      "corridor_position": 0
+    },
+    {
+      "unit_id": "U1",
+      "area_sqm": 22,
+      "features": [
+        "power",
+        "vent"
+      ],
+      "corridor_position": 1
+    },
+    {
+      "unit_id": "U2",
+      "area_sqm": 26,
+      "features": [
+        "power",
+        "water"
+      ],
+      "corridor_position": 2
+    },
+    {
+      "unit_id": "U3",
+      "area_sqm": 30,
+      "features": [
+        "power",
+        "vent"
+      ],
+      "corridor_position": 3
+    },
+    {
+      "unit_id": "U4",
+      "area_sqm": 34,
+      "features": [
+        "power",
+        "water"
+      ],
+      "corridor_position": 4
+    },
+    {
+      "unit_id": "U5",
+      "area_sqm": 38,
+      "features": [
+        "power"
+      ],
+      "corridor_position": 5
+    },
+    {
+      "unit_id": "U6",
+      "area_sqm": 42,
+      "features": [
+        "power",
+        "water",
+        "vent"
+      ],
+      "corridor_position": 6
+    }
+  ],
+  "pair_estimates": [
+    {
+      "tenant_id": "T0",
+      "unit_id": "U0",
+      "preference_rank": 2,
+      "base_contribution": 4000,
+      "busyday_contribution": 4300
+    },
+    {
+      "tenant_id": "T0",
+      "unit_id": "U1",
+      "preference_rank": 7,
+      "base_contribution": 3600,
+      "busyday_contribution": 4900
+    },
+    {
+      "tenant_id": "T0",
+      "unit_id": "U2",
+      "preference_rank": 5,
+      "base_contribution": 2500,
+      "busyday_contribution": 3700
+    },
+    {
+      "tenant_id": "T0",
+      "unit_id": "U3",
+      "preference_rank": 4,
+      "base_contribution": 2300,
+      "busyday_contribution": 9300
+    },
+    {
+      "tenant_id": "T0",
+      "unit_id": "U4",
+      "preference_rank": 1,
+      "base_contribution": 5700,
+      "busyday_contribution": 7700
+    },
+    {
+      "tenant_id": "T0",
+      "unit_id": "U5",
+      "preference_rank": 3,
+      "base_contribution": 4600,
+      "busyday_contribution": 9200
+    },
+    {
+      "tenant_id": "T0",
+      "unit_id": "U6",
+      "preference_rank": 6,
+      "base_contribution": 8100,
+      "busyday_contribution": 8200
+    },
+    {
+      "tenant_id": "T1",
+      "unit_id": "U0",
+      "preference_rank": 2,
+      "base_contribution": 8100,
+      "busyday_contribution": 6100
+    },
+    {
+      "tenant_id": "T1",
+      "unit_id": "U1",
+      "preference_rank": 7,
+      "base_contribution": 7000,
+      "busyday_contribution": 7100
+    },
+    {
+      "tenant_id": "T1",
+      "unit_id": "U2",
+      "preference_rank": 6,
+      "base_contribution": 3000,
+      "busyday_contribution": 4900
+    },
+    {
+      "tenant_id": "T1",
+      "unit_id": "U3",
+      "preference_rank": 3,
+      "base_contribution": 3000,
+      "busyday_contribution": 8300
+    },
+    {
+      "tenant_id": "T1",
+      "unit_id": "U4",
+      "preference_rank": 4,
+      "base_contribution": 7300,
+      "busyday_contribution": 9400
+    },
+    {
+      "tenant_id": "T1",
+      "unit_id": "U5",
+      "preference_rank": 5,
+      "base_contribution": 5000,
+      "busyday_contribution": 9200
+    },
+    {
+      "tenant_id": "T1",
+      "unit_id": "U6",
+      "preference_rank": 1,
+      "base_contribution": 5600,
+      "busyday_contribution": 6300
+    },
+    {
+      "tenant_id": "T2",
+      "unit_id": "U0",
+      "preference_rank": 7,
+      "base_contribution": 5900,
+      "busyday_contribution": 8000
+    },
+    {
+      "tenant_id": "T2",
+      "unit_id": "U1",
+      "preference_rank": 5,
+      "base_contribution": 6100,
+      "busyday_contribution": 9200
+    },
+    {
+      "tenant_id": "T2",
+      "unit_id": "U2",
+      "preference_rank": 4,
+      "base_contribution": 8500,
+      "busyday_contribution": 3600
+    },
+    {
+      "tenant_id": "T2",
+      "unit_id": "U3",
+      "preference_rank": 3,
+      "base_contribution": 6200,
+      "busyday_contribution": 5800
+    },
+    {
+      "tenant_id": "T2",
+      "unit_id": "U4",
+      "preference_rank": 6,
+      "base_contribution": 8600,
+      "busyday_contribution": 6900
+    },
+    {
+      "tenant_id": "T2",
+      "unit_id": "U5",
+      "preference_rank": 2,
+      "base_contribution": 6200,
+      "busyday_contribution": 8800
+    },
+    {
+      "tenant_id": "T2",
+      "unit_id": "U6",
+      "preference_rank": 1,
+      "base_contribution": 2800,
+      "busyday_contribution": 9800
+    },
+    {
+      "tenant_id": "T3",
+      "unit_id": "U0",
+      "preference_rank": 3,
+      "base_contribution": 7100,
+      "busyday_contribution": 3600
+    },
+    {
+      "tenant_id": "T3",
+      "unit_id": "U1",
+      "preference_rank": 2,
+      "base_contribution": 3300,
+      "busyday_contribution": 4400
+    },
+    {
+      "tenant_id": "T3",
+      "unit_id": "U2",
+      "preference_rank": 7,
+      "base_contribution": 7600,
+      "busyday_contribution": 10300
+    },
+    {
+      "tenant_id": "T3",
+      "unit_id": "U3",
+      "preference_rank": 6,
+      "base_contribution": 6200,
+      "busyday_contribution": 4200
+    },
+    {
+      "tenant_id": "T3",
+      "unit_id": "U4",
+      "preference_rank": 4,
+      "base_contribution": 7500,
+      "busyday_contribution": 3400
+    },
+    {
+      "tenant_id": "T3",
+      "unit_id": "U5",
+      "preference_rank": 5,
+      "base_contribution": 6300,
+      "busyday_contribution": 10100
+    },
+    {
+      "tenant_id": "T3",
+      "unit_id": "U6",
+      "preference_rank": 1,
+      "base_contribution": 3100,
+      "busyday_contribution": 9700
+    },
+    {
+      "tenant_id": "T4",
+      "unit_id": "U0",
+      "preference_rank": 7,
+      "base_contribution": 8600,
+      "busyday_contribution": 9400
+    },
+    {
+      "tenant_id": "T4",
+      "unit_id": "U1",
+      "preference_rank": 1,
+      "base_contribution": 6300,
+      "busyday_contribution": 7200
+    },
+    {
+      "tenant_id": "T4",
+      "unit_id": "U2",
+      "preference_rank": 5,
+      "base_contribution": 2300,
+      "busyday_contribution": 4300
+    },
+    {
+      "tenant_id": "T4",
+      "unit_id": "U3",
+      "preference_rank": 4,
+      "base_contribution": 4200,
+      "busyday_contribution": 5200
+    },
+    {
+      "tenant_id": "T4",
+      "unit_id": "U4",
+      "preference_rank": 3,
+      "base_contribution": 7500,
+      "busyday_contribution": 6500
+    },
+    {
+      "tenant_id": "T4",
+      "unit_id": "U5",
+      "preference_rank": 6,
+      "base_contribution": 5300,
+      "busyday_contribution": 3100
+    },
+    {
+      "tenant_id": "T4",
+      "unit_id": "U6",
+      "preference_rank": 2,
+      "base_contribution": 8700,
+      "busyday_contribution": 7700
+    },
+    {
+      "tenant_id": "T5",
+      "unit_id": "U0",
+      "preference_rank": 1,
+      "base_contribution": 3000,
+      "busyday_contribution": 7000
+    },
+    {
+      "tenant_id": "T5",
+      "unit_id": "U1",
+      "preference_rank": 2,
+      "base_contribution": 5400,
+      "busyday_contribution": 8800
+    },
+    {
+      "tenant_id": "T5",
+      "unit_id": "U2",
+      "preference_rank": 6,
+      "base_contribution": 8000,
+      "busyday_contribution": 6600
+    },
+    {
+      "tenant_id": "T5",
+      "unit_id": "U3",
+      "preference_rank": 5,
+      "base_contribution": 6100,
+      "busyday_contribution": 11000
+    },
+    {
+      "tenant_id": "T5",
+      "unit_id": "U4",
+      "preference_rank": 4,
+      "base_contribution": 5000,
+      "busyday_contribution": 3000
+    },
+    {
+      "tenant_id": "T5",
+      "unit_id": "U5",
+      "preference_rank": 7,
+      "base_contribution": 3400,
+      "busyday_contribution": 9000
+    },
+    {
+      "tenant_id": "T5",
+      "unit_id": "U6",
+      "preference_rank": 3,
+      "base_contribution": 7200,
+      "busyday_contribution": 8300
+    }
+  ],
+  "separation_rules": [
+    {
+      "tenant_a": "T1",
+      "tenant_b": "T4",
+      "minimum_position_gap": 2
+    }
+  ],
+  "fairness_order": [
+    "minimize worst preference rank",
+    "then minimize total preference rank",
+    "then maximize selected contribution"
+  ]
+}

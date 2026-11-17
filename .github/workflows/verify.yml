@@ -15,6 +15,12 @@ jobs:
         run: python3 scripts/test_compose_html.py
       - name: Coherent source and derived-view tests
         run: python3 scripts/test_operating_story.py
+      - name: Custom renderer and geometry contracts
+        run: |
+          python3 scripts/test_custom_chart.py
+          python3 scripts/test_chart_geometry.py
+      - name: Interruptible data-motion contracts
+        run: node scripts/test_chart_motion.cjs
       - name: Rebuild reports and presentations
         run: |
           python3 scripts/compose_html.py examples/composed/source.json --mode report --theme ruby --out examples/composed/report.html
@@ -22,7 +28,11 @@ jobs:
           python3 scripts/build_operating_story.py
       - name: Rebuild curated examples
         run: node scripts/build_gallery.js
+      - name: Rebuild autonomous desktop examples
+        run: python3 scripts/rebuild_desktop_examples.py
+      - name: Synchronize regression evidence examples
+        run: python3 scripts/sync_regression_examples.py
       - name: Check generated files are reproducible
-        run: git diff --exit-code -- examples/dashboard-atlas examples/composed examples/operating-story docs/index.html docs/source-data.json docs/labs docs/report.html docs/slides.html docs/operating-story.html
+        run: git diff --exit-code -- examples/dashboard-atlas examples/composed examples/operating-story examples/autonomous-desktop examples/regression docs/desktop docs/regression docs/index.html docs/source-data.json docs/labs docs/report.html docs/slides.html docs/operating-story.html
       - name: Verify release package
         run: python3 scripts/verify_release.py

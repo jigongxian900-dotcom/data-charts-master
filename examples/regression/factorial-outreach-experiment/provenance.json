@@ -1,0 +1,34 @@
+{
+  "example": "factorial-outreach-experiment",
+  "title": "Factorial outreach experiment",
+  "source_case": "B02",
+  "frozen_variant": "B02-c3",
+  "synthetic": true,
+  "class": "regression",
+  "original_artifact_sha256": "52c8cc9730ee1dadf6991a94ce840292d74912ae53ad348fe409570dd781d854",
+  "public_artifact_sha256": "308f925af8b9f6f92e16a511fb2506695a4c2ed7a46ebd1a43111f9195d874eb",
+  "original_computed_sha256": "e6909560365f70da744e9cc1e40225f2e2f299f40ffc0b9ca3ce5f326ad34bf7",
+  "public_computed_sha256": "e6909560365f70da744e9cc1e40225f2e2f299f40ffc0b9ca3ce5f326ad34bf7",
+  "original_input_sha256": {
+    "input/brief.md": "35ceafd16dfb93895a7235864b5bc1a69f7371ab9b75bf3184a0c02d4dee3d9a",
+    "input/data.json": "1056f4ebfb616b2a33975a4a378c4dc2f3e364afba59bb7777f1f192eb085a03"
+  },
+  "files_sha256": {
+    "artifact.html": "308f925af8b9f6f92e16a511fb2506695a4c2ed7a46ebd1a43111f9195d874eb",
+    "computed.json": "e6909560365f70da744e9cc1e40225f2e2f299f40ffc0b9ca3ce5f326ad34bf7",
+    "input/brief.md": "35ceafd16dfb93895a7235864b5bc1a69f7371ab9b75bf3184a0c02d4dee3d9a",
+    "input/data.json": "1056f4ebfb616b2a33975a4a378c4dc2f3e364afba59bb7777f1f192eb085a03"
+  },
+  "allowed_changes": [
+    "Only the exact first-party ChartMotion MIT header is replaced with its PolyForm Noncommercial header.",
+    "HTML line endings are normalized to LF. Input and computed JSON bytes are unchanged."
+  ],
+  "chartmotion_header_replacements": 0,
+  "verified": {
+    "html_equal_after_exact_license_header_and_lf_normalization": true,
+    "computed_bytes_preserved": true,
+    "original_input_bytes_preserved": true,
+    "docs_mirror_bytes_equal": true
+  },
+  "scope": "Frozen synthetic regression record, including same-task revisions. Not a claim of six unfamiliar first submissions, a general-purpose generator, an independent rating, or certification."
+}

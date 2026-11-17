@@ -1,0 +1,901 @@
+{
+  "source_sha256": "eb915e30483a42f77eb4307067b69039e88efbfd2bb7184c31e85ead9f6e145d",
+  "validation": {
+    "unique_rows": 1080,
+    "bucket_conservation": true,
+    "error_bounds": true
+  },
+  "overall": {
+    "requests": 368930,
+    "errors": 1812,
+    "error_rate_pct": 0.4911500826715095,
+    "budget": 3689.3,
+    "burn": 0.4911500826715095,
+    "slow_count": 32089,
+    "slow_pct": 8.697855961835579,
+    "buckets": [
+      164610,
+      116628,
+      55603,
+      23331,
+      8758
+    ],
+    "p50_bucket": 1,
+    "p95_bucket": 3,
+    "p99_bucket": 4
+  },
+  "objects": {
+    "auth|Z-北": {
+      "requests": 35765,
+      "errors": 111,
+      "error_rate_pct": 0.31035928980847194,
+      "budget": 357.65000000000003,
+      "burn": 0.31035928980847194,
+      "slow_count": 2867,
+      "slow_pct": 8.016216971899901,
+      "buckets": [
+        16342,
+        11285,
+        5271,
+        2131,
+        736
+      ],
+      "p50_bucket": 1,
+      "p95_bucket": 3,
+      "p99_bucket": 4
+    },
+    "auth|Z-南": {
+      "requests": 37583,
+      "errors": 126,
+      "error_rate_pct": 0.33525796237660643,
+      "budget": 375.83,
+      "burn": 0.33525796237660643,
+      "slow_count": 3021,
+      "slow_pct": 8.038208764601016,
+      "buckets": [
+        16826,
+        12164,
+        5572,
+        2279,
+        742
+      ],
+      "p50_bucket": 1,
+      "p95_bucket": 3,
+      "p99_bucket": 4
+    },
+    "checkout|Z-北": {
+      "requests": 39220,
+      "errors": 131,
+      "error_rate_pct": 0.33401325854156044,
+      "budget": 392.2,
+      "burn": 0.33401325854156044,
+      "slow_count": 3195,
+      "slow_pct": 8.146353901070883,
+      "buckets": [
+        17696,
+        12425,
+        5904,
+        2392,
+        803
+      ],
+      "p50_bucket": 1,
+      "p95_bucket": 3,
+      "p99_bucket": 4
+    },
+    "checkout|Z-南": {
+      "requests": 36768,
+      "errors": 795,
+      "error_rate_pct": 2.1622062663185377,
+      "budget": 367.68,
+      "burn": 2.1622062663185377,
+      "slow_count": 5370,
+      "slow_pct": 14.605091383812011,
+      "buckets": [
+        14609,
+        10899,
+        5890,
+        3348,
+        2022
+      ],
+      "p50_bucket": 1,
+      "p95_bucket": 4,
+      "p99_bucket": 4
+    },
+    "search|Z-北": {
+      "requests": 111156,
+      "errors": 309,
+      "error_rate_pct": 0.2779876929720393,
+      "budget": 1111.56,
+      "burn": 0.2779876929720393,
+      "slow_count": 9048,
+      "slow_pct": 8.139911475763792,
+      "buckets": [
+        50094,
+        35322,
+        16692,
+        6760,
+        2288
+      ],
+      "p50_bucket": 1,
+      "p95_bucket": 3,
+      "p99_bucket": 4
+    },
+    "search|Z-南": {
+      "requests": 108438,
+      "errors": 340,
+      "error_rate_pct": 0.31354322285545655,
+      "budget": 1084.38,
+      "burn": 0.31354322285545655,
+      "slow_count": 8588,
+      "slow_pct": 7.919732934949003,
+      "buckets": [
+        49043,
+        34533,
+        16274,
+        6421,
+        2167
+      ],
+      "p50_bucket": 1,
+      "p95_bucket": 3,
+      "p99_bucket": 4
+    }
+  },
+  "five_minute": [
+    {
+      "start": 0,
+      "end": 4,
+      "requests": 10668,
+      "errors": 38,
+      "error_rate_pct": 0.35620547431571054,
+      "budget": 106.68,
+      "burn": 0.35620547431571054,
+      "slow_count": 839,
+      "slow_pct": 7.864641919760031,
+      "buckets": [
+        4819,
+        3373,
+        1637,
+        615,
+        224
+      ],
+      "p50_bucket": 1,
+      "p95_bucket": 3,
+      "p99_bucket": 4
+    },
+    {
+      "start": 5,
+      "end": 9,
+      "requests": 8891,
+      "errors": 30,
+      "error_rate_pct": 0.3374198627825891,
+      "budget": 88.91,
+      "burn": 0.3374198627825892,
+      "slow_count": 726,
+      "slow_pct": 8.165560679338657,
+      "buckets": [
+        3955,
+        2869,
+        1341,
+        535,
+        191
+      ],
+      "p50_bucket": 1,
+      "p95_bucket": 3,
+      "p99_bucket": 4
+    },
+    {
+      "start": 10,
+      "end": 14,
+      "requests": 10870,
+      "errors": 26,
+      "error_rate_pct": 0.2391904323827047,
+      "budget": 108.7,
+      "burn": 0.23919043238270468,
+      "slow_count": 849,
+      "slow_pct": 7.810487580496781,
+      "buckets": [
+        4890,
+        3462,
+        1669,
+        644,
+        205
+      ],
+      "p50_bucket": 1,
+      "p95_bucket": 3,
+      "p99_bucket": 4
+    },
+    {
+      "start": 15,
+      "end": 19,
+      "requests": 11398,
+      "errors": 34,
+      "error_rate_pct": 0.2982979470082471,
+      "budget": 113.98,
+      "burn": 0.2982979470082471,
+      "slow_count": 889,
+      "slow_pct": 7.799613967362696,
+      "buckets": [
+        5224,
+        3629,
+        1656,
+        675,
+        214
+      ],
+      "p50_bucket": 1,
+      "p95_bucket": 3,
+      "p99_bucket": 4
+    },
+    {
+      "start": 20,
+      "end": 24,
+      "requests": 10114,
+      "errors": 30,
+      "error_rate_pct": 0.2966185485465691,
+      "budget": 101.14,
+      "burn": 0.2966185485465691,
+      "slow_count": 848,
+      "slow_pct": 8.384417638916354,
+      "buckets": [
+        4497,
+        3264,
+        1505,
+        638,
+        210
+      ],
+      "p50_bucket": 1,
+      "p95_bucket": 3,
+      "p99_bucket": 4
+    },
+    {
+      "start": 25,
+      "end": 29,
+      "requests": 10139,
+      "errors": 31,
+      "error_rate_pct": 0.3057500739717921,
+      "budget": 101.39,
+      "burn": 0.3057500739717921,
+      "slow_count": 803,
+      "slow_pct": 7.919913206430615,
+      "buckets": [
+        4514,
+        3285,
+        1537,
+        604,
+        199
+      ],
+      "p50_bucket": 1,
+      "p95_bucket": 3,
+      "p99_bucket": 4
+    },
+    {
+      "start": 30,
+      "end": 34,
+      "requests": 10421,
+      "errors": 28,
+      "error_rate_pct": 0.2686882256981096,
+      "budget": 104.21000000000001,
+      "burn": 0.2686882256981096,
+      "slow_count": 857,
+      "slow_pct": 8.223778907974284,
+      "buckets": [
+        4716,
+        3306,
+        1542,
+        655,
+        202
+      ],
+      "p50_bucket": 1,
+      "p95_bucket": 3,
+      "p99_bucket": 4
+    },
+    {
+      "start": 35,
+      "end": 39,
+      "requests": 9995,
+      "errors": 35,
+      "error_rate_pct": 0.3501750875437719,
+      "budget": 99.95,
+      "burn": 0.35017508754377186,
+      "slow_count": 832,
+      "slow_pct": 8.32416208104052,
+      "buckets": [
+        4478,
+        3117,
+        1568,
+        640,
+        192
+      ],
+      "p50_bucket": 1,
+      "p95_bucket": 3,
+      "p99_bucket": 4
+    },
+    {
+      "start": 40,
+      "end": 44,
+      "requests": 10900,
+      "errors": 30,
+      "error_rate_pct": 0.27522935779816515,
+      "budget": 109.0,
+      "burn": 0.27522935779816515,
+      "slow_count": 889,
+      "slow_pct": 8.155963302752294,
+      "buckets": [
+        4869,
+        3522,
+        1620,
+        667,
+        222
+      ],
+      "p50_bucket": 1,
+      "p95_bucket": 3,
+      "p99_bucket": 4
+    },
+    {
+      "start": 45,
+      "end": 49,
+      "requests": 10710,
+      "errors": 28,
+      "error_rate_pct": 0.261437908496732,
+      "budget": 107.10000000000001,
+      "burn": 0.261437908496732,
+      "slow_count": 906,
+      "slow_pct": 8.4593837535014,
+      "buckets": [
+        4833,
+        3361,
+        1610,
+        666,
+        240
+      ],
+      "p50_bucket": 1,
+      "p95_bucket": 3,
+      "p99_bucket": 4
+    },
+    {
+      "start": 50,
+      "end": 54,
+      "requests": 9558,
+      "errors": 24,
+      "error_rate_pct": 0.25109855618330196,
+      "budget": 95.58,
+      "burn": 0.25109855618330196,
+      "slow_count": 751,
+      "slow_pct": 7.857292320569156,
+      "buckets": [
+        4241,
+        3131,
+        1435,
+        576,
+        175
+      ],
+      "p50_bucket": 1,
+      "p95_bucket": 3,
+      "p99_bucket": 4
+    },
+    {
+      "start": 55,
+      "end": 59,
+      "requests": 11096,
+      "errors": 42,
+      "error_rate_pct": 0.37851478010093725,
+      "budget": 110.96000000000001,
+      "burn": 0.37851478010093725,
+      "slow_count": 932,
+      "slow_pct": 8.39942321557318,
+      "buckets": [
+        5021,
+        3498,
+        1645,
+        708,
+        224
+      ],
+      "p50_bucket": 1,
+      "p95_bucket": 3,
+      "p99_bucket": 4
+    },
+    {
+      "start": 60,
+      "end": 64,
+      "requests": 10799,
+      "errors": 24,
+      "error_rate_pct": 0.22224280025928328,
+      "budget": 107.99000000000001,
+      "burn": 0.22224280025928325,
+      "slow_count": 889,
+      "slow_pct": 8.232243726270951,
+      "buckets": [
+        4928,
+        3395,
+        1587,
+        676,
+        213
+      ],
+      "p50_bucket": 1,
+      "p95_bucket": 3,
+      "p99_bucket": 4
+    },
+    {
+      "start": 65,
+      "end": 69,
+      "requests": 10458,
+      "errors": 106,
+      "error_rate_pct": 1.013578122011857,
+      "budget": 104.58,
+      "burn": 1.013578122011857,
+      "slow_count": 1151,
+      "slow_pct": 11.005928475807995,
+      "buckets": [
+        4578,
+        3169,
+        1560,
+        777,
+        374
+      ],
+      "p50_bucket": 1,
+      "p95_bucket": 3,
+      "p99_bucket": 4
+    },
+    {
+      "start": 70,
+      "end": 74,
+      "requests": 8796,
+      "errors": 166,
+      "error_rate_pct": 1.8872214643019556,
+      "budget": 87.96000000000001,
+      "burn": 1.8872214643019554,
+      "slow_count": 1178,
+      "slow_pct": 13.392451114142792,
+      "buckets": [
+        3575,
+        2629,
+        1414,
+        748,
+        430
+      ],
+      "p50_bucket": 1,
+      "p95_bucket": 3,
+      "p99_bucket": 4
+    },
+    {
+      "start": 75,
+      "end": 79,
+      "requests": 10996,
+      "errors": 174,
+      "error_rate_pct": 1.5823935976718808,
+      "budget": 109.96000000000001,
+      "burn": 1.5823935976718806,
+      "slow_count": 1351,
+      "slow_pct": 12.28628592215351,
+      "buckets": [
+        4624,
+        3322,
+        1699,
+        860,
+        491
+      ],
+      "p50_bucket": 1,
+      "p95_bucket": 3,
+      "p99_bucket": 4
+    },
+    {
+      "start": 80,
+      "end": 84,
+      "requests": 9993,
+      "errors": 118,
+      "error_rate_pct": 1.1808265786050236,
+      "budget": 99.93,
+      "burn": 1.1808265786050234,
+      "slow_count": 1094,
+      "slow_pct": 10.947663364355048,
+      "buckets": [
+        4346,
+        3007,
+        1546,
+        722,
+        372
+      ],
+      "p50_bucket": 1,
+      "p95_bucket": 3,
+      "p99_bucket": 4
+    },
+    {
+      "start": 85,
+      "end": 89,
+      "requests": 11669,
+      "errors": 193,
+      "error_rate_pct": 1.6539549233010542,
+      "budget": 116.69,
+      "burn": 1.6539549233010542,
+      "slow_count": 1490,
+      "slow_pct": 12.768874796469278,
+      "buckets": [
+        4821,
+        3469,
+        1889,
+        962,
+        528
+      ],
+      "p50_bucket": 1,
+      "p95_bucket": 3,
+      "p99_bucket": 4
+    },
+    {
+      "start": 90,
+      "end": 94,
+      "requests": 9214,
+      "errors": 118,
+      "error_rate_pct": 1.2806598654221837,
+      "budget": 92.14,
+      "burn": 1.2806598654221837,
+      "slow_count": 1041,
+      "slow_pct": 11.298024744953333,
+      "buckets": [
+        3891,
+        2852,
+        1430,
+        681,
+        360
+      ],
+      "p50_bucket": 1,
+      "p95_bucket": 3,
+      "p99_bucket": 4
+    },
+    {
+      "start": 95,
+      "end": 99,
+      "requests": 9819,
+      "errors": 33,
+      "error_rate_pct": 0.3360831041857623,
+      "budget": 98.19,
+      "burn": 0.3360831041857623,
+      "slow_count": 768,
+      "slow_pct": 7.821570424686832,
+      "buckets": [
+        4374,
+        3211,
+        1466,
+        588,
+        180
+      ],
+      "p50_bucket": 1,
+      "p95_bucket": 3,
+      "p99_bucket": 4
+    },
+    {
+      "start": 100,
+      "end": 104,
+      "requests": 11604,
+      "errors": 39,
+      "error_rate_pct": 0.3360910031023785,
+      "budget": 116.04,
+      "burn": 0.3360910031023785,
+      "slow_count": 960,
+      "slow_pct": 8.273009307135471,
+      "buckets": [
+        5256,
+        3657,
+        1731,
+        702,
+        258
+      ],
+      "p50_bucket": 1,
+      "p95_bucket": 3,
+      "p99_bucket": 4
+    },
+    {
+      "start": 105,
+      "end": 109,
+      "requests": 9459,
+      "errors": 31,
+      "error_rate_pct": 0.32773020403848185,
+      "budget": 94.59,
+      "burn": 0.32773020403848185,
+      "slow_count": 732,
+      "slow_pct": 7.738661592134475,
+      "buckets": [
+        4319,
+        3041,
+        1367,
+        551,
+        181
+      ],
+      "p50_bucket": 1,
+      "p95_bucket": 3,
+      "p99_bucket": 4
+    },
+    {
+      "start": 110,
+      "end": 114,
+      "requests": 11004,
+      "errors": 45,
+      "error_rate_pct": 0.4089422028353326,
+      "budget": 110.04,
+      "burn": 0.40894220283533256,
+      "slow_count": 895,
+      "slow_pct": 8.133406034169392,
+      "buckets": [
+        4960,
+        3491,
+        1658,
+        681,
+        214
+      ],
+      "p50_bucket": 1,
+      "p95_bucket": 3,
+      "p99_bucket": 4
+    },
+    {
+      "start": 115,
+      "end": 119,
+      "requests": 9339,
+      "errors": 18,
+      "error_rate_pct": 0.19274012206874397,
+      "budget": 93.39,
+      "burn": 0.19274012206874397,
+      "slow_count": 757,
+      "slow_pct": 8.105792911446622,
+      "buckets": [
+        4257,
+        2938,
+        1387,
+        541,
+        216
+      ],
+      "p50_bucket": 1,
+      "p95_bucket": 3,
+      "p99_bucket": 4
+    },
+    {
+      "start": 120,
+      "end": 124,
+      "requests": 9739,
+      "errors": 33,
+      "error_rate_pct": 0.33884382380121164,
+      "budget": 97.39,
+      "burn": 0.33884382380121164,
+      "slow_count": 836,
+      "slow_pct": 8.584043536297361,
+      "buckets": [
+        4320,
+        3081,
+        1502,
+        635,
+        201
+      ],
+      "p50_bucket": 1,
+      "p95_bucket": 3,
+      "p99_bucket": 4
+    },
+    {
+      "start": 125,
+      "end": 129,
+      "requests": 9600,
+      "errors": 31,
+      "error_rate_pct": 0.3229166666666667,
+      "budget": 96.0,
+      "burn": 0.3229166666666667,
+      "slow_count": 786,
+      "slow_pct": 8.1875,
+      "buckets": [
+        4348,
+        3038,
+        1428,
+        570,
+        216
+      ],
+      "p50_bucket": 1,
+      "p95_bucket": 3,
+      "p99_bucket": 4
+    },
+    {
+      "start": 130,
+      "end": 134,
+      "requests": 10244,
+      "errors": 29,
+      "error_rate_pct": 0.2830925419757907,
+      "budget": 102.44,
+      "burn": 0.2830925419757907,
+      "slow_count": 834,
+      "slow_pct": 8.141351034752049,
+      "buckets": [
+        4691,
+        3207,
+        1512,
+        617,
+        217
+      ],
+      "p50_bucket": 1,
+      "p95_bucket": 3,
+      "p99_bucket": 4
+    },
+    {
+      "start": 135,
+      "end": 139,
+      "requests": 10261,
+      "errors": 37,
+      "error_rate_pct": 0.36058863658512813,
+      "budget": 102.61,
+      "burn": 0.36058863658512813,
+      "slow_count": 832,
+      "slow_pct": 8.108371503752071,
+      "buckets": [
+        4605,
+        3320,
+        1504,
+        632,
+        200
+      ],
+      "p50_bucket": 1,
+      "p95_bucket": 3,
+      "p99_bucket": 4
+    },
+    {
+      "start": 140,
+      "end": 144,
+      "requests": 10204,
+      "errors": 33,
+      "error_rate_pct": 0.32340258722069776,
+      "budget": 102.04,
+      "burn": 0.32340258722069776,
+      "slow_count": 802,
+      "slow_pct": 7.859662877303018,
+      "buckets": [
+        4559,
+        3316,
+        1527,
+        601,
+        201
+      ],
+      "p50_bucket": 1,
+      "p95_bucket": 3,
+      "p99_bucket": 4
+    },
+    {
+      "start": 145,
+      "end": 149,
+      "requests": 9682,
+      "errors": 35,
+      "error_rate_pct": 0.3614955587688494,
+      "budget": 96.82000000000001,
+      "burn": 0.36149555876884937,
+      "slow_count": 751,
+      "slow_pct": 7.756661846725883,
+      "buckets": [
+        4359,
+        3149,
+        1423,
+        554,
+        197
+      ],
+      "p50_bucket": 1,
+      "p95_bucket": 3,
+      "p99_bucket": 4
+    },
+    {
+      "start": 150,
+      "end": 154,
+      "requests": 10274,
+      "errors": 27,
+      "error_rate_pct": 0.2627992992018688,
+      "budget": 102.74000000000001,
+      "burn": 0.2627992992018688,
+      "slow_count": 781,
+      "slow_pct": 7.601713062098502,
+      "buckets": [
+        4656,
+        3258,
+        1579,
+        596,
+        185
+      ],
+      "p50_bucket": 1,
+      "p95_bucket": 3,
+      "p99_bucket": 4
+    },
+    {
+      "start": 155,
+      "end": 159,
+      "requests": 10490,
+      "errors": 32,
+      "error_rate_pct": 0.3050524308865586,
+      "budget": 104.9,
+      "burn": 0.3050524308865586,
+      "slow_count": 792,
+      "slow_pct": 7.550047664442326,
+      "buckets": [
+        4721,
+        3379,
+        1598,
+        575,
+        217
+      ],
+      "p50_bucket": 1,
+      "p95_bucket": 3,
+      "p99_bucket": 4
+    },
+    {
+      "start": 160,
+      "end": 164,
+      "requests": 9949,
+      "errors": 22,
+      "error_rate_pct": 0.22112775153281736,
+      "budget": 99.49000000000001,
+      "burn": 0.22112775153281736,
+      "slow_count": 802,
+      "slow_pct": 8.061111669514524,
+      "buckets": [
+        4466,
+        3173,
+        1508,
+        592,
+        210
+      ],
+      "p50_bucket": 1,
+      "p95_bucket": 3,
+      "p99_bucket": 4
+    },
+    {
+      "start": 165,
+      "end": 169,
+      "requests": 8910,
+      "errors": 26,
+      "error_rate_pct": 0.29180695847362514,
+      "budget": 89.10000000000001,
+      "burn": 0.2918069584736251,
+      "slow_count": 703,
+      "slow_pct": 7.8900112233445565,
+      "buckets": [
+        4074,
+        2829,
+        1304,
+        528,
+        175
+      ],
+      "p50_bucket": 1,
+      "p95_bucket": 3,
+      "p99_bucket": 4
+    },
+    {
+      "start": 170,
+      "end": 174,
+      "requests": 11413,
+      "errors": 38,
+      "error_rate_pct": 0.3329536493472356,
+      "budget": 114.13,
+      "burn": 0.33295364934723565,
+      "slow_count": 891,
+      "slow_pct": 7.806886883378604,
+      "buckets": [
+        5182,
+        3602,
+        1738,
+        684,
+        207
+      ],
+      "p50_bucket": 1,
+      "p95_bucket": 3,
+      "p99_bucket": 4
+    },
+    {
+      "start": 175,
+      "end": 179,
+      "requests": 10254,
+      "errors": 28,
+      "error_rate_pct": 0.2730641700799688,
+      "budget": 102.54,
+      "burn": 0.27306417007996875,
+      "slow_count": 852,
+      "slow_pct": 8.308952603861908,
+      "buckets": [
+        4643,
+        3278,
+        1481,
+        635,
+        217
+      ],
+      "p50_bucket": 1,
+      "p95_bucket": 3,
+      "p99_bucket": 4
+    }
+  ]
+}

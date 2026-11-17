@@ -1,0 +1,613 @@
+{
+  "dataset_id": "D01",
+  "synthetic": true,
+  "snapshot_day": 60,
+  "reporting_currency": "LC",
+  "current_fx": {
+    "LC": 1,
+    "F1": 8,
+    "F2": 9
+  },
+  "invoices": [
+    {
+      "invoice_id": "I00",
+      "customer": "Cedar",
+      "currency": "LC",
+      "face_minor": 51800,
+      "issue_day": 12,
+      "due_day": 28,
+      "invoice_fx": 1,
+      "disputed_minor": 0
+    },
+    {
+      "invoice_id": "I01",
+      "customer": "Mica",
+      "currency": "LC",
+      "face_minor": 37300,
+      "issue_day": 10,
+      "due_day": 42,
+      "invoice_fx": 1,
+      "disputed_minor": 7460
+    },
+    {
+      "invoice_id": "I02",
+      "customer": "Orbit",
+      "currency": "LC",
+      "face_minor": 44800,
+      "issue_day": 23,
+      "due_day": 58,
+      "invoice_fx": 1,
+      "disputed_minor": 0
+    },
+    {
+      "invoice_id": "I03",
+      "customer": "Reed",
+      "currency": "LC",
+      "face_minor": 30000,
+      "issue_day": 18,
+      "due_day": 68,
+      "invoice_fx": 1,
+      "disputed_minor": 0
+    },
+    {
+      "invoice_id": "I04",
+      "customer": "Cedar",
+      "currency": "LC",
+      "face_minor": 46200,
+      "issue_day": 2,
+      "due_day": 28,
+      "invoice_fx": 1,
+      "disputed_minor": 9240
+    },
+    {
+      "invoice_id": "I05",
+      "customer": "Mica",
+      "currency": "LC",
+      "face_minor": 34400,
+      "issue_day": 21,
+      "due_day": 42,
+      "invoice_fx": 1,
+      "disputed_minor": 0
+    },
+    {
+      "invoice_id": "I06",
+      "customer": "Orbit",
+      "currency": "LC",
+      "face_minor": 39400,
+      "issue_day": 18,
+      "due_day": 58,
+      "invoice_fx": 1,
+      "disputed_minor": 0
+    },
+    {
+      "invoice_id": "I07",
+      "customer": "Reed",
+      "currency": "LC",
+      "face_minor": 30900,
+      "issue_day": 3,
+      "due_day": 68,
+      "invoice_fx": 1,
+      "disputed_minor": 6180
+    },
+    {
+      "invoice_id": "I10",
+      "customer": "Cedar",
+      "currency": "F1",
+      "face_minor": 25400,
+      "issue_day": 24,
+      "due_day": 28,
+      "invoice_fx": 7,
+      "disputed_minor": 0
+    },
+    {
+      "invoice_id": "I11",
+      "customer": "Mica",
+      "currency": "F1",
+      "face_minor": 37500,
+      "issue_day": 11,
+      "due_day": 42,
+      "invoice_fx": 8,
+      "disputed_minor": 7500
+    },
+    {
+      "invoice_id": "I12",
+      "customer": "Orbit",
+      "currency": "F1",
+      "face_minor": 49000,
+      "issue_day": 24,
+      "due_day": 58,
+      "invoice_fx": 7,
+      "disputed_minor": 0
+    },
+    {
+      "invoice_id": "I13",
+      "customer": "Reed",
+      "currency": "F1",
+      "face_minor": 51300,
+      "issue_day": 12,
+      "due_day": 68,
+      "invoice_fx": 8,
+      "disputed_minor": 0
+    },
+    {
+      "invoice_id": "I14",
+      "customer": "Cedar",
+      "currency": "F1",
+      "face_minor": 37200,
+      "issue_day": 12,
+      "due_day": 28,
+      "invoice_fx": 7,
+      "disputed_minor": 7440
+    },
+    {
+      "invoice_id": "I15",
+      "customer": "Mica",
+      "currency": "F1",
+      "face_minor": 18100,
+      "issue_day": 23,
+      "due_day": 42,
+      "invoice_fx": 8,
+      "disputed_minor": 0
+    },
+    {
+      "invoice_id": "I16",
+      "customer": "Orbit",
+      "currency": "F1",
+      "face_minor": 16300,
+      "issue_day": 4,
+      "due_day": 58,
+      "invoice_fx": 7,
+      "disputed_minor": 0
+    },
+    {
+      "invoice_id": "I17",
+      "customer": "Reed",
+      "currency": "F1",
+      "face_minor": 37800,
+      "issue_day": 17,
+      "due_day": 68,
+      "invoice_fx": 8,
+      "disputed_minor": 7560
+    },
+    {
+      "invoice_id": "I20",
+      "customer": "Cedar",
+      "currency": "F2",
+      "face_minor": 28200,
+      "issue_day": 12,
+      "due_day": 28,
+      "invoice_fx": 8,
+      "disputed_minor": 0
+    },
+    {
+      "invoice_id": "I21",
+      "customer": "Mica",
+      "currency": "F2",
+      "face_minor": 25300,
+      "issue_day": 22,
+      "due_day": 42,
+      "invoice_fx": 9,
+      "disputed_minor": 5060
+    },
+    {
+      "invoice_id": "I22",
+      "customer": "Orbit",
+      "currency": "F2",
+      "face_minor": 39300,
+      "issue_day": 23,
+      "due_day": 58,
+      "invoice_fx": 8,
+      "disputed_minor": 0
+    },
+    {
+      "invoice_id": "I23",
+      "customer": "Reed",
+      "currency": "F2",
+      "face_minor": 41600,
+      "issue_day": 19,
+      "due_day": 68,
+      "invoice_fx": 9,
+      "disputed_minor": 0
+    },
+    {
+      "invoice_id": "I24",
+      "customer": "Cedar",
+      "currency": "F2",
+      "face_minor": 31500,
+      "issue_day": 14,
+      "due_day": 28,
+      "invoice_fx": 8,
+      "disputed_minor": 6300
+    },
+    {
+      "invoice_id": "I25",
+      "customer": "Mica",
+      "currency": "F2",
+      "face_minor": 43500,
+      "issue_day": 24,
+      "due_day": 42,
+      "invoice_fx": 9,
+      "disputed_minor": 0
+    },
+    {
+      "invoice_id": "I26",
+      "customer": "Orbit",
+      "currency": "F2",
+      "face_minor": 35400,
+      "issue_day": 8,
+      "due_day": 58,
+      "invoice_fx": 8,
+      "disputed_minor": 0
+    },
+    {
+      "invoice_id": "I27",
+      "customer": "Reed",
+      "currency": "F2",
+      "face_minor": 52100,
+      "issue_day": 4,
+      "due_day": 68,
+      "invoice_fx": 9,
+      "disputed_minor": 10420
+    }
+  ],
+  "credit_notes": [
+    {
+      "credit_id": "N02",
+      "invoice_id": "I02",
+      "amount_minor": 4480
+    },
+    {
+      "credit_id": "N05",
+      "invoice_id": "I05",
+      "amount_minor": 3440
+    },
+    {
+      "credit_id": "N12",
+      "invoice_id": "I12",
+      "amount_minor": 4900
+    },
+    {
+      "credit_id": "N15",
+      "invoice_id": "I15",
+      "amount_minor": 1810
+    },
+    {
+      "credit_id": "N22",
+      "invoice_id": "I22",
+      "amount_minor": 3930
+    },
+    {
+      "credit_id": "N25",
+      "invoice_id": "I25",
+      "amount_minor": 4350
+    }
+  ],
+  "receipts": [
+    {
+      "receipt_id": "P00",
+      "customer": null,
+      "currency": "LC",
+      "received_minor": 13720,
+      "receipt_day": 34,
+      "receipt_fx": 1,
+      "bank_fee_minor": 120
+    },
+    {
+      "receipt_id": "P01",
+      "customer": null,
+      "currency": "LC",
+      "received_minor": 38327,
+      "receipt_day": 41,
+      "receipt_fx": 1,
+      "bank_fee_minor": 160
+    },
+    {
+      "receipt_id": "P02",
+      "customer": null,
+      "currency": "LC",
+      "received_minor": 60010,
+      "receipt_day": 48,
+      "receipt_fx": 1,
+      "bank_fee_minor": 200
+    },
+    {
+      "receipt_id": "P03",
+      "customer": null,
+      "currency": "LC",
+      "received_minor": 51132,
+      "receipt_day": 55,
+      "receipt_fx": 1,
+      "bank_fee_minor": 240
+    },
+    {
+      "receipt_id": "P10",
+      "customer": null,
+      "currency": "F1",
+      "received_minor": 8764,
+      "receipt_day": 34,
+      "receipt_fx": 8,
+      "bank_fee_minor": 120
+    },
+    {
+      "receipt_id": "P11",
+      "customer": null,
+      "currency": "F1",
+      "received_minor": 27131,
+      "receipt_day": 41,
+      "receipt_fx": 9,
+      "bank_fee_minor": 160
+    },
+    {
+      "receipt_id": "P12",
+      "customer": null,
+      "currency": "F1",
+      "received_minor": 46638,
+      "receipt_day": 48,
+      "receipt_fx": 8,
+      "bank_fee_minor": 200
+    },
+    {
+      "receipt_id": "P13",
+      "customer": null,
+      "currency": "F1",
+      "received_minor": 39540,
+      "receipt_day": 55,
+      "receipt_fx": 9,
+      "bank_fee_minor": 240
+    },
+    {
+      "receipt_id": "P20",
+      "customer": null,
+      "currency": "F2",
+      "received_minor": 8358,
+      "receipt_day": 34,
+      "receipt_fx": 9,
+      "bank_fee_minor": 120
+    },
+    {
+      "receipt_id": "P21",
+      "customer": null,
+      "currency": "F2",
+      "received_minor": 29293,
+      "receipt_day": 41,
+      "receipt_fx": 10,
+      "bank_fee_minor": 160
+    },
+    {
+      "receipt_id": "P22",
+      "customer": null,
+      "currency": "F2",
+      "received_minor": 54944,
+      "receipt_day": 48,
+      "receipt_fx": 9,
+      "bank_fee_minor": 200
+    },
+    {
+      "receipt_id": "P23",
+      "customer": null,
+      "currency": "F2",
+      "received_minor": 45762,
+      "receipt_day": 55,
+      "receipt_fx": 10,
+      "bank_fee_minor": 240
+    }
+  ],
+  "allocations": [
+    {
+      "allocation_id": "A000",
+      "invoice_id": "I00",
+      "receipt_id": "P00",
+      "amount_minor": 7252
+    },
+    {
+      "allocation_id": "A001",
+      "invoice_id": "I00",
+      "receipt_id": "P01",
+      "amount_minor": 10878
+    },
+    {
+      "allocation_id": "A002",
+      "invoice_id": "I01",
+      "receipt_id": "P01",
+      "amount_minor": 9698
+    },
+    {
+      "allocation_id": "A003",
+      "invoice_id": "I01",
+      "receipt_id": "P02",
+      "amount_minor": 14547
+    },
+    {
+      "allocation_id": "A004",
+      "invoice_id": "I02",
+      "receipt_id": "P02",
+      "amount_minor": 16128
+    },
+    {
+      "allocation_id": "A005",
+      "invoice_id": "I02",
+      "receipt_id": "P03",
+      "amount_minor": 24192
+    },
+    {
+      "allocation_id": "A006",
+      "invoice_id": "I04",
+      "receipt_id": "P00",
+      "amount_minor": 6468
+    },
+    {
+      "allocation_id": "A007",
+      "invoice_id": "I04",
+      "receipt_id": "P01",
+      "amount_minor": 9702
+    },
+    {
+      "allocation_id": "A008",
+      "invoice_id": "I05",
+      "receipt_id": "P01",
+      "amount_minor": 8049
+    },
+    {
+      "allocation_id": "A009",
+      "invoice_id": "I05",
+      "receipt_id": "P02",
+      "amount_minor": 12075
+    },
+    {
+      "allocation_id": "A010",
+      "invoice_id": "I06",
+      "receipt_id": "P02",
+      "amount_minor": 15760
+    },
+    {
+      "allocation_id": "A011",
+      "invoice_id": "I06",
+      "receipt_id": "P03",
+      "amount_minor": 23640
+    },
+    {
+      "allocation_id": "A012",
+      "invoice_id": "I10",
+      "receipt_id": "P10",
+      "amount_minor": 3556
+    },
+    {
+      "allocation_id": "A013",
+      "invoice_id": "I10",
+      "receipt_id": "P11",
+      "amount_minor": 5334
+    },
+    {
+      "allocation_id": "A014",
+      "invoice_id": "I11",
+      "receipt_id": "P11",
+      "amount_minor": 9750
+    },
+    {
+      "allocation_id": "A015",
+      "invoice_id": "I11",
+      "receipt_id": "P12",
+      "amount_minor": 14625
+    },
+    {
+      "allocation_id": "A016",
+      "invoice_id": "I12",
+      "receipt_id": "P12",
+      "amount_minor": 17640
+    },
+    {
+      "allocation_id": "A017",
+      "invoice_id": "I12",
+      "receipt_id": "P13",
+      "amount_minor": 26460
+    },
+    {
+      "allocation_id": "A018",
+      "invoice_id": "I14",
+      "receipt_id": "P10",
+      "amount_minor": 5208
+    },
+    {
+      "allocation_id": "A019",
+      "invoice_id": "I14",
+      "receipt_id": "P11",
+      "amount_minor": 7812
+    },
+    {
+      "allocation_id": "A020",
+      "invoice_id": "I15",
+      "receipt_id": "P11",
+      "amount_minor": 4235
+    },
+    {
+      "allocation_id": "A021",
+      "invoice_id": "I15",
+      "receipt_id": "P12",
+      "amount_minor": 6353
+    },
+    {
+      "allocation_id": "A022",
+      "invoice_id": "I16",
+      "receipt_id": "P12",
+      "amount_minor": 6520
+    },
+    {
+      "allocation_id": "A023",
+      "invoice_id": "I16",
+      "receipt_id": "P13",
+      "amount_minor": 9780
+    },
+    {
+      "allocation_id": "A024",
+      "invoice_id": "I20",
+      "receipt_id": "P20",
+      "amount_minor": 3948
+    },
+    {
+      "allocation_id": "A025",
+      "invoice_id": "I20",
+      "receipt_id": "P21",
+      "amount_minor": 5922
+    },
+    {
+      "allocation_id": "A026",
+      "invoice_id": "I21",
+      "receipt_id": "P21",
+      "amount_minor": 6578
+    },
+    {
+      "allocation_id": "A027",
+      "invoice_id": "I21",
+      "receipt_id": "P22",
+      "amount_minor": 9867
+    },
+    {
+      "allocation_id": "A028",
+      "invoice_id": "I22",
+      "receipt_id": "P22",
+      "amount_minor": 14148
+    },
+    {
+      "allocation_id": "A029",
+      "invoice_id": "I22",
+      "receipt_id": "P23",
+      "amount_minor": 21222
+    },
+    {
+      "allocation_id": "A030",
+      "invoice_id": "I24",
+      "receipt_id": "P20",
+      "amount_minor": 4410
+    },
+    {
+      "allocation_id": "A031",
+      "invoice_id": "I24",
+      "receipt_id": "P21",
+      "amount_minor": 6615
+    },
+    {
+      "allocation_id": "A032",
+      "invoice_id": "I25",
+      "receipt_id": "P21",
+      "amount_minor": 10178
+    },
+    {
+      "allocation_id": "A033",
+      "invoice_id": "I25",
+      "receipt_id": "P22",
+      "amount_minor": 15269
+    },
+    {
+      "allocation_id": "A034",
+      "invoice_id": "I26",
+      "receipt_id": "P22",
+      "amount_minor": 14160
+    },
+    {
+      "allocation_id": "A035",
+      "invoice_id": "I26",
+      "receipt_id": "P23",
+      "amount_minor": 21240
+    }
+  ]
+}
