@@ -1,0 +1,378 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>配送点 · 同屏容量与完成率</title><style>body{font:16px/1.5 system-ui,sans-serif;background:#f6f4ef;color:#213832;margin:40px auto;max-width:980px;padding:0 24px}h1{font-size:30px;margin-bottom:8px}p{max-width:780px;color:#51625c}nav{display:flex;gap:8px;flex-wrap:wrap;margin:26px 0}button{font:inherit;border:1px solid #a9b9ae;background:#fff;padding:9px 16px;border-radius:5px;color:inherit}button:focus-visible{outline:3px solid #da762e;outline-offset:3px}nav [aria-pressed=true]{background:#214c40;color:#fff}#rows{margin:22px 0;border-top:1px solid #b9c6bd}.row-content{height:calc(100% - 8px);display:grid;grid-template-columns:145px 1fr;gap:24px;align-items:center;background:white;padding:10px 18px;box-sizing:border-box;border-bottom:1px solid #d4dcd5}.name{border:0;text-align:left;font-weight:650;padding:8px}.metric{display:grid;grid-template-columns:1fr 100px;align-items:center;gap:16px;min-height:27px}.track{height:12px;background:#e8ede6}.bar{display:block;height:100%;background:#2d8064}.metric:nth-child(2) .bar{background:#bd7c3c}#status{font-size:14px;min-height:24px}#details{min-height:25px}.foot{font-size:13px} @media(max-width:640px){body{margin:24px auto;padding:0 14px}.row-content{grid-template-columns:88px 1fr;gap:10px;padding:8px}.metric{grid-template-columns:1fr 65px;gap:8px;font-size:13px}.name{padding:3px;font-size:14px}}</style><h1>配送点 · 同屏容量与完成率</h1><p>合成数据。固定观测值只用于检验筛选与重排：同一对象保留原条长，新成员在真实数值上淡入；未报不画成零。比较尺度不随筛选改变。</p><nav><button id="reset" data-scope="全部" aria-pressed="true">全部</button><button data-scope="倒序">倒序</button><button data-scope="筛选">筛选</button><button data-scope="新范围">新范围</button><button data-scope="空范围">空范围</button></nav><p id="status" role="status"></p><div id="rows" aria-label="对象和固定观测值"></div><p id="details" aria-live="polite">点击对象查看说明。</p><button id="destroy">销毁此演示</button><p class="foot">模块验证样例，不是视觉9.5评分或正式经营结论。</p><script>/* ChartMotion 1.0.1 | optional, dependency-free scene transitions | SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0 */
+(function (root, factory) {
+  'use strict';
+  var api = factory();
+  if (typeof module === 'object' && module.exports) module.exports = api;
+  else root.ChartMotion = api;
+})(typeof globalThis !== 'undefined' ? globalThis : this, function () {
+  'use strict';
+
+  function clone(value, path) {
+    path = path || 'geometry';
+    if (typeof value === 'number') {
+      if (!Number.isFinite(value)) throw new TypeError(path + ': expected a finite number');
+      return value;
+    }
+    if (value === null || typeof value === 'string' || typeof value === 'boolean') return value;
+    if (Array.isArray(value)) {
+      for (var i = 0; i < value.length; i += 1) {
+        if (!Object.prototype.hasOwnProperty.call(value, i)) throw new TypeError(path + ': sparse arrays are not supported');
+      }
+      return value.map(function (v, index) { return clone(v, path + '[' + index + ']'); });
+    }
+    if (value && (Object.getPrototypeOf(value) === Object.prototype || Object.getPrototypeOf(value) === null)) {
+      var copy = Object.create(null);
+      Object.keys(value).forEach(function (key) { copy[key] = clone(value[key], path + '.' + key); });
+      return copy;
+    }
+    throw new TypeError(path + ': expected numbers, static strings/booleans/null, arrays or plain objects');
+  }
+  function scene(input) {
+    var result = new Map();
+    var entries;
+    if (input instanceof Map) entries = input.entries();
+    else if (input && (Object.getPrototypeOf(input) === Object.prototype || Object.getPrototypeOf(input) === null)) entries = Object.entries(input);
+    else throw new TypeError('scene must be a Map or plain object keyed by stable string IDs');
+    for (var pair of entries) {
+      if (typeof pair[0] !== 'string' || !pair[0]) throw new TypeError('scene IDs must be nonempty strings');
+      result.set(pair[0], clone(pair[1], pair[0]));
+    }
+    return result;
+  }
+  function equal(a, b) {
+    if (a === b) return true;
+    if (!a || !b || typeof a !== 'object' || typeof b !== 'object' || Array.isArray(a) !== Array.isArray(b)) return false;
+    var ak = Object.keys(a), bk = Object.keys(b);
+    return ak.length === bk.length && ak.every(function (key) { return Object.prototype.hasOwnProperty.call(b, key) && equal(a[key], b[key]); });
+  }
+  function equalScene(a, b) {
+    return a.size === b.size && Array.from(a).every(function (pair) { return b.has(pair[0]) && equal(pair[1], b.get(pair[0])); });
+  }
+  function compatible(a, b, path) {
+    if (typeof a === 'number' && typeof b === 'number') return;
+    if (a === b) return;
+    if (a && b && typeof a === 'object' && typeof b === 'object' && Array.isArray(a) === Array.isArray(b)) {
+      var ak = Object.keys(a), bk = Object.keys(b);
+      if (ak.length === bk.length && ak.every(function (k) { return Object.prototype.hasOwnProperty.call(b, k); })) {
+        ak.forEach(function (k) { compatible(a[k], b[k], path + '.' + k); });
+        return;
+      }
+    }
+    throw new TypeError(path + ': incompatible geometry; supply interpolate or make an explicit staged transition (SVG path strings are never number-morphed)');
+  }
+  function interpolateNumbers(a, b, t) {
+    if (typeof a === 'number' && typeof b === 'number') return a * (1 - t) + b * t;
+    if (a === b) return a;
+    var output = Array.isArray(a) ? [] : Object.create(null);
+    Object.keys(a).forEach(function (k) { output[k] = interpolateNumbers(a[k], b[k], t); });
+    return output;
+  }
+  function create(options) {
+    options = options || {};
+    if (typeof options.paint !== 'function') throw new TypeError('paint is required');
+    var host = typeof window !== 'undefined' ? window : null;
+    var env = options.environment || {};
+    var now = env.now || function () { return typeof performance !== 'undefined' ? performance.now() : Date.now(); };
+    var raf = env.requestFrame || (host && host.requestAnimationFrame ? host.requestAnimationFrame.bind(host) : function (fn) { return setTimeout(fn, 16); });
+    var caf = env.cancelFrame || (host && host.cancelAnimationFrame ? host.cancelAnimationFrame.bind(host) : clearTimeout);
+    var eventTarget = Object.prototype.hasOwnProperty.call(env, 'eventTarget') ? env.eventTarget : host;
+    var media = Object.prototype.hasOwnProperty.call(env, 'mediaQuery') ? env.mediaQuery : (host && host.matchMedia ? host.matchMedia('(prefers-reduced-motion: reduce)') : null);
+    var current = scene(options.scene || {}), destination = scene(current);
+    var job = null, pending = null, frame = null, generation = 0, destroyed = false, stableDepth = 0;
+    var reduced = !!(media && media.matches), lastMeta = options.meta, visiblePhase = 'settled', visibleProgress = 1;
+    function alive() { if (destroyed) throw new Error('ChartMotion has been destroyed'); }
+    function invalidate() {
+      generation += 1;
+      if (frame !== null) caf(frame);
+      frame = null;
+      job = null;
+      return generation;
+    }
+    function info(phase, progress, reason, active) {
+      return { phase: phase, progress: progress, reason: reason, meta: active ? active.meta : lastMeta,
+        entering: active ? active.entering.slice() : [], exiting: active ? active.exiting.slice() : [] };
+    }
+    function paint(phase, progress, reason, active) {
+      visiblePhase = phase; visibleProgress = progress;
+      options.paint(scene(current), info(phase, progress, reason, active));
+    }
+    function settle(active, reason) {
+      var token = invalidate();
+      pending = null;
+      current = scene(active.target);
+      destination = scene(active.target);
+      lastMeta = active.meta;
+      paint('settled', 1, reason, active);
+      if (!destroyed && token === generation && typeof options.onSettled === 'function') options.onSettled(scene(current), info('settled', 1, reason, active));
+    }
+    function finish(reason) {
+      alive();
+      if (job || pending) settle(job || pending, reason || 'finish');
+      return scene(current);
+    }
+    function tick(token, active) {
+      if (destroyed || token !== generation || job !== active) return;
+      frame = null;
+      try {
+        var elapsed = Math.max(0, now() - active.start);
+        var progress = Math.min(1, elapsed / active.duration);
+        if (progress >= 1) { settle(active, 'complete'); return; }
+        var eased = active.ease(progress);
+        if (destroyed || generation !== token || job !== active) return;
+        if (!Number.isFinite(eased)) throw new TypeError('ease must return a finite number');
+        eased = Math.max(0, Math.min(1, eased));
+        var next = new Map();
+        active.from.forEach(function (from, id) {
+          if (destroyed || generation !== token || job !== active) return;
+          var value = active.interpolate ? active.interpolate(clone(from), clone(active.to.get(id)), eased, id,
+            { progress: progress, meta: active.meta, entering: active.entering.includes(id), exiting: active.exiting.includes(id) }) : interpolateNumbers(from, active.to.get(id), eased);
+          next.set(id, clone(value, id));
+        });
+        if (destroyed || generation !== token || job !== active) return;
+        current = next;
+        active.progress = progress;
+        paint('transition', progress, 'frame', active);
+        if (!destroyed && generation === token && job === active) frame = raf(function () { tick(token, active); });
+      } catch (error) {
+        // Never erase a replacement transition created by a reentrant author callback.
+        if (generation === token) invalidate();
+        throw error;
+      }
+    }
+    function to(input, settings) {
+      alive();
+      settings = settings || {};
+      var target = scene(input);
+      var duration = settings.duration === undefined ? (options.duration === undefined ? 320 : options.duration) : settings.duration;
+      if (!Number.isFinite(duration) || duration < 0) throw new RangeError('duration must be a finite nonnegative number');
+      var custom = settings.interpolate || options.interpolate;
+      if (custom !== undefined && typeof custom !== 'function') throw new TypeError('interpolate must be a function');
+      var ease = settings.ease || options.ease || function (t) { return t; };
+      if (typeof ease !== 'function') throw new TypeError('ease must be a function');
+      var from = scene(current), aligned = new Map(), entering = [], exiting = [];
+      var preparationGeneration = generation;
+      var enter = settings.enter || options.enter, exit = settings.exit || options.exit;
+      target.forEach(function (value, id) {
+        if (!from.has(id)) { entering.push(id); from.set(id, enter ? clone(enter(id, clone(value)), id) : clone(value)); }
+        aligned.set(id, clone(value));
+      });
+      Array.from(from).forEach(function (pair) {
+        if (!target.has(pair[0])) {
+          exiting.push(pair[0]);
+          if (exit) aligned.set(pair[0], clone(exit(pair[0], clone(pair[1])), pair[0]));
+          else from.delete(pair[0]); // Explicit default: membership switches immediately, never by index.
+        }
+      });
+      if (destroyed || generation !== preparationGeneration) return api;
+      if (!custom) from.forEach(function (value, id) { compatible(value, aligned.get(id), id); });
+      // Validate first; an invalid request must not interrupt the current animation.
+      var token = invalidate();
+      destination = scene(target);
+      var active = { from: from, to: aligned, target: target, duration: duration, start: now(), progress: 0, ease: ease,
+        interpolate: custom, entering: entering, exiting: exiting, meta: settings.meta === undefined ? options.meta : settings.meta };
+      job = active;
+      pending = active;
+      lastMeta = active.meta;
+      try {
+        if (typeof options.onStart === 'function') options.onStart(scene(current), scene(target), info('start', 0, 'to', active));
+      } catch (error) {
+        if (generation === token) invalidate();
+        throw error;
+      }
+      if (destroyed || generation !== token || job !== active) return api;
+      if (reduced || stableDepth || duration === 0 || equalScene(current, target)) {
+        settle(active, reduced ? 'reduced-motion' : stableDepth ? 'stable-frame' : duration === 0 ? 'immediate' : 'unchanged');
+        return api;
+      }
+      current = scene(from);
+      try { paint('transition', 0, 'start', active); }
+      catch (error) {
+        if (generation === token) invalidate();
+        throw error;
+      }
+      if (!destroyed && generation === token && job === active) frame = raf(function () { tick(token, active); });
+      return api;
+    }
+    function withStableFrame(callback) {
+      alive();
+      if (typeof callback !== 'function') throw new TypeError('callback is required');
+      stableDepth += 1;
+      try {
+        finish('export');
+        if (job || pending) throw new Error('Stable frame was interrupted by an author callback; finish the retained target before exporting');
+        return callback(scene(current));
+      }
+      finally { stableDepth -= 1; }
+    }
+    function mediaChange(event) {
+      reduced = !!event.matches;
+      if (!destroyed && reduced) finish('reduced-motion');
+    }
+    function beforePrint() { if (!destroyed) withStableFrame(function () {}); }
+    function afterPrint() { if (!destroyed) paint(visiblePhase, visibleProgress, 'afterprint', job); }
+    if (media) {
+      if (media.addEventListener) media.addEventListener('change', mediaChange);
+      else if (media.addListener) media.addListener(mediaChange);
+    }
+    if (eventTarget && eventTarget.addEventListener) {
+      eventTarget.addEventListener('beforeprint', beforePrint);
+      eventTarget.addEventListener('afterprint', afterPrint);
+    }
+    var api = {
+      to: to, transition: to, finish: finish,
+      cancel: function () {
+        alive();
+        var active = job;
+        invalidate();
+        if (active) paint('cancelled', active.progress, 'cancel', active);
+        return scene(current);
+      },
+      snapshot: function () { return scene(current); }, target: function () { return scene(destination); },
+      isRunning: function () { return !!job; }, withStableFrame: withStableFrame,
+      destroy: function () {
+        if (destroyed) return;
+        invalidate(); pending = null; destroyed = true;
+        if (media) {
+          if (media.removeEventListener) media.removeEventListener('change', mediaChange);
+          else if (media.removeListener) media.removeListener(mediaChange);
+        }
+        if (eventTarget && eventTarget.removeEventListener) {
+          eventTarget.removeEventListener('beforeprint', beforePrint);
+          eventTarget.removeEventListener('afterprint', afterPrint);
+        }
+      }
+    };
+    try { paint('settled', 1, 'initial', null); }
+    catch (error) { api.destroy(); throw error; }
+    return api;
+  }
+  function captureFocus(root, attribute) {
+    attribute = attribute || 'data-focus-key';
+    var active = root && root.ownerDocument && root.ownerDocument.activeElement;
+    if (!active || !root.contains(active) || !active.hasAttribute(attribute)) return null;
+    var token = { key: active.getAttribute(attribute), attribute: attribute };
+    if (typeof active.selectionStart === 'number') {
+      token.start = active.selectionStart; token.end = active.selectionEnd; token.direction = active.selectionDirection;
+    }
+    return token;
+  }
+  function restoreFocus(root, token) {
+    if (!root || !token) return false;
+    var nodes = Array.from(root.querySelectorAll('*'));
+    if (root.getAttribute) nodes.unshift(root);
+    var matches = nodes.filter(function (node) { return node.getAttribute(token.attribute) === token.key; });
+    if (matches.length !== 1 || typeof matches[0].focus !== 'function' || matches[0].disabled) return false;
+    var node = matches[0];
+    node.focus({ preventScroll: true });
+    if (typeof token.start === 'number' && node.setSelectionRange) {
+      try { node.setSelectionRange(token.start, token.end, token.direction); } catch (_) { /* non-text controls */ }
+    }
+    return root.ownerDocument.activeElement === node;
+  }
+  function preserveFocus(root, render) {
+    var token = captureFocus(root);
+    var result = render();
+    restoreFocus(root, token);
+    return result;
+  }
+  return { version: '1.0.1', create: create, captureFocus: captureFocus, restoreFocus: restoreFocus, preserveFocus: preserveFocus };
+});
+
+/* Experimental stable-ID point transition; requires ChartMotion. */
+(function(root){'use strict';
+function create(opts){
+  if(!opts || !opts.scopes || !Object.prototype.hasOwnProperty.call(opts.scopes,opts.initial) || typeof opts.render!=='function')throw new TypeError('scopes, initial and render required');
+  if(opts.duration!==undefined && (!Number.isFinite(opts.duration)||opts.duration<0))throw new RangeError('duration must be finite and nonnegative');
+  const scopes=Object.create(null);
+  for(const [name,records] of Object.entries(opts.scopes)){
+    if(!name || !Array.isArray(records))throw new TypeError('invalid scope');const seen=new Set();
+    scopes[name]=records.map(d=>{if(!d||typeof d.id!=='string'||!d.id||seen.has(d.id))throw new TypeError('stable unique ID required');seen.add(d.id);
+      if(!((d.x===null&&d.y===null)||(Number.isFinite(d.x)&&Number.isFinite(d.y))))throw new TypeError('coordinates must both be finite or both missing');
+      if(opts.validate)opts.validate(d,name);return Object.freeze({id:d.id,x:d.x,y:d.y});});Object.freeze(scopes[name]);
+  }
+  const isKnown=d=>d.x!==null&&d.y!==null;
+  const observed=name=>new Set(scopes[name].filter(isKnown).map(d=>d.id));
+  const sceneFor=name=>{let out=Object.create(null);for(const d of scopes[name])if(isKnown(d))out[d.id]={x:d.x,y:d.y,opacity:1};return out};
+  let target=opts.initial;
+  const motion=ChartMotion.create({scene:sceneFor(target),duration:opts.duration===undefined?700:opts.duration,meta:{previous:target,target},
+    paint(scene,info){const m=info.meta||{previous:target,target},old=observed(m.previous),next=observed(m.target);
+      const marks=Array.from(scene,([id,v])=>({id,x:v.x,y:v.y,opacity:v.opacity,role:next.has(id)?(old.has(id)?'retained':'entered'):(old.has(id)?'exited':'earlier-exit')}));
+      opts.render({marks,phase:info.phase,progress:info.progress,target:m.target,previous:m.previous,targetRecords:scopes[m.target],currentValuesAreTransition:info.phase==='transition'});
+    }
+  });
+  return {set(name){if(!Object.prototype.hasOwnProperty.call(scopes,name))throw new RangeError('unknown scope');if(name===target)return;const previous=target;target=name;
+      motion.to(sceneFor(name),{meta:{previous,target},enter:(id,v)=>({x:v.x,y:v.y,opacity:0}),exit:(id,v)=>({x:v.x,y:v.y,opacity:0})});},
+    isRunning:()=>motion.isRunning(),finish:()=>motion.finish(),withStableFrame:cb=>motion.withStableFrame(cb),destroy:()=>motion.destroy()};
+}
+root.RetainedMotion={create};
+})(globalThis);
+
+/* RetainedRows candidate: DOM row-position adapter. Requires ChartMotion + RetainedMotion.
+   Only filtering/reordering immutable records. Not a data-value tween or layout engine. */
+(function(root){'use strict';
+function create(options){
+ const o=options||{}, host=o.container, doc=host&&host.ownerDocument;
+ if(!host||host.nodeType!==1||host.namespaceURI!=='http://www.w3.org/1999/xhtml'||!doc||host.children.length)throw new TypeError('empty container Element required');
+ if(!root.RetainedMotion||!root.ChartMotion)throw new Error('ChartMotion and RetainedMotion must be loaded first');
+ if(typeof o.createRow!=='function'||!Array.isArray(o.records)||!o.scopes||typeof o.scopes!=='object')throw new TypeError('records, scopes and createRow required');
+ if(!Number.isFinite(o.rowHeight)||o.rowHeight<=0||o.rowHeight>1000000)throw new RangeError('fixed rowHeight must be in (0, 1000000] CSS pixels');
+ if(o.duration!==undefined&&(!Number.isFinite(o.duration)||o.duration<0))throw new RangeError('nonnegative finite duration required');
+ if(o.statusElement&&(o.statusElement.nodeType!==1||o.statusElement.ownerDocument!==doc))throw new TypeError('statusElement must be an Element in this document');
+ const data=new Map(), nodes=new Map(), contents=new Set(), scopes=Object.create(null);
+ for(const r of o.records){if(!r||typeof r.id!=='string'||!r.id||data.has(r.id))throw new TypeError('unique nonempty record IDs required');data.set(r.id,Object.freeze({...r}));}
+ for(const [name,ids] of Object.entries(o.scopes)){
+  if(!name||!Array.isArray(ids))throw new TypeError('named arrays of IDs required');if(!Number.isFinite(ids.length*o.rowHeight)||ids.length*o.rowHeight>1000000)throw new RangeError('scope extent exceeds 1000000 CSS pixels');for(let i=0;i<ids.length;i++)if(!(i in ids))throw new TypeError('sparse scope arrays are not supported');const seen=new Set();
+  scopes[name]=ids.map((id,i)=>{if(typeof id!=='string'||!data.has(id)||seen.has(id))throw new TypeError('scope IDs must be unique known records');seen.add(id);return {id,x:0,y:i*o.rowHeight};});
+ }
+ if(!Object.prototype.hasOwnProperty.call(scopes,o.initial))throw new RangeError('unknown initial scope');
+ if(o.fallbackFocus&&(typeof o.fallbackFocus.focus!=='function'||o.fallbackFocus.ownerDocument!==doc))throw new TypeError('fallbackFocus must be a focusable element in this document');
+ // Build once. Filtering never calls createRow or changes any inner chart's geometry.
+ for(const [id,r] of data){
+  const content=o.createRow(r);
+  if(!content||content.nodeType!==1||content.ownerDocument!==doc||content.isConnected||contents.has(content))throw new TypeError('createRow must return a distinct detached Element');contents.add(content);
+  const row=doc.createElement('div');row.className='retained-row';row.dataset.rowId=id;row.setAttribute('role','listitem');
+  Object.assign(row.style,{position:'absolute',left:'0',right:'0',top:'0',height:o.rowHeight+'px',boxSizing:'border-box',opacity:'0',transform:'translateY(0px)',transition:'none',animation:'none'});
+  row.append(content);nodes.set(id,row);
+ }
+ const original={style:host.getAttribute('style'),role:host.getAttribute('role'),tabindex:host.getAttribute('tabindex'),'data-retained-scope':host.getAttribute('data-retained-scope'),'data-retained-phase':host.getAttribute('data-retained-phase')};
+ host.style.position='relative';host.setAttribute('role','list');if(!host.hasAttribute('tabindex'))host.setAttribute('tabindex','-1');
+ let target=o.initial,destroyed=false,motion;
+ function focusFallback(){const f=o.fallbackFocus&&o.fallbackFocus.isConnected?o.fallbackFocus:host;f.focus({preventScroll:true});if(doc.activeElement!==f&&!f.contains(doc.activeElement))host.focus({preventScroll:true});}
+ function arrange(name){
+  const ids=scopes[name].map(r=>r.id), keep=new Set(ids), focused=doc.activeElement;
+  const exitingFocus=[...nodes].some(([id,n])=>!keep.has(id)&&n.contains(focused));
+  if(exitingFocus)focusFallback();
+  // Reuse exact nodes. DOM order follows final reading order; restore retained descendant focus after moves.
+  for(const id of ids)host.append(nodes.get(id));
+  if(!exitingFocus&&focused&&focused!==doc.body&&focused.isConnected&&host.contains(focused))focused.focus({preventScroll:true});
+  for(const [id,node] of nodes){const present=keep.has(id);node.inert=!present;node.setAttribute('aria-hidden',String(!present));if(present){node.setAttribute('aria-posinset',String(ids.indexOf(id)+1));node.setAttribute('aria-setsize',String(ids.length));}}
+ }
+ arrange(target);
+ motion=root.RetainedMotion.create({scopes,initial:target,duration:o.duration===undefined?420:o.duration,render(frame){
+  const keep=new Set(), targetIds=new Set(scopes[target].map(r=>r.id));let extent=scopes[target].length*o.rowHeight;
+  for(const mark of frame.marks){
+   const node=nodes.get(mark.id);keep.add(mark.id);if(node.parentNode!==host)host.append(node);
+   node.style.transform='translateY('+mark.y+'px)';node.style.opacity=String(mark.opacity);node.dataset.membership=mark.role;
+   node.inert=!targetIds.has(mark.id);node.setAttribute('aria-hidden',String(!targetIds.has(mark.id)));
+   extent=Math.max(extent,mark.y+o.rowHeight);
+  }
+  for(const [id,node] of nodes)if(node.parentNode===host&&!keep.has(id)){if(node.contains(doc.activeElement))focusFallback();node.remove();}
+  host.style.height=(frame.phase==='transition'?extent:scopes[target].length*o.rowHeight)+'px';
+  host.dataset.retainedScope=target;host.dataset.retainedPhase=frame.phase;
+  if(o.statusElement)o.statusElement.textContent=frame.phase==='transition'?'范围切换中：只改变行位置与成员可见性，数值保持不变。':'范围：'+target+'；'+scopes[target].length+'项，数值保持不变。';
+ }});
+ function alive(){if(destroyed)throw new Error('RetainedRows has been destroyed');}
+ return {set(name){alive();if(!Object.prototype.hasOwnProperty.call(scopes,name))throw new RangeError('unknown scope');if(name===target)return false;target=name;arrange(name);motion.set(name);return true;},
+  finish(){alive();return motion.finish();},withStableFrame(fn){alive();return motion.withStableFrame(fn);},isRunning(){return !destroyed&&motion.isRunning();},
+  getNode(id){return nodes.get(id)||null;},
+  destroy(){if(destroyed)return;motion.destroy();destroyed=true;if(host.contains(doc.activeElement))focusFallback();for(const n of nodes.values())n.remove();for(const [key,value] of Object.entries(original)){if(value===null)host.removeAttribute(key);else host.setAttribute(key,value);}}
+ };
+}
+root.RetainedRows={create};
+})(globalThis);
+</script><script>const cfg={"records": [{"id": "a", "name": "东站", "value": 120, "rate": 92}, {"id": "b", "name": "北站", "value": 0, "rate": null}, {"id": "c", "name": "南站", "value": 68, "rate": 81}, {"id": "d", "name": "西站", "value": 94, "rate": 97}, {"id": "e", "name": "新站", "value": 39, "rate": 78}], "height": 104, "kind": "fulfilment", "scopes": {"全部": ["a", "b", "c", "d"], "倒序": ["d", "c", "b", "a"], "筛选": ["c", "a"], "新范围": ["e", "c", "a"], "空范围": []}};const host=document.getElementById('rows'), status=document.getElementById('status');let count=0;
+const app=RetainedRows.create({container:host,records:cfg.records,scopes:cfg.scopes,initial:'全部',rowHeight:cfg.height,duration:620,fallbackFocus:document.getElementById('reset'),statusElement:status,createRow(d){count++;const e=document.createElement('div');e.className='row-content';const button=document.createElement('button');button.className='name';button.dataset.detail=d.id;button.textContent=d.name;button.onclick=()=>document.getElementById('details').textContent=d.name+'：固定原始观测；筛选不修改数值。';e.append(button);const charts=document.createElement('div');charts.className='charts';function metric(value,max,label){const line=document.createElement('div');line.className='metric';const track=document.createElement('div');track.className='track';if(value!==null){const bar=document.createElement('i');bar.className='bar';bar.dataset.value=String(value);bar.style.width=(value/max*100)+'%';track.append(bar)}const t=document.createElement('span');t.textContent=value===null?label+' 未报':label+' '+value;line.append(track,t);charts.append(line)}metric(d.value,120,cfg.kind==='harvest'?'吨':'单');if(cfg.kind==='fulfilment')metric(d.rate,100,'%');e.append(charts);return e;}});
+window.app=app;window.rowCreates=()=>count;window.cfg=cfg;window.nodeRefs=new Map(cfg.records.map(d=>[d.id,app.getNode(d.id)]));
+for(const b of document.querySelectorAll('[data-scope]'))b.onclick=()=>{for(const q of document.querySelectorAll('[data-scope]'))q.setAttribute('aria-pressed',String(q===b));app.set(b.dataset.scope)};
+document.getElementById('destroy').onclick=()=>app.destroy();
+</script></html>

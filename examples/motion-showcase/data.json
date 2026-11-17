@@ -1,0 +1,98 @@
+{
+  "synthetic": true,
+  "unit": "万元",
+  "periods": [
+    "4月",
+    "5月",
+    "6月"
+  ],
+  "target": [
+    760,
+    900,
+    1100
+  ],
+  "stores": [
+    {
+      "id": "north",
+      "name": "北城",
+      "area": "成熟商圈",
+      "values": [
+        186,
+        224,
+        246
+      ]
+    },
+    {
+      "id": "lake",
+      "name": "湖畔",
+      "area": "生活街区",
+      "values": [
+        142,
+        168,
+        232
+      ]
+    },
+    {
+      "id": "south",
+      "name": "南街",
+      "area": "社区中心",
+      "values": [
+        168,
+        157,
+        192
+      ]
+    },
+    {
+      "id": "west",
+      "name": "西园",
+      "area": "商务街区",
+      "values": [
+        119,
+        146,
+        174
+      ]
+    },
+    {
+      "id": "port",
+      "name": "新港",
+      "area": "交通枢纽",
+      "values": [
+        95,
+        194,
+        268
+      ]
+    }
+  ],
+  "channels": [
+    {
+      "id": "shop",
+      "name": "店内消费",
+      "color": "#b6f26e",
+      "values": [
+        425,
+        476,
+        542
+      ]
+    },
+    {
+      "id": "delivery",
+      "name": "外送订单",
+      "color": "#ff866b",
+      "values": [
+        185,
+        287,
+        358
+      ]
+    },
+    {
+      "id": "retail",
+      "name": "零售商品",
+      "color": "#929bff",
+      "values": [
+        100,
+        126,
+        212
+      ]
+    }
+  ]
+}

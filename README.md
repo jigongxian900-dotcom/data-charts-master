@@ -8,6 +8,20 @@
 
 **54** 个图表与组合实例 · **7** 套原创语义配色 · **3** 个交互叙事实例。示例可离线打开，附原始值、业务问题、适用条件与阅读边界。
 
+## 5.4 动效试用
+
+[![三幕真实交互：增长、结构和门店位次](docs/motion-showcase.png)](https://jigongxian900-dotcom.github.io/data-charts-master/motion-showcase.html)
+
+[打开三幕动效展示 ↗](https://jigongxian900-dotcom.github.io/data-charts-master/motion-showcase.html) · [离线成品与重建源](examples/motion-showcase/README.md)
+
+本轮把动效接入做成可执行入口：已核算的 SVG 矩形/圆/线场景可一条命令生成独立 HTML，保留行适配器负责筛选与重排时的对象追踪。当前帧续接、快速反向、减少动态、焦点保留有实际浏览器回归。展示使用原创合成数据，初始不自动播放。
+
+- [有限 SVG 场景构建器](scripts/scene-builder/SCENE-README.md)：不再逐页重写 RAF；不替作者聚合业务数据或保证几何映射正确。
+- [保留对象行](references/retained-rows.md)：同 ID 节点和真实数值保留，筛选不把不变条形重新从零播放。
+- [指标卡](scripts/kpi-builder/README.md)与[统一入口/产物门禁](references/production-gate.md)：明确支持边界，缺测不算通过。
+
+这是先用一段、继续收集实际反馈的动效更新，不是95分或任意业务任务均已验证的保证。既有图谱、案例和许可边界保留。[本轮验证范围](docs/motion-5.4-validation.md)
+
 ## 先体验，再安装
 
 1. [打开在线图谱](https://jigongxian900-dotcom.github.io/data-charts-master/)，直接操作筛选、聚焦、表格和导出。

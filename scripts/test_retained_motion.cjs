@@ -1,0 +1,30 @@
+const fs=require('fs'),path=require('path'),os=require('os'),crypto=require('crypto'),assert=require('assert'),{pathToFileURL}=require('url'),{chromium}=require('playwright');
+const skill=path.resolve(__dirname,'..');
+const core=fs.readFileSync(path.join(skill,'assets','chart-motion.js'),'utf8');
+const candidate=fs.readFileSync(path.join(skill,'assets','retained-motion.js'),'utf8');
+const reference=fs.readFileSync(path.join(skill,'references','motion-retained-example.md'),'utf8');
+const match=reference.match(/```html\s*\n([\s\S]*?)\n```/);assert(match,'reference must include runnable example');const body=match[1];
+assert(![core,candidate].some(s=>s.toLowerCase().includes('</script')));
+const output=path.join(os.tmpdir(),'chart-motion-test-'+crypto.randomUUID()+'.html');
+fs.writeFileSync(output,'<!doctype html><html lang="zh"><meta charset="utf-8"><title>Test</title><body><script>'+core+'</script><script>'+candidate+'</script>'+body+'</body></html>');
+const file=pathToFileURL(output).href,checks=[];function ok(b,name){assert(b,name);checks.push(name)}
+const channel=process.env.CHART_TEST_BROWSER_CHANNEL||(process.platform==='win32'?'msedge':undefined);
+async function snap(p){return p.evaluate(()=>({status:document.querySelector('.status').textContent,summary:document.querySelector('.summary').textContent,missing:document.querySelector('.missing').textContent,running:demoMotion.isRunning(),focus:document.activeElement.dataset.id||document.activeElement.dataset.scope,marks:[...document.querySelector('#marks').children].map(n=>({id:n.dataset.id,x:+n.dataset.x,y:+n.dataset.y,role:n.dataset.role,opacity:+n.getAttribute('opacity'),transform:n.getAttribute('transform'),label:n.lastChild.textContent,tag:n._testTag}))}))}
+(async()=>{let browser=await chromium.launch({headless:true,...(channel?{channel}:{})});try{const page=await browser.newPage({viewport:{width:1100,height:900}}),errors=[];page.on('pageerror',e=>errors.push(e.message));await page.goto(file);
+let s=await snap(page);ok(s.summary.includes('第一季')&&s.summary.includes('2/3')&&s.missing.includes('C')&&!s.marks.find(m=>m.id==='C'),'初始目标摘要与缺报');await page.evaluate(()=>document.querySelector('#marks [data-id="B"]')._testTag='same-node');
+await page.click('[data-scope="第二季"]');await page.waitForTimeout(250);s=await snap(page);let a=s.marks.find(m=>m.id==='A'),b=s.marks.find(m=>m.id==='B'),d=s.marks.find(m=>m.id==='D');
+ok(a&&b&&d&&b.x>6&&b.x<9&&b.y>3&&b.y<7&&b.role==='retained','保留对象固定坐标系下连续过渡');
+ok(a.role==='exited'&&a.x===2&&a.y===4&&a.opacity>0&&a.opacity<1&&d.role==='entered'&&d.x===4&&d.y===8&&d.opacity>0&&d.opacity<1,'进入退出使用各自真实坐标');
+const expected=`translate(${40+b.x/12*330},${190-b.y/12*175})`;ok(b.transform===expected&&b.label.includes(`(${b.x}, ${b.y})`)&&b.label.includes('过渡')&&s.status.includes('并非新增观测'),'图位与过渡读数一致并标注语义');
+ok(s.summary.includes('目标 第二季')&&s.summary.includes('2/3')&&s.missing.includes('C')&&!s.marks.find(m=>m.id==='C'),'目标摘要真实且未把缺失当零');
+await page.focus('#marks [data-id="B"]');await page.waitForTimeout(80);s=await snap(page);ok(s.focus==='B'&&s.marks.find(m=>m.id==='B').tag==='same-node','保留对象节点及焦点跨帧不丢');
+await page.click('[data-scope="第一季"]');s=await snap(page);const bx=s.marks.find(m=>m.id==='B').x;await page.waitForTimeout(120);s=await snap(page);ok(s.marks.find(m=>m.id==='B').x<=bx&&s.marks.find(m=>m.id==='B').x>=6,'快速反向从当前帧向新目标续接');await page.waitForTimeout(850);s=await snap(page);ok(s.marks.length===2&&s.marks.find(m=>m.id==='B').x===6&&!s.marks.find(m=>m.id==='D')&&s.summary.includes('第一季'),'反向后回到真实目标');
+await page.click('[data-scope="第二季"]');await page.waitForTimeout(100);await page.focus('#marks [data-id="A"]');await page.waitForTimeout(850);s=await snap(page);ok(s.focus==='第二季'&&!s.marks.find(m=>m.id==='A'),'退出图元焦点回退到目标控件');
+await page.click('[data-scope="第一季"]');await page.waitForTimeout(150);await page.emulateMedia({reducedMotion:'reduce'});await page.waitForTimeout(80);s=await snap(page);ok(!s.running&&s.marks.find(m=>m.id==='B').x===6&&!s.marks.find(m=>m.id==='D')&&s.status.includes('已稳定'),'运行中减少动态收敛');
+await page.emulateMedia({reducedMotion:'no-preference'});await page.click('[data-scope="第二季"]');await page.waitForTimeout(130);const stable=await page.evaluate(()=>demoMotion.withStableFrame(()=>({summary:document.querySelector('.summary').textContent,x:+document.querySelector('#marks [data-id="B"]').dataset.x,running:demoMotion.isRunning(),ids:[...document.querySelector('#marks').children].map(n=>n.dataset.id)})));ok(stable.summary.includes('第二季')&&stable.x===9&&!stable.running&&!stable.ids.includes('A'),'稳定导出读取目标事实');
+ok(await page.evaluate(()=>{try{demoMotion.set('未知');return false}catch(e){return e instanceof RangeError}}),'未知范围拒绝');
+ok(await page.evaluate(()=>{try{RetainedMotion.create({scopes:{s:[{id:'a',x:null,y:3}]},initial:'s',render:()=>{}});return false}catch(e){return e instanceof TypeError}}),'部分缺失坐标明确拒绝');
+ok(await page.evaluate(()=>{try{RetainedMotion.create({scopes:{s:[{id:'a',x:1,y:2},{id:'a',x:3,y:4}]},initial:'s',render:()=>{}});return false}catch(e){return e instanceof TypeError}}),'重复 ID 明确拒绝');ok(errors.length===0,'浏览器无页面错误');
+const reduced=await browser.newPage({reducedMotion:'reduce'});await reduced.goto(file);await reduced.click('[data-scope="第二季"]');s=await snap(reduced);ok(!s.running&&s.marks.find(m=>m.id==='B').x===9&&s.summary.includes('第二季'),'初始减少动态');
+console.log('PASS '+checks.length+' checks');
+}finally{await browser.close()}})().catch(e=>{console.error(e);process.exitCode=1}).finally(()=>{try{fs.unlinkSync(output)}catch(_){}});

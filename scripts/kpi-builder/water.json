@@ -1,0 +1,187 @@
+{
+  "title": "水处理厂 · 合成月度验证",
+  "scope": "同一厂区；预先聚合的合成月度读数，不代表实际监测",
+  "source": "本地合成夹具",
+  "states": [
+    {
+      "id": "oct",
+      "label": "10月（合成）",
+      "metrics": [
+        {
+          "id": "revenue",
+          "label": "处理水量",
+          "value": 96,
+          "unit": "万立方米",
+          "kind": "number",
+          "polarity": "higher",
+          "period": "2026-10",
+          "definition": "月处理水量；目标与实际同月同范围",
+          "target": 100,
+          "targetPeriod": "2026-10",
+          "comparison": {
+            "label": "去年同期",
+            "value": 90
+          }
+        },
+        {
+          "id": "cost",
+          "label": "单位处理电耗",
+          "value": 0.38,
+          "unit": "千瓦时/立方米",
+          "kind": "number",
+          "polarity": "lower",
+          "period": "2026-10",
+          "definition": "总耗电÷处理水量；不平均每日比率",
+          "trendLabel": "近6期 · 单期值",
+          "trend": [
+            {
+              "date": "2026-05",
+              "value": 0.45
+            },
+            {
+              "date": "2026-06",
+              "value": 0.44
+            },
+            {
+              "date": "2026-07",
+              "value": 0.43
+            },
+            {
+              "date": "2026-08",
+              "value": null
+            },
+            {
+              "date": "2026-09",
+              "value": 0.42
+            },
+            {
+              "date": "2026-10",
+              "value": 0.38
+            }
+          ],
+          "comparison": {
+            "label": "去年同期",
+            "value": 0.44
+          },
+          "precision": 2
+        },
+        {
+          "id": "margin",
+          "label": "出水达标率",
+          "value": 98.4,
+          "unit": "%",
+          "kind": "percent",
+          "polarity": "higher",
+          "period": "2026-10",
+          "definition": "达标检测次数÷有效检测次数；缺测不计为达标",
+          "comparison": {
+            "label": "去年同期",
+            "value": 97.5
+          }
+        },
+        {
+          "id": "missing",
+          "label": "复核中的污泥处理量",
+          "value": null,
+          "unit": "吨",
+          "kind": "number",
+          "polarity": "higher",
+          "period": "2026-10",
+          "definition": "待复核，不以缺报代替零",
+          "target": null,
+          "targetPeriod": "2026-10"
+        }
+      ]
+    },
+    {
+      "id": "sep",
+      "label": "9月（合成）",
+      "metrics": [
+        {
+          "id": "revenue",
+          "label": "处理水量",
+          "value": 104,
+          "unit": "万立方米",
+          "kind": "number",
+          "polarity": "higher",
+          "period": "2026-09",
+          "definition": "月处理水量；目标与实际同月同范围",
+          "target": 100,
+          "targetPeriod": "2026-09",
+          "comparison": {
+            "label": "去年同期",
+            "value": 95
+          }
+        },
+        {
+          "id": "cost",
+          "label": "单位处理电耗",
+          "value": 0.42,
+          "unit": "千瓦时/立方米",
+          "kind": "number",
+          "polarity": "lower",
+          "period": "2026-09",
+          "definition": "总耗电÷处理水量；不平均每日比率",
+          "trendLabel": "近6期 · 单期值",
+          "trend": [
+            {
+              "date": "2026-04",
+              "value": 0.47
+            },
+            {
+              "date": "2026-05",
+              "value": 0.46
+            },
+            {
+              "date": "2026-06",
+              "value": 0.45
+            },
+            {
+              "date": "2026-07",
+              "value": null
+            },
+            {
+              "date": "2026-08",
+              "value": 0.44
+            },
+            {
+              "date": "2026-09",
+              "value": 0.42
+            }
+          ],
+          "comparison": {
+            "label": "去年同期",
+            "value": 0.44
+          },
+          "precision": 2
+        },
+        {
+          "id": "margin",
+          "label": "出水达标率",
+          "value": 97.9,
+          "unit": "%",
+          "kind": "percent",
+          "polarity": "higher",
+          "period": "2026-09",
+          "definition": "达标检测次数÷有效检测次数；缺测不计为达标",
+          "comparison": {
+            "label": "去年同期",
+            "value": 97.5
+          }
+        },
+        {
+          "id": "missing",
+          "label": "复核中的污泥处理量",
+          "value": 0,
+          "unit": "吨",
+          "kind": "number",
+          "polarity": "higher",
+          "period": "2026-09",
+          "definition": "待复核，不以缺报代替零",
+          "target": null,
+          "targetPeriod": "2026-09"
+        }
+      ]
+    }
+  ]
+}

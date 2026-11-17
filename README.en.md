@@ -1,5 +1,12 @@
 # Data Charts Master
 
+
+## 5.4 motion preview
+
+[Open the interactive motion showcase](https://jigongxian900-dotcom.github.io/data-charts-master/motion-showcase.html) · [Source and offline rebuild](examples/motion-showcase/README.md)
+
+This release adds a bounded numeric SVG scene builder, stable-identity row transitions, metric cards and an artifact preflight. It does not automatically aggregate business data or certify arbitrary designs. All showcase data is synthetic. Existing examples and license boundaries are preserved.
+
 **Turn business questions into custom, interactive HTML and SVG charts.** A chart-design skill for Codex, Claude Code and agents that read `SKILL.md`. Choose the visual structure from the comparison, then design composition, linked exploration and meaningful data motion.
 
 [Live gallery ↗](https://jigongxian900-dotcom.github.io/data-charts-master/) · [Motion demos ↗](https://jigongxian900-dotcom.github.io/data-charts-master/#motion) · [中文](README.md) · [Usage and commercial permission](COMMERCIAL.md)

@@ -1,0 +1,150 @@
+{
+  "title": "资金结构：移动边界，不重播整条",
+  "description": "两期同单位金额比较；占比视图改变坐标语义，因此立即切换。数字标签在过渡期间明确为目标值。",
+  "source": "合成公益筹款数据，单位万元",
+  "width": 980,
+  "height": 300,
+  "marks": [
+    {
+      "id": "free",
+      "kind": "rect",
+      "label": "非限定",
+      "unit": "万元",
+      "color": "#38796c"
+    },
+    {
+      "id": "restricted",
+      "kind": "rect",
+      "label": "限定",
+      "unit": "万元",
+      "color": "#b2633b"
+    }
+  ],
+  "states": [
+    {
+      "id": "h1",
+      "label": "上半年",
+      "semanticSpace": "amount-axis900",
+      "description": "固定0–900万元坐标下，分段宽度和边界连续变化。",
+      "guides": [
+        {
+          "x1": 100,
+          "x2": 730,
+          "y1": 70,
+          "y2": 70,
+          "text": "0–900 万元共同尺度"
+        }
+      ],
+      "values": [
+        {
+          "id": "free",
+          "value": 300,
+          "geometry": {
+            "x": 100,
+            "y": 100,
+            "width": 210.0,
+            "height": 56,
+            "lx": 100,
+            "ly": 195
+          }
+        },
+        {
+          "id": "restricted",
+          "value": 300,
+          "geometry": {
+            "x": 310.0,
+            "y": 100,
+            "width": 210.0,
+            "height": 56,
+            "lx": 470,
+            "ly": 195
+          }
+        }
+      ]
+    },
+    {
+      "id": "h2",
+      "label": "下半年",
+      "semanticSpace": "amount-axis900",
+      "description": "固定0–900万元坐标下，分段宽度和边界连续变化。",
+      "guides": [
+        {
+          "x1": 100,
+          "x2": 730,
+          "y1": 70,
+          "y2": 70,
+          "text": "0–900 万元共同尺度"
+        }
+      ],
+      "values": [
+        {
+          "id": "free",
+          "value": 270,
+          "geometry": {
+            "x": 100,
+            "y": 100,
+            "width": 189.0,
+            "height": 56,
+            "lx": 100,
+            "ly": 195
+          }
+        },
+        {
+          "id": "restricted",
+          "value": 630,
+          "geometry": {
+            "x": 289.0,
+            "y": 100,
+            "width": 441.0,
+            "height": 56,
+            "lx": 470,
+            "ly": 195
+          }
+        }
+      ]
+    },
+    {
+      "id": "ratio",
+      "label": "下半年占比",
+      "semanticSpace": "ratio-axis100",
+      "description": "单位改为百分比，坐标语义改变：即时切换，禁止金额到占比伪插值。",
+      "guides": [
+        {
+          "x1": 100,
+          "x2": 730,
+          "y1": 70,
+          "y2": 70,
+          "text": "0–100%"
+        }
+      ],
+      "values": [
+        {
+          "id": "free",
+          "value": 30,
+          "geometry": {
+            "x": 100,
+            "y": 100,
+            "width": 189,
+            "height": 56,
+            "lx": 100,
+            "ly": 195
+          },
+          "unit": "%"
+        },
+        {
+          "id": "restricted",
+          "value": 70,
+          "geometry": {
+            "x": 289,
+            "y": 100,
+            "width": 441,
+            "height": 56,
+            "lx": 470,
+            "ly": 195
+          },
+          "unit": "%"
+        }
+      ]
+    }
+  ]
+}

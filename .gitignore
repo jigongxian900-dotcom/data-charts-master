@@ -4,3 +4,19 @@ node_modules/
 .DS_Store
 Thumbs.db
 .test-output/
+
+# Local motion QA outputs (source fixtures and templates remain tracked)
+scripts/scene-builder/manufacturing.html
+scripts/scene-builder/funding.html
+scripts/scene-builder/edge.html
+scripts/scene-builder/*-results.json
+scripts/scene-builder/*.png
+scripts/kpi-builder/demo.html
+scripts/kpi-builder/edge.html
+scripts/kpi-builder/water.html
+scripts/kpi-builder/review-cases.html
+examples/motion-showcase/verification.json
+examples/motion-showcase/*.png
+
+examples/retained-rows/test-results.json
+examples/retained-rows/*.png

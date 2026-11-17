@@ -1,0 +1,132 @@
+{
+  "title": "边界数据验证 </script><img src=x onerror=alert(1)>",
+  "scope": "同一配送业务范围；数值均为验证用构造，不作经营结论",
+  "source": "本地合成夹具",
+  "states": [
+    {
+      "id": "oct",
+      "label": "10月（合成）",
+      "metrics": [
+        {
+          "id": "revenue",
+          "label": "营业额",
+          "value": -25,
+          "unit": "万元",
+          "kind": "number",
+          "polarity": "higher",
+          "period": "2026-10",
+          "definition": "合成验证数据，不代表真实业务",
+          "target": 100,
+          "targetPeriod": "2026-10",
+          "comparison": {
+            "label": "去年同期",
+            "value": 0
+          }
+        },
+        {
+          "id": "cost",
+          "label": "每单配送成本",
+          "value": 8,
+          "unit": "元/单",
+          "kind": "number",
+          "polarity": "lower",
+          "period": "2026-10",
+          "definition": "合成验证数据，不代表真实业务",
+          "trendLabel": "近6期 · 单期值",
+          "trend": [
+            {
+              "date": "2026-09",
+              "value": null
+            },
+            {
+              "date": "2026-10",
+              "value": 8
+            }
+          ],
+          "comparison": {
+            "label": "去年同期",
+            "value": 10
+          }
+        },
+        {
+          "id": "margin",
+          "label": "利润率",
+          "value": 5.1,
+          "unit": "%",
+          "kind": "percent",
+          "polarity": "higher",
+          "period": "2026-10",
+          "definition": "合成验证数据，不代表真实业务",
+          "comparison": {
+            "label": "去年同期",
+            "value": 13.5
+          },
+          "target": 10,
+          "targetPeriod": "2026-10"
+        },
+        {
+          "id": "missing",
+          "label": "待核验指标",
+          "value": 5,
+          "unit": "万元",
+          "kind": "number",
+          "polarity": "higher",
+          "period": "2026-10",
+          "definition": "合成验证数据，不代表真实业务",
+          "target": 0,
+          "targetPeriod": "2026-10"
+        },
+        {
+          "id": "big",
+          "label": "极长中文指标名称用于检验换行保留完整单位与真实读数",
+          "value": 123456789012345,
+          "unit": "人民币元",
+          "kind": "number",
+          "polarity": "higher",
+          "period": "2026-10",
+          "definition": "合成验证数据，不代表真实业务",
+          "trendLabel": "恒定序列",
+          "trend": [
+            {
+              "date": "0",
+              "value": 1
+            },
+            {
+              "date": "1",
+              "value": 1
+            },
+            {
+              "date": "2",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "id": "empty",
+          "label": "全部缺报趋势",
+          "value": null,
+          "unit": "万元",
+          "kind": "number",
+          "polarity": "higher",
+          "period": "2026-10",
+          "definition": "合成验证数据，不代表真实业务",
+          "trendLabel": "全部缺报",
+          "trend": [
+            {
+              "date": "0",
+              "value": null
+            },
+            {
+              "date": "1",
+              "value": null
+            },
+            {
+              "date": "2",
+              "value": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

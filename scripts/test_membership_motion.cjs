@@ -1,0 +1,30 @@
+const fs=require('fs'),path=require('path'),os=require('os'),crypto=require('crypto'),assert=require('assert'),{pathToFileURL}=require('url'),{chromium}=require('playwright');
+const skill=path.resolve(__dirname,'..');
+const core=fs.readFileSync(path.join(skill,'assets','chart-motion.js'),'utf8');
+const candidate=fs.readFileSync(path.join(skill,'assets','membership-motion.js'),'utf8');
+const reference=fs.readFileSync(path.join(skill,'references','motion-membership-example.md'),'utf8');
+const match=reference.match(/```html\s*\n([\s\S]*?)\n```/);assert(match,'reference must include runnable example');const body=match[1];
+assert(![core,candidate].some(s=>s.toLowerCase().includes('</script')));
+const output=path.join(os.tmpdir(),'chart-motion-test-'+crypto.randomUUID()+'.html');
+fs.writeFileSync(output,'<!doctype html><html lang="zh"><meta charset="utf-8"><title>Test</title><body><script>'+core+'</script><script>'+candidate+'</script>'+body+'</body></html>');
+const file=pathToFileURL(output).href,checks=[];function ok(b,name){assert(b,name);checks.push(name)}
+const channel=process.env.CHART_TEST_BROWSER_CHANNEL||(process.platform==='win32'?'msedge':undefined);
+async function snap(page,id){return page.evaluate(id=>{const e=document.querySelector('#'+id);return{status:e.querySelector('.status').textContent,target:e.querySelector('.target').textContent,focus:document.activeElement.dataset.scope,layers:[...e.querySelectorAll('.layer')].map(l=>({scope:l.dataset.scope,role:l.dataset.role,opacity:+l.style.opacity,summary:l.querySelector('.summary').textContent,marks:[...l.querySelectorAll('.details span')].map(x=>({id:x.dataset.id,role:x.dataset.role,text:x.textContent})),geometry:[...l.querySelectorAll('rect,circle')].map(x=>({id:x.dataset.id,value:x.dataset.value,width:x.getAttribute('width'),cx:x.getAttribute('cx'),cy:x.getAttribute('cy')}))}))}},id)}
+(async()=>{let browser=await chromium.launch({headless:true,...(channel?{channel}:{})});try{let page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[];page.on('pageerror',e=>errors.push(e.message));await page.goto(file);
+let s=await snap(page,'bar');ok(s.target.includes('16 件（2/3')&&s.layers[0].marks.find(m=>m.id==='C').text.includes('未报')&&!s.layers[0].geometry.some(g=>g.id==='C'),'柱图原范围真实汇总与缺报');
+await page.click('#bar [data-scope="西区"]');await page.waitForTimeout(230);s=await snap(page,'bar');let east=s.layers.find(l=>l.scope==='东区'),west=s.layers.find(l=>l.scope==='西区');ok(east&&west&&east.opacity>0&&east.opacity<1&&west.opacity>0&&west.opacity<1,'柱图旧/新范围双层过渡');
+ok(east.marks.find(m=>m.id==='A').role==='exited'&&west.marks.find(m=>m.id==='D').role==='entered'&&west.marks.find(m=>m.id==='B').role==='retained','稳定 ID 分类保留进入退出');
+ok(east.geometry.find(m=>m.id==='B').value==='7'&&west.geometry.find(m=>m.id==='B').value==='11'&&+west.geometry.find(m=>m.id==='B').width===275,'柱图两范围数值及固定尺度不插造');
+ok(s.target.includes('目标 西区')&&s.target.includes('16 件（2/3')&&s.focus==='西区'&&s.status.includes('透明度不是数值'),'目标汇总、语义及焦点');
+await page.click('#bar [data-scope="东区"]');await page.waitForTimeout(950);s=await snap(page,'bar');ok(s.layers.length===1&&s.layers[0].scope==='东区'&&s.layers[0].opacity===1&&s.focus==='东区','柱图快速反向后稳定与焦点');
+await page.click('#scatter [data-scope="晚班"]');await page.waitForTimeout(220);s=await snap(page,'scatter');const morning=s.layers.find(l=>l.scope==='早班'),evening=s.layers.find(l=>l.scope==='晚班');ok(morning&&evening&&morning.opacity<1&&evening.opacity>0,'散点图旧新范围过渡');
+ok(morning.geometry.find(g=>g.id==='M').value==='6,4'&&evening.geometry.find(g=>g.id==='M').value==='5,7'&&!evening.geometry.some(g=>g.id==='N')&&evening.marks.find(m=>m.id==='N').text.includes('未报'),'散点图坐标为实际观测、缺报不变零');
+ok(evening.marks.find(m=>m.id==='P').role==='entered'&&morning.marks.find(m=>m.id==='L').role==='exited'&&s.target.includes('已报 2/3 台'),'散点成员与目标分母');
+await page.emulateMedia({reducedMotion:'reduce'});await page.waitForTimeout(90);s=await snap(page,'scatter');ok(s.layers.length===1&&s.layers[0].scope==='晚班'&&!await page.evaluate(()=>scatterMotion.isRunning()),'运行中减少动态立即收敛');
+await page.emulateMedia({reducedMotion:'no-preference'});await page.click('#scatter [data-scope="早班"]');await page.waitForTimeout(100);const stable=await page.evaluate(()=>scatterMotion.withStableFrame(()=>({state:document.querySelector('#scatter .status').textContent,count:document.querySelectorAll('#scatter .layer').length})));ok(stable.state.includes('早班 · 已稳定')&&stable.count===1,'稳定导出只取目标范围');
+const noChange=await page.evaluate(()=>{try{barMotion.set('未定义');return false}catch(e){return e instanceof RangeError}});ok(noChange,'未知范围被拒');ok(errors.length===0,'浏览器无运行时异常');
+ok(await page.evaluate(()=>{const m=MembershipMotion.create({scopes:{a:[{id:'a'}],b:[{id:'b'}]},initial:'a',duration:0,render:()=>{}});m.set('b');const instant=!m.isRunning();m.destroy();return instant}),'duration 0 即时完成');
+ok(await page.evaluate(()=>{try{MembershipMotion.create({scopes:{a:[{id:'a'}]},initial:'a',duration:-1,render:()=>{}});return false}catch(e){return e instanceof RangeError}}),'非法时长拒绝');
+const reduced=await browser.newPage({reducedMotion:'reduce'});await reduced.goto(file);await reduced.click('#bar [data-scope="西区"]');s=await snap(reduced,'bar');ok(s.layers.length===1&&s.layers[0].scope==='西区'&&!await reduced.evaluate(()=>barMotion.isRunning()),'初始减少动态无过渡');
+console.log('PASS '+checks.length+' checks');
+}finally{await browser.close()}})().catch(e=>{console.error(e);process.exitCode=1}).finally(()=>{try{fs.unlinkSync(output)}catch(_){}});

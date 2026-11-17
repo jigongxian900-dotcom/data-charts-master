@@ -1,5 +1,5 @@
 {
-  "release": "5.3.0",
+  "release": "5.4.0",
   "legacy_mit_boundary": "0ffed29325bd5c0ec01c819e5e9aec41b92c1947",
   "legacy_mit_release": "v5.2.0",
   "new_original_additions_and_changes": "PolyForm-Noncommercial-1.0.0; separate commercial permission",
@@ -24,13 +24,13 @@
     {
       "path": ".github/workflows/verify.yml",
       "status": "modified-first-party",
-      "release_sha256": "b3fe52b17fa57897e89d42f97cd26b59ab8576370a5cb32053a4f707869229b5",
+      "release_sha256": "c62694d5363e74f5cda435b893bc59e18273af65f5f25c235cfdf0f3097abaa1",
       "legacy_sha256": "d9f20b873476ede3c17a5685fe9bb5ab076fe45faf51d29a0b3fc9995d6e0b24"
     },
     {
       "path": ".gitignore",
-      "status": "unchanged-legacy-MIT",
-      "release_sha256": "b37bbd33df990a5c42d9e1e72284e7f3415b5eb7519ca808d7d0da04ac8b452a",
+      "status": "modified-first-party",
+      "release_sha256": "7c9c8c63124c4cc13e4a60f5510e6968b01c3bd5f50486944ac3f7e89bf1af47",
       "legacy_sha256": "b37bbd33df990a5c42d9e1e72284e7f3415b5eb7519ca808d7d0da04ac8b452a"
     },
     {
@@ -47,7 +47,7 @@
     },
     {
       "path": "LICENSE",
-      "status": "license-text",
+      "status": "modified-first-party",
       "release_sha256": "ffcca38841adb694b6f380647e15f17c446a4d1656fed51a1e2041d064c94cc8",
       "legacy_sha256": "ef6114d53e21cfe6208aa7a35d70800993107754b288d2121cbc9229b06ecb46"
     },
@@ -59,7 +59,7 @@
     },
     {
       "path": "LICENSES/MIT-legacy.txt",
-      "status": "license-text",
+      "status": "new-first-party",
       "release_sha256": "ef6114d53e21cfe6208aa7a35d70800993107754b288d2121cbc9229b06ecb46",
       "legacy_sha256": null
     },
@@ -72,19 +72,19 @@
     {
       "path": "README.en.md",
       "status": "modified-first-party",
-      "release_sha256": "dfb8676bccfeafaaf6cd8e81f3c1e3868069b1239a65eaee3bcc00e710429c74",
+      "release_sha256": "0069e81e127c1f99a134b950ca1e7c7e57e1b2e519cde941133b6157765b0219",
       "legacy_sha256": "ba7eb2a5d822ba39fd244b12b2a2b8b99f8846a9dcdc312941d8b2a792e24eab"
     },
     {
       "path": "README.md",
       "status": "modified-first-party",
-      "release_sha256": "53dcb342bdef093429bbd23635b99a36a169e93963f105e4154c20f045aa89c2",
+      "release_sha256": "88e9bdf9fb63cd3d9e4981e590373d05d923976c389fbc25b46e345d88150d5b",
       "legacy_sha256": "b4dd66a519a04fe8d987f49e4a8f150aac58ef616a51bf732f573a4796467a37"
     },
     {
       "path": "SKILL.md",
       "status": "modified-first-party",
-      "release_sha256": "1099e82c479df3725b11bd2c7173d64b7ba6e792c56a300d91e134890bc67f3c",
+      "release_sha256": "81586455bc0e0c8f60e08654c1906b67ce4ad54ab89af2be649ad2b44d7f91aa",
       "legacy_sha256": "c6c56831820be2e563ea88e962d64b88004c7a6464690cb8489da392e8848e4d"
     },
     {
@@ -104,6 +104,30 @@
       "status": "unchanged-legacy-MIT",
       "release_sha256": "0e5a6aae55f66a58e99a832c50b2503c44b49424378f238bb1d303c238c8c319",
       "legacy_sha256": "0e5a6aae55f66a58e99a832c50b2503c44b49424378f238bb1d303c238c8c319"
+    },
+    {
+      "path": "assets/membership-motion.js",
+      "status": "new-first-party",
+      "release_sha256": "62785a5cdb29f16a82db0e103c62e63dda34ba41dbb277b8505fc261980aea4a",
+      "legacy_sha256": null
+    },
+    {
+      "path": "assets/motion-business-demo.html",
+      "status": "new-first-party",
+      "release_sha256": "26ea40414cea5570f7eec6d8cd882cbd99322afa048c8155a90a56c9d9f0082f",
+      "legacy_sha256": null
+    },
+    {
+      "path": "assets/retained-motion.js",
+      "status": "new-first-party",
+      "release_sha256": "b9c2a4f1cdda56f98a6b0dce4d38aabe3529c54a82f266bb8957cdfc52cbf613",
+      "legacy_sha256": null
+    },
+    {
+      "path": "assets/retained-rows.js",
+      "status": "new-first-party",
+      "release_sha256": "77ebb08664c97cfbdf52fb5287fbc553d10f1936f22cc1d3638a8a261614d00a",
+      "legacy_sha256": null
     },
     {
       "path": "docs/.nojekyll",
@@ -308,6 +332,24 @@
       "status": "unchanged-legacy-MIT",
       "release_sha256": "447af3f9fa9695cf8da7845367a012103b604df977bd5ed6b48412d3b6674d88",
       "legacy_sha256": "447af3f9fa9695cf8da7845367a012103b604df977bd5ed6b48412d3b6674d88"
+    },
+    {
+      "path": "docs/motion-5.4-validation.md",
+      "status": "new-first-party",
+      "release_sha256": "676293056d3d1adaf97c50aee190df4fa1f1b1faaa1812bbb9774ac3b2196448",
+      "legacy_sha256": null
+    },
+    {
+      "path": "docs/motion-showcase.html",
+      "status": "new-first-party",
+      "release_sha256": "55aab3e35fbedd79dff60fd2e489ea1462c0590459f0294ab1daf58865d4aea2",
+      "legacy_sha256": null
+    },
+    {
+      "path": "docs/motion-showcase.png",
+      "status": "new-first-party",
+      "release_sha256": "e19f2fc3ebfec3704e16498bd0d9cc91b74e4c47e246483d46b3ccedd61da23d",
+      "legacy_sha256": null
     },
     {
       "path": "docs/operating-story.html",
@@ -1138,6 +1180,42 @@
       "legacy_sha256": "e926f5c55aaa11f2f0fd49083734774fa446505b4c3d01d267f1912423054228"
     },
     {
+      "path": "examples/motion-showcase/README.md",
+      "status": "new-first-party",
+      "release_sha256": "c2e11bdfa3619a44ce69c4d644c2f38986ddebda82669db93e737ff04ba4a6bc",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/motion-showcase/build_showcase.py",
+      "status": "new-first-party",
+      "release_sha256": "bfa60d4cd550653d43037cd7ce218928e7b67dece1e3a4987e928452749c87a8",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/motion-showcase/data.json",
+      "status": "new-first-party",
+      "release_sha256": "1ba1d1608dae77616c5392605e49614e82fe7e4c349d58be28c0febeb9baf2b1",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/motion-showcase/index.html",
+      "status": "new-first-party",
+      "release_sha256": "55aab3e35fbedd79dff60fd2e489ea1462c0590459f0294ab1daf58865d4aea2",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/motion-showcase/template.html",
+      "status": "new-first-party",
+      "release_sha256": "a520baf38eba991c98f92db63cbd2e72870069508c61a00dd0adc42b7909705e",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/motion-showcase/verify.cjs",
+      "status": "new-first-party",
+      "release_sha256": "8374efa368dbf0b31e55a277a0c29d50867213066d6ba255b1b8990bb961cc58",
+      "legacy_sha256": null
+    },
+    {
       "path": "examples/operating-story/README.md",
       "status": "unchanged-legacy-MIT",
       "release_sha256": "a9866b979d4f73adddbce7f7720a267bb833ef9a617eac1e9cc0088197d9aeb8",
@@ -1384,6 +1462,36 @@
       "legacy_sha256": "3e5bcc5c79b627f25bfca5ee33aabaa11d19d9958da240acacf391cd563f93dc"
     },
     {
+      "path": "examples/retained-rows/README.md",
+      "status": "new-first-party",
+      "release_sha256": "0e80c141466c1ef2ae8363ba0d13cfeda37402bee046dc94f123e2c5c5b7d70a",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/retained-rows/build_demos.py",
+      "status": "new-first-party",
+      "release_sha256": "79a1019522d576cc5a882a3d847ae71222ba1bfc30dc9fc4cde20d9faf7b1f08",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/retained-rows/fulfilment.html",
+      "status": "new-first-party",
+      "release_sha256": "1897419e512009f2bb3823b37d9ee18bfa58253e22e7f98bb5b75e2ea6ee3cda",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/retained-rows/harvest.html",
+      "status": "new-first-party",
+      "release_sha256": "483206f15cfbe6dc5828eaac89803422d90a55be327a515d4abc1b2260fa6c89",
+      "legacy_sha256": null
+    },
+    {
+      "path": "examples/retained-rows/verify.cjs",
+      "status": "new-first-party",
+      "release_sha256": "90418b0c3bbd90f0e22497d667aa0246c85a0a3871a4557fda2e2892cced4ea2",
+      "legacy_sha256": null
+    },
+    {
       "path": "examples/target-comparison.json",
       "status": "unchanged-legacy-MIT",
       "release_sha256": "e0c64482b428b8bb9d2eb24b014c3a2daff8d457dfc8c3535955221c4d151431",
@@ -1492,9 +1600,51 @@
       "legacy_sha256": "51820b0d2ba818e93f63369a31a3763bb12ca93ae8988234fda1b7623fb74b80"
     },
     {
+      "path": "references/motion-builder.md",
+      "status": "new-first-party",
+      "release_sha256": "2a0ccce122d770efa999e57c0067a7fc764d27bad036e4a471db941e25bd2027",
+      "legacy_sha256": null
+    },
+    {
+      "path": "references/motion-business-example.md",
+      "status": "new-first-party",
+      "release_sha256": "70d338c74e5bb7dc4c6e73d247ca6f53be618325cf7dbf1478c05c6e85aa1cbf",
+      "legacy_sha256": null
+    },
+    {
+      "path": "references/motion-membership-example.md",
+      "status": "new-first-party",
+      "release_sha256": "cb19a898390d751d6208c180f582f02170b8ad91eb8aba84d337082be70ce6d9",
+      "legacy_sha256": null
+    },
+    {
+      "path": "references/motion-quickstart.md",
+      "status": "new-first-party",
+      "release_sha256": "ac7a2bd03ab37e4d30a3cc0a7b0ef5581583762cad79198eb0e50225a1bc3f89",
+      "legacy_sha256": null
+    },
+    {
+      "path": "references/motion-retained-example.md",
+      "status": "new-first-party",
+      "release_sha256": "ea00eee38771227cfecd0e87a9f605dd6ae14385c2936fccd1f5084a192925b8",
+      "legacy_sha256": null
+    },
+    {
       "path": "references/motion-runtime.md",
       "status": "new-first-party",
       "release_sha256": "13e10a2b027242ef5e368c0f385e2eac1fde864fbb752f5cb0c1a8834d07cf2c",
+      "legacy_sha256": null
+    },
+    {
+      "path": "references/production-gate.md",
+      "status": "new-first-party",
+      "release_sha256": "26aea0078b2538d6948f7ec9f5edc5289f540aae5a88242f5b38fe336e2aa371",
+      "legacy_sha256": null
+    },
+    {
+      "path": "references/retained-rows.md",
+      "status": "new-first-party",
+      "release_sha256": "0e80c141466c1ef2ae8363ba0d13cfeda37402bee046dc94f123e2c5c5b7d70a",
       "legacy_sha256": null
     },
     {
@@ -1508,6 +1658,18 @@
       "status": "unchanged-legacy-MIT",
       "release_sha256": "f110f0a500c3b9f9a00b6908460a19080c579012a9b42afbee09dd3c4c051d9c",
       "legacy_sha256": "f110f0a500c3b9f9a00b6908460a19080c579012a9b42afbee09dd3c4c051d9c"
+    },
+    {
+      "path": "scripts/artifact_preflight.cjs",
+      "status": "new-first-party",
+      "release_sha256": "d94f48cdb03cea2b14d7f67e87e96aafddd5a81e98d3fdf31a2587b0eb95d998",
+      "legacy_sha256": null
+    },
+    {
+      "path": "scripts/bounded_build.py",
+      "status": "new-first-party",
+      "release_sha256": "dc31f3d6b6b2adaa493fd35702c1883616d154f7dcb856197757da3019e5102f",
+      "legacy_sha256": null
     },
     {
       "path": "scripts/build_gallery.js",
@@ -1546,15 +1708,129 @@
       "legacy_sha256": "4028ba0aff41cb1435078be7fa449f403b316ac98ef379629ae09cc7f4556127"
     },
     {
+      "path": "scripts/kpi-builder/README.md",
+      "status": "new-first-party",
+      "release_sha256": "886b87b5869f9b5f91c2e8c02a564b36d5fdaf1261eb51a512935dbed520be0b",
+      "legacy_sha256": null
+    },
+    {
+      "path": "scripts/kpi-builder/demo.json",
+      "status": "new-first-party",
+      "release_sha256": "63d37d2860a866e6436313b49c8b135bc808c434da3c2d8e5c7084d63819966b",
+      "legacy_sha256": null
+    },
+    {
+      "path": "scripts/kpi-builder/edge.json",
+      "status": "new-first-party",
+      "release_sha256": "f9f6a5cc4a2a0cfbf069001c2cf7ba353bb72e27d5d102c4c4c24646dae1db14",
+      "legacy_sha256": null
+    },
+    {
+      "path": "scripts/kpi-builder/kpi_builder.py",
+      "status": "new-first-party",
+      "release_sha256": "5fadc19569c778b42d5e0c0a158d37960d070711a0b2cbba63c6297abf499c13",
+      "legacy_sha256": null
+    },
+    {
+      "path": "scripts/kpi-builder/review-cases.json",
+      "status": "new-first-party",
+      "release_sha256": "f420a1e788abc6e77b12a795f28b4b0066bbf60999c640bc54ae0a14145aba01",
+      "legacy_sha256": null
+    },
+    {
+      "path": "scripts/kpi-builder/template.html",
+      "status": "new-first-party",
+      "release_sha256": "240e66a281f171e49741fdb65c38bfdd1fdf542a13a9c151cb0028ae71fe0b67",
+      "legacy_sha256": null
+    },
+    {
+      "path": "scripts/kpi-builder/test_builder.py",
+      "status": "new-first-party",
+      "release_sha256": "4f2895a57b3f8d89683d7b56f53e23eb72297768e0fa5bdf76d88d101f8541e4",
+      "legacy_sha256": null
+    },
+    {
+      "path": "scripts/kpi-builder/water.json",
+      "status": "new-first-party",
+      "release_sha256": "a1ae41b3a56db21ebc99d101e52d75e09137ca843b803a4a47931ccaefcfd28a",
+      "legacy_sha256": null
+    },
+    {
+      "path": "scripts/motion_builder.py",
+      "status": "new-first-party",
+      "release_sha256": "75e94a6d49e27b9d2dc4af4d8df3019c1df503f29698d77ee996b1f0d6bb2650",
+      "legacy_sha256": null
+    },
+    {
+      "path": "scripts/motion_probe.cjs",
+      "status": "new-first-party",
+      "release_sha256": "7beb3325d381e12489303280c6d92ca0f396c56686128e21a1d1087c53d4ef8a",
+      "legacy_sha256": null
+    },
+    {
       "path": "scripts/rebuild_desktop_examples.py",
       "status": "new-first-party",
       "release_sha256": "86c0041408ed6e4f940198537b90f7fb63566897642d7c8f65d3eec31276d842",
       "legacy_sha256": null
     },
     {
+      "path": "scripts/scene-builder/SCENE-README.md",
+      "status": "new-first-party",
+      "release_sha256": "b56880fe442d492443e5bd054d2154dfe6490a75f0ae50b4de567e8d07fb5f0e",
+      "legacy_sha256": null
+    },
+    {
+      "path": "scripts/scene-builder/edge.json",
+      "status": "new-first-party",
+      "release_sha256": "1396e2a9a9322ef3da9255d5d320c20e3b55875dab8ad6639da84c2ab2bec674",
+      "legacy_sha256": null
+    },
+    {
+      "path": "scripts/scene-builder/funding.json",
+      "status": "new-first-party",
+      "release_sha256": "a4728d441b8ef0d8161d2dc04b494cbc79e2ac07f893a039af9df7662b5194d7",
+      "legacy_sha256": null
+    },
+    {
+      "path": "scripts/scene-builder/manufacturing.json",
+      "status": "new-first-party",
+      "release_sha256": "e6c1587fff88e42f7741db84352b6201f82e8e6cf6821ba9c715d576d3fb36bc",
+      "legacy_sha256": null
+    },
+    {
+      "path": "scripts/scene-builder/scene-template.html",
+      "status": "new-first-party",
+      "release_sha256": "a10307020c95cb951de19a5f601915c96c95a08a58c7dc2da59e54a2a80d0c61",
+      "legacy_sha256": null
+    },
+    {
+      "path": "scripts/scene-builder/scene_html.py",
+      "status": "new-first-party",
+      "release_sha256": "7c721b2214efaf6039fe7faad2dcd9cf9817d48f2f446a580ee3a765c280b41b",
+      "legacy_sha256": null
+    },
+    {
+      "path": "scripts/scene-builder/test_scene.py",
+      "status": "new-first-party",
+      "release_sha256": "7fcc7a4830a98d71aa8f301f1bc58f73a6f9a90b9f4c496ecf7be1612c174693",
+      "legacy_sha256": null
+    },
+    {
+      "path": "scripts/scene-builder/verify-scene.cjs",
+      "status": "new-first-party",
+      "release_sha256": "6555f58147077d3f5b7045c47b9b7e1a0c5c95b2084236f53047c27210e71ac9",
+      "legacy_sha256": null
+    },
+    {
       "path": "scripts/sync_regression_examples.py",
       "status": "new-first-party",
       "release_sha256": "2fabb9f9bf4ca8b8a4cfff776771400c8a2898de827f31ee20e14c097d0b6593",
+      "legacy_sha256": null
+    },
+    {
+      "path": "scripts/test_bounded_build.py",
+      "status": "new-first-party",
+      "release_sha256": "5e309cb2047d5bfa0dfa2089b711f6749526ead077ede477f89d29513dcbaa59",
       "legacy_sha256": null
     },
     {
@@ -1588,10 +1864,22 @@
       "legacy_sha256": "84b023fbfb5e6120b2f59c1b7f1446cecbfe97b3bd47df54b85e58685bef4018"
     },
     {
+      "path": "scripts/test_membership_motion.cjs",
+      "status": "new-first-party",
+      "release_sha256": "1cb942510036b1302634cc0042be3c4d6578996878bf9ad9e32ed2f896f2b9ed",
+      "legacy_sha256": null
+    },
+    {
       "path": "scripts/test_operating_story.py",
       "status": "unchanged-legacy-MIT",
       "release_sha256": "4030dab5d686968f771f88effabdd681c01979ddadbe7ee4b663e33bc18398b6",
       "legacy_sha256": "4030dab5d686968f771f88effabdd681c01979ddadbe7ee4b663e33bc18398b6"
+    },
+    {
+      "path": "scripts/test_retained_motion.cjs",
+      "status": "new-first-party",
+      "release_sha256": "686b0c49cc5e3beb3c7aef790f74c08e942f67a050dc22c0dbae6b983b363211",
+      "legacy_sha256": null
     },
     {
       "path": "scripts/validate_svg.py",

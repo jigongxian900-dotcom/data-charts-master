@@ -1,0 +1,192 @@
+{
+  "title": "质量负担：保留对象，直接追踪变化",
+  "description": "合成验证数据。图形长度为不合格件数的两倍；新增/缺报与真零分开。",
+  "source": "合成验证，不代表真实工厂",
+  "width": 980,
+  "height": 330,
+  "marks": [
+    {
+      "id": "mill",
+      "kind": "rect",
+      "label": "精铣",
+      "unit": "件",
+      "color": "#b2633b"
+    },
+    {
+      "id": "turn",
+      "kind": "rect",
+      "label": "车削",
+      "unit": "件",
+      "color": "#38796c"
+    },
+    {
+      "id": "polish",
+      "kind": "rect",
+      "label": "抛光",
+      "unit": "件",
+      "color": "#617e91"
+    }
+  ],
+  "states": [
+    {
+      "id": "april",
+      "label": "4月",
+      "semanticSpace": "reject-count-axis300",
+      "description": "同单位、同对象、同尺度",
+      "guides": [
+        {
+          "x1": 140,
+          "x2": 740,
+          "y1": 65,
+          "y2": 65,
+          "text": "不合格件 · 共同尺度 0–300"
+        },
+        {
+          "x1": 140,
+          "x2": 140,
+          "y1": 65,
+          "y2": 280,
+          "text": "0"
+        }
+      ],
+      "values": [
+        {
+          "id": "mill",
+          "value": 80,
+          "geometry": {
+            "x": 140,
+            "y": 100,
+            "width": 160,
+            "height": 30,
+            "lx": 312,
+            "ly": 121
+          }
+        },
+        {
+          "id": "turn",
+          "value": 180,
+          "geometry": {
+            "x": 140,
+            "y": 160,
+            "width": 360,
+            "height": 30,
+            "lx": 512,
+            "ly": 181
+          }
+        },
+        {
+          "id": "polish",
+          "value": 100,
+          "geometry": {
+            "x": 140,
+            "y": 220,
+            "width": 200,
+            "height": 30,
+            "lx": 352,
+            "ly": 241
+          }
+        }
+      ]
+    },
+    {
+      "id": "may",
+      "label": "5月",
+      "semanticSpace": "reject-count-axis300",
+      "description": "精铣变为300件；同一对象从当前绘制位置连续变化",
+      "guides": [
+        {
+          "x1": 140,
+          "x2": 740,
+          "y1": 65,
+          "y2": 65,
+          "text": "不合格件 · 共同尺度 0–300"
+        },
+        {
+          "x1": 140,
+          "x2": 140,
+          "y1": 65,
+          "y2": 280,
+          "text": "0"
+        }
+      ],
+      "values": [
+        {
+          "id": "mill",
+          "value": 300,
+          "geometry": {
+            "x": 140,
+            "y": 100,
+            "width": 600,
+            "height": 30,
+            "lx": 752,
+            "ly": 121
+          }
+        },
+        {
+          "id": "turn",
+          "value": 120,
+          "geometry": {
+            "x": 140,
+            "y": 160,
+            "width": 240,
+            "height": 30,
+            "lx": 392,
+            "ly": 181
+          }
+        },
+        {
+          "id": "polish",
+          "value": 165,
+          "geometry": {
+            "x": 140,
+            "y": 220,
+            "width": 330,
+            "height": 30,
+            "lx": 482,
+            "ly": 241
+          }
+        }
+      ]
+    },
+    {
+      "id": "partial",
+      "label": "范围与缺报",
+      "semanticSpace": "reject-count-axis300",
+      "description": "精铣缺报、车削不在范围，抛光真零。缺报不补零。",
+      "guides": [
+        {
+          "x1": 140,
+          "x2": 740,
+          "y1": 65,
+          "y2": 65,
+          "text": "不合格件 · 共同尺度 0–300"
+        },
+        {
+          "x1": 140,
+          "x2": 140,
+          "y1": 65,
+          "y2": 280,
+          "text": "0"
+        }
+      ],
+      "values": [
+        {
+          "id": "mill",
+          "value": null
+        },
+        {
+          "id": "polish",
+          "value": 0,
+          "geometry": {
+            "x": 140,
+            "y": 100,
+            "width": 0,
+            "height": 30,
+            "lx": 152,
+            "ly": 121
+          }
+        }
+      ]
+    }
+  ]
+}
