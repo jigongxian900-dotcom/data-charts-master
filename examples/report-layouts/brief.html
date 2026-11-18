@@ -1,244 +1,308 @@
-<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="chart-data-sha256" content="c7b8f229e451968120a361898af85f96c50be88a0ac395c4fd07dafc8e4bdab8"><title>营业额距目标差 114 百万元</title><style>:root{--paper:#FFFFFF;--bg:#FAF9F6;--ink:#252727;--muted:#626565;--rule:#D6D8D5;--accent:#923C38;--series:#7A8082;--positive:#404A48;--negative:#6E625E;--category0:#353A3C;--category1:#6D7476;--category2:#7D8687;--category3:#545859;--category4:#858D88;--category5:#6E7B73;--category6:#484D4C;--category7:#7C8076}
-button,select{background:var(--paper);border-color:var(--muted)}
-.notice{color:var(--ink)}:focus-visible{outline-color:var(--accent)}
-.layout-focus nav{background:var(--paper)}
-@media print{:root{--paper:#FFFFFF;--bg:#FFFFFF;--ink:#252727;--muted:#626565;--rule:#D6D8D5;--accent:#923C38;--series:#7A8082;--positive:#404A48;--negative:#6E625E;--category0:#353A3C;--category1:#6D7476;--category2:#7D8687;--category3:#545859;--category4:#858D88;--category5:#6E7B73;--category6:#484D4C;--category7:#7C8076}}*{box-sizing:border-box}
-:root{--font:"Microsoft YaHei UI","PingFang SC","Segoe UI",sans-serif;--display:"Source Han Serif SC","Songti SC",SimSun,Georgia,serif;--dark:#22282f;--mist:#ecedf0;--quiet:#5d626b}
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>经营简报 · 2026年10月</title><style>:root{--paper:#fbfaf8;--white:#fff;--ink:#21282e;--sub:#56616a;--rule:#d6d1c8;--rust:#a33d2f;--rust-quiet:#884133;--blue:#364f62;--wash:#ebeeec;--night:#1f2d37;--sans:"Microsoft YaHei UI","PingFang SC","Segoe UI",sans-serif;--serif:"Source Han Serif SC","Songti SC","SimSun",Georgia,serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 var(--sans);font-variant-numeric:tabular-nums}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 var(--font);font-variant-numeric:tabular-nums}
-h1,h2,h3,p,figure,dl,dd{margin:0}
-a{color:inherit;text-underline-offset:4px}
+h1,h2,h3,p,dl,dd,ol{margin:0}
+a{color:inherit;text-underline-offset:.22em}
 button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--rust);outline-offset:3px}
 summary{cursor:pointer}
-:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
-::selection{background:#e6d9d7;color:#212228}
-h1{font-size:clamp(35px,4vw,58px);line-height:1.16;letter-spacing:-.045em;font-weight:750;text-wrap:balance}
-.title-clause{display:inline-block}
-h2{font-size:clamp(24px,2.5vw,34px);line-height:1.28;letter-spacing:-.025em;text-wrap:balance}
-h3{font-size:18px;line-height:1.35}
-.standfirst{max-width:48em;color:var(--quiet);font-size:18px;line-height:1.62}
-.figure-block,.section-body,.rendered-figure,.viz-wide,.viz-narrow{min-width:0}
-figure svg{display:block;width:100%;height:auto;overflow:visible;color:var(--ink)}
-svg text{font:16px var(--font);fill:var(--ink);font-variant-numeric:tabular-nums}
-svg .tick,svg .muted{fill:var(--muted)}
-svg .value,svg .legend{font-weight:650}
-svg .empty{font-size:19px}
-.viz-narrow,.viz-print{display:none}
-.figure-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
-.figure-head span,.frame-unit{color:var(--quiet);font-size:13px;flex-shrink:0}
-figcaption,.page-source{font-size:13px;color:var(--quiet);line-height:1.5}
-.page-source{margin-top:18px}
-.metric-ledger{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:0}
-.metric-ledger div{min-width:0}
-.metric-ledger dt{font-size:13px;line-height:1.35;color:var(--quiet)}
-.metric-ledger dd{font-weight:650;line-height:1.15;letter-spacing:-.04em;font-size:34px;margin-top:6px;overflow-wrap:anywhere}
-.metric-ledger small{font-weight:450;font-size:.39em;letter-spacing:0;margin-left:.32em;color:inherit}
-.action{display:grid;grid-template-columns:6.5rem minmax(0,1fr);column-gap:16px;align-items:baseline;padding:15px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--rule)}
-.action h2{font-size:15px;font-weight:750;letter-spacing:0}
-.action p{font-size:16px;line-height:1.55}
-.materials{border-top:1px solid var(--rule);padding:12px 0 4px;margin-top:18px;font-size:14px;scroll-margin-top:18px}
-.materials summary{width:fit-content;font-weight:650}
-.materials>p,.materials>a{margin-top:8px;color:var(--quiet)}
-.chart-data{padding:10px 0;border-bottom:1px solid var(--rule)}
-.chart-data p{margin:8px 0;font-size:13px;color:var(--quiet)}
-.table-scroll{max-width:100%;overflow:auto}
-table{border-collapse:collapse;width:100%;font-size:14px}
-th,td{white-space:nowrap;padding:6px 9px;border-bottom:1px solid var(--rule);text-align:right}
+.mast{display:flex;justify-content:space-between;align-items:center;gap:20px;border-top:2px solid var(--ink);border-bottom:1px solid var(--rule);padding:13px 0;font-size:14px;font-weight:700}
+.mast time{font-weight:520;color:var(--sub);white-space:nowrap}
+.source{font-size:13px;color:var(--sub);margin-top:15px}
+.materials{border-top:1px solid var(--rule);margin-top:13px;padding:12px 0 4px;color:var(--sub);font-size:13px;scroll-margin-top:48px}
+.materials summary{width:fit-content;font-weight:630}
+.materials p,.downloads{margin-top:8px}
+.downloads{display:flex;gap:6px 16px;flex-wrap:wrap}
+.table-scroll{overflow:auto;min-width:0}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:9px 12px;border-bottom:1px solid var(--rule);text-align:right;white-space:nowrap}
 th:first-child,td:first-child{text-align:left}
+.section-title{display:flex;align-items:baseline;justify-content:space-between;gap:7px 20px;flex-wrap:wrap}
+.section-title>span:last-child,.figure-note,.section-intro{color:var(--sub)}
+.section-title>span:last-child,.figure-note{font-size:13px}
+h1{font:700 clamp(35px,4.8vw,66px)/1.15 var(--serif);letter-spacing:-.038em}
+h2{font:720 clamp(20px,2.4vw,33px)/1.24 var(--sans);letter-spacing:-.025em}
+.rank{list-style:none;padding:0;border-top:1px solid var(--rule)}
+.rank li{display:grid;grid-template-columns:6.7em minmax(0,1fr);align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--rule);font-size:15px}
+.rank-track{height:7px;margin-right:2.8em;position:relative}
+.rank-track b{position:absolute;left:calc(var(--value) + .55em);top:50%;transform:translateY(-50%);line-height:1.15}
+.rank-track i{display:block;height:100%;width:var(--value);background:var(--blue)}
+.rank li:last-child .rank-track i{background:#7d8990}
+.focus-track{margin-top:17px}
+.track-labels{display:flex;justify-content:space-between;gap:8px;font-size:13px}
+.track-labels span:last-child{text-align:right}
+.track{height:18px;background:#d8dadb;overflow:hidden;margin:6px 0}
+.track i{display:block;background:var(--rust);height:100%}
+.track-values{font-weight:670}
 
-/* One-sheet brief: outcome, evidence and next action fit in one reading plane. */
-.brief-sheet{width:min(100% - 72px,1090px);margin:34px auto 46px;padding:0 36px 22px;background:var(--paper);border:1px solid var(--rule);border-top:4px solid var(--accent)}
-.mast{display:flex;justify-content:space-between;align-items:baseline;padding:16px 0 14px;border-bottom:1px solid var(--rule);font-weight:720;font-size:16px}
-.mast span{color:var(--quiet);font-weight:500;font-size:14px}
-.brief-sheet h1{margin:24px 0 9px;font-family:var(--display);font-size:clamp(35px,4vw,54px);font-weight:720}
-.brief-evidence{display:grid;grid-template-columns:minmax(225px,.81fr) minmax(0,1.9fr);gap:28px;margin:24px 0 20px}
-.brief-lead:empty{display:none}
-.brief-sidebar:has(.brief-lead:empty):not(:has(.action)){display:none}
-.brief-evidence:has(.brief-sidebar:has(.brief-lead:empty):not(:has(.action))){grid-template-columns:1fr}
-.brief-sidebar .action{display:block;padding:12px 0 0;margin-top:14px;border-bottom:0}
-.brief-sidebar .action p{margin-top:6px;font-size:15px}
-.brief-lead{background:var(--dark);color:#fff;padding:21px 24px 18px;align-self:start}
-.brief-lead .metric-ledger{display:grid;grid-template-columns:1fr;gap:0}
-.brief-lead .metric-ledger div{padding:12px 0;border-bottom:1px solid #51565f}
-.brief-lead .metric-ledger div:first-child{padding-top:0}
-.brief-lead .metric-ledger div:last-child{border:0;padding-bottom:0}
-.brief-lead .metric-ledger dt{color:#d5d7db;font-size:14px}
-.brief-lead .metric-ledger dd{font-size:28px}
-.brief-lead .metric-ledger div:first-child dd{font-size:56px;color:#f9f4f0}
-.brief-figures .figure-block+.figure-block{margin-top:20px}
-.brief-figures .figure-head{margin-bottom:0;padding-bottom:8px;border-bottom:1px solid var(--rule)}
-.brief-figures figcaption{margin-top:4px}
+.brief{max-width:1070px;width:calc(100% - 56px);margin:30px auto 48px;padding:24px 39px 28px;background:var(--white);box-shadow:0 1px 0 #dfd9d0,inset 0 0 0 1px #eeeae2}
+.brief-heading{padding:26px 0 22px}
+.brief-heading p{color:var(--sub);font-size:18px;margin-top:8px}
+.brief-proof{display:grid;grid-template-columns:minmax(0,.83fr) minmax(0,1.1fr);gap:29px;align-items:stretch}
+.feature-number{background:#f3eae5;padding:17px 25px 23px;min-width:0;display:flex;flex-direction:column;justify-content:center}
+.feature-number .big{color:var(--rust-quiet);font:600 clamp(70px,8.1vw,111px)/1 "Segoe UI",var(--sans);letter-spacing:-.09em}
+.feature-number .big small{font-size:.43em;letter-spacing:-.05em;margin-left:.13em}
+.feature-number>p{font-size:16px;font-weight:670;margin-top:4px}
+.ranking{align-self:center;border-top:1px solid var(--ink);padding-top:9px}
+.ranking h2{font-size:21px}
+.ranking .rank{margin-top:9px}
+.ranking .figure-note{margin-top:9px}
+.brief-contrast{display:grid;grid-template-columns:9em minmax(0,1fr);gap:16px;align-items:baseline;border-top:1px solid var(--rule);padding:12px 0;margin-top:20px;font-size:15px}
+.brief-contrast>div{display:flex;gap:6px 25px;flex-wrap:wrap}
+.brief-contrast b{font-size:17px;margin-left:.2em}
+.brief-action{display:grid;grid-template-columns:9em minmax(0,1fr);align-items:baseline;gap:16px;border-top:1px solid var(--ink);border-bottom:1px solid var(--rule);padding:15px 0;margin-top:0}
+.brief-action h2{font-size:17px}
+.brief-action p{font-size:15px;line-height:1.48}
+.brief-action p+p{margin-top:5px;color:var(--sub)}
 
-/* Long report: navigation is separated from the column that carries the evidence. */
-.report-shell{display:grid;grid-template-columns:175px minmax(0,1fr);gap:36px;width:min(100% - 72px,1210px);margin:36px auto 60px;align-items:start}
-.report-rail{position:sticky;top:28px;padding:18px 10px 0 0;border-top:3px solid var(--accent)}
-.report-rail strong{font-size:17px;line-height:1.35;display:block}
-.rail-date{margin:7px 0 18px;color:var(--quiet);font-size:13px}
-.report-rail nav{border-top:1px solid var(--rule)}
-.report-rail a{font-size:14px;display:block;text-decoration:none;padding:10px 4px;border-bottom:1px solid var(--rule)}
-.report-rail a:hover,.report-rail a[aria-current]{color:var(--accent);font-weight:720}
-.report-lead{padding:15px 0 24px;border-top:1px solid var(--ink)}
-.report-lead h1{font-family:var(--display);font-weight:720;font-size:clamp(33px,3.65vw,50px);line-height:1.15;margin:0 0 9px;text-align:left;text-wrap:pretty}
-.report-lead .metric-ledger{margin-top:20px;border-block:1px solid var(--rule);padding:13px 0}
-.report-lead .metric-ledger div{padding:0 16px;border-left:1px solid var(--rule)}
-.report-lead .metric-ledger div:first-child{border:0;padding-left:0}
-.story-section{padding:16px 0 27px;border-top:1px solid var(--ink);scroll-margin-top:20px}
-.section-label{font-size:13px;color:var(--accent);font-weight:700;margin-bottom:3px}
-.section-body{margin-top:12px}
-.section-reading{color:var(--quiet)}
-.section-reading:empty{display:none}
-.section-reading p+p{margin-top:8px}
-.section-reading .callout{color:var(--ink);font-weight:630}
-.figures{min-width:0}
-.story-section .figure-block{background:var(--paper);border-top:1px solid var(--rule);padding:10px 17px}
-.story-section .figure-head h3{font-size:15px;font-weight:670}
-.story-section figcaption{margin-top:5px}
-.layout-sequence .section-reading,.layout-comparison .section-reading{display:flex;gap:18px;align-items:baseline;flex-wrap:wrap;margin:0 0 10px}
-.layout-sequence .section-reading p+p,.layout-comparison .section-reading p+p{margin-top:0}
-.layout-comparison .figures{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.layout-feature .section-body{display:grid;grid-template-columns:minmax(136px,.68fr) minmax(0,2.7fr);gap:18px}
-.layout-feature .section-body:has(.section-reading:empty){display:block}
-.layout-feature .section-reading{padding:8px 14px 0 0;border-right:1px solid var(--rule);font-size:15px}
+.report{width:min(1130px,100% - 64px);margin:33px auto 58px}
+.report-heading{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);gap:16px 34px;align-items:end;padding:30px 0}
+.report-heading h1{font-size:clamp(35px,4.3vw,58px)}
+.report-intro{max-width:25em;border-left:2px solid var(--rust);padding-left:16px}
+.report-heading p{font-size:18px;color:var(--sub)}
+.report-heading p+p{margin-top:.36em}
+.contents{position:sticky;top:0;z-index:3;display:flex;gap:12px 29px;flex-wrap:wrap;border-block:1px solid var(--rule);background:var(--paper);padding:11px 0;margin-bottom:18px}
+.contents a{text-decoration:none;font-weight:640;font-size:14px}
+.contents a:hover,.contents a:focus-visible{color:var(--rust)}
+.report-section{padding:19px 0 28px;border-top:1px solid var(--ink);scroll-margin-top:57px}
+.report-section .section-intro{margin-top:7px}
+.market-layout{display:grid;grid-template-columns:minmax(0,2.6fr) minmax(205px,1fr);gap:22px;margin-top:15px;align-items:stretch}
+.market-table{text-align:right;background:var(--white)}
+.market-table caption{text-align:left;color:var(--sub);font-size:13px;padding:8px 11px;border-top:1px solid var(--rule)}
+.print-caption{display:none}
+.market-table th,.market-table td{padding:8px 10px}
+.market-table thead{background:#efece6}
+.market-table thead th{font-size:13px;font-weight:670}
+.market-table tbody th{font-weight:630}
+.market-table tbody button{background:none;padding:0;border:0;text-align:left;text-decoration:underline;text-underline-offset:3px;text-decoration-color:#747c83}
+.market-table .selected{background:#f5e8e4}
+.market-table .selected button,.market-table .selected .deficit,.negative{color:var(--rust-quiet);font-weight:700}
+.scroll-hint{display:none}
+.deficit div{display:grid;grid-template-columns:minmax(48px,1fr) 2.4em;gap:6px;align-items:center}
+.deficit i{display:block;height:5px;background:#81929b}
+.selected .deficit i{background:var(--rust)}
+.scale-separator{color:#707780}
+.profile{background:var(--night);color:#fff;padding:20px 20px 14px;align-content:center}
+.profile-label{font-size:18px;font-weight:690}
+.profile-rate{font:680 48px/1.18 "Segoe UI",var(--sans);letter-spacing:-.045em;margin-top:10px}
+.profile-caption{color:#d2d9df;font-size:13px}
+.attain-track{background:#526471;height:9px;margin:13px 0 16px}
+.attain-track i{background:#b4cedb;height:100%;display:block;transition:width .26s ease}
+.profile-stats div{display:flex;justify-content:space-between;gap:8px;padding:7px 0;border-top:1px solid #5d6972;align-items:baseline}
+.profile-stats dt{color:#dfe4e8;font-size:13px}
+.profile-stats dd{font-weight:650;white-space:nowrap}
+.contribution-strip{height:15px;display:flex;margin-top:16px;overflow:hidden}
+.contribution-strip i:nth-child(1){background:#364f62}
+.contribution-strip i:nth-child(2){background:#a33d2f}
+.contribution-strip i:nth-child(3){background:#677f8c}
+.contribution-strip i:nth-child(4){background:#a6acaa}
+.contribution ul{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));list-style:none;padding:0;margin:8px 0 0;gap:12px}
+.contribution li{display:flex;align-items:baseline;gap:12px;border-bottom:1px solid var(--rule);padding:7px 0}
+.contribution li span{color:var(--sub);font-size:14px}
+.contribution li strong{font-size:22px;white-space:nowrap}
+.contribution-strip+ul li::before{content:"";display:inline-block;width:9px;height:9px;background:#364f62;flex:none}
+.contribution-strip+ul li:nth-child(2)::before{background:#a33d2f}
+.contribution-strip+ul li:nth-child(3)::before{background:#677f8c}
+.contribution-strip+ul li:nth-child(4)::before{background:#a6acaa}
+.composition-turn{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:30px;padding-block:23px 31px}
+.composition-turn p:not(.section-label){margin-top:9px;color:var(--sub);max-width:33em}
+.section-label{font-size:13px;color:var(--rust);font-weight:700;margin-bottom:5px}
+.paired-reading{display:grid;grid-template-columns:1fr 1fr;border-block:1px solid var(--rule);align-items:center;background:#f0eee9}
+.paired-reading>div{padding:17px 19px}
+.paired-reading>div+div{border-left:1px solid var(--rule);color:var(--rust)}
+.paired-reading strong{display:block;font:680 clamp(31px,4vw,52px)/1.18 "Segoe UI",var(--sans);letter-spacing:-.055em}
+.paired-reading span{line-height:1.35;display:block;margin-top:4px;font-size:13px}
+.watch-markets{grid-column:1/-1;border-top:1px solid var(--rule);padding-top:10px}
+.watch-markets h3{font-size:15px}
+.watch-markets dl{margin-top:5px}
+.watch-markets dl div{display:grid;grid-template-columns:7em 1fr;align-items:baseline;gap:12px;padding:7px 0;border-bottom:1px solid var(--rule)}
+.watch-markets dt{font-weight:660;font-size:15px}
+.watch-markets dd{display:flex;gap:8px 21px;flex-wrap:wrap;color:var(--sub);font-size:14px}
+.watch-markets dd strong{color:var(--ink);white-space:nowrap}
+.watch-markets dd span:last-child strong{color:var(--rust-quiet)}
+.review dl{margin-top:13px}
+.review dl div{display:grid;grid-template-columns:8rem 1fr;gap:17px;padding:11px 0;border-top:1px solid var(--rule)}
+.review dt{font-weight:730}
+.review dd p{color:var(--sub);margin-top:3px}
 
-/* The stage scales as a whole so type hierarchy survives ordinary projectors. */
-.final-deck{background:#181c22}
-.deck-stage{width:min(calc(100% - 36px),calc((100dvh - 72px) * 16 / 9));container-type:inline-size;margin:16px auto 0}
-.frame{aspect-ratio:16 / 9;display:grid;grid-template-rows:auto auto minmax(0,1fr) auto;gap:1.1cqw;background:var(--paper);padding:2.6cqw 3.3cqw 1.9cqw;overflow:hidden}
-.frame[hidden]{display:none}
-.frame-top{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--rule);padding-bottom:.55cqw;font-size:1.22cqw;font-weight:650;color:var(--quiet)}
-.frame-top span{font-weight:420}
-.frame h2{font-size:3.18cqw;line-height:1.16;max-width:27em}
-.frame footer{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--rule);padding-top:.5cqw;font-size:1.04cqw;color:var(--quiet)}
-.frame.cover{background:#242931;color:#fff;grid-template-rows:auto minmax(0,1fr) auto auto;gap:2.2cqw}
-.cover .frame-top,.cover footer{color:#d1d3d9;border-color:#5b626c}
-.cover-body{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);align-items:center;gap:4.3cqw}
-.cover-body:not(:has(.metric-ledger)){display:block;align-self:center}
-.cover h1{font-family:var(--display);font-size:5.05cqw;line-height:1.16;color:#fff;text-wrap:pretty}
-.cover .standfirst{color:#e4e3e5;font-size:1.58cqw;line-height:1.6;margin-top:1.6cqw}
-.cover .metric-ledger{grid-template-columns:1fr;border-left:1px solid #686b74;padding-left:2.3cqw}
-.cover .metric-ledger div{padding:.66cqw 0;border-bottom:1px solid #555b65}
-.cover .metric-ledger div:last-child{border:none}
-.cover .metric-ledger dt{color:#d3d5db;font-size:1.19cqw}
-.cover .metric-ledger dd{font-size:3.05cqw;color:#fff;margin-top:.2cqw}
-.cover .metric-ledger div:first-child dd{font-size:4.25cqw}
-.cover .action{padding:.8cqw 0;border-top-color:#777d85;border-bottom:0;grid-template-columns:auto 1fr;column-gap:1.3cqw}
-.cover .action h2{font:700 1.2cqw/1.5 var(--font);letter-spacing:0}
-.cover .action p{font-size:1.36cqw;color:#edeef0}
-.frame-evidence{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,1fr);gap:1.7cqw;align-items:stretch;min-height:0}
-.frame-evidence:has(.frame-aside:empty){grid-template-columns:1fr}
-.frame-aside{align-content:center;border-left:1px solid var(--rule);padding-left:1.5cqw;font-size:1.54cqw;line-height:1.5;color:var(--ink);font-weight:650}
-.frame-aside:empty{display:none}
-.frame-aside .aside-label{font-size:1.12cqw;color:var(--quiet);font-weight:500}
-.frame-aside .aside-number{font-size:2.06cqw;color:var(--accent);line-height:1.25;margin-top:.45cqw}
-.frame .figure-block{display:grid;grid-template-rows:auto minmax(0,1fr);min-height:0;gap:.2cqw}
-.frame-unit{font-size:1.12cqw}
-.frame figure{display:grid;grid-template-rows:minmax(0,1fr) auto;min-height:0}
-.frame .rendered-figure,.frame .viz-wide,.frame .viz-narrow{height:100%;min-height:0}
-.frame figure svg{height:100%}
-.frame figure svg text{font-size:17px}
-.frame figcaption{font-size:1.13cqw;line-height:1.27;margin-top:.36cqw}
-.deck-nav{display:flex;justify-content:center;align-items:center;gap:13px;min-height:51px;color:#f3f3f5;font-size:14px}
-.deck-nav button{background:transparent;border:1px solid #727984;padding:.15rem .65rem;border-radius:3px}
-.deck-nav button:disabled{color:#a4a5ad}
-.deck-nav output{min-width:48px;text-align:center}
-.final-deck .materials{background:var(--paper);padding:12px 18px;width:min(740px,100% - 36px);margin:2px auto 20px}
-.final-deck .materials:not([open]){display:none}
-.final-deck .materials:target{display:block}
-@media(max-width:820px){
- .brief-sheet,.report-shell{width:calc(100% - 34px);margin-top:17px}
- .brief-sheet{padding:0 17px 18px}
- .brief-evidence{grid-template-columns:1fr}
- .brief-lead .metric-ledger{grid-template-columns:repeat(3,minmax(0,1fr));column-gap:9px}
- .brief-lead .metric-ledger div{border:0;padding:0}
- .brief-lead .metric-ledger div:first-child dd{font-size:31px}
- .brief-lead .metric-ledger dd{font-size:24px}
- .report-shell{display:block}
- .report-rail{position:static;margin-bottom:17px;padding-top:9px}
- .report-rail nav{display:flex;gap:11px;flex-wrap:wrap}
- .layout-feature .section-body{display:block}
- .layout-feature .section-reading{border:0;padding:0 0 8px}
- .report-lead{padding-top:9px}
+.mode-slides{background:#151d24}
+.deck{width:min(100% - 34px,calc((100dvh - 71px)*16/9));margin:15px auto 0;container-type:inline-size}
+.slide{aspect-ratio:16 / 9;background:var(--paper);padding:2.6cqw 3.4cqw 1.7cqw;display:grid;grid-template-rows:auto auto minmax(0,1fr) auto auto;align-items:start;gap:1.2cqw;overflow:hidden}
+.slide[hidden]{display:none}
+.slide .mast{font-size:1.23cqw;border-top:0;padding:0 0 .65cqw}
+.slide h2{font-size:3.6cqw;line-height:1.17;margin-top:.7cqw}
+.slide-foot{display:flex;align-self:end;justify-content:space-between;gap:10px;font-size:1.04cqw;color:var(--sub);border-top:1px solid var(--rule);padding-top:.5cqw}
+.slide-takeaway{font-size:1.6cqw;padding-top:.75cqw;border-top:1px solid var(--rule);font-weight:650}
+.slide-1{background:var(--night);color:#fff;grid-template-rows:auto minmax(0,1fr) auto;gap:1.6cqw}
+.slide-1 .mast,.slide-1 .mast time,.slide-1 .slide-foot{color:#dce2e6;border-color:#667683}
+.opening-main{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:3.5cqw;align-items:center;align-self:stretch}
+.opening-main h1{font-size:7.32cqw;line-height:1.11;color:#faf9f4}
+.opening-main p{font-size:1.81cqw;margin-top:1.2cqw;color:#dce1e5}
+.opening-proof{padding-left:2.6cqw;border-left:1px solid #667683}
+.opening-proof>strong{font:650 8.3cqw/.98 "Segoe UI",var(--sans);letter-spacing:-.075em;display:block;color:#f1c0a8}
+.opening-proof>strong small{font-size:.47em;margin-left:.1em}
+.opening-proof>p{font-weight:670;margin-top:.5cqw}
+.opening-proof .track{height:1.46cqw;background:#63727b}
+.opening-proof .track i{background:#e2a587}
+.opening-proof .track-labels{font-size:1.13cqw;color:#f0f1f1}
+.opening-proof .focus-track{margin-top:1.42cqw}
+.slide-comparison{display:grid;grid-template-columns:1fr 1.25fr;align-self:stretch;align-items:center;gap:2.6cqw}
+.market-trajectory{padding:1.7cqw 2cqw;background:#edece7;border-top:2px solid var(--ink)}
+.market-trajectory p{font-size:1.48cqw;font-weight:650}
+.market-trajectory p:last-child{border-top:1px solid var(--rule);margin-top:1.15cqw;padding-top:.66cqw;font-weight:500;color:var(--sub)}
+.market-trajectory strong{font:680 5.2cqw/1 "Segoe UI",var(--sans);display:block;letter-spacing:-.055em;margin:.75cqw 0 .3cqw}
+.market-trajectory strong small{font-size:.56em;vertical-align:.13em;color:var(--sub)}
+.market-trajectory span{color:var(--sub);font-size:1.3cqw}
+.signed-chart{border-top:1px solid var(--rule);display:grid;gap:1.1cqw;align-content:start;padding-top:1cqw}
+.signed-row{display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:.4cqw 1cqw}
+.signed-row>span{font-size:1.58cqw;font-weight:650}
+.signed-row>b{font-size:2.65cqw;line-height:1.1}
+.signed-row>b.down{color:var(--rust)}
+.signed-plot{grid-column:1/-1;position:relative;height:1.4cqw;background:#e9e7df}
+.signed-plot::before{content:"";position:absolute;left:50%;top:-.14cqw;height:1.68cqw;border-left:1px solid var(--sub)}
+.signed-plot i{position:absolute;height:100%;background:var(--blue)}
+.signed-plot.up i{left:50%}
+.signed-plot.down i{right:50%;background:var(--rust)}
+.signed-chart>p{text-align:center;font-size:1.22cqw;line-height:1;color:var(--sub);margin-top:-.65cqw}
+.review-lanes{display:grid;grid-template-columns:1fr 1fr;gap:2.5cqw;align-self:stretch;align-content:center}
+.review-lanes section{padding:1.1cqw 1.4cqw;background:#eeece6;border-top:3px solid var(--blue)}
+.review-lanes section+section{background:#f2e7e3;border-color:var(--rust)}
+.review-lanes h3{font-size:1.62cqw;margin-bottom:.63cqw}
+.review-lanes dl>div{display:flex;justify-content:space-between;align-items:baseline;gap:1.15cqw;
+ border-top:1px solid #d3cec3;padding:.55cqw 0;font-size:1.55cqw}
+.review-lanes dd{font-weight:720;font-size:2.45cqw;line-height:1.15}
+.review-lanes section+section dd{color:var(--rust-quiet)}
+.review-lanes p{color:var(--sub);font-size:1.3cqw;border-top:1px solid #d3cec3;padding-top:.63cqw}
+.review-lanes .no-watch{padding:.66cqw 0}
+.slide-4{background:#edece7;grid-template-rows:auto auto auto auto minmax(0,1fr)}
+.slide-decisions{align-self:stretch;align-content:start;display:grid;grid-template-columns:1fr 1fr;gap:2.3cqw;padding-top:2.5cqw}
+.slide-decisions article{border-top:3px solid var(--rust);padding:1.5cqw 1.4cqw 1.8cqw 0}
+.slide-decisions article+article{border-color:var(--blue)}
+.slide-decisions h3{font-size:1.56cqw;color:var(--sub);margin-bottom:.55cqw}
+.slide-decisions strong{font-size:2.55cqw;line-height:1.25}
+.slide-decisions dl{margin-top:1cqw}
+.slide-decisions dl>div{display:grid;grid-template-columns:3em 1fr;gap:.7cqw;padding:.7cqw 0;border-top:1px solid #d2cdc3;font-size:1.54cqw;line-height:1.45}
+.slide-decisions dt{font-weight:690;color:var(--sub)}
+.slide-4 .slide-takeaway{background:#e0ded4;border:0;padding:1.15cqw 1.3cqw;margin-top:.3cqw}
+.slide-4 .slide-takeaway span{font-weight:750;color:var(--rust-quiet)}
+.deck-controls{color:#e7ecee;display:flex;justify-content:center;gap:13px;align-items:center;min-height:48px;font-size:14px}
+.deck-controls button{background:transparent;border:1px solid #657480;padding:2px 12px;border-radius:2px}
+.deck-controls button:disabled{opacity:.47}
+.deck-controls output{width:45px;text-align:center}
+.mode-slides .materials{background:var(--paper);padding:12px 14px;margin:3px auto 20px;width:min(850px,100% - 36px)}
+.mode-slides .materials:not([open]){display:none}
+@media(max-width:780px){
+ .brief,.report{width:calc(100% - 32px);margin-top:15px}.brief{padding:15px 19px}
+ .brief-proof,.report-heading,.market-layout,.composition-turn{grid-template-columns:1fr}
+ .brief-heading{padding:17px 0 16px}.feature-number{padding:14px 17px}
+ .report-heading{padding:18px 0;gap:11px}.report-heading p{font-size:16px}
+ .contents{gap:8px 14px}.section-title{align-items:baseline}
+ .brief-action,.brief-contrast{grid-template-columns:1fr;gap:6px}
+ .market-table th:first-child{position:sticky;left:0;background:var(--paper)}
+ .market-table .selected th:first-child{background:#f5e8e4}
+ .scroll-hint{display:block;color:var(--sub);font-size:13px;margin-top:8px}
+ .market-layout{margin-top:6px}
+ .review dl div{grid-template-columns:7em 1fr}
 }
-@media(max-width:520px){.layout-comparison .figures{display:block}.brief-figures .figure-head{flex-wrap:wrap}.final-brief .viz-wide,.final-report .viz-wide{display:none}.final-brief .viz-narrow,.final-report .viz-narrow{display:block}.brief-lead .metric-ledger dt,.report-lead .metric-ledger dt{font-size:12px}.report-lead .metric-ledger{grid-template-columns:repeat(auto-fit,minmax(86px,1fr))}.report-lead .metric-ledger dd{font-size:24px}.action{grid-template-columns:auto minmax(0,1fr)}}
 @media print{
- @page{size:A4 portrait;margin:11mm}
+ @page{size:A4 portrait;margin:13mm}
  body{background:#fff}
- .report-rail,.deck-nav,.materials{display:none!important}
- .brief-sheet,.report-shell{width:100%;margin:0;border-inline:0;padding:0}
- .brief-sheet{padding-inline:0;display:flex;flex-direction:column;min-height:270mm}
- .brief-sheet .mast{padding:6mm 0 5mm}
- .brief-evidence{display:flex;flex-direction:column;gap:6mm;margin:8mm 0 5mm;flex:1}
- .brief-sidebar{display:contents}
- .brief-lead{order:0;align-self:stretch;background:#fff;color:var(--ink);border-block:1px solid var(--rule);padding:5mm 0}
- .brief-lead .metric-ledger{grid-template-columns:repeat(auto-fit,minmax(105px,1fr))}
- .brief-lead .metric-ledger dt,.brief-lead .metric-ledger div:first-child dd{color:var(--ink)}
- .brief-lead .metric-ledger div{padding:0 5mm;border-bottom:0;border-left:1px solid var(--rule)}
- .brief-lead .metric-ledger div:first-child{padding-left:0;border-left:0}
- .brief-lead .metric-ledger div:last-child:not(:first-child){border-left:1px solid var(--rule)}
- .brief-lead .metric-ledger div:first-child dd{font-size:36px}
- .brief-sheet h1{font-size:36px;margin:7mm 0 3mm}
- .brief-sheet .standfirst{font-size:15px}
- .brief-figures{order:1}
- .brief-figures figcaption{font-size:12px}
- .brief-sidebar .action{order:2;margin-top:auto;display:grid;grid-template-columns:6em 1fr;padding:4mm 0;border-bottom:1px solid var(--rule)}
- .brief-sidebar .action p{margin:0}
- .brief-sheet .page-source{margin-top:0}
- .report-shell{display:block}
- .story-section,.brief-evidence{break-inside:avoid}
- .final-brief .viz-wide,.final-report .viz-wide{display:block}
- .final-brief .rendered-figure:has(.viz-print) .viz-wide{display:none}
- .viz-print{display:block}
- .viz-narrow{display:none!important}
- .final-deck .deck-stage{width:100%;margin:0}
- .frame,.frame[hidden]{display:grid;break-after:page;print-color-adjust:exact}
- .frame:last-child{break-after:auto}
+ .brief,.report{width:100%;margin:0;padding:0;box-shadow:none}
+ .brief{min-height:260mm;display:flex;flex-direction:column}
+ .brief-proof{grid-template-columns:1fr;gap:7mm}
+ .brief-heading{padding:7mm 0 5mm}
+ .brief-heading h1{font-size:36px}
+ .feature-number{padding:4mm 6mm;display:grid;grid-template-columns:2fr 3fr;align-items:center;column-gap:8mm;print-color-adjust:exact}
+ .feature-number .big{font-size:73px;grid-row:1;grid-column:1}
+ .feature-number>p{grid-row:2;grid-column:1}
+ .feature-number .focus-track{grid-row:1/3;grid-column:2;margin:0}
+ .ranking .rank li{padding:6.5mm 0;print-color-adjust:exact}
+ .brief-contrast{margin-top:6mm;padding:4mm 0}
+ .brief-action{margin-top:5mm;padding:5mm 0}
+ .brief .source{margin-top:auto;padding-top:4mm}
+ .contents,.deck-controls,.materials{display:none}
+ .screen-caption,.scroll-hint{display:none}
+ .print-caption{display:inline}
+ .market-table tbody button{text-decoration:none}
+ .profile,.paired-reading{print-color-adjust:exact}
+ .report-section{break-inside:avoid}
+ .report .composition-turn{break-before:page}
+ .report .watch-markets dl div{padding:11px 0}
+ .report .review dl div{padding:15px 0}
+ .deck{width:100%;margin:0}.slide,.slide[hidden]{display:grid;break-after:page;print-color-adjust:exact}
+ .slide:last-child{break-after:auto}
 }
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-</style><body class="final-brief"><main class="brief-sheet"><header class="mast">经营简报<span>2026年10月</span></header><h1><span class="title-clause">营业额距目标差 114 百万元</span></h1><p class="standfirst">印尼差额最大，60 百万元。</p><div class="brief-evidence"><div class="brief-sidebar"><div class="brief-lead"><dl class="metric-ledger"><div><dt>目标达成率</dt><dd>91.77%<small></small></dd></div><div><dt>本期营业额</dt><dd>1,271<small>百万元</small></dd></div><div><dt>营业额目标</dt><dd>1,385<small>百万元</small></dd></div></dl></div><aside class="action"><h2>下次复盘</h2><p class="">先复核印尼的目标差额，再按门店查看同店和订单变化。</p></aside></div><div class="brief-figures"><div class="figure-block"><div class="figure-head"><h3>各市场目标差额</h3><span>百万元</span></div><figure data-chart-id="target-gap"><div class="rendered-figure"><div class="viz-wide"><svg viewBox="0 0 760 355" role="img" aria-label="距目标仍差 114 百万元。按尚需追赶的金额排序，先核查哪些目标差额？。百万元。完整数值见同源数据表。" class="desktop-svg"><title>距目标仍差 114 百万元。按尚需追赶的金额排序，先核查哪些目标差额？。百万元。完整数值见同源数据表。</title><line x1="87.000" y1="3.000" x2="87.000" y2="317.000" stroke="var(--rule)" stroke-dasharray=""/><text x="87.000" y="343.000" text-anchor="middle" class="tick" >0</text><text x="75.000" y="25.000" text-anchor="end" class="category" >印尼</text><rect x="87.000" y="12.000" width="570.000" height="21.000" fill="var(--accent)" tabindex="0" role="img" aria-label="印尼：60 百万元" data-value="60.0" data-start="0" data-end="60.0" data-scale="9.5" data-axis="x"><title>印尼：60 百万元</title></rect><text x="665.000" y="26.000" text-anchor="start" class="value" >60</text><text x="75.000" y="64.000" text-anchor="end" class="category" >越南</text><rect x="87.000" y="51.000" width="190.000" height="21.000" fill="var(--series)" tabindex="0" role="img" aria-label="越南：20 百万元" data-value="20.0" data-start="0" data-end="20.0" data-scale="9.5" data-axis="x"><title>越南：20 百万元</title></rect><text x="285.000" y="65.000" text-anchor="start" class="value" >20</text><text x="75.000" y="103.000" text-anchor="end" class="category" >泰国</text><rect x="87.000" y="90.000" width="171.000" height="21.000" fill="var(--series)" tabindex="0" role="img" aria-label="泰国：18 百万元" data-value="18.0" data-start="0" data-end="18.0" data-scale="9.5" data-axis="x"><title>泰国：18 百万元</title></rect><text x="266.000" y="104.000" text-anchor="start" class="value" >18</text><text x="75.000" y="142.000" text-anchor="end" class="category" >老挝</text><rect x="87.000" y="129.000" width="47.500" height="21.000" fill="var(--series)" tabindex="0" role="img" aria-label="老挝：5 百万元" data-value="5.0" data-start="0" data-end="5.0" data-scale="9.5" data-axis="x"><title>老挝：5 百万元</title></rect><text x="142.500" y="143.000" text-anchor="start" class="value" >5</text><text x="75.000" y="181.000" text-anchor="end" class="category" >柬埔寨</text><rect x="87.000" y="168.000" width="38.000" height="21.000" fill="var(--series)" tabindex="0" role="img" aria-label="柬埔寨：4 百万元" data-value="4.0" data-start="0" data-end="4.0" data-scale="9.5" data-axis="x"><title>柬埔寨：4 百万元</title></rect><text x="133.000" y="182.000" text-anchor="start" class="value" >4</text><text x="75.000" y="220.000" text-anchor="end" class="category" >新加坡</text><rect x="87.000" y="207.000" width="28.500" height="21.000" fill="var(--series)" tabindex="0" role="img" aria-label="新加坡：3 百万元" data-value="3.0" data-start="0" data-end="3.0" data-scale="9.5" data-axis="x"><title>新加坡：3 百万元</title></rect><text x="123.500" y="221.000" text-anchor="start" class="value" >3</text><text x="75.000" y="259.000" text-anchor="end" class="category" >菲律宾</text><rect x="87.000" y="246.000" width="19.000" height="21.000" fill="var(--series)" tabindex="0" role="img" aria-label="菲律宾：2 百万元" data-value="2.0" data-start="0" data-end="2.0" data-scale="9.5" data-axis="x"><title>菲律宾：2 百万元</title></rect><text x="114.000" y="260.000" text-anchor="start" class="value" >2</text><text x="75.000" y="298.000" text-anchor="end" class="category" >马来西亚</text><rect x="87.000" y="285.000" width="19.000" height="21.000" fill="var(--series)" tabindex="0" role="img" aria-label="马来西亚：2 百万元" data-value="2.0" data-start="0" data-end="2.0" data-scale="9.5" data-axis="x"><title>马来西亚：2 百万元</title></rect><text x="114.000" y="299.000" text-anchor="start" class="value" >2</text></svg></div><div class="viz-narrow"><svg viewBox="0 0 360 355" role="img" aria-label="距目标仍差 114 百万元。按尚需追赶的金额排序，先核查哪些目标差额？。百万元。完整数值见同源数据表。" class="mobile-svg"><title>距目标仍差 114 百万元。按尚需追赶的金额排序，先核查哪些目标差额？。百万元。完整数值见同源数据表。</title><line x1="87.000" y1="3.000" x2="87.000" y2="317.000" stroke="var(--rule)" stroke-dasharray=""/><text x="87.000" y="343.000" text-anchor="middle" class="tick" >0</text><text x="75.000" y="25.000" text-anchor="end" class="category" >印尼</text><rect x="87.000" y="12.000" width="206.364" height="21.000" fill="var(--accent)" tabindex="0" role="img" aria-label="印尼：60 百万元" data-value="60.0" data-start="0" data-end="60.0" data-scale="3.4393939393939394" data-axis="x"><title>印尼：60 百万元</title></rect><text x="301.364" y="26.000" text-anchor="start" class="value" >60</text><text x="75.000" y="64.000" text-anchor="end" class="category" >越南</text><rect x="87.000" y="51.000" width="68.788" height="21.000" fill="var(--series)" tabindex="0" role="img" aria-label="越南：20 百万元" data-value="20.0" data-start="0" data-end="20.0" data-scale="3.4393939393939394" data-axis="x"><title>越南：20 百万元</title></rect><text x="163.788" y="65.000" text-anchor="start" class="value" >20</text><text x="75.000" y="103.000" text-anchor="end" class="category" >泰国</text><rect x="87.000" y="90.000" width="61.909" height="21.000" fill="var(--series)" tabindex="0" role="img" aria-label="泰国：18 百万元" data-value="18.0" data-start="0" data-end="18.0" data-scale="3.4393939393939394" data-axis="x"><title>泰国：18 百万元</title></rect><text x="156.909" y="104.000" text-anchor="start" class="value" >18</text><text x="75.000" y="142.000" text-anchor="end" class="category" >老挝</text><rect x="87.000" y="129.000" width="17.197" height="21.000" fill="var(--series)" tabindex="0" role="img" aria-label="老挝：5 百万元" data-value="5.0" data-start="0" data-end="5.0" data-scale="3.4393939393939394" data-axis="x"><title>老挝：5 百万元</title></rect><text x="112.197" y="143.000" text-anchor="start" class="value" >5</text><text x="75.000" y="181.000" text-anchor="end" class="category" >柬埔寨</text><rect x="87.000" y="168.000" width="13.758" height="21.000" fill="var(--series)" tabindex="0" role="img" aria-label="柬埔寨：4 百万元" data-value="4.0" data-start="0" data-end="4.0" data-scale="3.4393939393939394" data-axis="x"><title>柬埔寨：4 百万元</title></rect><text x="108.758" y="182.000" text-anchor="start" class="value" >4</text><text x="75.000" y="220.000" text-anchor="end" class="category" >新加坡</text><rect x="87.000" y="207.000" width="10.318" height="21.000" fill="var(--series)" tabindex="0" role="img" aria-label="新加坡：3 百万元" data-value="3.0" data-start="0" data-end="3.0" data-scale="3.4393939393939394" data-axis="x"><title>新加坡：3 百万元</title></rect><text x="105.318" y="221.000" text-anchor="start" class="value" >3</text><text x="75.000" y="259.000" text-anchor="end" class="category" >菲律宾</text><rect x="87.000" y="246.000" width="6.879" height="21.000" fill="var(--series)" tabindex="0" role="img" aria-label="菲律宾：2 百万元" data-value="2.0" data-start="0" data-end="2.0" data-scale="3.4393939393939394" data-axis="x"><title>菲律宾：2 百万元</title></rect><text x="101.879" y="260.000" text-anchor="start" class="value" >2</text><text x="75.000" y="298.000" text-anchor="end" class="category" >马来西亚</text><rect x="87.000" y="285.000" width="6.879" height="21.000" fill="var(--series)" tabindex="0" role="img" aria-label="马来西亚：2 百万元" data-value="2.0" data-start="0" data-end="2.0" data-scale="3.4393939393939394" data-axis="x"><title>马来西亚：2 百万元</title></rect><text x="101.879" y="299.000" text-anchor="start" class="value" >2</text></svg></div><div class="viz-print"><svg viewBox="0 0 760 451" role="img" aria-label="距目标仍差 114 百万元。按尚需追赶的金额排序，先核查哪些目标差额？。百万元。完整数值见同源数据表。" class="desktop-svg"><title>距目标仍差 114 百万元。按尚需追赶的金额排序，先核查哪些目标差额？。百万元。完整数值见同源数据表。</title><line x1="87.000" y1="3.000" x2="87.000" y2="413.000" stroke="var(--rule)" stroke-dasharray=""/><text x="87.000" y="439.000" text-anchor="middle" class="tick" >0</text><text x="75.000" y="25.000" text-anchor="end" class="category" >印尼</text><rect x="87.000" y="12.000" width="570.000" height="21.000" fill="var(--accent)" tabindex="0" role="img" aria-label="印尼：60 百万元" data-value="60.0" data-start="0" data-end="60.0" data-scale="9.5" data-axis="x"><title>印尼：60 百万元</title></rect><text x="665.000" y="26.000" text-anchor="start" class="value" >60</text><text x="75.000" y="76.000" text-anchor="end" class="category" >越南</text><rect x="87.000" y="63.000" width="190.000" height="21.000" fill="var(--series)" tabindex="0" role="img" aria-label="越南：20 百万元" data-value="20.0" data-start="0" data-end="20.0" data-scale="9.5" data-axis="x"><title>越南：20 百万元</title></rect><text x="285.000" y="77.000" text-anchor="start" class="value" >20</text><text x="75.000" y="127.000" text-anchor="end" class="category" >泰国</text><rect x="87.000" y="114.000" width="171.000" height="21.000" fill="var(--series)" tabindex="0" role="img" aria-label="泰国：18 百万元" data-value="18.0" data-start="0" data-end="18.0" data-scale="9.5" data-axis="x"><title>泰国：18 百万元</title></rect><text x="266.000" y="128.000" text-anchor="start" class="value" >18</text><text x="75.000" y="178.000" text-anchor="end" class="category" >老挝</text><rect x="87.000" y="165.000" width="47.500" height="21.000" fill="var(--series)" tabindex="0" role="img" aria-label="老挝：5 百万元" data-value="5.0" data-start="0" data-end="5.0" data-scale="9.5" data-axis="x"><title>老挝：5 百万元</title></rect><text x="142.500" y="179.000" text-anchor="start" class="value" >5</text><text x="75.000" y="229.000" text-anchor="end" class="category" >柬埔寨</text><rect x="87.000" y="216.000" width="38.000" height="21.000" fill="var(--series)" tabindex="0" role="img" aria-label="柬埔寨：4 百万元" data-value="4.0" data-start="0" data-end="4.0" data-scale="9.5" data-axis="x"><title>柬埔寨：4 百万元</title></rect><text x="133.000" y="230.000" text-anchor="start" class="value" >4</text><text x="75.000" y="280.000" text-anchor="end" class="category" >新加坡</text><rect x="87.000" y="267.000" width="28.500" height="21.000" fill="var(--series)" tabindex="0" role="img" aria-label="新加坡：3 百万元" data-value="3.0" data-start="0" data-end="3.0" data-scale="9.5" data-axis="x"><title>新加坡：3 百万元</title></rect><text x="123.500" y="281.000" text-anchor="start" class="value" >3</text><text x="75.000" y="331.000" text-anchor="end" class="category" >菲律宾</text><rect x="87.000" y="318.000" width="19.000" height="21.000" fill="var(--series)" tabindex="0" role="img" aria-label="菲律宾：2 百万元" data-value="2.0" data-start="0" data-end="2.0" data-scale="9.5" data-axis="x"><title>菲律宾：2 百万元</title></rect><text x="114.000" y="332.000" text-anchor="start" class="value" >2</text><text x="75.000" y="382.000" text-anchor="end" class="category" >马来西亚</text><rect x="87.000" y="369.000" width="19.000" height="21.000" fill="var(--series)" tabindex="0" role="img" aria-label="马来西亚：2 百万元" data-value="2.0" data-start="0" data-end="2.0" data-scale="9.5" data-axis="x"><title>马来西亚：2 百万元</title></rect><text x="114.000" y="383.000" text-anchor="start" class="value" >2</text></svg></div></div><figcaption>差额＝营业额目标－本期营业额。</figcaption></figure></div></div></div><footer class="page-source">示例数据 · 经营台账 · 8 个市场</footer><details id="materials" class="materials"><summary>数据与口径</summary><p>示例数据 · 经营台账 · 8 个市场</p><a href="data:application/json;charset=utf-8;base64,eyJjaGFydHMiOlt7ImlkIjoidGFyZ2V0LWdhcCIsImtpbmQiOiJiYXIiLCJub3RlIjoi5beu6aKdPeebruagh+KIkuacrOacn+iQpeS4mumine+8m+ato+aVsOS4uuW+hei/vei1tu+8jOi0n+aVsOS4uui2hemineOAguaMiemHkeminemZjeW6j++8jOacquefpee9ruWQjuOAgumHkemineaOkuW6j+S4jeS7o+ihqOaKleWFpeS8mOWFiOe6p++8m+acque7meWumuWJqeS9meaXtumXtOOAgei1hOa6kOWSjOWPr+i/veWbnuaAp+OAgiIsInBlcmZvcm1hbmNlX2RpcmVjdGlvbiI6Imxvd2VyIiwicGVyaW9kIjoiMjAyNuW5tDEw5pyI5a+55q+UMjAyNeW5tDEw5pyI77yM5ZCM5biB56eN56S65oSPIiwicXVlc3Rpb24iOiLmjInlsJrpnIDov73otbbnmoTph5Hpop3mjpLluo/vvIzlhYjmoLjmn6Xlk6rkupvnm67moIflt67pop3vvJ8iLCJyb3dzIjpbeyJoaWdobGlnaHQiOnRydWUsImxhYmVsIjoi5Y2w5bC8IiwidmFsdWUiOjYwLjB9LHsiaGlnaGxpZ2h0IjpmYWxzZSwibGFiZWwiOiLotorljZciLCJ2YWx1ZSI6MjAuMH0seyJoaWdobGlnaHQiOmZhbHNlLCJsYWJlbCI6IuazsOWbvSIsInZhbHVlIjoxOC4wfSx7ImhpZ2hsaWdodCI6ZmFsc2UsImxhYmVsIjoi6ICB5oydIiwidmFsdWUiOjUuMH0seyJoaWdobGlnaHQiOmZhbHNlLCJsYWJlbCI6IuafrOWflOWvqCIsInZhbHVlIjo0LjB9LHsiaGlnaGxpZ2h0IjpmYWxzZSwibGFiZWwiOiLmlrDliqDlnaEiLCJ2YWx1ZSI6My4wfSx7ImhpZ2hsaWdodCI6ZmFsc2UsImxhYmVsIjoi6I+y5b6L5a6+IiwidmFsdWUiOjIuMH0seyJoaWdobGlnaHQiOmZhbHNlLCJsYWJlbCI6IumprOadpeilv+S6miIsInZhbHVlIjoyLjB9XSwic2NvcGUiOiLlhavkuKrnpLrmhI/luILlnLrlhajph4/okKXkuJrpop3vvJvlkIzlupfmjIfmoIfkuLrkuKTmnJ/lnYfokKXkuJrnmoTnm7jlkIzpl6jlupfmoLfmnKzvvIzljZXliJfogIzkuI3nlKjkuo7mgLvnm5jliqDmgLsiLCJzb3VyY2UiOiLni6znq4vmnoTpgKDnmoTmvJTnpLrmlbDmja7vvIzkuI3ku6PooajnnJ/lrp7nu4/okKXnirblhrUiLCJ0aXRsZSI6Iui3neebruagh+S7jeW3riAxMTQg55m+5LiH5YWDIiwidW5pdCI6IueZvuS4h+WFgyJ9XSwiY29tcG9zaXRpb24iOnsiYXVkaWVuY2UiOnsiYWN0aW9uX2xhYmVsIjoi5LiL5qyh5aSN55uYIiwiZGF0ZSI6IjIwMjblubQxMOaciCIsImVkaXRpb24iOiLnu4/okKXnroDmiqUiLCJmaWd1cmVzIjp7InRhcmdldC1nYXAiOnsiY2FsbG91dCI6IjYwIOeZvuS4h+WFg++8jOWNoOWMuuWfn+WHgOW3ruminSA1Mi42MyXjgIIiLCJjYXB0aW9uIjoi5beu6aKd77yd6JCl5Lia6aKd55uu5qCH77yN5pys5pyf6JCl5Lia6aKd44CCIiwiaGVhZGxpbmUiOiLokKXkuJrpop3ot53nm67moIflt64gMTE0IOeZvuS4h+WFgyIsImtleV9sYWJlbCI6IuWNsOWwvOebruagh+W3ruminSIsImtleV9yZWFkaW5nIjoiNjAg55m+5LiH5YWDIiwibmF2Ijoi55uu5qCH57y65Y+jIiwidGl0bGUiOiLlkITluILlnLrnm67moIflt67pop0ifX0sIm1ldHJpY3MiOlt7ImxhYmVsIjoi55uu5qCH6L6+5oiQ546HIiwidmFsdWUiOiI5MS43NyUifSx7ImxhYmVsIjoi5pys5pyf6JCl5Lia6aKdIiwidW5pdCI6IueZvuS4h+WFgyIsInZhbHVlIjoiMSwyNzEifSx7ImxhYmVsIjoi6JCl5Lia6aKd55uu5qCHIiwidW5pdCI6IueZvuS4h+WFgyIsInZhbHVlIjoiMSwzODUifV0sInNvdXJjZSI6Iue7j+iQpeWPsOi0piDCtyA4IOS4quW4guWcuiJ9LCJjbG9zaW5nIjoi5YWI5aSN5qC45Y2w5bC855qE55uu5qCH5beu6aKd77yM5YaN5oyJ6Zeo5bqX5p+l55yL5ZCM5bqX5ZKM6K6i5Y2V5Y+Y5YyW44CCIiwic2VjdGlvbnMiOlt7ImNoYXJ0cyI6WyJ0YXJnZXQtZ2FwIl0sInRpdGxlIjoi55uu5qCH5beu6aKdIn1dLCJzdW1tYXJ5Ijoi5Y2w5bC85beu6aKd5pyA5aSn77yMNjAg55m+5LiH5YWD44CCIn0sImRlcml2YXRpb24iOnsiY29udHJpYnV0aW9uIjoicmV2ZW51ZSAtIHByaW9yIiwib2JzZXJ2YXRpb25fbm90ZSI6IkNoYXJ0IHJvd3MgYXJlIGRlcml2ZWQgdmlld3M7IG9ubHkgc291cmNlX2RhdGEucm93cyBhcmUgb3JpZ2luYWwgb2JzZXJ2YXRpb25zLiIsInNvdXJjZV9zaGEyNTYiOiI4MGI5MzczYTc4YmY1OWZhNzZlNWMwYTg3NTk5MjhiMjMyN2M2YmU3M2MxYzMzMmU0ODkzZjhiNTU0MDFjNGFkIiwidGFyZ2V0X2dhcCI6InRhcmdldCAtIHJldmVudWUiLCJ0b3RhbF9ncm93dGgiOiIocmV2ZW51ZSAvIHByaW9yIC0gMSkgKiAxMDA7IHByaW9yIG11c3QgYmUgcG9zaXRpdmUifSwic291cmNlX2RhdGEiOnsicGVyaW9kIjoiMjAyNuW5tDEw5pyI5a+55q+UMjAyNeW5tDEw5pyI77yM5ZCM5biB56eN56S65oSPIiwicXVlc3Rpb24iOiLmgLvnm5jokKXkuJrpop3lop7plb/ml7bvvIzlk6rkupvluILlnLrotKHnjK7lpKfvvIzlk6rkupvluILlnLrov5jpnIDmoLjmn6XlkIzlupfooajnjrDvvJ8iLCJyb3dzIjpbeyJpZCI6IlZOIiwibmFtZSI6Iui2iuWNlyIsInByaW9yIjozODAsInJldmVudWUiOjQ2MCwic2FtZVN0b3JlR3Jvd3RoIjo0LCJ0YXJnZXQiOjQ4MH0seyJpZCI6IklEIiwibmFtZSI6IuWNsOWwvCIsInByaW9yIjozMDAsInJldmVudWUiOjM0MCwic2FtZVN0b3JlR3Jvd3RoIjotNiwidGFyZ2V0Ijo0MDB9LHsiaWQiOiJUSCIsIm5hbWUiOiLms7Dlm70iLCJwcmlvciI6MTYwLCJyZXZlbnVlIjoxOTIsInNhbWVTdG9yZUdyb3d0aCI6MiwidGFyZ2V0IjoyMTB9LHsiaWQiOiJNWSIsIm5hbWUiOiLpqazmnaXopb/kupoiLCJwcmlvciI6OTAsInJldmVudWUiOjEwOCwic2FtZVN0b3JlR3Jvd3RoIjo1LCJ0YXJnZXQiOjExMH0seyJpZCI6IlBIIiwibmFtZSI6IuiPsuW+i+WuviIsInByaW9yIjo2MCwicmV2ZW51ZSI6NzgsInNhbWVTdG9yZUdyb3d0aCI6OCwidGFyZ2V0Ijo4MH0seyJpZCI6IlNHIiwibmFtZSI6IuaWsOWKoOWdoSIsInByaW9yIjo0MCwicmV2ZW51ZSI6NDIsInNhbWVTdG9yZUdyb3d0aCI6LTIsInRhcmdldCI6NDV9LHsiaWQiOiJMQSIsIm5hbWUiOiLogIHmjJ0iLCJwcmlvciI6MzAsInJldmVudWUiOjI3LCJzYW1lU3RvcmVHcm93dGgiOi04LCJ0YXJnZXQiOjMyfSx7ImlkIjoiS0giLCJuYW1lIjoi5p+s5Z+U5a+oIiwicHJpb3IiOjIwLCJyZXZlbnVlIjoyNCwic2FtZVN0b3JlR3Jvd3RoIjoxLCJ0YXJnZXQiOjI4fV0sInNhbWVfc3RvcmVfbWV0cmljIjoi5ZCM5bqX6JCl5Lia6aKdIiwic2NvcGUiOiLlhavkuKrnpLrmhI/luILlnLrlhajph4/okKXkuJrpop3vvJvlkIzlupfmjIfmoIfkuLrkuKTmnJ/lnYfokKXkuJrnmoTnm7jlkIzpl6jlupfmoLfmnKzvvIzljZXliJfogIzkuI3nlKjkuo7mgLvnm5jliqDmgLsiLCJzb3VyY2UiOiLni6znq4vmnoTpgKDnmoTmvJTnpLrmlbDmja7vvIzkuI3ku6PooajnnJ/lrp7nu4/okKXnirblhrUiLCJzeW50aGV0aWMiOnRydWUsInRpdGxlIjoi5aKe6ZW/5LuO5ZOq6YeM5p2l77yM5LiL5LiA5q2l55yL5ZOq6YeM77yfIiwidW5pdCI6IueZvuS4h+WFgyJ9LCJzb3VyY2Vfb2JzZXJ2YXRpb25fY291bnQiOjgsInN5bnRoZXRpYyI6dHJ1ZSwidGhlbWUiOiJ0aWRhbCIsInRpdGxlIjoi6JCl5Lia6aKd6Led55uu5qCH5beuIDExNCDnmb7kuIflhYMifQ==" download="source.json">下载原始数据</a><details class="chart-data"><summary>各市场目标差额</summary><p>2026年10月对比2025年10月，同币种示意 · 八个示意市场全量营业额；同店指标为两期均营业的相同门店样本，单列而不用于总盘加总 · 百万元</p><div class="table-scroll"><table><thead><tr><th scope="col">对象</th><th scope="col">数值</th><th scope="col">重点</th></tr></thead><tbody><tr><td>印尼</td><td>60</td><td>True</td></tr><tr><td>越南</td><td>20</td><td>False</td></tr><tr><td>泰国</td><td>18</td><td>False</td></tr><tr><td>老挝</td><td>5</td><td>False</td></tr><tr><td>柬埔寨</td><td>4</td><td>False</td></tr><tr><td>新加坡</td><td>3</td><td>False</td></tr><tr><td>菲律宾</td><td>2</td><td>False</td></tr><tr><td>马来西亚</td><td>2</td><td>False</td></tr></tbody></table></div><a href="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3NjAgMzU1IiByb2xlPSJpbWciIGFyaWEtbGFiZWw9Iui3neebruagh+S7jeW3riAxMTQg55m+5LiH5YWD44CC5oyJ5bCa6ZyA6L+96LW255qE6YeR6aKd5o6S5bqP77yM5YWI5qC45p+l5ZOq5Lqb55uu5qCH5beu6aKd77yf44CC55m+5LiH5YWD44CC5a6M5pW05pWw5YC86KeB5ZCM5rqQ5pWw5o2u6KGo44CCIiBjbGFzcz0iZGVza3RvcC1zdmciPjxzdHlsZT50ZXh0e2ZvbnQtZmFtaWx5OkFyaWFsLCJNaWNyb3NvZnQgWWFIZWkiLHNhbnMtc2VyaWY7Zm9udC1zaXplOjE0cHg7ZmlsbDojMjUyNzI3fS50aWNre2ZpbGw6IzYyNjU2NX0udmFsdWUsLmxlZ2VuZHtmb250LXdlaWdodDo2MDB9PC9zdHlsZT48ZGVzYz7mnaXmupDvvJrni6znq4vmnoTpgKDnmoTmvJTnpLrmlbDmja7vvIzkuI3ku6PooajnnJ/lrp7nu4/okKXnirblhrXvvJvmnJ/pl7TvvJoyMDI25bm0MTDmnIjlr7nmr5QyMDI15bm0MTDmnIjvvIzlkIzluIHnp43npLrmhI/vvJvojIPlm7TvvJrlhavkuKrnpLrmhI/luILlnLrlhajph4/okKXkuJrpop3vvJvlkIzlupfmjIfmoIfkuLrkuKTmnJ/lnYfokKXkuJrnmoTnm7jlkIzpl6jlupfmoLfmnKzvvIzljZXliJfogIzkuI3nlKjkuo7mgLvnm5jliqDmgLvvvJvljZXkvY3vvJrnmb7kuIflhYPjgILnvLrlpLHlgLzmnKrmm7/mjaLkuLrpm7bjgII8L2Rlc2M+PG1ldGFkYXRhIGlkPSJjaGFydC1zb3VyY2UiPnsmcXVvdDtpZCZxdW90OzomcXVvdDt0YXJnZXQtZ2FwJnF1b3Q7LCZxdW90O2tpbmQmcXVvdDs6JnF1b3Q7YmFyJnF1b3Q7LCZxdW90O25vdGUmcXVvdDs6JnF1b3Q75beu6aKdPeebruagh+KIkuacrOacn+iQpeS4mumine+8m+ato+aVsOS4uuW+hei/vei1tu+8jOi0n+aVsOS4uui2hemineOAguaMiemHkeminemZjeW6j++8jOacquefpee9ruWQjuOAgumHkemineaOkuW6j+S4jeS7o+ihqOaKleWFpeS8mOWFiOe6p++8m+acque7meWumuWJqeS9meaXtumXtOOAgei1hOa6kOWSjOWPr+i/veWbnuaAp+OAgiZxdW90OywmcXVvdDtwZXJmb3JtYW5jZV9kaXJlY3Rpb24mcXVvdDs6JnF1b3Q7bG93ZXImcXVvdDssJnF1b3Q7cGVyaW9kJnF1b3Q7OiZxdW90OzIwMjblubQxMOaciOWvueavlDIwMjXlubQxMOaciO+8jOWQjOW4geenjeekuuaEjyZxdW90OywmcXVvdDtxdWVzdGlvbiZxdW90OzomcXVvdDvmjInlsJrpnIDov73otbbnmoTph5Hpop3mjpLluo/vvIzlhYjmoLjmn6Xlk6rkupvnm67moIflt67pop3vvJ8mcXVvdDssJnF1b3Q7cm93cyZxdW90OzpbeyZxdW90O2hpZ2hsaWdodCZxdW90Ozp0cnVlLCZxdW90O2xhYmVsJnF1b3Q7OiZxdW90O+WNsOWwvCZxdW90OywmcXVvdDt2YWx1ZSZxdW90Ozo2MC4wfSx7JnF1b3Q7aGlnaGxpZ2h0JnF1b3Q7OmZhbHNlLCZxdW90O2xhYmVsJnF1b3Q7OiZxdW90O+i2iuWNlyZxdW90OywmcXVvdDt2YWx1ZSZxdW90OzoyMC4wfSx7JnF1b3Q7aGlnaGxpZ2h0JnF1b3Q7OmZhbHNlLCZxdW90O2xhYmVsJnF1b3Q7OiZxdW90O+azsOWbvSZxdW90OywmcXVvdDt2YWx1ZSZxdW90OzoxOC4wfSx7JnF1b3Q7aGlnaGxpZ2h0JnF1b3Q7OmZhbHNlLCZxdW90O2xhYmVsJnF1b3Q7OiZxdW90O+iAgeaMnSZxdW90OywmcXVvdDt2YWx1ZSZxdW90Ozo1LjB9LHsmcXVvdDtoaWdobGlnaHQmcXVvdDs6ZmFsc2UsJnF1b3Q7bGFiZWwmcXVvdDs6JnF1b3Q75p+s5Z+U5a+oJnF1b3Q7LCZxdW90O3ZhbHVlJnF1b3Q7OjQuMH0seyZxdW90O2hpZ2hsaWdodCZxdW90OzpmYWxzZSwmcXVvdDtsYWJlbCZxdW90OzomcXVvdDvmlrDliqDlnaEmcXVvdDssJnF1b3Q7dmFsdWUmcXVvdDs6My4wfSx7JnF1b3Q7aGlnaGxpZ2h0JnF1b3Q7OmZhbHNlLCZxdW90O2xhYmVsJnF1b3Q7OiZxdW90O+iPsuW+i+WuviZxdW90OywmcXVvdDt2YWx1ZSZxdW90OzoyLjB9LHsmcXVvdDtoaWdobGlnaHQmcXVvdDs6ZmFsc2UsJnF1b3Q7bGFiZWwmcXVvdDs6JnF1b3Q76ams5p2l6KW/5LqaJnF1b3Q7LCZxdW90O3ZhbHVlJnF1b3Q7OjIuMH1dLCZxdW90O3Njb3BlJnF1b3Q7OiZxdW90O+WFq+S4quekuuaEj+W4guWcuuWFqOmHj+iQpeS4mumine+8m+WQjOW6l+aMh+agh+S4uuS4pOacn+Wdh+iQpeS4mueahOebuOWQjOmXqOW6l+agt+acrO+8jOWNleWIl+iAjOS4jeeUqOS6juaAu+ebmOWKoOaAuyZxdW90OywmcXVvdDtzb3VyY2UmcXVvdDs6JnF1b3Q754us56uL5p6E6YCg55qE5ryU56S65pWw5o2u77yM5LiN5Luj6KGo55yf5a6e57uP6JCl54q25Ya1JnF1b3Q7LCZxdW90O3RpdGxlJnF1b3Q7OiZxdW90O+i3neebruagh+S7jeW3riAxMTQg55m+5LiH5YWDJnF1b3Q7LCZxdW90O3VuaXQmcXVvdDs6JnF1b3Q755m+5LiH5YWDJnF1b3Q7fTwvbWV0YWRhdGE+PHRpdGxlPui3neebruagh+S7jeW3riAxMTQg55m+5LiH5YWD44CC5oyJ5bCa6ZyA6L+96LW255qE6YeR6aKd5o6S5bqP77yM5YWI5qC45p+l5ZOq5Lqb55uu5qCH5beu6aKd77yf44CC55m+5LiH5YWD44CC5a6M5pW05pWw5YC86KeB5ZCM5rqQ5pWw5o2u6KGo44CCPC90aXRsZT48bGluZSB4MT0iODcuMDAwIiB5MT0iMy4wMDAiIHgyPSI4Ny4wMDAiIHkyPSIzMTcuMDAwIiBzdHJva2U9IiNENkQ4RDUiIHN0cm9rZS1kYXNoYXJyYXk9IiIvPjx0ZXh0IHg9Ijg3LjAwMCIgeT0iMzQzLjAwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgY2xhc3M9InRpY2siID4wPC90ZXh0Pjx0ZXh0IHg9Ijc1LjAwMCIgeT0iMjUuMDAwIiB0ZXh0LWFuY2hvcj0iZW5kIiBjbGFzcz0iY2F0ZWdvcnkiID7ljbDlsLw8L3RleHQ+PHJlY3QgeD0iODcuMDAwIiB5PSIxMi4wMDAiIHdpZHRoPSI1NzAuMDAwIiBoZWlnaHQ9IjIxLjAwMCIgZmlsbD0iIzkyM0MzOCIgdGFiaW5kZXg9IjAiIHJvbGU9ImltZyIgYXJpYS1sYWJlbD0i5Y2w5bC877yaNjAg55m+5LiH5YWDIiBkYXRhLXZhbHVlPSI2MC4wIiBkYXRhLXN0YXJ0PSIwIiBkYXRhLWVuZD0iNjAuMCIgZGF0YS1zY2FsZT0iOS41IiBkYXRhLWF4aXM9IngiPjx0aXRsZT7ljbDlsLzvvJo2MCDnmb7kuIflhYM8L3RpdGxlPjwvcmVjdD48dGV4dCB4PSI2NjUuMDAwIiB5PSIyNi4wMDAiIHRleHQtYW5jaG9yPSJzdGFydCIgY2xhc3M9InZhbHVlIiA+NjA8L3RleHQ+PHRleHQgeD0iNzUuMDAwIiB5PSI2NC4wMDAiIHRleHQtYW5jaG9yPSJlbmQiIGNsYXNzPSJjYXRlZ29yeSIgPui2iuWNlzwvdGV4dD48cmVjdCB4PSI4Ny4wMDAiIHk9IjUxLjAwMCIgd2lkdGg9IjE5MC4wMDAiIGhlaWdodD0iMjEuMDAwIiBmaWxsPSIjN0E4MDgyIiB0YWJpbmRleD0iMCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSLotorljZfvvJoyMCDnmb7kuIflhYMiIGRhdGEtdmFsdWU9IjIwLjAiIGRhdGEtc3RhcnQ9IjAiIGRhdGEtZW5kPSIyMC4wIiBkYXRhLXNjYWxlPSI5LjUiIGRhdGEtYXhpcz0ieCI+PHRpdGxlPui2iuWNl++8mjIwIOeZvuS4h+WFgzwvdGl0bGU+PC9yZWN0Pjx0ZXh0IHg9IjI4NS4wMDAiIHk9IjY1LjAwMCIgdGV4dC1hbmNob3I9InN0YXJ0IiBjbGFzcz0idmFsdWUiID4yMDwvdGV4dD48dGV4dCB4PSI3NS4wMDAiIHk9IjEwMy4wMDAiIHRleHQtYW5jaG9yPSJlbmQiIGNsYXNzPSJjYXRlZ29yeSIgPuazsOWbvTwvdGV4dD48cmVjdCB4PSI4Ny4wMDAiIHk9IjkwLjAwMCIgd2lkdGg9IjE3MS4wMDAiIGhlaWdodD0iMjEuMDAwIiBmaWxsPSIjN0E4MDgyIiB0YWJpbmRleD0iMCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSLms7Dlm73vvJoxOCDnmb7kuIflhYMiIGRhdGEtdmFsdWU9IjE4LjAiIGRhdGEtc3RhcnQ9IjAiIGRhdGEtZW5kPSIxOC4wIiBkYXRhLXNjYWxlPSI5LjUiIGRhdGEtYXhpcz0ieCI+PHRpdGxlPuazsOWbve+8mjE4IOeZvuS4h+WFgzwvdGl0bGU+PC9yZWN0Pjx0ZXh0IHg9IjI2Ni4wMDAiIHk9IjEwNC4wMDAiIHRleHQtYW5jaG9yPSJzdGFydCIgY2xhc3M9InZhbHVlIiA+MTg8L3RleHQ+PHRleHQgeD0iNzUuMDAwIiB5PSIxNDIuMDAwIiB0ZXh0LWFuY2hvcj0iZW5kIiBjbGFzcz0iY2F0ZWdvcnkiID7ogIHmjJ08L3RleHQ+PHJlY3QgeD0iODcuMDAwIiB5PSIxMjkuMDAwIiB3aWR0aD0iNDcuNTAwIiBoZWlnaHQ9IjIxLjAwMCIgZmlsbD0iIzdBODA4MiIgdGFiaW5kZXg9IjAiIHJvbGU9ImltZyIgYXJpYS1sYWJlbD0i6ICB5oyd77yaNSDnmb7kuIflhYMiIGRhdGEtdmFsdWU9IjUuMCIgZGF0YS1zdGFydD0iMCIgZGF0YS1lbmQ9IjUuMCIgZGF0YS1zY2FsZT0iOS41IiBkYXRhLWF4aXM9IngiPjx0aXRsZT7ogIHmjJ3vvJo1IOeZvuS4h+WFgzwvdGl0bGU+PC9yZWN0Pjx0ZXh0IHg9IjE0Mi41MDAiIHk9IjE0My4wMDAiIHRleHQtYW5jaG9yPSJzdGFydCIgY2xhc3M9InZhbHVlIiA+NTwvdGV4dD48dGV4dCB4PSI3NS4wMDAiIHk9IjE4MS4wMDAiIHRleHQtYW5jaG9yPSJlbmQiIGNsYXNzPSJjYXRlZ29yeSIgPuafrOWflOWvqDwvdGV4dD48cmVjdCB4PSI4Ny4wMDAiIHk9IjE2OC4wMDAiIHdpZHRoPSIzOC4wMDAiIGhlaWdodD0iMjEuMDAwIiBmaWxsPSIjN0E4MDgyIiB0YWJpbmRleD0iMCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSLmn6zln5Tlr6jvvJo0IOeZvuS4h+WFgyIgZGF0YS12YWx1ZT0iNC4wIiBkYXRhLXN0YXJ0PSIwIiBkYXRhLWVuZD0iNC4wIiBkYXRhLXNjYWxlPSI5LjUiIGRhdGEtYXhpcz0ieCI+PHRpdGxlPuafrOWflOWvqO+8mjQg55m+5LiH5YWDPC90aXRsZT48L3JlY3Q+PHRleHQgeD0iMTMzLjAwMCIgeT0iMTgyLjAwMCIgdGV4dC1hbmNob3I9InN0YXJ0IiBjbGFzcz0idmFsdWUiID40PC90ZXh0Pjx0ZXh0IHg9Ijc1LjAwMCIgeT0iMjIwLjAwMCIgdGV4dC1hbmNob3I9ImVuZCIgY2xhc3M9ImNhdGVnb3J5IiA+5paw5Yqg5Z2hPC90ZXh0PjxyZWN0IHg9Ijg3LjAwMCIgeT0iMjA3LjAwMCIgd2lkdGg9IjI4LjUwMCIgaGVpZ2h0PSIyMS4wMDAiIGZpbGw9IiM3QTgwODIiIHRhYmluZGV4PSIwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IuaWsOWKoOWdoe+8mjMg55m+5LiH5YWDIiBkYXRhLXZhbHVlPSIzLjAiIGRhdGEtc3RhcnQ9IjAiIGRhdGEtZW5kPSIzLjAiIGRhdGEtc2NhbGU9IjkuNSIgZGF0YS1heGlzPSJ4Ij48dGl0bGU+5paw5Yqg5Z2h77yaMyDnmb7kuIflhYM8L3RpdGxlPjwvcmVjdD48dGV4dCB4PSIxMjMuNTAwIiB5PSIyMjEuMDAwIiB0ZXh0LWFuY2hvcj0ic3RhcnQiIGNsYXNzPSJ2YWx1ZSIgPjM8L3RleHQ+PHRleHQgeD0iNzUuMDAwIiB5PSIyNTkuMDAwIiB0ZXh0LWFuY2hvcj0iZW5kIiBjbGFzcz0iY2F0ZWdvcnkiID7oj7Llvovlrr48L3RleHQ+PHJlY3QgeD0iODcuMDAwIiB5PSIyNDYuMDAwIiB3aWR0aD0iMTkuMDAwIiBoZWlnaHQ9IjIxLjAwMCIgZmlsbD0iIzdBODA4MiIgdGFiaW5kZXg9IjAiIHJvbGU9ImltZyIgYXJpYS1sYWJlbD0i6I+y5b6L5a6+77yaMiDnmb7kuIflhYMiIGRhdGEtdmFsdWU9IjIuMCIgZGF0YS1zdGFydD0iMCIgZGF0YS1lbmQ9IjIuMCIgZGF0YS1zY2FsZT0iOS41IiBkYXRhLWF4aXM9IngiPjx0aXRsZT7oj7Llvovlrr7vvJoyIOeZvuS4h+WFgzwvdGl0bGU+PC9yZWN0Pjx0ZXh0IHg9IjExNC4wMDAiIHk9IjI2MC4wMDAiIHRleHQtYW5jaG9yPSJzdGFydCIgY2xhc3M9InZhbHVlIiA+MjwvdGV4dD48dGV4dCB4PSI3NS4wMDAiIHk9IjI5OC4wMDAiIHRleHQtYW5jaG9yPSJlbmQiIGNsYXNzPSJjYXRlZ29yeSIgPumprOadpeilv+S6mjwvdGV4dD48cmVjdCB4PSI4Ny4wMDAiIHk9IjI4NS4wMDAiIHdpZHRoPSIxOS4wMDAiIGhlaWdodD0iMjEuMDAwIiBmaWxsPSIjN0E4MDgyIiB0YWJpbmRleD0iMCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSLpqazmnaXopb/kuprvvJoyIOeZvuS4h+WFgyIgZGF0YS12YWx1ZT0iMi4wIiBkYXRhLXN0YXJ0PSIwIiBkYXRhLWVuZD0iMi4wIiBkYXRhLXNjYWxlPSI5LjUiIGRhdGEtYXhpcz0ieCI+PHRpdGxlPumprOadpeilv+S6mu+8mjIg55m+5LiH5YWDPC90aXRsZT48L3JlY3Q+PHRleHQgeD0iMTE0LjAwMCIgeT0iMjk5LjAwMCIgdGV4dC1hbmNob3I9InN0YXJ0IiBjbGFzcz0idmFsdWUiID4yPC90ZXh0Pjwvc3ZnPg==" download="chart-01.svg">下载 SVG</a></details></details></main><script type="application/json" id="chart-spec">{"charts":[{"id":"target-gap","kind":"bar","note":"差额=目标−本期营业额；正数为待追赶，负数为超额。按金额降序，未知置后。金额排序不代表投入优先级；未给定剩余时间、资源和可追回性。","performance_direction":"lower","period":"2026年10月对比2025年10月，同币种示意","question":"按尚需追赶的金额排序，先核查哪些目标差额？","rows":[{"highlight":true,"label":"印尼","value":60.0},{"highlight":false,"label":"越南","value":20.0},{"highlight":false,"label":"泰国","value":18.0},{"highlight":false,"label":"老挝","value":5.0},{"highlight":false,"label":"柬埔寨","value":4.0},{"highlight":false,"label":"新加坡","value":3.0},{"highlight":false,"label":"菲律宾","value":2.0},{"highlight":false,"label":"马来西亚","value":2.0}],"scope":"八个示意市场全量营业额；同店指标为两期均营业的相同门店样本，单列而不用于总盘加总","source":"独立构造的演示数据，不代表真实经营状况","title":"距目标仍差 114 百万元","unit":"百万元"}],"composition":{"audience":{"action_label":"下次复盘","date":"2026年10月","edition":"经营简报","figures":{"target-gap":{"callout":"60 百万元，占区域净差额 52.63%。","caption":"差额＝营业额目标－本期营业额。","headline":"营业额距目标差 114 百万元","key_label":"印尼目标差额","key_reading":"60 百万元","nav":"目标缺口","title":"各市场目标差额"}},"metrics":[{"label":"目标达成率","value":"91.77%"},{"label":"本期营业额","unit":"百万元","value":"1,271"},{"label":"营业额目标","unit":"百万元","value":"1,385"}],"source":"经营台账 · 8 个市场"},"closing":"先复核印尼的目标差额，再按门店查看同店和订单变化。","sections":[{"charts":["target-gap"],"title":"目标差额"}],"summary":"印尼差额最大，60 百万元。"},"derivation":{"contribution":"revenue - prior","observation_note":"Chart rows are derived views; only source_data.rows are original observations.","source_sha256":"80b9373a78bf59fa76e5c0a8759928b2327c6be73c1c332e4893f8b55401c4ad","target_gap":"target - revenue","total_growth":"(revenue / prior - 1) * 100; prior must be positive"},"source_data":{"period":"2026年10月对比2025年10月，同币种示意","question":"总盘营业额增长时，哪些市场贡献大，哪些市场还需核查同店表现？","rows":[{"id":"VN","name":"越南","prior":380,"revenue":460,"sameStoreGrowth":4,"target":480},{"id":"ID","name":"印尼","prior":300,"revenue":340,"sameStoreGrowth":-6,"target":400},{"id":"TH","name":"泰国","prior":160,"revenue":192,"sameStoreGrowth":2,"target":210},{"id":"MY","name":"马来西亚","prior":90,"revenue":108,"sameStoreGrowth":5,"target":110},{"id":"PH","name":"菲律宾","prior":60,"revenue":78,"sameStoreGrowth":8,"target":80},{"id":"SG","name":"新加坡","prior":40,"revenue":42,"sameStoreGrowth":-2,"target":45},{"id":"LA","name":"老挝","prior":30,"revenue":27,"sameStoreGrowth":-8,"target":32},{"id":"KH","name":"柬埔寨","prior":20,"revenue":24,"sameStoreGrowth":1,"target":28}],"same_store_metric":"同店营业额","scope":"八个示意市场全量营业额；同店指标为两期均营业的相同门店样本，单列而不用于总盘加总","source":"独立构造的演示数据，不代表真实经营状况","synthetic":true,"title":"增长从哪里来，下一步看哪里？","unit":"百万元"},"source_observation_count":8,"synthetic":true,"theme":"tidal","title":"营业额距目标差 114 百万元"}</script><script type="application/json" id="chart-ledger">{"target-gap":{"data_sha256":"3dbe92f5f3b9b09e309feed3df60ba3e895fe021c47e1fd0f43afa0f3ad925a9","desktop":[{"axis":"x","end":60.0,"height":21,"scale":9.5,"shape":"rect","start":0,"value":60.0,"width":570.0,"x":87.0,"y":12},{"axis":"x","end":20.0,"height":21,"scale":9.5,"shape":"rect","start":0,"value":20.0,"width":190.0,"x":87.0,"y":51},{"axis":"x","end":18.0,"height":21,"scale":9.5,"shape":"rect","start":0,"value":18.0,"width":171.0,"x":87.0,"y":90},{"axis":"x","end":5.0,"height":21,"scale":9.5,"shape":"rect","start":0,"value":5.0,"width":47.5,"x":87.0,"y":129},{"axis":"x","end":4.0,"height":21,"scale":9.5,"shape":"rect","start":0,"value":4.0,"width":38.0,"x":87.0,"y":168},{"axis":"x","end":3.0,"height":21,"scale":9.5,"shape":"rect","start":0,"value":3.0,"width":28.5,"x":87.0,"y":207},{"axis":"x","end":2.0,"height":21,"scale":9.5,"shape":"rect","start":0,"value":2.0,"width":19.0,"x":87.0,"y":246},{"axis":"x","end":2.0,"height":21,"scale":9.5,"shape":"rect","start":0,"value":2.0,"width":19.0,"x":87.0,"y":285}],"mobile":[{"axis":"x","end":60.0,"height":21,"scale":3.4393939393939394,"shape":"rect","start":0,"value":60.0,"width":206.36363636363637,"x":87.0,"y":12},{"axis":"x","end":20.0,"height":21,"scale":3.4393939393939394,"shape":"rect","start":0,"value":20.0,"width":68.78787878787878,"x":87.0,"y":51},{"axis":"x","end":18.0,"height":21,"scale":3.4393939393939394,"shape":"rect","start":0,"value":18.0,"width":61.90909090909091,"x":87.0,"y":90},{"axis":"x","end":5.0,"height":21,"scale":3.4393939393939394,"shape":"rect","start":0,"value":5.0,"width":17.196969696969695,"x":87.0,"y":129},{"axis":"x","end":4.0,"height":21,"scale":3.4393939393939394,"shape":"rect","start":0,"value":4.0,"width":13.757575757575758,"x":87.0,"y":168},{"axis":"x","end":3.0,"height":21,"scale":3.4393939393939394,"shape":"rect","start":0,"value":3.0,"width":10.318181818181818,"x":87.0,"y":207},{"axis":"x","end":2.0,"height":21,"scale":3.4393939393939394,"shape":"rect","start":0,"value":2.0,"width":6.878787878787879,"x":87.0,"y":246},{"axis":"x","end":2.0,"height":21,"scale":3.4393939393939394,"shape":"rect","start":0,"value":2.0,"width":6.878787878787879,"x":87.0,"y":285}]}}</script><script>const frames = Array.from(document.querySelectorAll('[data-slide]'));
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.attain-track i{transition:none}}
+</style></head><body class="mode-brief"><main class="brief">
+    <header class="mast"><span>经营简报</span><time>2026年10月</time></header>
+    <div class="brief-heading"><h1>目标缺口，先查印尼</h1>
+      <p>全区目标 1,385，实际 1,271 百万元，达成 91.8%。</p></div>
+    <div class="brief-proof">
+      <section class="feature-number" aria-label="目标缺口集中程度">
+        <div class="big">53<small>%</small></div><p>印尼占全区 114 百万元缺口</p><div class="focus-track">
+      <div class="track-labels"><span>印尼</span><span>其余市场</span></div>
+      <div class="track" role="img" aria-label="印尼占总缺口 52.6%"><i style="width:52.63157895%"></i></div>
+      <div class="track-labels track-values"><span>60 百万元</span>
+        <span>54 百万元</span></div>
+    </div>
+      </section>
+      <section class="ranking"><div class="section-title"><h2>其余缺口分布</h2><span>百万元</span></div>
+        <ol class="rank" aria-label="目标差额"><li><span>越南</span><div class="rank-track" style="--value:100.00000000%"><i aria-hidden="true"></i><b>20</b></div></li><li><span>泰国</span><div class="rank-track" style="--value:90.00000000%"><i aria-hidden="true"></i><b>18</b></div></li><li><span>其余 5 个市场</span><div class="rank-track" style="--value:80.00000000%"><i aria-hidden="true"></i><b>16</b></div></li></ol><p class="figure-note">印尼、越南、泰国合计占全区缺口 86%。</p>
+      </section>
+    </div>
+    <div class="brief-contrast"><strong>印尼为何先查</strong><div>
+      <span>全量营业额同比 <b>+13.3%</b></span><span>同店营业额同比 <b class="negative">-6%</b></span>
+    </div></div>
+    <section class="brief-action"><h2>下次复盘带回</h2><div>
+      <p><strong>印尼营运</strong>　核对门店目标与实际，列出主要差额。另列下月改善估算，写明措施、金额和依据。</p><p><strong>区域分析</strong>　核对越南、泰国的目标缺口，拆出各类门店贡献的增量。</p></div></section>
+    <footer class="source">示例数据 · 2026年10月 · 8 个市场</footer><details id="materials" class="materials">
+    <summary>原始数据与口径</summary><p>金额单位为百万元。同比对比上年同月。同店为两期均营业的相同门店。</p>
+    <div class="table-scroll"><table><thead><tr><th>市场</th><th>上年同期</th><th>本期</th><th>目标</th>
+    <th>目标缺口</th><th>全量营业额同比</th><th>同店营业额同比</th></tr></thead><tbody><tr><th scope="row">印尼</th><td>300</td><td>340</td><td>400</td><td>60</td><td>+13.3%</td><td>-6%</td></tr><tr><th scope="row">越南</th><td>380</td><td>460</td><td>480</td><td>20</td><td>+21.1%</td><td>+4%</td></tr><tr><th scope="row">泰国</th><td>160</td><td>192</td><td>210</td><td>18</td><td>+20%</td><td>+2%</td></tr><tr><th scope="row">老挝</th><td>30</td><td>27</td><td>32</td><td>5</td><td>-10%</td><td>-8%</td></tr><tr><th scope="row">柬埔寨</th><td>20</td><td>24</td><td>28</td><td>4</td><td>+20%</td><td>+1%</td></tr><tr><th scope="row">新加坡</th><td>40</td><td>42</td><td>45</td><td>3</td><td>+5%</td><td>-2%</td></tr><tr><th scope="row">菲律宾</th><td>60</td><td>78</td><td>80</td><td>2</td><td>+30%</td><td>+8%</td></tr><tr><th scope="row">马来西亚</th><td>90</td><td>108</td><td>110</td><td>2</td><td>+20%</td><td>+5%</td></tr></tbody></table></div>
+    <div class="downloads"><a href="data:application/json;charset=utf-8;base64,eyJwZXJpb2QiOiIyMDI25bm0MTDmnIjlr7nmr5QyMDI15bm0MTDmnIjvvIzlkIzluIHnp43npLrmhI8iLCJxdWVzdGlvbiI6IuaAu+ebmOiQpeS4mumineWinumVv+aXtu+8jOWTquS6m+W4guWcuui0oeeMruWkp++8jOWTquS6m+W4guWcuui/mOmcgOaguOafpeWQjOW6l+ihqOeOsO+8nyIsInJvd3MiOlt7ImlkIjoiVk4iLCJuYW1lIjoi6LaK5Y2XIiwicHJpb3IiOjM4MCwicmV2ZW51ZSI6NDYwLCJzYW1lU3RvcmVHcm93dGgiOjQsInRhcmdldCI6NDgwfSx7ImlkIjoiSUQiLCJuYW1lIjoi5Y2w5bC8IiwicHJpb3IiOjMwMCwicmV2ZW51ZSI6MzQwLCJzYW1lU3RvcmVHcm93dGgiOi02LCJ0YXJnZXQiOjQwMH0seyJpZCI6IlRIIiwibmFtZSI6IuazsOWbvSIsInByaW9yIjoxNjAsInJldmVudWUiOjE5Miwic2FtZVN0b3JlR3Jvd3RoIjoyLCJ0YXJnZXQiOjIxMH0seyJpZCI6Ik1ZIiwibmFtZSI6IumprOadpeilv+S6miIsInByaW9yIjo5MCwicmV2ZW51ZSI6MTA4LCJzYW1lU3RvcmVHcm93dGgiOjUsInRhcmdldCI6MTEwfSx7ImlkIjoiUEgiLCJuYW1lIjoi6I+y5b6L5a6+IiwicHJpb3IiOjYwLCJyZXZlbnVlIjo3OCwic2FtZVN0b3JlR3Jvd3RoIjo4LCJ0YXJnZXQiOjgwfSx7ImlkIjoiU0ciLCJuYW1lIjoi5paw5Yqg5Z2hIiwicHJpb3IiOjQwLCJyZXZlbnVlIjo0Miwic2FtZVN0b3JlR3Jvd3RoIjotMiwidGFyZ2V0Ijo0NX0seyJpZCI6IkxBIiwibmFtZSI6IuiAgeaMnSIsInByaW9yIjozMCwicmV2ZW51ZSI6MjcsInNhbWVTdG9yZUdyb3d0aCI6LTgsInRhcmdldCI6MzJ9LHsiaWQiOiJLSCIsIm5hbWUiOiLmn6zln5Tlr6giLCJwcmlvciI6MjAsInJldmVudWUiOjI0LCJzYW1lU3RvcmVHcm93dGgiOjEsInRhcmdldCI6Mjh9XSwic2FtZV9zdG9yZV9tZXRyaWMiOiLlkIzlupfokKXkuJrpop0iLCJzY29wZSI6IuWFq+S4quekuuaEj+W4guWcuuWFqOmHj+iQpeS4mumine+8m+WQjOW6l+aMh+agh+S4uuS4pOacn+Wdh+iQpeS4mueahOebuOWQjOmXqOW6l+agt+acrO+8jOWNleWIl+iAjOS4jeeUqOS6juaAu+ebmOWKoOaAuyIsInNvdXJjZSI6IueLrOeri+aehOmAoOeahOa8lOekuuaVsOaNru+8jOS4jeS7o+ihqOecn+Wunue7j+iQpeeKtuWGtSIsInN5bnRoZXRpYyI6dHJ1ZSwidGl0bGUiOiLlop7plb/ku47lk6rph4zmnaXvvIzkuIvkuIDmraXnnIvlk6rph4zvvJ8iLCJ1bml0Ijoi55m+5LiH5YWDIn0=" download="source.json">下载原始数据</a><a href="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3NjAgNDcyIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9Iui3neebruagh+S7jeW3riAxMTQg55m+5LiH5YWD44CC5oyJ5bCa6ZyA6L+96LW255qE6YeR6aKd5o6S5bqP77yM5YWI5qC45p+l5ZOq5Lqb55uu5qCH5beu6aKd77yf44CC55m+5LiH5YWD44CC5a6M5pW05pWw5YC86KeB5ZCM5rqQ5pWw5o2u6KGo44CCIiBjbGFzcz0iZGVza3RvcC1zdmciPjxzdHlsZT50ZXh0e2ZvbnQtZmFtaWx5OkFyaWFsLCJNaWNyb3NvZnQgWWFIZWkiLHNhbnMtc2VyaWY7Zm9udC1zaXplOjE0cHg7ZmlsbDojMjUyNzI3fS50aWNre2ZpbGw6IzYyNjU2NX0udmFsdWUsLmxlZ2VuZHtmb250LXdlaWdodDo2MDB9PC9zdHlsZT48ZGVzYz7mnaXmupDvvJrni6znq4vmnoTpgKDnmoTmvJTnpLrmlbDmja7vvIzkuI3ku6PooajnnJ/lrp7nu4/okKXnirblhrXvvJvmnJ/pl7TvvJoyMDI25bm0MTDmnIjlr7nmr5QyMDI15bm0MTDmnIjvvIzlkIzluIHnp43npLrmhI/vvJvojIPlm7TvvJrlhavkuKrnpLrmhI/luILlnLrlhajph4/okKXkuJrpop3vvJvlkIzlupfmjIfmoIfkuLrkuKTmnJ/lnYfokKXkuJrnmoTnm7jlkIzpl6jlupfmoLfmnKzvvIzljZXliJfogIzkuI3nlKjkuo7mgLvnm5jliqDmgLvvvJvljZXkvY3vvJrnmb7kuIflhYPjgILnvLrlpLHlgLzmnKrmm7/mjaLkuLrpm7bjgII8L2Rlc2M+PG1ldGFkYXRhIGlkPSJjaGFydC1zb3VyY2UiPnsmcXVvdDtpZCZxdW90OzomcXVvdDt0YXJnZXQtZ2FwJnF1b3Q7LCZxdW90O2tpbmQmcXVvdDs6JnF1b3Q7YmFyJnF1b3Q7LCZxdW90O25vdGUmcXVvdDs6JnF1b3Q75beu6aKdPeebruagh+KIkuacrOacn+iQpeS4mumine+8m+ato+aVsOS4uuW+hei/vei1tu+8jOi0n+aVsOS4uui2hemineOAguaMiemHkeminemZjeW6j++8jOacquefpee9ruWQjuOAgumHkemineaOkuW6j+S4jeS7o+ihqOaKleWFpeS8mOWFiOe6p++8m+acque7meWumuWJqeS9meaXtumXtOOAgei1hOa6kOWSjOWPr+i/veWbnuaAp+OAgiZxdW90OywmcXVvdDtwZXJmb3JtYW5jZV9kaXJlY3Rpb24mcXVvdDs6JnF1b3Q7bG93ZXImcXVvdDssJnF1b3Q7cGVyaW9kJnF1b3Q7OiZxdW90OzIwMjblubQxMOaciOWvueavlDIwMjXlubQxMOaciO+8jOWQjOW4geenjeekuuaEjyZxdW90OywmcXVvdDtxdWVzdGlvbiZxdW90OzomcXVvdDvmjInlsJrpnIDov73otbbnmoTph5Hpop3mjpLluo/vvIzlhYjmoLjmn6Xlk6rkupvnm67moIflt67pop3vvJ8mcXVvdDssJnF1b3Q7cm93cyZxdW90OzpbeyZxdW90O2hpZ2hsaWdodCZxdW90Ozp0cnVlLCZxdW90O2xhYmVsJnF1b3Q7OiZxdW90O+WNsOWwvCZxdW90OywmcXVvdDt2YWx1ZSZxdW90Ozo2MC4wfSx7JnF1b3Q7aGlnaGxpZ2h0JnF1b3Q7OmZhbHNlLCZxdW90O2xhYmVsJnF1b3Q7OiZxdW90O+i2iuWNlyZxdW90OywmcXVvdDt2YWx1ZSZxdW90OzoyMC4wfSx7JnF1b3Q7aGlnaGxpZ2h0JnF1b3Q7OmZhbHNlLCZxdW90O2xhYmVsJnF1b3Q7OiZxdW90O+azsOWbvSZxdW90OywmcXVvdDt2YWx1ZSZxdW90OzoxOC4wfSx7JnF1b3Q7aGlnaGxpZ2h0JnF1b3Q7OmZhbHNlLCZxdW90O2xhYmVsJnF1b3Q7OiZxdW90O+iAgeaMnSZxdW90OywmcXVvdDt2YWx1ZSZxdW90Ozo1LjB9LHsmcXVvdDtoaWdobGlnaHQmcXVvdDs6ZmFsc2UsJnF1b3Q7bGFiZWwmcXVvdDs6JnF1b3Q75p+s5Z+U5a+oJnF1b3Q7LCZxdW90O3ZhbHVlJnF1b3Q7OjQuMH0seyZxdW90O2hpZ2hsaWdodCZxdW90OzpmYWxzZSwmcXVvdDtsYWJlbCZxdW90OzomcXVvdDvmlrDliqDlnaEmcXVvdDssJnF1b3Q7dmFsdWUmcXVvdDs6My4wfSx7JnF1b3Q7aGlnaGxpZ2h0JnF1b3Q7OmZhbHNlLCZxdW90O2xhYmVsJnF1b3Q7OiZxdW90O+iPsuW+i+WuviZxdW90OywmcXVvdDt2YWx1ZSZxdW90OzoyLjB9LHsmcXVvdDtoaWdobGlnaHQmcXVvdDs6ZmFsc2UsJnF1b3Q7bGFiZWwmcXVvdDs6JnF1b3Q76ams5p2l6KW/5LqaJnF1b3Q7LCZxdW90O3ZhbHVlJnF1b3Q7OjIuMH1dLCZxdW90O3Njb3BlJnF1b3Q7OiZxdW90O+WFq+S4quekuuaEj+W4guWcuuWFqOmHj+iQpeS4mumine+8m+WQjOW6l+aMh+agh+S4uuS4pOacn+Wdh+iQpeS4mueahOebuOWQjOmXqOW6l+agt+acrO+8jOWNleWIl+iAjOS4jeeUqOS6juaAu+ebmOWKoOaAuyZxdW90OywmcXVvdDtzb3VyY2UmcXVvdDs6JnF1b3Q754us56uL5p6E6YCg55qE5ryU56S65pWw5o2u77yM5LiN5Luj6KGo55yf5a6e57uP6JCl54q25Ya1JnF1b3Q7LCZxdW90O3RpdGxlJnF1b3Q7OiZxdW90O+i3neebruagh+S7jeW3riAxMTQg55m+5LiH5YWDJnF1b3Q7LCZxdW90O3VuaXQmcXVvdDs6JnF1b3Q755m+5LiH5YWDJnF1b3Q7fTwvbWV0YWRhdGE+PHRpdGxlPui3neebruagh+S7jeW3riAxMTQg55m+5LiH5YWD44CC5oyJ5bCa6ZyA6L+96LW255qE6YeR6aKd5o6S5bqP77yM5YWI5qC45p+l5ZOq5Lqb55uu5qCH5beu6aKd77yf44CC55m+5LiH5YWD44CC5a6M5pW05pWw5YC86KeB5ZCM5rqQ5pWw5o2u6KGo44CCPC90aXRsZT48bGluZSB4MT0iMjA1LjAwMCIgeTE9IjI5LjAwMCIgeDI9IjIwNS4wMDAiIHkyPSI0MzQuMDAwIiBzdHJva2U9IiNENkQ4RDUiIHN0cm9rZS1kYXNoYXJyYXk9IiIvPjx0ZXh0IHg9IjIwNS4wMDAiIHk9IjQ2MC4wMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJ0aWNrIiA+MDwvdGV4dD48dGV4dCB4PSIxOTMuMDAwIiB5PSI1MS4wMDAiIHRleHQtYW5jaG9yPSJlbmQiIGNsYXNzPSJjYXRlZ29yeSIgPuWNsOWwvDwvdGV4dD48cmVjdCB4PSIyMDUuMDAwIiB5PSIzOC4wMDAiIHdpZHRoPSI0NDIuNzI3IiBoZWlnaHQ9IjIxLjAwMCIgZmlsbD0iIzkyM0MzOCIgdGFiaW5kZXg9IjAiIHJvbGU9ImltZyIgYXJpYS1sYWJlbD0i5Y2w5bC877yaNjAg55m+5LiH5YWDIiBkYXRhLXZhbHVlPSI2MC4wIiBkYXRhLXN0YXJ0PSIwIiBkYXRhLWVuZD0iNjAuMCIgZGF0YS1zY2FsZT0iNy4zNzg3ODc4Nzg3ODc4NzkiIGRhdGEtYXhpcz0ieCI+PHRpdGxlPuWNsOWwvO+8mjYwIOeZvuS4h+WFgzwvdGl0bGU+PC9yZWN0Pjx0ZXh0IHg9Ijc1Ni4wMDAiIHk9IjU0LjAwMCIgdGV4dC1hbmNob3I9ImVuZCIgY2xhc3M9InZhbHVlIiA+NjA8L3RleHQ+PHRleHQgeD0iMTkzLjAwMCIgeT0iMTAwLjAwMCIgdGV4dC1hbmNob3I9ImVuZCIgY2xhc3M9ImNhdGVnb3J5IiA+6LaK5Y2XPC90ZXh0PjxyZWN0IHg9IjIwNS4wMDAiIHk9Ijg3LjAwMCIgd2lkdGg9IjE0Ny41NzYiIGhlaWdodD0iMjEuMDAwIiBmaWxsPSIjN0E4MDgyIiB0YWJpbmRleD0iMCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSLotorljZfvvJoyMCDnmb7kuIflhYMiIGRhdGEtdmFsdWU9IjIwLjAiIGRhdGEtc3RhcnQ9IjAiIGRhdGEtZW5kPSIyMC4wIiBkYXRhLXNjYWxlPSI3LjM3ODc4Nzg3ODc4Nzg3OSIgZGF0YS1heGlzPSJ4Ij48dGl0bGU+6LaK5Y2X77yaMjAg55m+5LiH5YWDPC90aXRsZT48L3JlY3Q+PHRleHQgeD0iNzU2LjAwMCIgeT0iMTAzLjAwMCIgdGV4dC1hbmNob3I9ImVuZCIgY2xhc3M9InZhbHVlIiA+MjA8L3RleHQ+PHRleHQgeD0iMTkzLjAwMCIgeT0iMTQ5LjAwMCIgdGV4dC1hbmNob3I9ImVuZCIgY2xhc3M9ImNhdGVnb3J5IiA+5rOw5Zu9PC90ZXh0PjxyZWN0IHg9IjIwNS4wMDAiIHk9IjEzNi4wMDAiIHdpZHRoPSIxMzIuODE4IiBoZWlnaHQ9IjIxLjAwMCIgZmlsbD0iIzdBODA4MiIgdGFiaW5kZXg9IjAiIHJvbGU9ImltZyIgYXJpYS1sYWJlbD0i5rOw5Zu977yaMTgg55m+5LiH5YWDIiBkYXRhLXZhbHVlPSIxOC4wIiBkYXRhLXN0YXJ0PSIwIiBkYXRhLWVuZD0iMTguMCIgZGF0YS1zY2FsZT0iNy4zNzg3ODc4Nzg3ODc4NzkiIGRhdGEtYXhpcz0ieCI+PHRpdGxlPuazsOWbve+8mjE4IOeZvuS4h+WFgzwvdGl0bGU+PC9yZWN0Pjx0ZXh0IHg9Ijc1Ni4wMDAiIHk9IjE1Mi4wMDAiIHRleHQtYW5jaG9yPSJlbmQiIGNsYXNzPSJ2YWx1ZSIgPjE4PC90ZXh0Pjx0ZXh0IHg9IjE5My4wMDAiIHk9IjE5OC4wMDAiIHRleHQtYW5jaG9yPSJlbmQiIGNsYXNzPSJjYXRlZ29yeSIgPuiAgeaMnTwvdGV4dD48cmVjdCB4PSIyMDUuMDAwIiB5PSIxODUuMDAwIiB3aWR0aD0iMzYuODk0IiBoZWlnaHQ9IjIxLjAwMCIgZmlsbD0iIzdBODA4MiIgdGFiaW5kZXg9IjAiIHJvbGU9ImltZyIgYXJpYS1sYWJlbD0i6ICB5oyd77yaNSDnmb7kuIflhYMiIGRhdGEtdmFsdWU9IjUuMCIgZGF0YS1zdGFydD0iMCIgZGF0YS1lbmQ9IjUuMCIgZGF0YS1zY2FsZT0iNy4zNzg3ODc4Nzg3ODc4NzkiIGRhdGEtYXhpcz0ieCI+PHRpdGxlPuiAgeaMne+8mjUg55m+5LiH5YWDPC90aXRsZT48L3JlY3Q+PHRleHQgeD0iNzU2LjAwMCIgeT0iMjAxLjAwMCIgdGV4dC1hbmNob3I9ImVuZCIgY2xhc3M9InZhbHVlIiA+NTwvdGV4dD48dGV4dCB4PSIxOTMuMDAwIiB5PSIyNDcuMDAwIiB0ZXh0LWFuY2hvcj0iZW5kIiBjbGFzcz0iY2F0ZWdvcnkiID7mn6zln5Tlr6g8L3RleHQ+PHJlY3QgeD0iMjA1LjAwMCIgeT0iMjM0LjAwMCIgd2lkdGg9IjI5LjUxNSIgaGVpZ2h0PSIyMS4wMDAiIGZpbGw9IiM3QTgwODIiIHRhYmluZGV4PSIwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IuafrOWflOWvqO+8mjQg55m+5LiH5YWDIiBkYXRhLXZhbHVlPSI0LjAiIGRhdGEtc3RhcnQ9IjAiIGRhdGEtZW5kPSI0LjAiIGRhdGEtc2NhbGU9IjcuMzc4Nzg3ODc4Nzg3ODc5IiBkYXRhLWF4aXM9IngiPjx0aXRsZT7mn6zln5Tlr6jvvJo0IOeZvuS4h+WFgzwvdGl0bGU+PC9yZWN0Pjx0ZXh0IHg9Ijc1Ni4wMDAiIHk9IjI1MC4wMDAiIHRleHQtYW5jaG9yPSJlbmQiIGNsYXNzPSJ2YWx1ZSIgPjQ8L3RleHQ+PHRleHQgeD0iMTkzLjAwMCIgeT0iMjk2LjAwMCIgdGV4dC1hbmNob3I9ImVuZCIgY2xhc3M9ImNhdGVnb3J5IiA+5paw5Yqg5Z2hPC90ZXh0PjxyZWN0IHg9IjIwNS4wMDAiIHk9IjI4My4wMDAiIHdpZHRoPSIyMi4xMzYiIGhlaWdodD0iMjEuMDAwIiBmaWxsPSIjN0E4MDgyIiB0YWJpbmRleD0iMCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSLmlrDliqDlnaHvvJozIOeZvuS4h+WFgyIgZGF0YS12YWx1ZT0iMy4wIiBkYXRhLXN0YXJ0PSIwIiBkYXRhLWVuZD0iMy4wIiBkYXRhLXNjYWxlPSI3LjM3ODc4Nzg3ODc4Nzg3OSIgZGF0YS1heGlzPSJ4Ij48dGl0bGU+5paw5Yqg5Z2h77yaMyDnmb7kuIflhYM8L3RpdGxlPjwvcmVjdD48dGV4dCB4PSI3NTYuMDAwIiB5PSIyOTkuMDAwIiB0ZXh0LWFuY2hvcj0iZW5kIiBjbGFzcz0idmFsdWUiID4zPC90ZXh0Pjx0ZXh0IHg9IjE5My4wMDAiIHk9IjM0NS4wMDAiIHRleHQtYW5jaG9yPSJlbmQiIGNsYXNzPSJjYXRlZ29yeSIgPuiPsuW+i+WuvjwvdGV4dD48cmVjdCB4PSIyMDUuMDAwIiB5PSIzMzIuMDAwIiB3aWR0aD0iMTQuNzU4IiBoZWlnaHQ9IjIxLjAwMCIgZmlsbD0iIzdBODA4MiIgdGFiaW5kZXg9IjAiIHJvbGU9ImltZyIgYXJpYS1sYWJlbD0i6I+y5b6L5a6+77yaMiDnmb7kuIflhYMiIGRhdGEtdmFsdWU9IjIuMCIgZGF0YS1zdGFydD0iMCIgZGF0YS1lbmQ9IjIuMCIgZGF0YS1zY2FsZT0iNy4zNzg3ODc4Nzg3ODc4NzkiIGRhdGEtYXhpcz0ieCI+PHRpdGxlPuiPsuW+i+Wuvu+8mjIg55m+5LiH5YWDPC90aXRsZT48L3JlY3Q+PHRleHQgeD0iNzU2LjAwMCIgeT0iMzQ4LjAwMCIgdGV4dC1hbmNob3I9ImVuZCIgY2xhc3M9InZhbHVlIiA+MjwvdGV4dD48dGV4dCB4PSIxOTMuMDAwIiB5PSIzOTQuMDAwIiB0ZXh0LWFuY2hvcj0iZW5kIiBjbGFzcz0iY2F0ZWdvcnkiID7pqazmnaXopb/kupo8L3RleHQ+PHJlY3QgeD0iMjA1LjAwMCIgeT0iMzgxLjAwMCIgd2lkdGg9IjE0Ljc1OCIgaGVpZ2h0PSIyMS4wMDAiIGZpbGw9IiM3QTgwODIiIHRhYmluZGV4PSIwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IumprOadpeilv+S6mu+8mjIg55m+5LiH5YWDIiBkYXRhLXZhbHVlPSIyLjAiIGRhdGEtc3RhcnQ9IjAiIGRhdGEtZW5kPSIyLjAiIGRhdGEtc2NhbGU9IjcuMzc4Nzg3ODc4Nzg3ODc5IiBkYXRhLWF4aXM9IngiPjx0aXRsZT7pqazmnaXopb/kuprvvJoyIOeZvuS4h+WFgzwvdGl0bGU+PC9yZWN0Pjx0ZXh0IHg9Ijc1Ni4wMDAiIHk9IjM5Ny4wMDAiIHRleHQtYW5jaG9yPSJlbmQiIGNsYXNzPSJ2YWx1ZSIgPjI8L3RleHQ+PC9zdmc+" download="target-gap.svg">各市场差额 SVG</a></div></details>
+    </main><script type="application/json" id="source-data">{"period":"2026年10月对比2025年10月，同币种示意","question":"总盘营业额增长时，哪些市场贡献大，哪些市场还需核查同店表现？","rows":[{"id":"VN","name":"越南","prior":380,"revenue":460,"sameStoreGrowth":4,"target":480},{"id":"ID","name":"印尼","prior":300,"revenue":340,"sameStoreGrowth":-6,"target":400},{"id":"TH","name":"泰国","prior":160,"revenue":192,"sameStoreGrowth":2,"target":210},{"id":"MY","name":"马来西亚","prior":90,"revenue":108,"sameStoreGrowth":5,"target":110},{"id":"PH","name":"菲律宾","prior":60,"revenue":78,"sameStoreGrowth":8,"target":80},{"id":"SG","name":"新加坡","prior":40,"revenue":42,"sameStoreGrowth":-2,"target":45},{"id":"LA","name":"老挝","prior":30,"revenue":27,"sameStoreGrowth":-8,"target":32},{"id":"KH","name":"柬埔寨","prior":20,"revenue":24,"sameStoreGrowth":1,"target":28}],"same_store_metric":"同店营业额","scope":"八个示意市场全量营业额；同店指标为两期均营业的相同门店样本，单列而不用于总盘加总","source":"独立构造的演示数据，不代表真实经营状况","synthetic":true,"title":"增长从哪里来，下一步看哪里？","unit":"百万元"}</script><script type="application/json" id="market-data">{"ID":{"attainment":85.0,"gap":"60 百万元","increment":"+40 百万元","name":"印尼","same":"-6%"},"KH":{"attainment":85.71428571428571,"gap":"4 百万元","increment":"+4 百万元","name":"柬埔寨","same":"+1%"},"LA":{"attainment":84.375,"gap":"5 百万元","increment":"-3 百万元","name":"老挝","same":"-8%"},"MY":{"attainment":98.18181818181819,"gap":"2 百万元","increment":"+18 百万元","name":"马来西亚","same":"+5%"},"PH":{"attainment":97.5,"gap":"2 百万元","increment":"+18 百万元","name":"菲律宾","same":"+8%"},"SG":{"attainment":93.33333333333333,"gap":"3 百万元","increment":"+2 百万元","name":"新加坡","same":"-2%"},"TH":{"attainment":91.42857142857143,"gap":"18 百万元","increment":"+32 百万元","name":"泰国","same":"+2%"},"VN":{"attainment":95.83333333333334,"gap":"20 百万元","increment":"+80 百万元","name":"越南","same":"+4%"}}</script><script>const slides = Array.from(document.querySelectorAll('[data-slide]'));
 const materials = document.getElementById('materials');
-document.querySelectorAll('a[href="#materials"]').forEach(link => {
-  link.addEventListener('click', () => { materials.open = true; });
-});
-if (frames.length) {
-  let current = 0;
-  const back = document.getElementById('back');
+document.querySelectorAll('a[href="#materials"]').forEach(a => a.addEventListener('click', () => { materials.open = true; }));
+
+if (slides.length) {
+  let active = 0;
+  const back = document.getElementById('previous');
   const next = document.getElementById('next');
   const page = document.getElementById('page');
-  function show(index) {
-    current = Math.max(0, Math.min(frames.length - 1, index));
-    frames.forEach((frame, i) => { frame.hidden = i !== current; });
-    page.value = `${current + 1} / ${frames.length}`;
-    back.disabled = current === 0;
-    next.disabled = current === frames.length - 1;
-  }
-  back.addEventListener('click', () => show(current - 1));
-  next.addEventListener('click', () => show(current + 1));
-  document.addEventListener('keydown', event => {
+  const show = index => {
+    active = Math.max(0, Math.min(slides.length - 1, index));
+    slides.forEach((slide, i) => { slide.hidden = i !== active; });
+    back.disabled = active === 0;
+    next.disabled = active === slides.length - 1;
+    page.value = `${active + 1} / ${slides.length}`;
+  };
+  back.addEventListener('click', () => show(active - 1));
+  next.addEventListener('click', () => show(active + 1));
+  addEventListener('keydown', event => {
     if (event.altKey || event.ctrlKey || event.metaKey || event.target.closest('input,textarea,select,[contenteditable]')) return;
-    const indexes = {ArrowLeft:current - 1,PageUp:current - 1,ArrowRight:current + 1,PageDown:current + 1,Home:0,End:frames.length - 1};
-    if (!(event.key in indexes)) return;
+    const targets = {ArrowLeft:active - 1,PageUp:active - 1,ArrowRight:active + 1,PageDown:active + 1,Home:0,End:slides.length - 1};
+    if (!(event.key in targets)) return;
     event.preventDefault();
-    show(indexes[event.key]);
-  });
-  materials.addEventListener('toggle', () => {
-    if (!materials.open && location.hash === '#materials') history.replaceState(null,'',location.pathname);
+    show(targets[event.key]);
   });
   show(0);
-} else {
-  const chapterLinks = Array.from(document.querySelectorAll('.report-rail a[href^="#chapter"]'));
-  const chapters = chapterLinks.map(link => document.querySelector(link.hash));
-  if (chapters.length && 'IntersectionObserver' in window) {
-    const observer = new IntersectionObserver(entries => {
-      for (const entry of entries) {
-        if (!entry.isIntersecting) continue;
-        chapterLinks.forEach((link, i) => {
-          if (chapters[i] === entry.target) link.setAttribute('aria-current','location');
-          else link.removeAttribute('aria-current');
-        });
-      }
-    },{rootMargin:'0px 0px -63% 0px'});
-    chapters.forEach(chapter => observer.observe(chapter));
-  }
 }
-document.documentElement.dataset.composeReady = 'true';
+
+const markets = JSON.parse(document.getElementById('market-data').textContent);
+const marketButtons = Array.from(document.querySelectorAll('[data-market]'));
+marketButtons.forEach(button => button.addEventListener('click', () => {
+  const row = markets[button.dataset.market];
+  for (const [field, value] of Object.entries(row)) {
+    document.getElementById('market-'+field).textContent = field === 'attainment' ? row.attainment.toFixed(1)+'%' : value;
+  }
+  const track = document.getElementById('attain-track');
+  track.querySelector('i').style.width = row.attainment+'%';
+  track.setAttribute('aria-label', '目标达成率 '+row.attainment.toFixed(1)+'%');
+  marketButtons.forEach(other => {
+    other.setAttribute('aria-pressed', String(other === button));
+    other.closest('tr').classList.toggle('selected', other === button);
+  });
+}));
+document.documentElement.dataset.ready = 'true';
 </script></body></html>

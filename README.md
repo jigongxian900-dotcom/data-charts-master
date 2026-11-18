@@ -9,7 +9,7 @@
 
 - [80 张图形的动效图谱](https://jigongxian900-dotcom.github.io/data-charts-master/diagram-atlas.html) · 流程、架构、时间、关系、定性变形与数量。按图义选择路径描绘、消息时序、区间铺开和定量流带等动效，可搜索并核对原始示例数据。
 - [流程图与真实路径](https://jigongxian900-dotcom.github.io/data-charts-master/workflow-diagrams.html) · 同一模型切换决策、泳道与实绩，支持三套版式和 SVG 下载。
-- [A4 单页简报](https://jigongxian900-dotcom.github.io/data-charts-master/report-layouts/brief.html) · [多章节报告](https://jigongxian900-dotcom.github.io/data-charts-master/report-layouts/report.html) · [16:9 演示](https://jigongxian900-dotcom.github.io/data-charts-master/report-layouts/slides.html) · 三种常用版面使用同一原始经营案例。
+- [A4 单页简报](https://jigongxian900-dotcom.github.io/data-charts-master/report-layouts/brief.html) · [多章节报告](https://jigongxian900-dotcom.github.io/data-charts-master/report-layouts/report.html) · [16:9 演示](https://jigongxian900-dotcom.github.io/data-charts-master/report-layouts/slides.html) · 同一经营案例按优先级、跨图分析和会议决定组织成三份成品。
 - [十二图动效展厅](https://jigongxian900-dotcom.github.io/data-charts-master/motion-gallery.html) · [跨图动效组合](https://jigongxian900-dotcom.github.io/data-charts-master/motion-composition.html) · 看不同动效如何帮助读者追踪数据。
 
 - [同数据三款图形](https://jigongxian900-dotcom.github.io/data-charts-master/chart-shapes.html) · 七组二十一款，柱形、端点、线条和区间的真实变化，支持分别下载 SVG。

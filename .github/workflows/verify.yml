@@ -53,7 +53,9 @@ jobs:
           python3 scripts/build_chart_shape_gallery.py
           cp examples/chart-shapes/index.html docs/chart-shapes.html
       - name: Verify chart shape and report contracts
-        run: python3 scripts/test_chart_shapes.py
+        run: |
+          python3 scripts/test_chart_shapes.py
+          python3 scripts/test_operating_gap_review.py
       - name: Rebuild curated examples
         run: node scripts/build_gallery.js
       - name: Rebuild autonomous desktop examples

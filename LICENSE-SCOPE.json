@@ -1,5 +1,5 @@
 {
-  "release": "5.5.2",
+  "release": "5.6.0",
   "legacy_mit_boundary": "0ffed29325bd5c0ec01c819e5e9aec41b92c1947",
   "legacy_mit_release": "v5.2.0",
   "new_original_additions_and_changes": "PolyForm-Noncommercial-1.0.0; separate commercial permission",
@@ -24,7 +24,7 @@
     {
       "path": ".github/workflows/verify.yml",
       "status": "modified-first-party",
-      "release_sha256": "0efa2be097f38485f161298f07878a88b10558a4b254a22e54db6b394bcdaf0e",
+      "release_sha256": "cb92aca86c43b1174edc5e172960736db291f16ef9d97304fa4fca0e8265bfcc",
       "legacy_sha256": "d9f20b873476ede3c17a5685fe9bb5ab076fe45faf51d29a0b3fc9995d6e0b24"
     },
     {
@@ -72,19 +72,19 @@
     {
       "path": "README.en.md",
       "status": "modified-first-party",
-      "release_sha256": "1711a8c6aafecf40856a8784626e4a1810e9d19f0df654ea0d5db65ca17bbebc",
+      "release_sha256": "c6168421b79da44038f0dc67fd7be8f10f584d6af1815d741f8ed9f56053eee4",
       "legacy_sha256": "ba7eb2a5d822ba39fd244b12b2a2b8b99f8846a9dcdc312941d8b2a792e24eab"
     },
     {
       "path": "README.md",
       "status": "modified-first-party",
-      "release_sha256": "06d91b8bc2217259610c84f3d6542ea4f4a04a6c7ac3263fe1bb0a9051fc1efb",
+      "release_sha256": "ae43ffa8811043aadf39fd27b01102cc9199ac6fb951993e90da0e9542d1c560",
       "legacy_sha256": "b4dd66a519a04fe8d987f49e4a8f150aac58ef616a51bf732f573a4796467a37"
     },
     {
       "path": "SKILL.md",
       "status": "modified-first-party",
-      "release_sha256": "cfc94f425dd51482fa72a7239b2822231cf6752e6f1d97e3298b54538b7f9ec2",
+      "release_sha256": "c1ecf2855166c6a43aa23d54b6492aba2ebf69c645316be145aa296a88a8e0ea",
       "legacy_sha256": "c6c56831820be2e563ea88e962d64b88004c7a6464690cb8489da392e8848e4d"
     },
     {
@@ -145,6 +145,18 @@
       "path": "assets/motion-business-demo.html",
       "status": "new-first-party",
       "release_sha256": "26ea40414cea5570f7eec6d8cd882cbd99322afa048c8155a90a56c9d9f0082f",
+      "legacy_sha256": null
+    },
+    {
+      "path": "assets/operating-gap-review.css",
+      "status": "new-first-party",
+      "release_sha256": "8d50210997343c8a4614a88590c28ce842cf47eb9346262c190e93fde52a6070",
+      "legacy_sha256": null
+    },
+    {
+      "path": "assets/operating-gap-review.js",
+      "status": "new-first-party",
+      "release_sha256": "343f901f32633f39d517b61cf42fde707a1364c0ec1947912eac07ef6a47a883",
       "legacy_sha256": null
     },
     {
@@ -480,19 +492,19 @@
     {
       "path": "docs/report-layouts/brief.html",
       "status": "new-first-party",
-      "release_sha256": "cbfb19c84bdf9824b65b8f007f205f7f184c43f682556e928d68c122e516ba41",
+      "release_sha256": "804493b2e5f2b6095d092dec4a413b17b423f88656f51cd463012292bee7b0cd",
       "legacy_sha256": null
     },
     {
       "path": "docs/report-layouts/report.html",
       "status": "new-first-party",
-      "release_sha256": "bc537bcb232ea2bd8e37515a710d6f4dfa82b32198bee28689c9cc8a9029747a",
+      "release_sha256": "e5c3e87e02e18db278257f82c6d8b9b1c7003ee2a6bb699946d5d2ac8f0c6484",
       "legacy_sha256": null
     },
     {
       "path": "docs/report-layouts/slides.html",
       "status": "new-first-party",
-      "release_sha256": "0ca9b85d2b347d080844519551012f8103bcce316c6c44f2e4e5ef606b5ae0a9",
+      "release_sha256": "4e17df745a74715102f979fadcfc2ef5433668e577c522bca1e84981e163b5e8",
       "legacy_sha256": null
     },
     {
@@ -1638,19 +1650,19 @@
     {
       "path": "examples/report-layouts/brief.html",
       "status": "new-first-party",
-      "release_sha256": "cbfb19c84bdf9824b65b8f007f205f7f184c43f682556e928d68c122e516ba41",
+      "release_sha256": "804493b2e5f2b6095d092dec4a413b17b423f88656f51cd463012292bee7b0cd",
       "legacy_sha256": null
     },
     {
       "path": "examples/report-layouts/report.html",
       "status": "new-first-party",
-      "release_sha256": "bc537bcb232ea2bd8e37515a710d6f4dfa82b32198bee28689c9cc8a9029747a",
+      "release_sha256": "e5c3e87e02e18db278257f82c6d8b9b1c7003ee2a6bb699946d5d2ac8f0c6484",
       "legacy_sha256": null
     },
     {
       "path": "examples/report-layouts/slides.html",
       "status": "new-first-party",
-      "release_sha256": "0ca9b85d2b347d080844519551012f8103bcce316c6c44f2e4e5ef606b5ae0a9",
+      "release_sha256": "4e17df745a74715102f979fadcfc2ef5433668e577c522bca1e84981e163b5e8",
       "legacy_sha256": null
     },
     {
@@ -1872,7 +1884,7 @@
     {
       "path": "references/report-layouts.md",
       "status": "new-first-party",
-      "release_sha256": "418c9a4710e354e83bd8b241df6b3c8bbb4d4149c3fabce41aab3e8e0c98164c",
+      "release_sha256": "9fb7a3223c48d5fae6253a3334c71b10a10ef68b1da3db90e6174761ceac837e",
       "legacy_sha256": null
     },
     {
@@ -1938,7 +1950,7 @@
     {
       "path": "scripts/build_report_layout_samples.py",
       "status": "new-first-party",
-      "release_sha256": "246ea11e0fbbcbce00dabf882825419ba9d0211e6a3cd00c4248971e1f9d4e98",
+      "release_sha256": "2d59e983217aeeca4abe28e83fec564f37f8b188bbf716956c327364ca1238f7",
       "legacy_sha256": null
     },
     {
@@ -2029,6 +2041,12 @@
       "path": "scripts/motion_probe.cjs",
       "status": "new-first-party",
       "release_sha256": "7beb3325d381e12489303280c6d92ca0f396c56686128e21a1d1087c53d4ef8a",
+      "legacy_sha256": null
+    },
+    {
+      "path": "scripts/operating_gap_review.py",
+      "status": "new-first-party",
+      "release_sha256": "c00b28890a10f769ba33031c8e1ab04cfbedf0faddc3445d8a1a8637b905f334",
       "legacy_sha256": null
     },
     {
@@ -2143,6 +2161,12 @@
       "path": "scripts/test_membership_motion.cjs",
       "status": "new-first-party",
       "release_sha256": "1cb942510036b1302634cc0042be3c4d6578996878bf9ad9e32ed2f896f2b9ed",
+      "legacy_sha256": null
+    },
+    {
+      "path": "scripts/test_operating_gap_review.py",
+      "status": "new-first-party",
+      "release_sha256": "ae9c121ea6b7275eaaa0f3b586d824fd27d76bbe0162666ec836777c6b9066b5",
       "legacy_sha256": null
     },
     {

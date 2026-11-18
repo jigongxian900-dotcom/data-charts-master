@@ -6,12 +6,16 @@ from pathlib import Path
 
 from build_operating_story import display, make_spec, names, percentage
 from compose_html import build
+from operating_gap_review import build as authored_review
 
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 def layouts(raw):
+    authored = authored_review(raw)
+    if authored is not None:
+        return authored
     full, data = make_spec(raw)
     brief = deepcopy(full)
     unit = raw["unit"]

@@ -7,7 +7,7 @@
 
 - [80 animated diagram examples](https://jigongxian900-dotcom.github.io/data-charts-master/diagram-atlas.html) cover workflows, systems, timing, relationships, explanatory forms, and quantitative charts. Search examples and inspect their source fixtures.
 - [Workflow and observed paths](https://jigongxian900-dotcom.github.io/data-charts-master/workflow-diagrams.html) combines decision, swimlane, and observed-path views with three styles and SVG export.
-- [A4 brief](https://jigongxian900-dotcom.github.io/data-charts-master/report-layouts/brief.html) · [Chapter report](https://jigongxian900-dotcom.github.io/data-charts-master/report-layouts/report.html) · [16:9 presentation](https://jigongxian900-dotcom.github.io/data-charts-master/report-layouts/slides.html) present the same source case at standard sizes.
+- [A4 brief](https://jigongxian900-dotcom.github.io/data-charts-master/report-layouts/brief.html) · [Chapter report](https://jigongxian900-dotcom.github.io/data-charts-master/report-layouts/report.html) · [16:9 presentation](https://jigongxian900-dotcom.github.io/data-charts-master/report-layouts/slides.html) turn the same operating case into a priority brief, a joined market review, and a decision meeting.
 - [Twelve chart motions](https://jigongxian900-dotcom.github.io/data-charts-master/motion-gallery.html) · [Motion combinations](https://jigongxian900-dotcom.github.io/data-charts-master/motion-composition.html)
 
 - [Three mark choices per chart](https://jigongxian900-dotcom.github.io/data-charts-master/chart-shapes.html) · 21 same-data options, with individual SVG exports.
