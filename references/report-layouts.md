@@ -10,22 +10,24 @@
 
 ## 从数据到版面
 
-1. 写下决策、证据、比较和条件。简报保留影响当前决策的主图。长篇报告可逐节补充来源与反例。演示把互相依赖的图保留在同一页，证据过多则分屏。
-2. 同口径并排比较共用轴和单位。同一条证据被两个小标题重复使用时，合成一处并把两个问题写成旁注。来源、缺口和对应关系紧跟相关图。
-3. 单份图表永远保留同源数据、关键定义与静态读数。用章节链接、展开明细或翻页解决阅读量。必要结论首屏可读，呈现动效可关闭。
-4. 浏览器检查第一屏、长标签和标题换行。打印前查看页数和断页。投影时逐屏确认 16:9、字号和高度，核对键盘翻页、总览和静态资料出口。
+1. 写下读者需要做的判断。简报首屏放判断、读数和行动。长报告用章节导航定位证据，首章让图及核心读数进入首屏。演示每页用一个结论标题和足够大的主图，边栏确有解释时才保留。
+2. 同口径并排比较共用轴和单位。短标签用贴近图形的读数，长标签可增高行距或换图，确保业务词和带单位的数值整体换行。标题、导语和图注各承担一个作用。通过同屏、断页和投影截图检查不必要的白区。
+3. 交付成稿时清理模板提示、生成说明、验收结论、内部状态、调试编号和哈希。将影响判断的期间、单位、口径、缺口、来源写在相关图旁。详细定义、下载与校验留在资料区或交付说明。合成样例在来源处标「示例数据」。
+4. 桌面首屏检查标题、图、关键值和下一步。按真实报告尺寸打印并实看。投影逐页看字号、对比、剪裁与导航，普通 1280×720 屏幕上的关键图中文字宜至少约 16px。空间不足时调整构图或拆页。
 
 ## 制作
 
 在 [原始图表合同](html-delivery.md) 上设置 `composition.sections`。每个图只在一个章节出现。`layout` 选择 `feature`（图与说明）、`comparison`（两图对照）或 `sequence`（顺序阅读）。已有报告可以加入自定义 SVG 或 HTML 图表，保留原始图和标注。
 
 ```bash
-python scripts/compose_html.py spec.json --mode report --reading brief --out brief.html
-python scripts/compose_html.py spec.json --mode report --reading editorial --out report.html
-python scripts/compose_html.py spec.json --mode slides --out slides.html
+python scripts/compose_html.py spec.json --delivery final --mode report --reading brief --out brief.html
+python scripts/compose_html.py spec.json --delivery final --mode report --reading editorial --out report.html
+python scripts/compose_html.py spec.json --delivery final --mode slides --out slides.html
 python scripts/build_report_layout_samples.py
 ```
 
-可按内容使用备选 `story`（叙事推进）或 `evidence`（证据密集），主题用 `--theme`，指定焦点色用 `--brand-accent`。颜色不改变数据含义。简报只需把对应的图纳入待生成合同，完整原始观测可保留在 `source_data`。内容超过一页时按章节拆分或使用长报告。示例按同一组合器制作，合成数据可下载。
+用 `composition.summary` 写首屏导语，`composition.closing` 写具体下一步。`composition.audience` 可提供 `edition`、`date`、`source`、`action_label`、三项以内 `metrics`（`label`、`value`、可选 `unit`）。`audience.figures` 按图 ID 写图名 `title`、章节名 `nav`、投影结论 `headline`、图注 `caption` 和事实旁注 `callout`。这些文字使用已核实的事实。没有口径变化时用一条短图注。报告可使用完整 `source_data`。其他自定义版面沿用图表与资料出口。
+
+主题用 `--theme`，指定焦点色用 `--brand-accent`。在比较 [三种图形表现](chart-shapes.md) 后，用 `shape` 将选定表现应用到成稿。
 
 研究来源为 [Lieflat Charts 的 Report Templates](https://github.com/larashero3-dotcom/lieflat-charts#templates) 和 [Frontend Slides 的固定舞台与密度规则](https://github.com/zarazhangrui/frontend-slides)。另参考花叔 Design 的媒介与观众距离判断。示例、模板和运行逻辑由 Jee Charts Master 实现。

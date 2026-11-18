@@ -94,6 +94,16 @@ class ComposeTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'reading requires report'):
             compose.build(self.spec, mode='slides', reading='editorial')
 
+    def test_final_layout_keeps_source_without_builder_prose(self):
+        for mode, reading in (('report', 'brief'), ('report', 'editorial'), ('slides', None)):
+            output = compose.build(self.spec, mode, 'graphite', reading=reading, delivery='final')
+            document = Document(output)
+            self.assertEqual(json.loads(''.join(document.sources)), self.spec)
+            self.assertIn('数据与口径', output)
+            self.assertNotIn('本工具不生成业务结论', output)
+            self.assertNotIn('数据SHA-256', output)
+            self.assertEqual(len([a for a in document.links if a['download'].endswith('.svg')]), len(self.spec['charts']))
+
     def test_unfamiliar_changed_values_recompute_geometry_and_tables(self):
         changed = copy.deepcopy(self.spec)
         c = next(c for c in changed['charts'] if c['kind'] == 'bar')

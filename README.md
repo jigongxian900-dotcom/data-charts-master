@@ -12,6 +12,8 @@
 - [A4 单页简报](https://jigongxian900-dotcom.github.io/data-charts-master/report-layouts/brief.html) · [多章节报告](https://jigongxian900-dotcom.github.io/data-charts-master/report-layouts/report.html) · [16:9 演示](https://jigongxian900-dotcom.github.io/data-charts-master/report-layouts/slides.html) · 三种常用版面使用同一原始经营案例。
 - [十二图动效展厅](https://jigongxian900-dotcom.github.io/data-charts-master/motion-gallery.html) · [跨图动效组合](https://jigongxian900-dotcom.github.io/data-charts-master/motion-composition.html) · 看不同动效如何帮助读者追踪数据。
 
+- [同数据三款图形](https://jigongxian900-dotcom.github.io/data-charts-master/chart-shapes.html) · 七组二十一款，柱形、端点、线条和区间的真实变化，支持分别下载 SVG。
+
 [选图与参考对应表](references/diagram-atlas.md) · [报告排版与制作命令](references/report-layouts.md) · [从旧技能名迁移](docs/usage.md#从旧技能名迁移)
 
 [在线图谱 ↗](https://jigongxian900-dotcom.github.io/data-charts-master/) · [自主复杂案例](#autonomous-examples) · [交互动效 ↗](https://jigongxian900-dotcom.github.io/data-charts-master/#motion) · [安装使用](#安装与第一次使用) · [English](README.en.md) · [免费与商用许可](COMMERCIAL.md)

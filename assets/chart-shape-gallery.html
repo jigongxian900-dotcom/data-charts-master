@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>@@TITLE@@ · Jee Charts Master</title>
+<style>
+@@THEME@@
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 "Microsoft YaHei UI","PingFang SC","Segoe UI",sans-serif}
+main{width:min(1240px,100% - 58px);margin:25px auto 60px}h1,h2,h3,p{margin:0}h1{font:700 clamp(37px,5vw,70px)/1.14 "SimSun",Georgia,serif;letter-spacing:-.045em}
+main>header{border-top:3px solid var(--accent);padding:20px 0 17px}header p{color:var(--muted)}
+main>header>p{margin-top:9px;font-size:16px}
+a{color:inherit;text-underline-offset:4px}
+nav{display:flex;flex-wrap:wrap;gap:7px 19px;background:var(--bg);border-block:1px solid var(--rule);padding:10px 0;position:sticky;top:0;z-index:1}
+nav a{font-weight:650;font-size:14px}
+.group{margin:20px 0 35px;scroll-margin-top:65px}
+.group-head{display:flex;justify-content:space-between;align-items:end;padding-bottom:9px}
+.group-head h2{font-size:26px;line-height:1.25}
+.group-head p,.group-head span{font-size:13px;color:var(--muted)}
+.choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+article{min-width:0;background:var(--paper);border:1px solid var(--rule);padding:14px 11px 11px;display:flex;flex-direction:column}
+article header{padding:0 8px 8px;border-bottom:1px solid var(--rule);min-height:77px}
+h3{font-size:18px;line-height:1.4}article p{font-size:13px;line-height:1.5;margin-top:4px}
+article a{font-size:13px;margin:auto 8px 0;width:fit-content}
+svg{width:100%;height:auto;display:block;margin:5px 0 8px;overflow:visible;color:var(--ink)}
+svg text{fill:var(--ink);font-size:15px;font-variant-numeric:tabular-nums}
+svg .tick,svg .muted{fill:var(--muted)}svg .value,svg .legend{font-weight:700}
+footer{border-top:1px solid var(--rule);font-size:14px;color:var(--muted);padding:12px 0}
+footer span{margin-right:10px}
+@media(max-width:780px){main{width:calc(100% - 32px)}.choices{grid-template-columns:1fr}article{max-width:540px}nav{position:static}.group{scroll-margin-top:4px}}
+</style>
+<body>
+<main><header><h1>@@TITLE@@</h1><p>同一组数据，三种图形表现。比较形状之后可下载选定的 SVG。</p></header>
+<nav aria-label="图形类别">@@NAV@@</nav>
+@@SECTIONS@@
+<footer><span>@@NOTE@@</span><a href="@@SOURCE@@" download="source.json">下载数据</a></footer>
+</main>
+</body>
+</html>

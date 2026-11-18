@@ -108,6 +108,15 @@ def validate(spec):
         require(c.get('kind') in KINDS, 'unsupported chart kind')
         require(isinstance(c.get('rows'), list), 'rows must be a list')
         kind, rows = c['kind'], c['rows']
+        if 'orientation' in c:
+            require(kind == 'bar' and c['orientation'] in {'horizontal', 'vertical'},
+                    'orientation applies to bars and must be horizontal or vertical')
+            if c['orientation'] == 'vertical':
+                require(len(rows) <= 12, 'Use horizontal bars for more than twelve categories')
+        if 'shape' in c:
+            from chart_shapes import STYLES
+            require(any(style == c['shape'] for style, _, _ in STYLES.get(kind, [])),
+                    f'unsupported shape for {kind}')
         require(c.get('performance_direction', 'neutral') in {'neutral', 'higher', 'lower'}, 'performance_direction must be neutral, higher or lower')
         keys = set()
         for r in rows:
@@ -452,7 +461,8 @@ def compact_chart(c):
                 yy=cursor+24
                 line(xx(min(inner)),yy,xx(max(inner)),yy,'var(--accent)')
                 for v in [min(inner),max(inner)]:line(xx(v),yy-12,xx(v),yy+12,'var(--accent)')
-                out.append(f'<rect x="{xx(q1):.3f}" y="{yy-15:.3f}" width="{max(0,xx(q3)-xx(q1)):.3f}" height="30" fill="var(--paper)" stroke="var(--accent)"/>')
+                mark_axis = ' data-box-direction="x"' if c.get('shape') else ''
+                out.append(f'<rect x="{xx(q1):.3f}" y="{yy-15:.3f}" width="{max(0,xx(q3)-xx(q1)):.3f}" height="30" fill="var(--paper)" stroke="var(--accent)"{mark_axis}/>')
                 line(xx(med),yy-15,xx(med),yy+15,'var(--accent)')
                 for i,v in enumerate(sorted(vv)):dot(xx(v),yy+((i*7)%17-8)*1.5,v,name+' 原始值 '+fmt(v),'var(--muted)')
                 ledger.append(dict(shape='box',label=name,q1=q1,median=med,q3=q3,low=min(inner),high=max(inner),n=len(vv)))
@@ -492,10 +502,11 @@ def compact_chart(c):
     return svg,ledger
 
 
-def svg_chart(c, mobile=False, *, compact=False):
+def svg_chart(c, mobile=False, *, compact=False, tight=False):
     if compact:
-        return compact_chart(c)
-    width, height = (360, 340) if mobile else (760, 360)
+        svg, ledger = compact_chart(c)
+        return svg_shape(svg, c), ledger
+    width, height = (360, 340) if mobile else (760, 326 if tight else 360)
     left, right, top, bottom = (58, width - 35, 36, height - 55)
     kind, rows = c['kind'], c['rows']
     out, ledger = [], []
@@ -539,15 +550,48 @@ def svg_chart(c, mobile=False, *, compact=False):
     vals = [r.get('value') for r in rows if num(r.get('value'))]
     if not rows:
         empty()
+    elif kind == 'bar' and c.get('orientation') == 'vertical':
+        if not vals:
+            empty()
+        else:
+            measured = vals + [r['target'] for r in rows if num(r.get('target'))]
+            yy, lo, hi = axis_y(measured, True)
+            scale = (bottom-top)/(hi-lo)
+            step = (right-left)/len(rows)
+            bar_width = min(44,step*.55)
+            line(left,yy(0),right,yy(0),'var(--muted)')
+            for i,r in enumerate(rows):
+                x=left+(i+.5)*step
+                value=r['value']
+                target=r.get('target')
+                if value is None:
+                    text(x, yy(0)-9, '未报', 'middle', 'tick')
+                else:
+                    color='var(--accent)' if r.get('highlight') else 'var(--series)'
+                    rect(x-bar_width/2,min(yy(0),yy(value)),bar_width,abs(value)*scale,value,
+                         f'{r["label"]}：{fmt(value)} {c["unit"]}',color,'y',0,value,scale)
+                    text(x,yy(value)+(17 if value<0 else -8),display_number(value),'middle','value')
+                if target is not None:
+                    line(x-bar_width*.7,yy(target),x+bar_width*.7,yy(target),'var(--ink)','3 2')
+                category_text(x, bottom+24, r['label'], 'middle', max(1,min(8,int(step/15))))
+            max_lines=max(math.ceil(len(r['label'])/max(1,min(8,int(step/15)))) for r in rows)
+            height += max(0,max_lines-2)*16 + (12 if any(v<0 for v in vals) else 0)
     elif kind == 'bar':
         left = 138 if mobile else 205
+        plain_rank = tight and all('target' not in row for row in rows)
+        negative_room = 36 if any(v < 0 for v in vals) else 0
+        if plain_rank:
+            character_count = max((len(r['label']) for r in rows), default=0)
+            left = max(60, min(left, 16*character_count+23)) + negative_room
         value_space = max(68, max((len(display_number(v))*7.5+12 for v in vals), default=68))
+        if plain_rank:
+            value_space = max(32, value_space - 22)
         right = width - value_space
         require(right > left + 30, 'values too wide for this layout; choose a table or a wider canvas')
         # Reserve actual Chinese glyph width, not an ASCII-sized estimate.
         # Twelve full-width glyphs fit the 193px desktop label column with
         # a font-fallback margin; wrapped rows grow with the same limit.
-        label_limit = 8 if mobile else 12
+        label_limit = max(2, (left-15-negative_room)//16) if plain_rank else 8 if mobile else 12
         def target_details(r):
             target,v=r.get('target'),r['value']
             result='目标未知' if target is None else '目标 '+fmt(target)
@@ -568,12 +612,14 @@ def svg_chart(c, mobile=False, *, compact=False):
             return lines
         row_sizes=[]
         for r in rows:
-            size=max(56 if mobile else 49,math.ceil(len(r['label'])/label_limit)*16+20)
+            size=max(39 if plain_rank else 56 if mobile else 49,math.ceil(len(r['label'])/label_limit)*16+20)
             if 'target' in r:
                 offset=max(41,math.ceil(len(r['label'])/label_limit)*16+18)
                 size=max(size,offset+17*len(target_details(r))+63)
             row_sizes.append(size)
-        height = max(210, sum(row_sizes) + 80)
+        if plain_rank:
+            top = 10
+        height = max(176 if plain_rank else 210, sum(row_sizes) + (43 if plain_rank else 80))
         bottom = height - 38
         scale_values = vals + [r['target'] for r in rows if r.get('target') is not None]
         if not scale_values:
@@ -586,14 +632,17 @@ def svg_chart(c, mobile=False, *, compact=False):
             text(x(0),bottom+26,'0','middle','tick')
             for i, r in enumerate(rows):
                 yy = top + 15 + sum(row_sizes[:i])
-                category_text(left-12, yy, r['label'], 'end', label_limit)
+                category_text(left-12-(negative_room if plain_rank else 0), yy, r['label'], 'end', label_limit)
                 v = r['value']
                 if v is None:
                     text(left + 7, yy, '缺失', cls='muted')
                 else:
                     color = 'var(--accent)' if r.get('highlight') else 'var(--series)'
                     rect(min(x(0), x(v)), yy-13, abs(v)*scale, 21, v, f'{r["label"]}：{fmt(v)} {c["unit"]}', color, 'x', 0, v, scale)
-                    text(width-4, yy+3, display_number(v), 'end', 'value')
+                    if plain_rank:
+                        text(x(v)+(8 if v>=0 else -8), yy+1, display_number(v), 'start' if v>=0 else 'end', 'value')
+                    else:
+                        text(width-4, yy+3, display_number(v), 'end', 'value')
                 if 'target' in r:
                     target = r['target']
                     if target is not None:
@@ -810,7 +859,8 @@ def svg_chart(c, mobile=False, *, compact=False):
                 for k,v in enumerate(sorted(vv)):
                     offset=((k*7)%17-8)*min(1.8,step/50)
                     dot(x+offset,yy(v),v,f'{label} 原始值 {fmt(v)} {c["unit"]}','var(--muted)',3)
-                out.append(f'<rect x="{x-18:.3f}" y="{yy(q3):.3f}" width="36" height="{max(0,yy(q1)-yy(q3)):.3f}" fill="var(--paper)" fill-opacity=".75" stroke="var(--accent)"/>')
+                mark_axis = ' data-box-direction="y"' if c.get('shape') else ''
+                out.append(f'<rect x="{x-18:.3f}" y="{yy(q3):.3f}" width="36" height="{max(0,yy(q1)-yy(q3)):.3f}" fill="var(--paper)" fill-opacity=".75" stroke="var(--accent)"{mark_axis}/>')
                 line(x-18,yy(med),x+18,yy(med),'var(--accent)')
                 text(x,bottom+25,label,'middle','category')
                 text(x,top-13,f'n={len(vv)}','middle','tick')
@@ -825,8 +875,13 @@ def svg_chart(c, mobile=False, *, compact=False):
             yy,lo,hi=axis_y([r['y'] for r in points])
             xlo,xhi=extent([r['x'] for r in points])
             xx=lambda v:left+(v-xlo)/(xhi-xlo)*(right-left)
-            for i in range(4):
-                v=xlo+(xhi-xlo)*i/3
+            ticks = [xlo+(xhi-xlo)*i/3 for i in range(4)]
+            if tight and xlo < 0 < xhi:
+                line(xx(0),top,xx(0),bottom,'var(--muted)','4 4')
+                ticks = sorted([v for v in ticks if abs(xx(v)-xx(0)) >= 35] + [0])
+            if tight and lo < 0 < hi:
+                line(left,yy(0),right,yy(0),'var(--muted)','4 4')
+            for v in ticks:
                 text(xx(v),bottom+25,fmt(v, axis=True),'middle','tick')
             labels=[]
             extreme_indices=set()
@@ -835,7 +890,8 @@ def svg_chart(c, mobile=False, *, compact=False):
                     extreme_indices.update([min(range(len(points)),key=lambda i:points[i][key]),max(range(len(points)),key=lambda i:points[i][key])])
             coordinates=[(xx(r['x']),yy(r['y'])) for r in points]
             for index,r in enumerate(points):
-                dot(xx(r['x']),yy(r['y']),r['y'],f'{r["label"]}：{fmt(r["x"])} {c["x_unit"]}，{fmt(r["y"])} {c["y_unit"]}','var(--accent)',5)
+                color = 'var(--series)' if tight and any(row.get('highlight') for row in points) and not r.get('highlight') else 'var(--accent)'
+                dot(xx(r['x']),yy(r['y']),r['y'],f'{r["label"]}：{fmt(r["x"])} {c["x_unit"]}，{fmt(r["y"])} {c["y_unit"]}',color,5)
                 if r.get('highlight') or index in extreme_indices:
                     px,py=coordinates[index]
                     reading=r['label']+' · '+fmt(float(format(r['y'],'.4g')))
@@ -854,7 +910,14 @@ def svg_chart(c, mobile=False, *, compact=False):
             text(6,16,c['y_unit'],cls='tick')
     label=f'{c["title"]}。{c["question"]}。{c["unit"]}。完整数值见同源数据表。'
     svg=f'<svg viewBox="0 0 {width} {height}" role="img" aria-label="{esc(label)}" class="{"mobile-svg" if mobile else "desktop-svg"}"><title>{esc(label)}</title>'+''.join(out)+'</svg>'
-    return svg,ledger
+    return svg_shape(svg, c), ledger
+
+
+def svg_shape(svg, chart):
+    if chart.get('shape') in {None, 'solid'}:
+        return svg
+    from chart_shapes import apply_shape
+    return apply_shape(svg, chart['kind'], chart['shape'])
 
 
 CSS = '''

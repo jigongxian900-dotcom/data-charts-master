@@ -10,6 +10,8 @@
 - [A4 brief](https://jigongxian900-dotcom.github.io/data-charts-master/report-layouts/brief.html) · [Chapter report](https://jigongxian900-dotcom.github.io/data-charts-master/report-layouts/report.html) · [16:9 presentation](https://jigongxian900-dotcom.github.io/data-charts-master/report-layouts/slides.html) present the same source case at standard sizes.
 - [Twelve chart motions](https://jigongxian900-dotcom.github.io/data-charts-master/motion-gallery.html) · [Motion combinations](https://jigongxian900-dotcom.github.io/data-charts-master/motion-composition.html)
 
+- [Three mark choices per chart](https://jigongxian900-dotcom.github.io/data-charts-master/chart-shapes.html) · 21 same-data options, with individual SVG exports.
+
 [Diagram selection and source crosswalk](references/diagram-atlas.md) · [Report layout guide](references/report-layouts.md)
 
 

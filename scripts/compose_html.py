@@ -250,7 +250,7 @@ REPORT_READING_CSS = {
 }
 
 
-def build(spec, mode='report', theme=None, *, renderers=None, reading=None, brand_accent=None):
+def build(spec, mode='report', theme=None, *, renderers=None, reading=None, brand_accent=None, delivery=None):
     result = validate_composition(spec, renderers)
     registry = registry_for(renderers)
     require(mode in {'report', 'slides'}, 'mode must be report or slides')
@@ -262,6 +262,11 @@ def build(spec, mode='report', theme=None, *, renderers=None, reading=None, bran
     theme_id = theme or spec.get('theme', 'graphite' if use_graphite else 'tidal')
     selected = theme_css(theme_id, brand_accent=brand_accent)
     credit = theme_credit(theme_id)
+    require(delivery in {None, 'final'}, 'delivery must be final when specified')
+    if delivery == 'final':
+        from report_delivery import build_final
+        layout = 'deck' if mode == 'slides' else 'brief' if reading == 'brief' else 'report'
+        return build_final(spec, layout, selected, credit, registry, result['sha256'])
     composition = spec.get('composition', {})
     panels, ledgers, resources = {}, {}, []
     for i, c in enumerate(spec['charts'], 1):
@@ -319,12 +324,13 @@ def main():
     parser.add_argument('--theme')
     parser.add_argument('--brand-accent', help='Exact #RRGGBB focus color; defaults the base palette to graphite')
     parser.add_argument('--reading', choices=REPORT_READING_CSS, help='Optional layout for the intended reading task')
+    parser.add_argument('--delivery', choices=['final'], help='Audience-facing HTML layout')
     parser.add_argument('--source-out', type=Path, help='Optional exact original source-file copy; inline/download always included')
     args = parser.parse_args()
     try:
         raw = args.spec.read_bytes()
         spec = json.loads(raw.decode('utf-8-sig'))
-        content = build(spec, args.mode, args.theme, reading=args.reading, brand_accent=args.brand_accent)
+        content = build(spec, args.mode, args.theme, reading=args.reading, brand_accent=args.brand_accent, delivery=args.delivery)
         args.out.parent.mkdir(parents=True, exist_ok=True)
         args.out.write_text(content, encoding='utf-8', newline='\n')
         if args.source_out:

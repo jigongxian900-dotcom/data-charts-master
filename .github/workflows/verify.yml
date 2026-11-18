@@ -50,6 +50,10 @@ jobs:
           cp examples/report-layouts/brief.html docs/report-layouts/brief.html
           cp examples/report-layouts/report.html docs/report-layouts/report.html
           cp examples/report-layouts/slides.html docs/report-layouts/slides.html
+          python3 scripts/build_chart_shape_gallery.py
+          cp examples/chart-shapes/index.html docs/chart-shapes.html
+      - name: Verify chart shape and report contracts
+        run: python3 scripts/test_chart_shapes.py
       - name: Rebuild curated examples
         run: node scripts/build_gallery.js
       - name: Rebuild autonomous desktop examples
@@ -57,6 +61,6 @@ jobs:
       - name: Synchronize regression evidence examples
         run: python3 scripts/sync_regression_examples.py
       - name: Check generated files are reproducible
-        run: git diff --exit-code -- examples/dashboard-atlas examples/composed examples/operating-story examples/autonomous-desktop examples/regression docs/desktop docs/regression docs/index.html docs/source-data.json docs/labs docs/report.html docs/slides.html docs/operating-story.html examples/motion-showcase/index.html docs/motion-showcase.html examples/diagram-atlas examples/report-layouts examples/workflow examples/motion-gallery/index.html examples/motion-composition/index.html docs/diagram-atlas.html docs/report-layouts docs/workflow-diagrams.html docs/motion-gallery.html docs/motion-composition.html examples/retained-rows/harvest.html examples/retained-rows/fulfilment.html
+        run: git diff --exit-code -- examples/dashboard-atlas examples/composed examples/operating-story examples/autonomous-desktop examples/regression docs/desktop docs/regression docs/index.html docs/source-data.json docs/labs docs/report.html docs/slides.html docs/operating-story.html examples/motion-showcase/index.html docs/motion-showcase.html examples/diagram-atlas examples/report-layouts examples/workflow examples/motion-gallery/index.html examples/motion-composition/index.html docs/diagram-atlas.html docs/report-layouts docs/workflow-diagrams.html docs/chart-shapes.html examples/chart-shapes docs/motion-gallery.html docs/motion-composition.html examples/retained-rows/harvest.html examples/retained-rows/fulfilment.html
       - name: Verify release package
         run: python3 scripts/verify_release.py
