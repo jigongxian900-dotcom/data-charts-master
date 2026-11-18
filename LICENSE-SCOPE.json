@@ -1,5 +1,5 @@
 {
-  "release": "5.5.1",
+  "release": "5.5.2",
   "legacy_mit_boundary": "0ffed29325bd5c0ec01c819e5e9aec41b92c1947",
   "legacy_mit_release": "v5.2.0",
   "new_original_additions_and_changes": "PolyForm-Noncommercial-1.0.0; separate commercial permission",
@@ -84,7 +84,7 @@
     {
       "path": "SKILL.md",
       "status": "modified-first-party",
-      "release_sha256": "b1bda538de6f870381af2b1a4bb556ded9502f071b0b99159057d57003fd428c",
+      "release_sha256": "cfc94f425dd51482fa72a7239b2822231cf6752e6f1d97e3298b54538b7f9ec2",
       "legacy_sha256": "c6c56831820be2e563ea88e962d64b88004c7a6464690cb8489da392e8848e4d"
     },
     {
@@ -150,7 +150,7 @@
     {
       "path": "assets/report-delivery.css",
       "status": "new-first-party",
-      "release_sha256": "0443fcca24349483c3af26919ef5f097a2ced974fab68f8c9b8bb91f634f2ee2",
+      "release_sha256": "301ef54aaa5d9cd50d06fb59665b55d39d5c7ab26bde75814f00fa73ee771d8e",
       "legacy_sha256": null
     },
     {
@@ -480,19 +480,19 @@
     {
       "path": "docs/report-layouts/brief.html",
       "status": "new-first-party",
-      "release_sha256": "0c22d65375bca1552b9e49299ea50e9ce0b9aa2bef47985f486b1fdb24c3b844",
+      "release_sha256": "cbfb19c84bdf9824b65b8f007f205f7f184c43f682556e928d68c122e516ba41",
       "legacy_sha256": null
     },
     {
       "path": "docs/report-layouts/report.html",
       "status": "new-first-party",
-      "release_sha256": "6299c5aaa8332a9a1424abf1d75fbb2298645c093944016312e9b04360ddb8f7",
+      "release_sha256": "bc537bcb232ea2bd8e37515a710d6f4dfa82b32198bee28689c9cc8a9029747a",
       "legacy_sha256": null
     },
     {
       "path": "docs/report-layouts/slides.html",
       "status": "new-first-party",
-      "release_sha256": "e1820d52511924f15c875bfa782f9b31b6b7cafd24e2f864ef837d48063cfdde",
+      "release_sha256": "0ca9b85d2b347d080844519551012f8103bcce316c6c44f2e4e5ef606b5ae0a9",
       "legacy_sha256": null
     },
     {
@@ -1638,19 +1638,19 @@
     {
       "path": "examples/report-layouts/brief.html",
       "status": "new-first-party",
-      "release_sha256": "0c22d65375bca1552b9e49299ea50e9ce0b9aa2bef47985f486b1fdb24c3b844",
+      "release_sha256": "cbfb19c84bdf9824b65b8f007f205f7f184c43f682556e928d68c122e516ba41",
       "legacy_sha256": null
     },
     {
       "path": "examples/report-layouts/report.html",
       "status": "new-first-party",
-      "release_sha256": "6299c5aaa8332a9a1424abf1d75fbb2298645c093944016312e9b04360ddb8f7",
+      "release_sha256": "bc537bcb232ea2bd8e37515a710d6f4dfa82b32198bee28689c9cc8a9029747a",
       "legacy_sha256": null
     },
     {
       "path": "examples/report-layouts/slides.html",
       "status": "new-first-party",
-      "release_sha256": "e1820d52511924f15c875bfa782f9b31b6b7cafd24e2f864ef837d48063cfdde",
+      "release_sha256": "0ca9b85d2b347d080844519551012f8103bcce316c6c44f2e4e5ef606b5ae0a9",
       "legacy_sha256": null
     },
     {
@@ -1950,7 +1950,7 @@
     {
       "path": "scripts/chart_html.py",
       "status": "modified-first-party",
-      "release_sha256": "6bb3fa648ece7c2d6044387a2dafa8250268f4372ea1b817b5edd1d1fb011ef7",
+      "release_sha256": "c971bebeff4f32ea1dcb8da61da3c58998186dc6e190cd952f3523563e4400df",
       "legacy_sha256": "80c52f0cd01d261c1e78f4c5b777e241c74c760bef6f346f5a28f9332280efdc"
     },
     {
@@ -2040,7 +2040,7 @@
     {
       "path": "scripts/report_delivery.py",
       "status": "new-first-party",
-      "release_sha256": "00ce33a02ef7b48bdcdb8287112be8d18b162849b98c1dcac5349af17a336fd7",
+      "release_sha256": "6198be7149578861a7b4a06d041bef57589098de4bc2fc958a354de7520130f2",
       "legacy_sha256": null
     },
     {

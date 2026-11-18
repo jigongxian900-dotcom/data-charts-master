@@ -37,18 +37,22 @@ def source_table(fields, rows):
     return f'<div class="table-scroll"><table><thead><tr>{headers}</tr></thead><tbody>{cells}</tbody></table></div>'
 
 
-def render_charts(spec, options, theme, credit, registry):
+def render_charts(spec, options, theme, credit, registry, layout):
     figures, sources, ledgers = {}, [], {}
     for index, chart in enumerate(spec['charts'], 1):
         cid = chart['id']
         copy = options.get('figures', {}).get(cid, {})
         renderer = registry.get(chart['kind'])
+        print_figure = ''
         if renderer is None:
             svg, ledger = svg_chart(chart, tight=True)
             small, small_ledger = svg_chart(chart, True, tight=True)
             fields = list(dict.fromkeys(k for row in chart['rows'] for k in row))
             standalone = svg
             ledgers[cid] = {'desktop': ledger, 'mobile': small_ledger, 'data_sha256': digest(chart['rows'])}
+            if layout == 'brief' and chart['kind'] == 'bar' and len(chart['rows']) <= 9:
+                on_paper, _ = svg_chart(chart, tight=True, bar_row_height=51)
+                print_figure = f'<div class="viz-print">{on_paper}</div>'
         else:
             desktop, mobile = (render_variant(chart, renderer, name, theme) for name in ('desktop', 'mobile'))
             require(desktop.coverage == mobile.coverage and desktop.table_fields == mobile.table_fields,
@@ -62,7 +66,7 @@ def render_charts(spec, options, theme, credit, registry):
         heading = f'<div class="figure-head"><h3>{esc(title)}</h3>{unit}</div>'
         caption = f'<figcaption>{esc(note)}</figcaption>' if note else ''
         figures[cid] = (heading, f'<figure data-chart-id="{esc(cid)}"><div class="rendered-figure">'
-                        f'<div class="viz-wide">{svg}</div><div class="viz-narrow">{small}</div>'
+                        f'<div class="viz-wide">{svg}</div><div class="viz-narrow">{small}</div>{print_figure}'
                         f'</div>{caption}</figure>', copy)
         export = data_url(static_svg(standalone, theme, chart, palette_credit=credit), 'image/svg+xml;charset=utf-8')
         details = source_table(fields, chart['rows'])
@@ -152,7 +156,7 @@ def build_final(spec, layout, theme, credit, registry, checksum):
     composition = spec.get('composition', {})
     sections = sections_for(spec)
     options = story_copy(composition, {chart['id'] for chart in spec['charts']})
-    figures, data, ledgers = render_charts(spec, options, theme, credit, registry)
+    figures, data, ledgers = render_charts(spec, options, theme, credit, registry, layout)
     disclosure = '示例数据' if spec.get('synthetic') else ''
     source = options.get('source', '')
     if not source:

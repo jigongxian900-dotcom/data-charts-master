@@ -502,7 +502,7 @@ def compact_chart(c):
     return svg,ledger
 
 
-def svg_chart(c, mobile=False, *, compact=False, tight=False):
+def svg_chart(c, mobile=False, *, compact=False, tight=False, bar_row_height=39):
     if compact:
         svg, ledger = compact_chart(c)
         return svg_shape(svg, c), ledger
@@ -612,7 +612,7 @@ def svg_chart(c, mobile=False, *, compact=False, tight=False):
             return lines
         row_sizes=[]
         for r in rows:
-            size=max(39 if plain_rank else 56 if mobile else 49,math.ceil(len(r['label'])/label_limit)*16+20)
+            size=max(bar_row_height if plain_rank else 56 if mobile else 49,math.ceil(len(r['label'])/label_limit)*16+20)
             if 'target' in r:
                 offset=max(41,math.ceil(len(r['label'])/label_limit)*16+18)
                 size=max(size,offset+17*len(target_details(r))+63)

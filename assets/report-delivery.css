@@ -19,7 +19,7 @@ svg text{font:16px var(--font);fill:var(--ink);font-variant-numeric:tabular-nums
 svg .tick,svg .muted{fill:var(--muted)}
 svg .value,svg .legend{font-weight:650}
 svg .empty{font-size:19px}
-.viz-narrow{display:none}
+.viz-narrow,.viz-print{display:none}
 .figure-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
 .figure-head span,.frame-unit{color:var(--quiet);font-size:13px;flex-shrink:0}
 figcaption,.page-source{font-size:13px;color:var(--quiet);line-height:1.5}
@@ -161,18 +161,29 @@ th:first-child,td:first-child{text-align:left}
  body{background:#fff}
  .report-rail,.deck-nav,.materials{display:none!important}
  .brief-sheet,.report-shell{width:100%;margin:0;border-inline:0;padding:0}
- .brief-sheet{padding-inline:0}
- .brief-evidence{grid-template-columns:minmax(151px,.72fr) minmax(0,1.7fr);gap:16px;margin:16px 0}
- .brief-lead{background:#fff;color:var(--ink);border:1px solid var(--rule);padding:14px}
- .brief-lead .metric-ledger{grid-template-columns:1fr}
+ .brief-sheet{padding-inline:0;display:flex;flex-direction:column;min-height:270mm}
+ .brief-sheet .mast{padding:6mm 0 5mm}
+ .brief-evidence{display:flex;flex-direction:column;gap:6mm;margin:8mm 0 5mm;flex:1}
+ .brief-sidebar{display:contents}
+ .brief-lead{order:0;align-self:stretch;background:#fff;color:var(--ink);border-block:1px solid var(--rule);padding:5mm 0}
+ .brief-lead .metric-ledger{grid-template-columns:repeat(auto-fit,minmax(105px,1fr))}
  .brief-lead .metric-ledger dt,.brief-lead .metric-ledger div:first-child dd{color:var(--ink)}
- .brief-lead .metric-ledger div{padding:7px 0;border-bottom:1px solid var(--rule)}
+ .brief-lead .metric-ledger div{padding:0 5mm;border-bottom:0;border-left:1px solid var(--rule)}
+ .brief-lead .metric-ledger div:first-child{padding-left:0;border-left:0}
+ .brief-lead .metric-ledger div:last-child:not(:first-child){border-left:1px solid var(--rule)}
  .brief-lead .metric-ledger div:first-child dd{font-size:36px}
- .brief-sheet h1{font-size:34px;margin:14px 0 7px}
+ .brief-sheet h1{font-size:36px;margin:7mm 0 3mm}
  .brief-sheet .standfirst{font-size:15px}
+ .brief-figures{order:1}
+ .brief-figures figcaption{font-size:12px}
+ .brief-sidebar .action{order:2;margin-top:auto;display:grid;grid-template-columns:6em 1fr;padding:4mm 0;border-bottom:1px solid var(--rule)}
+ .brief-sidebar .action p{margin:0}
+ .brief-sheet .page-source{margin-top:0}
  .report-shell{display:block}
  .story-section,.brief-evidence{break-inside:avoid}
  .final-brief .viz-wide,.final-report .viz-wide{display:block}
+ .final-brief .rendered-figure:has(.viz-print) .viz-wide{display:none}
+ .viz-print{display:block}
  .viz-narrow{display:none!important}
  .final-deck .deck-stage{width:100%;margin:0}
  .frame,.frame[hidden]{display:grid;break-after:page;print-color-adjust:exact}
