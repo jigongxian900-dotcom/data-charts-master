@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jee Charts Master · 订单等待与履约</title>
+<style>
+:root{--paper:#fdfdfd;--ink:#172027;--muted:#535c65;--line:#d2d6dc;--blue:#31577d;--accent:#8c4536;font:16px/1.55 "Microsoft YaHei","PingFang SC",sans-serif}
+*{box-sizing:border-box}body{margin:0;color:var(--ink);background:var(--paper)}h1,h2,h3,p,figure{margin:0}
+.wrap{max-width:1390px;padding-inline:clamp(20px,5vw,74px);margin:auto}
+.mast{padding:18px 0 27px}
+nav{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;border-bottom:1px solid var(--ink);padding:0 0 13px;font-size:.89rem}
+nav div{display:flex;gap:24px;flex-wrap:wrap}a{color:inherit;text-underline-offset:4px}
+.brand{font-weight:700;letter-spacing:.12em;text-decoration:none}
+h1,h2{line-height:1.13}
+h1{font-size:clamp(34px,4.7vw,68px);margin:23px 0 9px;letter-spacing:-.045em}
+.mast p{color:var(--muted);max-width:48em}h2{font-size:clamp(26px,3.1vw,42px);margin:6px 0 13px;letter-spacing:-.033em}
+section{padding:24px 0 32px;scroll-margin-top:12px;border-top:2px solid var(--ink)}
+.story{display:grid;grid-template-columns:minmax(210px,.61fr) minmax(0,1.94fr);column-gap:clamp(18px,4.8vw,68px);align-items:start}
+.kicker,.scope{font-size:.85rem;color:var(--muted)}.kicker{color:var(--blue)}
+.scope{padding:9px 2px 0}
+h3{font-size:1.03rem;margin-bottom:5px}
+.choices{display:flex;flex-wrap:wrap;gap:2px 21px;border-bottom:1px solid var(--line);margin:0 0 10px}
+button{font:inherit;color:var(--muted);background:transparent;border:0;border-bottom:2px solid transparent;padding:7px 1px 8px;text-align:left;cursor:pointer}
+button[aria-pressed=true]{border-color:var(--blue);color:var(--ink);font-weight:700}
+button:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.stages{margin-top:17px;color:var(--muted);font-size:.88rem}
+figure{min-width:0}
+.plot{overflow-x:auto}svg{display:block;width:100%;height:auto;min-width:470px}
+svg text{font:13px "Microsoft YaHei","PingFang SC",sans-serif;fill:var(--ink);font-variant-numeric:tabular-nums}
+svg .strong{font-weight:700;fill:var(--ink)}svg .quiet{fill:var(--muted);font-size:11px}
+.grid{stroke:var(--line);stroke-width:1}.status{font-size:.94rem;min-height:49px;border-block:1px solid var(--line);padding:10px 2px}
+details{padding:10px 0;color:var(--muted);font-size:.85rem}summary{cursor:pointer}
+pre{white-space:pre-wrap;font:inherit}
+footer{padding:16px 0 35px;font-size:.84rem;color:var(--muted)}
+@media(max-width:760px){.story{grid-template-columns:1fr;gap:13px}.choices{gap:4px 14px}.choices button{font-size:.86rem}.stages{margin-top:6px}.plot{border-bottom:1px solid var(--line)}}
+@media print{.mast{padding-bottom:12px}nav,.choices{display:none}section,figure{break-inside:avoid}svg{min-width:0}}
+</style>
+</head>
+<body>
+<header class="mast"><div class="wrap">
+<nav aria-label="阅读章节"><a class="brand" href="#">Jee Charts Master</a><div><a href="#orders">等待时长</a><a href="#routes">履约去向</a></div></nav>
+<h1>订单等待与履约</h1>
+<p>两组独立的订单示例，分别看等待时长怎么分布、履约订单走向哪里。</p>
+</div></header>
+<main class="wrap">
+<section id="orders" aria-labelledby="orders-title">
+<div class="story"><div>
+<p class="kicker">等待时长 · 24 笔</p>
+<h2 id="orders-title">哪些订单等得久</h2>
+<p>逐笔看等待时长，再核对有多少单达到 20 分钟。</p>
+<p class="stages">聚合后按 10 分钟分箱。箱内左列是常规线，右列是加急线。每列高度为该组单数。</p>
+</div>
+<figure>
+<div class="choices" role="group" aria-label="等待时长的阅读角度"></div>
+<p class="scope">本次样本 · 一点一单 · 0–40 分钟</p>
+<div class="plot" tabindex="0" aria-label="等待时长图，窄窗可横向滚动"><svg viewBox="0 0 730 280" role="img" aria-label="逐笔等待时长如何组成分布以及达到 20 分钟的订单"></svg></div>
+<figcaption class="status"></figcaption>
+</figure></div>
+<details><summary>查看 24 笔原始记录</summary><pre class="records"></pre></details>
+</section>
+<section id="routes" aria-labelledby="routes-title">
+<div class="story"><div>
+<p class="kicker">订单履约 · 完整路径</p>
+<h2 id="routes-title">补货后，多少单出库</h2>
+<p>先读分支关系，再叠加同一批订单的实际路径。</p>
+<p class="stages">亮色沿已知路线引导阅读。线宽代表订单数，不代表处理时长。</p>
+</div><figure>
+<div class="choices" role="group" aria-label="履约阅读角度"></div>
+<p class="scope">同一批次 · 100 单 · 截至本周末</p>
+<div class="plot" tabindex="0" aria-label="履约分支图，窄窗可横向滚动"><svg viewBox="0 0 730 280" role="img" aria-label="规则、实际订单路线与补货后两种去向"></svg></div>
+<figcaption class="status"></figcaption>
+</figure></div>
+<details><summary>查看路径记录及分母</summary><pre class="records"></pre></details>
+</section>
+<footer>两处为不同的原创合成数据。等待时长样本与履约批次没有跨场景关联。</footer>
+</main>
+<noscript><p class="wrap">启用脚本可查看两张互动图。</p></noscript>
+<script>/* ChartMotion 1.0.1 | optional, dependency-free scene transitions | SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0 */
+(function (root, factory) {
+  'use strict';
+  var api = factory();
+  if (typeof module === 'object' && module.exports) module.exports = api;
+  else root.ChartMotion = api;
+})(typeof globalThis !== 'undefined' ? globalThis : this, function () {
+  'use strict';
+
+  function clone(value, path) {
+    path = path || 'geometry';
+    if (typeof value === 'number') {
+      if (!Number.isFinite(value)) throw new TypeError(path + ': expected a finite number');
+      return value;
+    }
+    if (value === null || typeof value === 'string' || typeof value === 'boolean') return value;
+    if (Array.isArray(value)) {
+      for (var i = 0; i < value.length; i += 1) {
+        if (!Object.prototype.hasOwnProperty.call(value, i)) throw new TypeError(path + ': sparse arrays are not supported');
+      }
+      return value.map(function (v, index) { return clone(v, path + '[' + index + ']'); });
+    }
+    if (value && (Object.getPrototypeOf(value) === Object.prototype || Object.getPrototypeOf(value) === null)) {
+      var copy = Object.create(null);
+      Object.keys(value).forEach(function (key) { copy[key] = clone(value[key], path + '.' + key); });
+      return copy;
+    }
+    throw new TypeError(path + ': expected numbers, static strings/booleans/null, arrays or plain objects');
+  }
+  function scene(input) {
+    var result = new Map();
+    var entries;
+    if (input instanceof Map) entries = input.entries();
+    else if (input && (Object.getPrototypeOf(input) === Object.prototype || Object.getPrototypeOf(input) === null)) entries = Object.entries(input);
+    else throw new TypeError('scene must be a Map or plain object keyed by stable string IDs');
+    for (var pair of entries) {
+      if (typeof pair[0] !== 'string' || !pair[0]) throw new TypeError('scene IDs must be nonempty strings');
+      result.set(pair[0], clone(pair[1], pair[0]));
+    }
+    return result;
+  }
+  function equal(a, b) {
+    if (a === b) return true;
+    if (!a || !b || typeof a !== 'object' || typeof b !== 'object' || Array.isArray(a) !== Array.isArray(b)) return false;
+    var ak = Object.keys(a), bk = Object.keys(b);
+    return ak.length === bk.length && ak.every(function (key) { return Object.prototype.hasOwnProperty.call(b, key) && equal(a[key], b[key]); });
+  }
+  function equalScene(a, b) {
+    return a.size === b.size && Array.from(a).every(function (pair) { return b.has(pair[0]) && equal(pair[1], b.get(pair[0])); });
+  }
+  function compatible(a, b, path) {
+    if (typeof a === 'number' && typeof b === 'number') return;
+    if (a === b) return;
+    if (a && b && typeof a === 'object' && typeof b === 'object' && Array.isArray(a) === Array.isArray(b)) {
+      var ak = Object.keys(a), bk = Object.keys(b);
+      if (ak.length === bk.length && ak.every(function (k) { return Object.prototype.hasOwnProperty.call(b, k); })) {
+        ak.forEach(function (k) { compatible(a[k], b[k], path + '.' + k); });
+        return;
+      }
+    }
+    throw new TypeError(path + ': incompatible geometry; supply interpolate or make an explicit staged transition (SVG path strings are never number-morphed)');
+  }
+  function interpolateNumbers(a, b, t) {
+    if (typeof a === 'number' && typeof b === 'number') return a * (1 - t) + b * t;
+    if (a === b) return a;
+    var output = Array.isArray(a) ? [] : Object.create(null);
+    Object.keys(a).forEach(function (k) { output[k] = interpolateNumbers(a[k], b[k], t); });
+    return output;
+  }
+  function create(options) {
+    options = options || {};
+    if (typeof options.paint !== 'function') throw new TypeError('paint is required');
+    var host = typeof window !== 'undefined' ? window : null;
+    var env = options.environment || {};
+    var now = env.now || function () { return typeof performance !== 'undefined' ? performance.now() : Date.now(); };
+    var raf = env.requestFrame || (host && host.requestAnimationFrame ? host.requestAnimationFrame.bind(host) : function (fn) { return setTimeout(fn, 16); });
+    var caf = env.cancelFrame || (host && host.cancelAnimationFrame ? host.cancelAnimationFrame.bind(host) : clearTimeout);
+    var eventTarget = Object.prototype.hasOwnProperty.call(env, 'eventTarget') ? env.eventTarget : host;
+    var media = Object.prototype.hasOwnProperty.call(env, 'mediaQuery') ? env.mediaQuery : (host && host.matchMedia ? host.matchMedia('(prefers-reduced-motion: reduce)') : null);
+    var current = scene(options.scene || {}), destination = scene(current);
+    var job = null, pending = null, frame = null, generation = 0, destroyed = false, stableDepth = 0;
+    var reduced = !!(media && media.matches), lastMeta = options.meta, visiblePhase = 'settled', visibleProgress = 1;
+    function alive() { if (destroyed) throw new Error('ChartMotion has been destroyed'); }
+    function invalidate() {
+      generation += 1;
+      if (frame !== null) caf(frame);
+      frame = null;
+      job = null;
+      return generation;
+    }
+    function info(phase, progress, reason, active) {
+      return { phase: phase, progress: progress, reason: reason, meta: active ? active.meta : lastMeta,
+        entering: active ? active.entering.slice() : [], exiting: active ? active.exiting.slice() : [] };
+    }
+    function paint(phase, progress, reason, active) {
+      visiblePhase = phase; visibleProgress = progress;
+      options.paint(scene(current), info(phase, progress, reason, active));
+    }
+    function settle(active, reason) {
+      var token = invalidate();
+      pending = null;
+      current = scene(active.target);
+      destination = scene(active.target);
+      lastMeta = active.meta;
+      paint('settled', 1, reason, active);
+      if (!destroyed && token === generation && typeof options.onSettled === 'function') options.onSettled(scene(current), info('settled', 1, reason, active));
+    }
+    function finish(reason) {
+      alive();
+      if (job || pending) settle(job || pending, reason || 'finish');
+      return scene(current);
+    }
+    function tick(token, active) {
+      if (destroyed || token !== generation || job !== active) return;
+      frame = null;
+      try {
+        var elapsed = Math.max(0, now() - active.start);
+        var progress = Math.min(1, elapsed / active.duration);
+        if (progress >= 1) { settle(active, 'complete'); return; }
+        var eased = active.ease(progress);
+        if (destroyed || generation !== token || job !== active) return;
+        if (!Number.isFinite(eased)) throw new TypeError('ease must return a finite number');
+        eased = Math.max(0, Math.min(1, eased));
+        var next = new Map();
+        active.from.forEach(function (from, id) {
+          if (destroyed || generation !== token || job !== active) return;
+          var value = active.interpolate ? active.interpolate(clone(from), clone(active.to.get(id)), eased, id,
+            { progress: progress, meta: active.meta, entering: active.entering.includes(id), exiting: active.exiting.includes(id) }) : interpolateNumbers(from, active.to.get(id), eased);
+          next.set(id, clone(value, id));
+        });
+        if (destroyed || generation !== token || job !== active) return;
+        current = next;
+        active.progress = progress;
+        paint('transition', progress, 'frame', active);
+        if (!destroyed && generation === token && job === active) frame = raf(function () { tick(token, active); });
+      } catch (error) {
+        // Never erase a replacement transition created by a reentrant author callback.
+        if (generation === token) invalidate();
+        throw error;
+      }
+    }
+    function to(input, settings) {
+      alive();
+      settings = settings || {};
+      var target = scene(input);
+      var duration = settings.duration === undefined ? (options.duration === undefined ? 320 : options.duration) : settings.duration;
+      if (!Number.isFinite(duration) || duration < 0) throw new RangeError('duration must be a finite nonnegative number');
+      var custom = settings.interpolate || options.interpolate;
+      if (custom !== undefined && typeof custom !== 'function') throw new TypeError('interpolate must be a function');
+      var ease = settings.ease || options.ease || function (t) { return t; };
+      if (typeof ease !== 'function') throw new TypeError('ease must be a function');
+      var from = scene(current), aligned = new Map(), entering = [], exiting = [];
+      var preparationGeneration = generation;
+      var enter = settings.enter || options.enter, exit = settings.exit || options.exit;
+      target.forEach(function (value, id) {
+        if (!from.has(id)) { entering.push(id); from.set(id, enter ? clone(enter(id, clone(value)), id) : clone(value)); }
+        aligned.set(id, clone(value));
+      });
+      Array.from(from).forEach(function (pair) {
+        if (!target.has(pair[0])) {
+          exiting.push(pair[0]);
+          if (exit) aligned.set(pair[0], clone(exit(pair[0], clone(pair[1])), pair[0]));
+          else from.delete(pair[0]); // Explicit default: membership switches immediately, never by index.
+        }
+      });
+      if (destroyed || generation !== preparationGeneration) return api;
+      if (!custom) from.forEach(function (value, id) { compatible(value, aligned.get(id), id); });
+      // Validate first; an invalid request must not interrupt the current animation.
+      var token = invalidate();
+      destination = scene(target);
+      var active = { from: from, to: aligned, target: target, duration: duration, start: now(), progress: 0, ease: ease,
+        interpolate: custom, entering: entering, exiting: exiting, meta: settings.meta === undefined ? options.meta : settings.meta };
+      job = active;
+      pending = active;
+      lastMeta = active.meta;
+      try {
+        if (typeof options.onStart === 'function') options.onStart(scene(current), scene(target), info('start', 0, 'to', active));
+      } catch (error) {
+        if (generation === token) invalidate();
+        throw error;
+      }
+      if (destroyed || generation !== token || job !== active) return api;
+      if (reduced || stableDepth || duration === 0 || equalScene(current, target)) {
+        settle(active, reduced ? 'reduced-motion' : stableDepth ? 'stable-frame' : duration === 0 ? 'immediate' : 'unchanged');
+        return api;
+      }
+      current = scene(from);
+      try { paint('transition', 0, 'start', active); }
+      catch (error) {
+        if (generation === token) invalidate();
+        throw error;
+      }
+      if (!destroyed && generation === token && job === active) frame = raf(function () { tick(token, active); });
+      return api;
+    }
+    function withStableFrame(callback) {
+      alive();
+      if (typeof callback !== 'function') throw new TypeError('callback is required');
+      stableDepth += 1;
+      try {
+        finish('export');
+        if (job || pending) throw new Error('Stable frame was interrupted by an author callback; finish the retained target before exporting');
+        return callback(scene(current));
+      }
+      finally { stableDepth -= 1; }
+    }
+    function mediaChange(event) {
+      reduced = !!event.matches;
+      if (!destroyed && reduced) finish('reduced-motion');
+    }
+    function beforePrint() { if (!destroyed) withStableFrame(function () {}); }
+    function afterPrint() { if (!destroyed) paint(visiblePhase, visibleProgress, 'afterprint', job); }
+    if (media) {
+      if (media.addEventListener) media.addEventListener('change', mediaChange);
+      else if (media.addListener) media.addListener(mediaChange);
+    }
+    if (eventTarget && eventTarget.addEventListener) {
+      eventTarget.addEventListener('beforeprint', beforePrint);
+      eventTarget.addEventListener('afterprint', afterPrint);
+    }
+    var api = {
+      to: to, transition: to, finish: finish,
+      cancel: function () {
+        alive();
+        var active = job;
+        invalidate();
+        if (active) paint('cancelled', active.progress, 'cancel', active);
+        return scene(current);
+      },
+      snapshot: function () { return scene(current); }, target: function () { return scene(destination); },
+      isRunning: function () { return !!job; }, withStableFrame: withStableFrame,
+      destroy: function () {
+        if (destroyed) return;
+        invalidate(); pending = null; destroyed = true;
+        if (media) {
+          if (media.removeEventListener) media.removeEventListener('change', mediaChange);
+          else if (media.removeListener) media.removeListener(mediaChange);
+        }
+        if (eventTarget && eventTarget.removeEventListener) {
+          eventTarget.removeEventListener('beforeprint', beforePrint);
+          eventTarget.removeEventListener('afterprint', afterPrint);
+        }
+      }
+    };
+    try { paint('settled', 1, 'initial', null); }
+    catch (error) { api.destroy(); throw error; }
+    return api;
+  }
+  function captureFocus(root, attribute) {
+    attribute = attribute || 'data-focus-key';
+    var active = root && root.ownerDocument && root.ownerDocument.activeElement;
+    if (!active || !root.contains(active) || !active.hasAttribute(attribute)) return null;
+    var token = { key: active.getAttribute(attribute), attribute: attribute };
+    if (typeof active.selectionStart === 'number') {
+      token.start = active.selectionStart; token.end = active.selectionEnd; token.direction = active.selectionDirection;
+    }
+    return token;
+  }
+  function restoreFocus(root, token) {
+    if (!root || !token) return false;
+    var nodes = Array.from(root.querySelectorAll('*'));
+    if (root.getAttribute) nodes.unshift(root);
+    var matches = nodes.filter(function (node) { return node.getAttribute(token.attribute) === token.key; });
+    if (matches.length !== 1 || typeof matches[0].focus !== 'function' || matches[0].disabled) return false;
+    var node = matches[0];
+    node.focus({ preventScroll: true });
+    if (typeof token.start === 'number' && node.setSelectionRange) {
+      try { node.setSelectionRange(token.start, token.end, token.direction); } catch (_) { /* non-text controls */ }
+    }
+    return root.ownerDocument.activeElement === node;
+  }
+  function preserveFocus(root, render) {
+    var token = captureFocus(root);
+    var result = render();
+    restoreFocus(root, token);
+    return result;
+  }
+  return { version: '1.0.1', create: create, captureFocus: captureFocus, restoreFocus: restoreFocus, preserveFocus: preserveFocus };
+});
+</script>
+<script>"use strict";
+const NS="http://www.w3.org/2000/svg";
+const reduce=matchMedia("(prefers-reduced-motion: reduce)");
+const blue="#31577d",brick="#8c4536",paper="#fdfdfd";
+const fmt=new Intl.NumberFormat("zh-CN",{maximumFractionDigits:1});
+const readRatio=(n,d)=>fmt.format(n/d*100)+"%";
+const attrs=(e,d)=>{for(const [k,v] of Object.entries(d))e.setAttribute(k,v);};
+const step=(n,from,to)=>Math.max(0,Math.min(1,(n-from)/(to-from)));
+function atom(parent,kind,properties,text){
+  const el=document.createElementNS(NS,kind);
+  attrs(el,properties);
+  if(text!==undefined)el.textContent=text;
+  parent.append(el);return el;
+}
+function svgText(parent,x,y,text,rest={}){
+  return atom(parent,"text",{x,y,...rest},text);
+}
+function line(parent,x1,y1,x2,y2,rest={}){
+  return atom(parent,"line",{x1,y1,x2,y2,...rest});
+}
+function activate(section,labels,scenes,descriptions,paint,options={}){
+  const status=section.querySelector(".status");
+  const choices=section.querySelector(".choices");
+  const figure=section.querySelector("figure");
+  const svg=section.querySelector("svg");
+  let index=0,autoTimer=null,locked=false,entered=false;
+  const switches=labels.map((label,i)=>{
+    const b=document.createElement("button");b.type="button";b.textContent=label;
+    b.addEventListener("click",()=>{
+      locked=true;
+      clearTimeout(autoTimer);
+      status.setAttribute("aria-live","polite");
+      choose(i);
+    });
+    choices.append(b);return b;
+  });
+  function presentation(i){
+    switches.forEach((b,j)=>b.setAttribute("aria-pressed",String(i===j)));
+  }
+  const controller=ChartMotion.create({
+    scene:scenes[0],duration:options.duration||860,
+    paint(state,info){
+      const moving=info.phase==="start"||info.phase==="transition";
+      figure.dataset.phase=info.phase;
+      paint(state,moving);
+      if(moving&&info.meta!==undefined){
+        status.textContent="正在切换："+labels[info.meta]+"。";
+      }else if(!moving){
+        status.textContent=descriptions[index];
+        figure.dataset.settled=index;
+      }
+    }
+  });
+  presentation(0);
+  function choose(i){
+    index=i;presentation(i);
+    figure.dataset.requested=i;
+    controller.to(scenes[i],{meta:i});
+    if(!controller.isRunning())status.textContent=descriptions[i];
+  }
+  if("IntersectionObserver" in window){
+    const observer=new IntersectionObserver(entries=>{
+      if(entered||!entries.some(e=>e.isIntersecting&&e.intersectionRatio>=.64))return;
+      entered=true;observer.disconnect();
+      if(locked||reduce.matches)return;
+      autoTimer=setTimeout(()=>{
+        choose(1);
+        autoTimer=setTimeout(()=>choose(2),options.hold||1900);
+      },options.initialWait||1150);
+    },{threshold:.64});
+    observer.observe(svg);
+  }
+  const stopAuto=()=>{clearTimeout(autoTimer);locked=true;};
+  reduce.addEventListener("change",event=>{if(event.matches)stopAuto();});
+  window.addEventListener("beforeprint",stopAuto);
+}
+function orders(){
+  const section=document.getElementById("orders"),root=section.querySelector("svg");
+  const byGroup=[
+    {name:"常规线",color:blue,values:[5,7,8,9,11,12,13,14,15,18,21,29]},
+    {name:"加急线",color:brick,values:[8,12,16,18,19,20,22,23,25,27,31,37]}
+  ];
+  const data=byGroup.flatMap((g,j)=>g.values.map((value,i)=>({id:(j?"E":"S")+String(i+1).padStart(2,"0"),
+    value,j,color:g.color,name:g.name})));
+  const x=v=>70+v/40*616;
+  const baseY=227,cellSize=18;
+  const fill=atom(root,"rect",{x:x(20),y:35,width:x(40)-x(20),height:baseY-35,fill:"#f2e7e3",opacity:0});
+  const raw=atom(root,"g",{});
+  const bins=atom(root,"g",{opacity:0});
+  for(const [i,g] of byGroup.entries()){
+    const yy=88+i*90;line(raw,x(0),yy,x(40),yy,{class:"grid"});
+    svgText(raw,67,yy+4,g.name,{"text-anchor":"end",class:"quiet"});
+  }
+  for(const n of [0,2,4,6,8]){
+    const yy=baseY-n*cellSize;
+    line(bins,x(0),yy,x(40),yy,{class:"grid"});
+    svgText(bins,61,yy+4,n,{"text-anchor":"end",class:"quiet"});
+  }
+  svgText(bins,61,56,"单／组",{"text-anchor":"end",class:"quiet"});
+  for(const v of [0,10,20,30,40]){
+    line(root,x(v),230,x(v),236,{class:"grid"});
+    svgText(root,x(v),254,v,{"text-anchor":"middle",class:"quiet"});
+  }
+  svgText(root,704,254,"分钟",{class:"quiet"});
+  const target=atom(root,"g",{opacity:0});
+  line(target,x(20),35,x(20),227,{stroke:brick,"stroke-width":1.5,"stroke-dasharray":"5 4"});
+  svgText(target,x(20)+9,32,"20 分钟及以上",{class:"strong"});
+  const points=new Map();
+  const occupied=new Map();
+  const scene1={frame:{raw:1,bins:0,focus:0}};
+  const scene2={frame:{raw:0,bins:1,focus:0}};
+  const scene3={frame:{raw:0,bins:1,focus:1}};
+  for(const [i,d] of data.entries()){
+    const yy=88+d.j*90+(i%3-1)*12;
+    const p=atom(root,"circle",{cx:x(d.value),cy:yy,r:7,fill:d.j?paper:d.color,
+      stroke:d.j?d.color:paper,"stroke-width":d.j?2.2:1.3,"data-id":d.id});
+    atom(p,"title",{},d.id+"，"+d.name+"，"+d.value+" 分钟");
+    points.set(d.id,p);
+    const bin=Math.min(3,Math.floor(d.value/10));
+    const key=d.j*4+bin;
+    const spot=occupied.get(key)||0;occupied.set(key,spot+1);
+    const binX=x(bin*10+5)+(d.j===0?-14:14);
+    const binY=baseY-10-spot*cellSize;
+    scene1[d.id]={x:x(d.value),y:yy};
+    scene2[d.id]={x:binX,y:binY};
+    scene3[d.id]={x:binX,y:binY};
+  }
+  const less20=data.filter(d=>d.value<20).length, atleast20=data.length-less20;
+  const delayed=byGroup.map((g,i)=>data.filter(d=>d.j===i&&d.value>=20).length);
+  section.querySelector(".records").textContent=data.map(d=>[d.id,d.name,d.value+" 分钟"].join(" · ")).join("\n");
+  const key=atom(root,"g",{});
+  for(const [index,group] of byGroup.entries()){
+    const xx=486+index*104;
+    atom(key,"circle",{cx:xx,cy:19,r:5,fill:index?paper:group.color,stroke:group.color,"stroke-width":1.6});
+    svgText(key,xx+10,23,group.name,{class:"quiet"});
+  }
+  activate(section,["逐笔记录","按 10 分钟聚合","查看超限订单"],[scene1,scene2,scene3],
+    ["24 笔独立记录。点的位置表示实际等待时长。",
+     "10–20 分钟箱最多，共 "+(occupied.get(1)+occupied.get(5))+" 笔。每箱包含起点，不含上限，最后一箱含 40。 ",
+     "达到 20 分钟的有 "+atleast20+"/24 笔。常规线 "+delayed[0]+"/12，加急线 "+delayed[1]+"/12。"],(state,moving)=>{
+      const f=state.get("frame");
+      attrs(raw,{opacity:moving&&f.raw<.98?0:f.raw});
+      attrs(bins,{opacity:moving&&f.bins<.98?0:f.bins});
+      attrs(fill,{opacity:f.focus});attrs(target,{opacity:f.focus});
+      for(const d of data){
+        const p=state.get(d.id),el=points.get(d.id);
+        attrs(el,{cx:p.x,cy:p.y,opacity:d.value<20?1-f.focus*.58:1,
+          r:7+(d.value>=20?f.focus*1.5:0)});
+      }
+    });
+}
+function routes(){
+  const section=document.getElementById("routes"),root=section.querySelector("svg");
+  const routes=[
+    {count:64,nodes:["接单","库存核对","出库"]},
+    {count:22,nodes:["接单","库存核对","补货","出库"]},
+    {count:14,nodes:["接单","库存核对","补货","待补货"]}
+  ];
+  const edges=[
+    {a:"接单",b:"库存核对",key:"incoming",d:"M140 76 H242",lx:188,ly:60},
+    {a:"库存核对",b:"出库",key:"direct",d:"M402 76 H575",lx:483,ly:59},
+    {a:"库存核对",b:"补货",key:"short",d:"M319 100 V164",lx:342,ly:138},
+    {a:"补货",b:"出库",key:"filled",d:"M401 184 C500 184 505 107 575 91",lx:488,ly:122},
+    {a:"补货",b:"待补货",key:"pending",d:"M402 196 H575",lx:490,ly:219}
+  ];
+  const counts=new Map(edges.map(e=>[e.key,routes.filter(r=>r.nodes.some((node,i)=>node===e.a&&r.nodes[i+1]===e.b)).reduce((s,r)=>s+r.count,0)]));
+  const defs=atom(root,"defs",{});
+  const arrow=atom(defs,"marker",{id:"process-arrow",viewBox:"0 0 10 10",refX:9,refY:5,markerWidth:6,markerHeight:6,orient:"auto-start-reverse"});
+  atom(arrow,"path",{d:"M0 0 L10 5 L0 10 z",fill:"#667584"});
+  const ink=new Map();
+  for(const e of edges){
+    atom(root,"path",{d:e.d,fill:"none",stroke:"#78828b","stroke-width":1.3,"marker-end":"url(#process-arrow)"});
+    const historic=atom(root,"path",{d:e.d,fill:"none",stroke:e.key==="pending"?brick:blue,
+      "stroke-linecap":"round","stroke-width":counts.get(e.key)*.16,
+      pathLength:1000,"stroke-dasharray":"1000 1000","data-edge":e.key});
+    const shine=atom(root,"path",{d:e.d,fill:"none",stroke:e.key==="pending"?"#c78466":"#89a7c2","stroke-width":2.5,
+      "stroke-linecap":"round",pathLength:1000,"stroke-dasharray":"58 1200",opacity:0});
+    const text=svgText(root,e.lx,e.ly,counts.get(e.key)+" 单",{"text-anchor":"middle",class:"strong",opacity:0});
+    ink.set(e.key,{historic,shine,text});
+  }
+  for(const [name,x,y,w] of [["接单",45,53,96],["库存核对",242,53,159],["出库",575,53,110],
+    ["补货",242,164,159],["待补货",575,164,110]]){
+    atom(root,"rect",{x,y,width:w,height:46,fill:name==="待补货"?"#f0e5e1":paper,stroke:"#65717b","stroke-width":1.2});
+    svgText(root,x+w/2,y+28,name,{"text-anchor":"middle",class:"strong"});
+  }
+  svgText(root,431,97,"库存足够",{class:"quiet"});
+  svgText(root,342,118,"库存不足",{class:"quiet"});
+  svgText(root,490,239,"周末仍未到货",{"text-anchor":"middle",class:"quiet"});
+  svgText(root,527,157,"补货后到库",{class:"quiet"});
+  const start={};
+  const overview={};
+  const focus={};
+  for(const [i,e] of edges.entries()){
+    start[e.key]={trace:0,focus:1};
+    overview[e.key]={trace:1,focus:1};
+    focus[e.key]={trace:1,focus:i<=1?.24:1};
+  }
+  const total=routes.reduce((s,r)=>s+r.count,0);
+  const restock=counts.get("short"),back=counts.get("filled");
+  section.querySelector(".records").textContent=routes.map(r=>r.nodes.join(" → ")+" · "+r.count+" 单").join("\n")+
+    "\n批次共 "+total+" 单，补货环节共 "+restock+" 单。";
+  activate(section,["先读流程规则","叠加实际订单","聚焦补货分支"],[start,overview,focus],
+    ["库存足够直接出库。库存不足进入补货，补货后出库，周末仍缺货的继续等待。",
+     total+" 单中，"+counts.get("direct")+" 单直接出库，"+restock+" 单进入补货。合计 "+(counts.get("direct")+back)+" 单出库。",
+     "补货分支 "+restock+" 单中，"+back+" 单已出库（"+readRatio(back,restock)+"），"+counts.get("pending")+" 单仍待补货。"],(state)=>{
+      for(const [i,e] of edges.entries()){
+        const item=state.get(e.key);
+        const {historic,shine,text}=ink.get(e.key);
+        const t=i===0?step(item.trace,0,.57):step(item.trace,.18+(i-1)*.08,.72+(i-1)*.06);
+        historic.setAttribute("stroke-dashoffset",(1-t)*1000);
+        historic.setAttribute("opacity",item.focus*(t===0?0:.8));
+        shine.setAttribute("stroke-dashoffset",58-1058*t);
+        shine.setAttribute("opacity",Math.sin(t*Math.PI)*item.focus);
+        text.setAttribute("opacity",step(t,.72,1)*Math.max(.41,item.focus));
+      }
+    },{duration:1150,initialWait:1200,hold:2100});
+}
+orders();
+routes();
+</script>
+</body>
+</html>

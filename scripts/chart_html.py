@@ -19,18 +19,42 @@ LINE_DASHES = ['', '7 4', '2 3', '10 3 2 3', '12 5', '4 2 1 2', '1 4', '8 2 2 2 
 COLOR_SYSTEM = Path(__file__).resolve().parents[1] / 'assets' / 'color-system.json'
 
 
-def theme_css(theme_id):
+def load_theme(theme_id):
     themes = json.loads(COLOR_SYSTEM.read_text(encoding='utf-8'))['themes']
     selected = next((t for t in themes if t['id'] == theme_id), None)
     require(selected is not None, f'unknown color theme: {theme_id}')
+    return selected, themes
+
+
+def theme_credit(theme_id):
+    selected, _ = load_theme(theme_id)
+    return selected.get('attribution', '')
+
+
+def relative_luminance(hex_color):
+    components = [int(hex_color[i:i + 2], 16) / 255 for i in (1, 3, 5)]
+    linear = [c / 12.92 if c <= .04045 else ((c + .055) / 1.055) ** 2.4 for c in components]
+    return sum(c * weight for c, weight in zip(linear, (.2126, .7152, .0722)))
+
+
+def theme_css(theme_id, *, brand_accent=None):
+    selected, themes = load_theme(theme_id)
     roles = {'paper':'surface', 'bg':'paper', 'ink':'ink', 'muted':'muted',
              'rule':'grid', 'accent':'accent', 'series':'accent2', 'positive':'positive', 'negative':'negative'}
     tokens = {k:selected[v] for k,v in roles.items()}
     tokens.update({f'category{i}':c for i,c in enumerate(selected['categorical'])})
-    print_theme = next(t for t in themes if t['id']=='tidal') if theme_id=='nocturne' else selected
+    print_id = selected.get('print_theme', 'tidal' if theme_id == 'nocturne' else theme_id)
+    print_theme = next(t for t in themes if t['id'] == print_id)
     print_tokens = {k:print_theme[v] for k,v in roles.items()}
     print_tokens.update({f'category{i}':c for i,c in enumerate(print_theme['categorical'])})
     print_tokens.update({'bg':'#FFFFFF','paper':'#FFFFFF'})
+    if brand_accent is not None:
+        require(isinstance(brand_accent, str) and re.fullmatch(r'#[0-9A-Fa-f]{6}', brand_accent), 'brand accent must be #RRGGBB')
+        for background in (tokens['bg'], tokens['paper'], print_tokens['paper']):
+            darker, lighter = sorted(map(relative_luminance, (brand_accent, background)))
+            require((lighter + .05) / (darker + .05) >= 4.5,
+                    f'brand accent must contrast 4.5:1 with {background}; use an approved shade')
+        tokens['accent'] = print_tokens['accent'] = brand_accent.upper()
     print_css = '@media print{:root{' + ';'.join(f'--{k}:{v}' for k,v in print_tokens.items()) + '}}'
     return ':root{' + ';'.join(f'--{k}:{v}' for k,v in tokens.items()) + '}' + '''
 button,select{background:var(--paper);border-color:var(--muted)}
@@ -865,10 +889,13 @@ selectChart();document.documentElement.dataset.chartReady='true';
 '''
 
 
-def build(spec, layout='editorial', theme=None):
+def build(spec, layout='editorial', theme=None, *, brand_accent=None):
     result=validate(spec)
     require(layout in {'editorial','analytical','focus'}, 'unknown layout')
-    css = CSS + theme_css(theme or spec.get('theme', 'tidal'))
+    theme_id = theme or spec.get('theme', 'graphite' if brand_accent is not None else 'tidal')
+    css = CSS + theme_css(theme_id, brand_accent=brand_accent)
+    credit = theme_credit(theme_id)
+    credit_html = f'<p class="palette-credit">{esc(credit)}</p>' if credit else ''
     panels,ledgers=[],{}
     for i,c in enumerate(spec['charts']):
         display_unit = '占比（%），原始值：'+c['unit'] if c['kind']=='stacked' and c.get('percent') else c['unit']
@@ -901,7 +928,7 @@ def build(spec, layout='editorial', theme=None):
     ledger=canonical(ledgers).replace('<','\\u003c')
     intro=spec.get('intro','')
     disclosure='合成测试数据，仅用于验证图表；不是实际经营事实。' if spec.get('synthetic') else spec.get('data_note','')
-    return f'<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="chart-data-sha256" content="{result["sha256"]}"><title>{esc(spec["title"])}</title><style>{css}</style></head><body class="layout-{layout}"><header><div class="eyebrow">Data charts / {layout}</div><h1>{esc(spec["title"])}</h1><p class="intro">{esc(intro)}</p><p class="notice">{esc(disclosure)}</p><nav aria-label="图表视图"><label for="chart-select">定位问题</label><select id="chart-select">{options}</select><button id="reset" type="button">显示全部</button><button id="download" type="button">下载源数据</button><span id="view-status" class="status" role="status" aria-live="polite"></span></nav><noscript>当前为静态完整视图；数值和数据表可读，视图定位与下载按钮需要JavaScript。</noscript></header><main><div class="charts">'+''.join(panels)+f'</div></main><footer><p>图表、表格与标注来自同一份输入。数据文件随HTML交付；浏览器下载也可取得完整输入。</p><p class="ledger">数据SHA-256：{result["sha256"]}</p><p class="sample-label">本页检查数值合同与渲染；标题的业务判断、因果和审美仍需审阅。</p></footer><script id="chart-spec" type="application/json">{data}</script><script id="chart-ledger" type="application/json">{ledger}</script><script>{JS}</script></body></html>'
+    return f'<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="chart-data-sha256" content="{result["sha256"]}"><title>{esc(spec["title"])}</title><style>{css}</style></head><body class="layout-{layout}"><header><div class="eyebrow">Data charts / {layout}</div><h1>{esc(spec["title"])}</h1><p class="intro">{esc(intro)}</p><p class="notice">{esc(disclosure)}</p><nav aria-label="图表视图"><label for="chart-select">定位问题</label><select id="chart-select">{options}</select><button id="reset" type="button">显示全部</button><button id="download" type="button">下载源数据</button><span id="view-status" class="status" role="status" aria-live="polite"></span></nav><noscript>当前为静态完整视图；数值和数据表可读，视图定位与下载按钮需要JavaScript。</noscript></header><main><div class="charts">'+''.join(panels)+f'</div></main><footer><p>图表、表格与标注来自同一份输入。数据文件随HTML交付；浏览器下载也可取得完整输入。</p>{credit_html}<p class="ledger">数据SHA-256：{result["sha256"]}</p><p class="sample-label">本页检查数值合同与渲染；标题的业务判断、因果和审美仍需审阅。</p></footer><script id="chart-spec" type="application/json">{data}</script><script id="chart-ledger" type="application/json">{ledger}</script><script>{JS}</script></body></html>'
 
 
 def main():
@@ -910,14 +937,15 @@ def main():
     parser.add_argument('spec',type=Path)
     parser.add_argument('--out',type=Path)
     parser.add_argument('--layout',choices=['editorial','analytical','focus'],default='editorial')
-    parser.add_argument('--theme', help='tidal / cobalt / grove / iris / nocturne / graphite / ruby; defaults to spec.theme or tidal')
+    parser.add_argument('--theme', help='Palette ID from assets/color-system.json. Defaults to spec.theme or tidal.')
+    parser.add_argument('--brand-accent', help='Exact #RRGGBB focus color; defaults the base palette to graphite')
     args=parser.parse_args()
     try:
         spec=json.loads(args.spec.read_text(encoding='utf-8-sig'))
         result=validate(spec)
         if args.command=='build':
             require(args.out is not None,'--out is required for build')
-            content=build(spec,args.layout,args.theme)
+            content=build(spec,args.layout,args.theme,brand_accent=args.brand_accent)
             args.out.parent.mkdir(parents=True,exist_ok=True)
             args.out.write_text(content,encoding='utf-8',newline='\n')
             # Save the exact source contract next to the delivered artifact.

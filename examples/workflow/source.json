@@ -1,0 +1,164 @@
+{
+  "title": "费用申请怎么过审",
+  "purpose": "同一流程分别回答审批怎么走、由谁接手，以及哪些申请实际回到补件。",
+  "source": "原创合成。每组路径代表互不重叠的申请，口径以观察期末状态为准。",
+  "period": "11 月首周提交，状态截至 11 月 15 日",
+  "unit": "笔",
+  "roles": [
+    "申请人",
+    "预算岗",
+    "部门负责人",
+    "财务"
+  ],
+  "nodes": [
+    {
+      "id": "submit",
+      "label": "提交申请",
+      "role": "申请人",
+      "stage": 0,
+      "track": 0,
+      "kind": "start"
+    },
+    {
+      "id": "budget",
+      "label": "材料齐吗",
+      "role": "预算岗",
+      "stage": 1,
+      "track": 0,
+      "kind": "decision"
+    },
+    {
+      "id": "revise",
+      "label": "补件",
+      "role": "申请人",
+      "stage": 2,
+      "track": 1,
+      "kind": "action"
+    },
+    {
+      "id": "approve",
+      "label": "负责人同意吗",
+      "role": "部门负责人",
+      "stage": 2,
+      "track": 0,
+      "kind": "decision"
+    },
+    {
+      "id": "account",
+      "label": "核对并入账",
+      "role": "财务",
+      "stage": 3,
+      "track": 0,
+      "kind": "action"
+    },
+    {
+      "id": "reject",
+      "label": "驳回结案",
+      "role": "部门负责人",
+      "stage": 3,
+      "track": 1,
+      "kind": "end"
+    },
+    {
+      "id": "close",
+      "label": "完成入账",
+      "role": "财务",
+      "stage": 4,
+      "track": 0,
+      "kind": "end"
+    }
+  ],
+  "edges": [
+    {
+      "from": "submit",
+      "to": "budget"
+    },
+    {
+      "from": "budget",
+      "to": "approve",
+      "label": "齐全"
+    },
+    {
+      "from": "budget",
+      "to": "revise",
+      "label": "缺材料"
+    },
+    {
+      "from": "revise",
+      "to": "budget",
+      "label": "补齐重审"
+    },
+    {
+      "from": "approve",
+      "to": "account",
+      "label": "同意"
+    },
+    {
+      "from": "approve",
+      "to": "reject",
+      "label": "不同意"
+    },
+    {
+      "from": "account",
+      "to": "close"
+    }
+  ],
+  "focus_node": "revise",
+  "observations": [
+    {
+      "nodes": [
+        "submit",
+        "budget",
+        "approve",
+        "account",
+        "close"
+      ],
+      "count": 40,
+      "state": "closed"
+    },
+    {
+      "nodes": [
+        "submit",
+        "budget",
+        "revise",
+        "budget",
+        "approve",
+        "account",
+        "close"
+      ],
+      "count": 10,
+      "state": "closed"
+    },
+    {
+      "nodes": [
+        "submit",
+        "budget",
+        "approve",
+        "reject"
+      ],
+      "count": 7,
+      "state": "closed"
+    },
+    {
+      "nodes": [
+        "submit",
+        "budget",
+        "revise",
+        "budget",
+        "approve",
+        "reject"
+      ],
+      "count": 3,
+      "state": "closed"
+    },
+    {
+      "nodes": [
+        "submit",
+        "budget",
+        "revise"
+      ],
+      "count": 5,
+      "state": "open"
+    }
+  ]
+}

@@ -1,7 +1,17 @@
-# Data Charts Master
+# Jee Charts Master
 
 
 ## 5.4 motion preview
+
+## Diagram motion and HTML report layouts
+
+- [80 animated diagram examples](https://jigongxian900-dotcom.github.io/data-charts-master/diagram-atlas.html) cover workflows, systems, timing, relationships, explanatory forms, and quantitative charts. Search examples and inspect their source fixtures.
+- [Workflow and observed paths](https://jigongxian900-dotcom.github.io/data-charts-master/workflow-diagrams.html) combines decision, swimlane, and observed-path views with three styles and SVG export.
+- [A4 brief](https://jigongxian900-dotcom.github.io/data-charts-master/report-layouts/brief.html) · [Chapter report](https://jigongxian900-dotcom.github.io/data-charts-master/report-layouts/report.html) · [16:9 presentation](https://jigongxian900-dotcom.github.io/data-charts-master/report-layouts/slides.html) present the same source case at standard sizes.
+- [Twelve chart motions](https://jigongxian900-dotcom.github.io/data-charts-master/motion-gallery.html) · [Motion combinations](https://jigongxian900-dotcom.github.io/data-charts-master/motion-composition.html)
+
+[Diagram selection and source crosswalk](references/diagram-atlas.md) · [Report layout guide](references/report-layouts.md)
+
 
 [Open the interactive motion showcase](https://jigongxian900-dotcom.github.io/data-charts-master/motion-showcase.html) · [Source and offline rebuild](examples/motion-showcase/README.md)
 
@@ -90,19 +100,19 @@ The 54-case gallery recomposes KPI cards, mini-trends and complete readings for 
 Codex:
 
 ```sh
-git clone https://github.com/jigongxian900-dotcom/data-charts-master.git .agents/skills/data-charts-master
+git clone https://github.com/jigongxian900-dotcom/data-charts-master.git .agents/skills/jee-charts-master
 ```
 
 Claude Code:
 
 ```sh
-git clone https://github.com/jigongxian900-dotcom/data-charts-master.git .claude/skills/data-charts-master
+git clone https://github.com/jigongxian900-dotcom/data-charts-master.git .claude/skills/jee-charts-master
 ```
 
-Open an agent session in that project. Invoke `$data-charts-master` in Codex or `/data-charts-master` in Claude Code. If discovery is unavailable, ask the agent to read the installed `SKILL.md` directly.
+Open an agent session in that project. Invoke `$jee-charts-master` in Codex or `/jee-charts-master` in Claude Code. If discovery is unavailable, ask the agent to read the installed `SKILL.md` directly.
 
 ```text
-Use data-charts-master. Identify which regions missed target.
+Use jee-charts-master. Identify which regions missed target.
 Check periods, units, denominators and missing values before choosing the chart.
 Build an offline HTML with source notes, raw table, mobile layout and SVG export.
 Use the ruby palette. A missing target is unknown, not zero.

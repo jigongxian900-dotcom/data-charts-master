@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Jee Charts Master · 图表动效展厅</title>
+<style>
+:root{--paper:#f7f7f7;--ink:#19191b;--sub:#55565b;--line:#ceced1;--accent:#932a40;font:16px/1.55 "Microsoft YaHei","PingFang SC",sans-serif;color:var(--ink);background:var(--paper)}
+*{box-sizing:border-box}body{margin:0}a{color:inherit;text-underline-offset:4px}a:hover{text-decoration-thickness:2px}a:focus-visible,summary:focus-visible{outline:2px solid currentColor;outline-offset:4px}h1,h2,h3,p,figure{margin:0}
+.bound{max-width:1400px;margin:auto;padding-inline:clamp(22px,5vw,78px)}
+.mast{padding:0 0 34px}
+.nav{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;border-bottom:2px solid var(--ink);padding-block:16px;font-size:.84rem}
+.nav a{text-decoration:none}.nav a:hover{text-decoration:underline}.brand{font:700 1.08rem Georgia,"SimSun",serif;letter-spacing:.14em}
+.nav div{display:flex;flex-wrap:wrap;gap:15px}
+.hero{display:grid;grid-template-columns:minmax(235px,.76fr) minmax(0,1.45fr);align-items:center;gap:clamp(22px,5vw,76px);padding-top:40px}
+.hero h1,.heading h2{font-family:"Noto Serif CJK SC","Songti SC","SimSun",Georgia,serif;font-weight:700;letter-spacing:-.03em;line-height:1.08}
+.hero h1{font-size:clamp(48px,6.35vw,96px);padding-bottom:17px}
+.hero .subtitle{color:var(--sub);font-size:clamp(15px,1.5vw,19px);max-width:23em}
+.hero a.jump{display:inline-block;margin-top:18px;color:var(--accent);font-size:.86rem}
+.hero-card{border-block:1px solid var(--line);padding:13px 0 7px;--mark:#373941;--mark2:var(--accent);--mark3:#354962;--mark4:#777a83;--graph-rule:#d1d1d3;--graph-sub:#55565b;--svg-bg:var(--paper);--label:var(--ink)}
+.hero-card svg{height:min(28vw,370px);min-height:245px}
+main{padding-bottom:52px}section.chapter{scroll-margin-top:16px;padding-top:46px}
+.heading{display:flex;align-items:end;justify-content:space-between;gap:16px;border-top:3px solid var(--ink);padding-top:10px;margin-bottom:14px}
+.heading h2{font-size:clamp(25px,3.8vw,50px)}.heading p{font-size:.9rem;color:var(--sub)}
+.cards{display:grid;grid-template-columns:1fr 1fr;column-gap:35px;row-gap:24px}
+.card{min-width:0;padding:13px 0 7px;border-top:1px solid var(--line);--mark:#42454d;--mark2:var(--accent);--mark3:#374d68;--mark4:#777a83;--graph-rule:#d6d6d8;--graph-sub:#575a60;--svg-bg:var(--paper);--label:var(--ink)}
+#trajectory .cards{grid-template-columns:1.1fr .9fr}
+@media(min-width:1050px){
+ #waterfall,#scatter,#treemap{grid-column:1/-1;display:grid;grid-template-columns:minmax(220px,.63fr) minmax(0,1.37fr);grid-template-rows:auto auto auto 1fr;column-gap:4.5vw}
+ #waterfall .chart,#scatter .chart,#treemap .chart{grid-column:2;grid-row:1/5;max-height:335px}
+ #waterfall figcaption,#scatter figcaption,#treemap figcaption{margin-top:17px}
+}
+.card h3,.hero-card h2{font-size:clamp(18px,2.1vw,27px);line-height:1.28;font-weight:700}
+.card .meta,.hero-card .meta{font-size:.77rem;margin-bottom:4px;color:var(--graph-sub)}
+.chart{display:block;width:100%;height:auto;overflow:visible}
+.chart text{fill:var(--label);font-family:inherit;font-size:12px;font-variant-numeric:tabular-nums}
+.chart .small{font-size:10px;fill:var(--graph-sub)}.chart .number{font-weight:700;font-size:13px}
+.chart .c0{fill:var(--mark)}.chart .c1{fill:var(--mark2)}.chart .axis{stroke:var(--graph-rule);stroke-width:1}.chart .ref{stroke:var(--graph-sub);stroke-width:1;stroke-dasharray:4 3}
+figcaption{font-size:.84rem;color:var(--graph-sub);padding:7px 0 4px;border-top:1px solid var(--graph-rule)}
+details{font-size:.78rem;margin-top:3px;color:var(--graph-sub)}summary{cursor:pointer;width:fit-content}pre{white-space:pre-wrap;font:inherit;overflow-wrap:anywhere;margin:6px 0}
+footer{border-top:1px solid var(--line);padding-top:12px;margin-top:30px;color:var(--sub);font-size:.84rem}
+@media(max-width:800px){.hero{grid-template-columns:1fr;gap:22px;padding-top:24px}.hero-card svg{height:auto}.cards,#trajectory .cards{grid-template-columns:1fr}.heading{align-items:start;flex-direction:column;gap:5px}}
+@media print{body{background:white;color:var(--ink)}.hero-card,.card{--svg-bg:white}.card,figure{break-inside:avoid}.nav{display:none}}
+</style>
+</head>
+<body>
+<div class="mast">
+<div class="bound">
+<nav class="nav" aria-label="展厅目录"><a class="brand" href="#top">Jee Charts Master</a><div id="nav-links"></div></nav>
+<header id="top" class="hero"><div>
+<h1>图表动效<br>展厅</h1>
+<p class="subtitle">跟着一批订单看去向，再看收入、排名和分布怎样展开。</p>
+<a class="jump" href="#trajectory">浏览十二张图 ↓</a>
+</div><figure class="hero-card" id="hero-chart"></figure></header>
+</div>
+</div>
+<main class="bound" id="gallery"></main>
+<noscript>启用脚本以查看图表。</noscript>
+<script type="application/json" id="source">@@DATA@@</script>
+<script>@@MOTION@@</script>
+<script>@@GALLERY@@</script>
+</body>
+</html>

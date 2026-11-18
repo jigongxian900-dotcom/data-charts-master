@@ -1,6 +1,18 @@
-# Data Charts Master · 见数
+# Jee Charts Master · 见数
 
 **让 Agent 按业务问题选图，自主设计复杂组合，交付可操作的 HTML 与 SVG。** 面向 Codex、Claude Code 和兼容 `SKILL.md` 的 Agent：从比较关系出发，设计构图、联动与能追踪对象的数据动效。
+
+
+## 图形动效与 HTML 报告
+
+[![实拍消息时序，含成功与回滚方向](docs/assets/diagram-atlas-preview.png)](https://jigongxian900-dotcom.github.io/data-charts-master/diagram-atlas.html#sequence)
+
+- [80 张图形的动效图谱](https://jigongxian900-dotcom.github.io/data-charts-master/diagram-atlas.html) · 流程、架构、时间、关系、定性变形与数量。按图义选择路径描绘、消息时序、区间铺开和定量流带等动效，可搜索并核对原始示例数据。
+- [流程图与真实路径](https://jigongxian900-dotcom.github.io/data-charts-master/workflow-diagrams.html) · 同一模型切换决策、泳道与实绩，支持三套版式和 SVG 下载。
+- [A4 单页简报](https://jigongxian900-dotcom.github.io/data-charts-master/report-layouts/brief.html) · [多章节报告](https://jigongxian900-dotcom.github.io/data-charts-master/report-layouts/report.html) · [16:9 演示](https://jigongxian900-dotcom.github.io/data-charts-master/report-layouts/slides.html) · 三种常用版面使用同一原始经营案例。
+- [十二图动效展厅](https://jigongxian900-dotcom.github.io/data-charts-master/motion-gallery.html) · [跨图动效组合](https://jigongxian900-dotcom.github.io/data-charts-master/motion-composition.html) · 看不同动效如何帮助读者追踪数据。
+
+[选图与参考对应表](references/diagram-atlas.md) · [报告排版与制作命令](references/report-layouts.md) · [从旧技能名迁移](docs/usage.md#从旧技能名迁移)
 
 [在线图谱 ↗](https://jigongxian900-dotcom.github.io/data-charts-master/) · [自主复杂案例](#autonomous-examples) · [交互动效 ↗](https://jigongxian900-dotcom.github.io/data-charts-master/#motion) · [安装使用](#安装与第一次使用) · [English](README.en.md) · [免费与商用许可](COMMERCIAL.md)
 
@@ -126,7 +138,7 @@ KPI 卡片同时交代当前值、迷你趋势、同比和环比。利润率用�
 灵感来自DKMECO与Tableau具体作品，记录原作、机制、适用条件和反例。8件核看原作静态预览，1件仅有策展证据；原作交互未实测。库中只分发链接和原创分析。
 
 ```text
-使用 data-charts-master。先判断这道业务问题需要共同看到哪些关系。
+使用 jee-charts-master。先判断这道业务问题需要共同看到哪些关系。
 图谱没有合适样例时，请自主组合标记与尺度，或变换坐标、层级。
 说明组合多揭示了什么、最简单的有效备选，以及不能误读的条件。
 输出离线HTML、原始表、派生值、手机布局和包含全部图层的SVG。
@@ -178,21 +190,21 @@ KPI 卡片同时交代当前值、迷你趋势、同比和环比。利润率用�
 **Codex：**
 
 ```sh
-git clone https://github.com/jigongxian900-dotcom/data-charts-master.git .agents/skills/data-charts-master
+git clone https://github.com/jigongxian900-dotcom/data-charts-master.git .agents/skills/jee-charts-master
 ```
 
 **Claude Code：**
 
 ```sh
-git clone https://github.com/jigongxian900-dotcom/data-charts-master.git .claude/skills/data-charts-master
+git clone https://github.com/jigongxian900-dotcom/data-charts-master.git .claude/skills/jee-charts-master
 ```
 
-然后在该项目中打开 Agent 会话。Codex 输入 `$data-charts-master`，Claude Code 输入 `/data-charts-master`，再描述任务。没有自动发现时，让 Agent 直接读取安装目录中的 `SKILL.md`。
+然后在该项目中打开 Agent 会话。Codex 输入 `$jee-charts-master`，Claude Code 输入 `/jee-charts-master`，再描述任务。没有自动发现时，让 Agent 直接读取安装目录中的 `SKILL.md`。
 
 复制这个示例，再附上你的数据：
 
 ```text
-使用 data-charts-master。我要判断哪些区域没有达到目标。
+使用 jee-charts-master。我要判断哪些区域没有达到目标。
 请先核对期间、单位、分母和缺失值，再选择合适图表。
 生成可离线打开的单文件 HTML，带来源、原始表、手机布局和 SVG 下载。
 采用石榴红，目标缺失时显示未知，不补零。

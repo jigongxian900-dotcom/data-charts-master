@@ -1,0 +1,710 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Jee Charts Master · 图表动效展厅</title>
+<style>
+:root{--paper:#f7f7f7;--ink:#19191b;--sub:#55565b;--line:#ceced1;--accent:#932a40;font:16px/1.55 "Microsoft YaHei","PingFang SC",sans-serif;color:var(--ink);background:var(--paper)}
+*{box-sizing:border-box}body{margin:0}a{color:inherit;text-underline-offset:4px}a:hover{text-decoration-thickness:2px}a:focus-visible,summary:focus-visible{outline:2px solid currentColor;outline-offset:4px}h1,h2,h3,p,figure{margin:0}
+.bound{max-width:1400px;margin:auto;padding-inline:clamp(22px,5vw,78px)}
+.mast{padding:0 0 34px}
+.nav{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;border-bottom:2px solid var(--ink);padding-block:16px;font-size:.84rem}
+.nav a{text-decoration:none}.nav a:hover{text-decoration:underline}.brand{font:700 1.08rem Georgia,"SimSun",serif;letter-spacing:.14em}
+.nav div{display:flex;flex-wrap:wrap;gap:15px}
+.hero{display:grid;grid-template-columns:minmax(235px,.76fr) minmax(0,1.45fr);align-items:center;gap:clamp(22px,5vw,76px);padding-top:40px}
+.hero h1,.heading h2{font-family:"Noto Serif CJK SC","Songti SC","SimSun",Georgia,serif;font-weight:700;letter-spacing:-.03em;line-height:1.08}
+.hero h1{font-size:clamp(48px,6.35vw,96px);padding-bottom:17px}
+.hero .subtitle{color:var(--sub);font-size:clamp(15px,1.5vw,19px);max-width:23em}
+.hero a.jump{display:inline-block;margin-top:18px;color:var(--accent);font-size:.86rem}
+.hero-card{border-block:1px solid var(--line);padding:13px 0 7px;--mark:#373941;--mark2:var(--accent);--mark3:#354962;--mark4:#777a83;--graph-rule:#d1d1d3;--graph-sub:#55565b;--svg-bg:var(--paper);--label:var(--ink)}
+.hero-card svg{height:min(28vw,370px);min-height:245px}
+main{padding-bottom:52px}section.chapter{scroll-margin-top:16px;padding-top:46px}
+.heading{display:flex;align-items:end;justify-content:space-between;gap:16px;border-top:3px solid var(--ink);padding-top:10px;margin-bottom:14px}
+.heading h2{font-size:clamp(25px,3.8vw,50px)}.heading p{font-size:.9rem;color:var(--sub)}
+.cards{display:grid;grid-template-columns:1fr 1fr;column-gap:35px;row-gap:24px}
+.card{min-width:0;padding:13px 0 7px;border-top:1px solid var(--line);--mark:#42454d;--mark2:var(--accent);--mark3:#374d68;--mark4:#777a83;--graph-rule:#d6d6d8;--graph-sub:#575a60;--svg-bg:var(--paper);--label:var(--ink)}
+#trajectory .cards{grid-template-columns:1.1fr .9fr}
+@media(min-width:1050px){
+ #waterfall,#scatter,#treemap{grid-column:1/-1;display:grid;grid-template-columns:minmax(220px,.63fr) minmax(0,1.37fr);grid-template-rows:auto auto auto 1fr;column-gap:4.5vw}
+ #waterfall .chart,#scatter .chart,#treemap .chart{grid-column:2;grid-row:1/5;max-height:335px}
+ #waterfall figcaption,#scatter figcaption,#treemap figcaption{margin-top:17px}
+}
+.card h3,.hero-card h2{font-size:clamp(18px,2.1vw,27px);line-height:1.28;font-weight:700}
+.card .meta,.hero-card .meta{font-size:.77rem;margin-bottom:4px;color:var(--graph-sub)}
+.chart{display:block;width:100%;height:auto;overflow:visible}
+.chart text{fill:var(--label);font-family:inherit;font-size:12px;font-variant-numeric:tabular-nums}
+.chart .small{font-size:10px;fill:var(--graph-sub)}.chart .number{font-weight:700;font-size:13px}
+.chart .c0{fill:var(--mark)}.chart .c1{fill:var(--mark2)}.chart .axis{stroke:var(--graph-rule);stroke-width:1}.chart .ref{stroke:var(--graph-sub);stroke-width:1;stroke-dasharray:4 3}
+figcaption{font-size:.84rem;color:var(--graph-sub);padding:7px 0 4px;border-top:1px solid var(--graph-rule)}
+details{font-size:.78rem;margin-top:3px;color:var(--graph-sub)}summary{cursor:pointer;width:fit-content}pre{white-space:pre-wrap;font:inherit;overflow-wrap:anywhere;margin:6px 0}
+footer{border-top:1px solid var(--line);padding-top:12px;margin-top:30px;color:var(--sub);font-size:.84rem}
+@media(max-width:800px){.hero{grid-template-columns:1fr;gap:22px;padding-top:24px}.hero-card svg{height:auto}.cards,#trajectory .cards{grid-template-columns:1fr}.heading{align-items:start;flex-direction:column;gap:5px}}
+@media print{body{background:white;color:var(--ink)}.hero-card,.card{--svg-bg:white}.card,figure{break-inside:avoid}.nav{display:none}}
+</style>
+</head>
+<body>
+<div class="mast">
+<div class="bound">
+<nav class="nav" aria-label="展厅目录"><a class="brand" href="#top">Jee Charts Master</a><div id="nav-links"></div></nav>
+<header id="top" class="hero"><div>
+<h1>图表动效<br>展厅</h1>
+<p class="subtitle">跟着一批订单看去向，再看收入、排名和分布怎样展开。</p>
+<a class="jump" href="#trajectory">浏览十二张图 ↓</a>
+</div><figure class="hero-card" id="hero-chart"></figure></header>
+</div>
+</div>
+<main class="bound" id="gallery"></main>
+<noscript>启用脚本以查看图表。</noscript>
+<script type="application/json" id="source">{"groups": [{"id": "trajectory", "name": "追踪变化", "intro": "看对象怎么走、何时换位。", "cases": ["trend", "ranking"]}, {"id": "performance", "name": "经营判断", "intro": "把阈值、贡献和相反方向读清楚。", "cases": ["waterfall", "delta", "bullet"]}, {"id": "structure", "name": "看清结构", "intro": "比例、路径与库存占用各有合计。", "cases": ["stack", "donut", "treemap"]}, {"id": "evidence", "name": "核对证据", "intro": "保留样本、区间、时段和缺测。", "cases": ["scatter", "heat", "interval"]}], "cases": {"flow": {"name": "订单去向", "type": "流向带", "scope": "一次服务批次 · 100 单", "caption": "流带宽度代表订单数。亮光沿真实已知路径移动，仅引导视线。", "values": [["线上", "已交付", 48], ["线上", "待处理", 12], ["门店", "已交付", 28], ["门店", "待处理", 12]]}, "trend": {"name": "需求上涨在哪里发生？", "type": "面积折线", "scope": "1–8 月 · 千件", "caption": "从观察起点逐段看到 5 月后需求走高。观察值为 41→102 千件。", "values": [41, 43, 39, 46, 52, 66, 77, 102]}, "ranking": {"name": "东区从第三到第一", "type": "排名迁移", "scope": "上季 → 本季 · 名次", "caption": "同一区域沿自身轨迹移动。中间位置是换位示意，没有新增一期。", "values": [["北区", 1, 2], ["南区", 2, 3], ["东区", 3, 1], ["西区", 4, 4]]}, "waterfall": {"name": "营业利润怎样走到 97 万？", "type": "贡献瀑布", "scope": "本季 · 万元", "caption": "期初 72 万，经销量、售价、原料与履约叠加后，期末为 97 万。", "values": [["期初", 72], ["销量", 23], ["售价", 15], ["原料", -9], ["履约", -4], ["期末", 97]]}, "delta": {"name": "缺口在东区，超额在北区", "type": "发散横条", "scope": "本月 · 实际−目标，万元", "caption": "所有条以零为起点。左侧为未达，右侧为超额。", "values": [["北区", 18], ["南区", 7], ["西区", -5], ["东区", -22]]}, "bullet": {"name": "两区达到 90 单目标", "type": "目标子弹图", "scope": "周均 · 单", "caption": "先看固定目标，再等实际条入位。深色端点为实际值，没有人为分档的好坏色。", "values": [["东区", 108], ["南区", 94], ["西区", 83], ["北区", 66]], "target": 90}, "stack": {"name": "自营渠道多了 16 个百分点", "type": "百分比堆叠", "scope": "上期 → 本期 · %", "caption": "各期互斥渠道加总为 100%。边界联动保留合计，中间状态是过渡示意。", "values": [["自营", 42, 58], ["合作", 35, 27], ["其他", 23, 15]]}, "donut": {"name": "续费收入贡献过半", "type": "环形构成", "scope": "本季 · %", "caption": "四项互斥、合计 100%。沿扇段依次显现，中心数字只显示最终真实占比。", "values": [["续费", 54], ["新增", 27], ["增购", 13], ["其他", 6]]}, "treemap": {"name": "常温原料占库存金额的一半", "type": "矩形树图", "scope": "期末库存金额 · %", "caption": "从总额到品类逐层展开，矩形面积对应金额份额。需要精确比较时直接读百分比。", "values": [["常温原料", 50], ["冷链", 25], ["包材", 15], ["备件", 10]]}, "scatter": {"name": "高投入门店的产出仍有分化", "type": "散点与参照", "scope": "月度 · 投入与产出，万元", "caption": "每个点对应一个门店，只改变标记的显现顺序；同组聚集不能解释因果。", "values": [[7, 15], [9, 17], [10, 21], [12, 25], [14, 23], [15, 28], [16, 38], [18, 29], [19, 47], [20, 39], [21, 53], [23, 38], [24, 56], [25, 44], [26, 48], [28, 61], [29, 45], [31, 55], [32, 65], [34, 53]]}, "heat": {"name": "负荷集中在周四、周五晚间", "type": "时段矩阵", "scope": "工作日 · 工单数", "caption": "从早到晚逐列显现，深色表示更多工单。斜纹保留周三 14 时未报。", "values": [[11, 18, 20, 19, 27, 32], [9, 26, 25, 24, 23, 31], [12, 25, 23, null, 32, 51], [14, 26, 29, 32, 47, 71], [18, 29, 29, 32, 53, 80]]}, "interval": {"name": "区域 A 与 C 的区间未跨零", "type": "点与置信区间", "scope": "估计差与 95% 置信区间 · 百分点", "caption": "先出现点估计，再展开真实区间端点。B、D 的区间跨零，保留判断边界。", "values": [["区域 A", 4, 1, 7], ["区域 B", 2, -2, 6], ["区域 C", -4, -7, -1], ["区域 D", -1, -4, 2]]}}}</script>
+<script>/* ChartMotion 1.0.1 | optional, dependency-free scene transitions | SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0 */
+(function (root, factory) {
+  'use strict';
+  var api = factory();
+  if (typeof module === 'object' && module.exports) module.exports = api;
+  else root.ChartMotion = api;
+})(typeof globalThis !== 'undefined' ? globalThis : this, function () {
+  'use strict';
+
+  function clone(value, path) {
+    path = path || 'geometry';
+    if (typeof value === 'number') {
+      if (!Number.isFinite(value)) throw new TypeError(path + ': expected a finite number');
+      return value;
+    }
+    if (value === null || typeof value === 'string' || typeof value === 'boolean') return value;
+    if (Array.isArray(value)) {
+      for (var i = 0; i < value.length; i += 1) {
+        if (!Object.prototype.hasOwnProperty.call(value, i)) throw new TypeError(path + ': sparse arrays are not supported');
+      }
+      return value.map(function (v, index) { return clone(v, path + '[' + index + ']'); });
+    }
+    if (value && (Object.getPrototypeOf(value) === Object.prototype || Object.getPrototypeOf(value) === null)) {
+      var copy = Object.create(null);
+      Object.keys(value).forEach(function (key) { copy[key] = clone(value[key], path + '.' + key); });
+      return copy;
+    }
+    throw new TypeError(path + ': expected numbers, static strings/booleans/null, arrays or plain objects');
+  }
+  function scene(input) {
+    var result = new Map();
+    var entries;
+    if (input instanceof Map) entries = input.entries();
+    else if (input && (Object.getPrototypeOf(input) === Object.prototype || Object.getPrototypeOf(input) === null)) entries = Object.entries(input);
+    else throw new TypeError('scene must be a Map or plain object keyed by stable string IDs');
+    for (var pair of entries) {
+      if (typeof pair[0] !== 'string' || !pair[0]) throw new TypeError('scene IDs must be nonempty strings');
+      result.set(pair[0], clone(pair[1], pair[0]));
+    }
+    return result;
+  }
+  function equal(a, b) {
+    if (a === b) return true;
+    if (!a || !b || typeof a !== 'object' || typeof b !== 'object' || Array.isArray(a) !== Array.isArray(b)) return false;
+    var ak = Object.keys(a), bk = Object.keys(b);
+    return ak.length === bk.length && ak.every(function (key) { return Object.prototype.hasOwnProperty.call(b, key) && equal(a[key], b[key]); });
+  }
+  function equalScene(a, b) {
+    return a.size === b.size && Array.from(a).every(function (pair) { return b.has(pair[0]) && equal(pair[1], b.get(pair[0])); });
+  }
+  function compatible(a, b, path) {
+    if (typeof a === 'number' && typeof b === 'number') return;
+    if (a === b) return;
+    if (a && b && typeof a === 'object' && typeof b === 'object' && Array.isArray(a) === Array.isArray(b)) {
+      var ak = Object.keys(a), bk = Object.keys(b);
+      if (ak.length === bk.length && ak.every(function (k) { return Object.prototype.hasOwnProperty.call(b, k); })) {
+        ak.forEach(function (k) { compatible(a[k], b[k], path + '.' + k); });
+        return;
+      }
+    }
+    throw new TypeError(path + ': incompatible geometry; supply interpolate or make an explicit staged transition (SVG path strings are never number-morphed)');
+  }
+  function interpolateNumbers(a, b, t) {
+    if (typeof a === 'number' && typeof b === 'number') return a * (1 - t) + b * t;
+    if (a === b) return a;
+    var output = Array.isArray(a) ? [] : Object.create(null);
+    Object.keys(a).forEach(function (k) { output[k] = interpolateNumbers(a[k], b[k], t); });
+    return output;
+  }
+  function create(options) {
+    options = options || {};
+    if (typeof options.paint !== 'function') throw new TypeError('paint is required');
+    var host = typeof window !== 'undefined' ? window : null;
+    var env = options.environment || {};
+    var now = env.now || function () { return typeof performance !== 'undefined' ? performance.now() : Date.now(); };
+    var raf = env.requestFrame || (host && host.requestAnimationFrame ? host.requestAnimationFrame.bind(host) : function (fn) { return setTimeout(fn, 16); });
+    var caf = env.cancelFrame || (host && host.cancelAnimationFrame ? host.cancelAnimationFrame.bind(host) : clearTimeout);
+    var eventTarget = Object.prototype.hasOwnProperty.call(env, 'eventTarget') ? env.eventTarget : host;
+    var media = Object.prototype.hasOwnProperty.call(env, 'mediaQuery') ? env.mediaQuery : (host && host.matchMedia ? host.matchMedia('(prefers-reduced-motion: reduce)') : null);
+    var current = scene(options.scene || {}), destination = scene(current);
+    var job = null, pending = null, frame = null, generation = 0, destroyed = false, stableDepth = 0;
+    var reduced = !!(media && media.matches), lastMeta = options.meta, visiblePhase = 'settled', visibleProgress = 1;
+    function alive() { if (destroyed) throw new Error('ChartMotion has been destroyed'); }
+    function invalidate() {
+      generation += 1;
+      if (frame !== null) caf(frame);
+      frame = null;
+      job = null;
+      return generation;
+    }
+    function info(phase, progress, reason, active) {
+      return { phase: phase, progress: progress, reason: reason, meta: active ? active.meta : lastMeta,
+        entering: active ? active.entering.slice() : [], exiting: active ? active.exiting.slice() : [] };
+    }
+    function paint(phase, progress, reason, active) {
+      visiblePhase = phase; visibleProgress = progress;
+      options.paint(scene(current), info(phase, progress, reason, active));
+    }
+    function settle(active, reason) {
+      var token = invalidate();
+      pending = null;
+      current = scene(active.target);
+      destination = scene(active.target);
+      lastMeta = active.meta;
+      paint('settled', 1, reason, active);
+      if (!destroyed && token === generation && typeof options.onSettled === 'function') options.onSettled(scene(current), info('settled', 1, reason, active));
+    }
+    function finish(reason) {
+      alive();
+      if (job || pending) settle(job || pending, reason || 'finish');
+      return scene(current);
+    }
+    function tick(token, active) {
+      if (destroyed || token !== generation || job !== active) return;
+      frame = null;
+      try {
+        var elapsed = Math.max(0, now() - active.start);
+        var progress = Math.min(1, elapsed / active.duration);
+        if (progress >= 1) { settle(active, 'complete'); return; }
+        var eased = active.ease(progress);
+        if (destroyed || generation !== token || job !== active) return;
+        if (!Number.isFinite(eased)) throw new TypeError('ease must return a finite number');
+        eased = Math.max(0, Math.min(1, eased));
+        var next = new Map();
+        active.from.forEach(function (from, id) {
+          if (destroyed || generation !== token || job !== active) return;
+          var value = active.interpolate ? active.interpolate(clone(from), clone(active.to.get(id)), eased, id,
+            { progress: progress, meta: active.meta, entering: active.entering.includes(id), exiting: active.exiting.includes(id) }) : interpolateNumbers(from, active.to.get(id), eased);
+          next.set(id, clone(value, id));
+        });
+        if (destroyed || generation !== token || job !== active) return;
+        current = next;
+        active.progress = progress;
+        paint('transition', progress, 'frame', active);
+        if (!destroyed && generation === token && job === active) frame = raf(function () { tick(token, active); });
+      } catch (error) {
+        // Never erase a replacement transition created by a reentrant author callback.
+        if (generation === token) invalidate();
+        throw error;
+      }
+    }
+    function to(input, settings) {
+      alive();
+      settings = settings || {};
+      var target = scene(input);
+      var duration = settings.duration === undefined ? (options.duration === undefined ? 320 : options.duration) : settings.duration;
+      if (!Number.isFinite(duration) || duration < 0) throw new RangeError('duration must be a finite nonnegative number');
+      var custom = settings.interpolate || options.interpolate;
+      if (custom !== undefined && typeof custom !== 'function') throw new TypeError('interpolate must be a function');
+      var ease = settings.ease || options.ease || function (t) { return t; };
+      if (typeof ease !== 'function') throw new TypeError('ease must be a function');
+      var from = scene(current), aligned = new Map(), entering = [], exiting = [];
+      var preparationGeneration = generation;
+      var enter = settings.enter || options.enter, exit = settings.exit || options.exit;
+      target.forEach(function (value, id) {
+        if (!from.has(id)) { entering.push(id); from.set(id, enter ? clone(enter(id, clone(value)), id) : clone(value)); }
+        aligned.set(id, clone(value));
+      });
+      Array.from(from).forEach(function (pair) {
+        if (!target.has(pair[0])) {
+          exiting.push(pair[0]);
+          if (exit) aligned.set(pair[0], clone(exit(pair[0], clone(pair[1])), pair[0]));
+          else from.delete(pair[0]); // Explicit default: membership switches immediately, never by index.
+        }
+      });
+      if (destroyed || generation !== preparationGeneration) return api;
+      if (!custom) from.forEach(function (value, id) { compatible(value, aligned.get(id), id); });
+      // Validate first; an invalid request must not interrupt the current animation.
+      var token = invalidate();
+      destination = scene(target);
+      var active = { from: from, to: aligned, target: target, duration: duration, start: now(), progress: 0, ease: ease,
+        interpolate: custom, entering: entering, exiting: exiting, meta: settings.meta === undefined ? options.meta : settings.meta };
+      job = active;
+      pending = active;
+      lastMeta = active.meta;
+      try {
+        if (typeof options.onStart === 'function') options.onStart(scene(current), scene(target), info('start', 0, 'to', active));
+      } catch (error) {
+        if (generation === token) invalidate();
+        throw error;
+      }
+      if (destroyed || generation !== token || job !== active) return api;
+      if (reduced || stableDepth || duration === 0 || equalScene(current, target)) {
+        settle(active, reduced ? 'reduced-motion' : stableDepth ? 'stable-frame' : duration === 0 ? 'immediate' : 'unchanged');
+        return api;
+      }
+      current = scene(from);
+      try { paint('transition', 0, 'start', active); }
+      catch (error) {
+        if (generation === token) invalidate();
+        throw error;
+      }
+      if (!destroyed && generation === token && job === active) frame = raf(function () { tick(token, active); });
+      return api;
+    }
+    function withStableFrame(callback) {
+      alive();
+      if (typeof callback !== 'function') throw new TypeError('callback is required');
+      stableDepth += 1;
+      try {
+        finish('export');
+        if (job || pending) throw new Error('Stable frame was interrupted by an author callback; finish the retained target before exporting');
+        return callback(scene(current));
+      }
+      finally { stableDepth -= 1; }
+    }
+    function mediaChange(event) {
+      reduced = !!event.matches;
+      if (!destroyed && reduced) finish('reduced-motion');
+    }
+    function beforePrint() { if (!destroyed) withStableFrame(function () {}); }
+    function afterPrint() { if (!destroyed) paint(visiblePhase, visibleProgress, 'afterprint', job); }
+    if (media) {
+      if (media.addEventListener) media.addEventListener('change', mediaChange);
+      else if (media.addListener) media.addListener(mediaChange);
+    }
+    if (eventTarget && eventTarget.addEventListener) {
+      eventTarget.addEventListener('beforeprint', beforePrint);
+      eventTarget.addEventListener('afterprint', afterPrint);
+    }
+    var api = {
+      to: to, transition: to, finish: finish,
+      cancel: function () {
+        alive();
+        var active = job;
+        invalidate();
+        if (active) paint('cancelled', active.progress, 'cancel', active);
+        return scene(current);
+      },
+      snapshot: function () { return scene(current); }, target: function () { return scene(destination); },
+      isRunning: function () { return !!job; }, withStableFrame: withStableFrame,
+      destroy: function () {
+        if (destroyed) return;
+        invalidate(); pending = null; destroyed = true;
+        if (media) {
+          if (media.removeEventListener) media.removeEventListener('change', mediaChange);
+          else if (media.removeListener) media.removeListener(mediaChange);
+        }
+        if (eventTarget && eventTarget.removeEventListener) {
+          eventTarget.removeEventListener('beforeprint', beforePrint);
+          eventTarget.removeEventListener('afterprint', afterPrint);
+        }
+      }
+    };
+    try { paint('settled', 1, 'initial', null); }
+    catch (error) { api.destroy(); throw error; }
+    return api;
+  }
+  function captureFocus(root, attribute) {
+    attribute = attribute || 'data-focus-key';
+    var active = root && root.ownerDocument && root.ownerDocument.activeElement;
+    if (!active || !root.contains(active) || !active.hasAttribute(attribute)) return null;
+    var token = { key: active.getAttribute(attribute), attribute: attribute };
+    if (typeof active.selectionStart === 'number') {
+      token.start = active.selectionStart; token.end = active.selectionEnd; token.direction = active.selectionDirection;
+    }
+    return token;
+  }
+  function restoreFocus(root, token) {
+    if (!root || !token) return false;
+    var nodes = Array.from(root.querySelectorAll('*'));
+    if (root.getAttribute) nodes.unshift(root);
+    var matches = nodes.filter(function (node) { return node.getAttribute(token.attribute) === token.key; });
+    if (matches.length !== 1 || typeof matches[0].focus !== 'function' || matches[0].disabled) return false;
+    var node = matches[0];
+    node.focus({ preventScroll: true });
+    if (typeof token.start === 'number' && node.setSelectionRange) {
+      try { node.setSelectionRange(token.start, token.end, token.direction); } catch (_) { /* non-text controls */ }
+    }
+    return root.ownerDocument.activeElement === node;
+  }
+  function preserveFocus(root, render) {
+    var token = captureFocus(root);
+    var result = render();
+    restoreFocus(root, token);
+    return result;
+  }
+  return { version: '1.0.1', create: create, captureFocus: captureFocus, restoreFocus: restoreFocus, preserveFocus: preserveFocus };
+});
+</script>
+<script>"use strict";
+const source=JSON.parse(document.querySelector("#source").textContent);
+const NS="http://www.w3.org/2000/svg";
+const reduce=matchMedia("(prefers-reduced-motion: reduce)");
+const w=520,h=228;
+const C=["var(--mark)","var(--mark2)","var(--mark3)","var(--mark4)"];
+const signed=n=>(n>0?"+":"")+n;
+const clamp=n=>Math.max(0,Math.min(1,n));
+const stage=(p,start,end)=>clamp((p-start)/(end-start));
+const ease=p=>1-(1-p)**3;
+const lerp=(a,b,p)=>a+(b-a)*p;
+const attrs=(el,values)=>{for(const [k,v] of Object.entries(values))el.setAttribute(k,v);};
+function html(tag,text,cls){
+  const el=document.createElement(tag);
+  if(text!==undefined)el.textContent=text;
+  if(cls)el.className=cls;
+  return el;
+}
+function svgNode(parent,tag,values,text){
+  const el=document.createElementNS(NS,tag);
+  attrs(el,values);
+  if(text!==undefined)el.textContent=text;
+  parent.append(el);
+  return el;
+}
+function label(svg,x,y,text,attribute={}){
+  return svgNode(svg,"text",{x,y,...attribute},text);
+}
+function line(svg,x1,y1,x2,y2,cls="axis"){
+  return svgNode(svg,"line",{x1,y1,x2,y2,class:cls});
+}
+function rect(svg,x,y,width,height,more={}){
+  return svgNode(svg,"rect",{x,y,width,height,...more});
+}
+function dot(svg,cx,cy,r,more={}){
+  return svgNode(svg,"circle",{cx,cy,r,...more});
+}
+function path(svg,d,more={}){
+  return svgNode(svg,"path",{d,fill:"none",...more});
+}
+function rowAxes(svg,{x0=104,x1=485,y0=195,domain,marks}){
+  const place=v=>lerp(x0,x1,(v-domain[0])/(domain[1]-domain[0]));
+  for(const v of marks){
+    line(svg,place(v),23,place(v),y0);
+    label(svg,place(v),y0+19,String(v),{"text-anchor":"middle",class:"small"});
+  }
+  line(svg,x0,y0,x1,y0);
+  return place;
+}
+function flow(svg,values){
+  const yL={"线上":48,"门店":136},yR={"已交付":41,"待处理":149};
+  const lx=112,rx=407,scale=1.22;
+  const leftUsed={},rightUsed={};
+  const ribbons=values.map(([from,to,n],i)=>{
+    const s=n*scale;
+    const y1=yL[from]+(leftUsed[from]||0)+s/2,y2=yR[to]+(rightUsed[to]||0)+s/2;
+    leftUsed[from]=(leftUsed[from]||0)+s;
+    rightUsed[to]=(rightUsed[to]||0)+s;
+    const d="M"+lx+" "+y1+" C"+(lx+105)+" "+y1+" "+(rx-105)+" "+y2+" "+rx+" "+y2;
+    const color=to==="已交付"?C[0]:C[1];
+    const band=path(svg,d,{stroke:color,"stroke-width":s,opacity:.25});
+    const flare=path(svg,d,{stroke:color,"stroke-width":Math.max(2,s*.2),
+      "stroke-linecap":"round",pathLength:1000,"stroke-dasharray":"54 1300",opacity:0});
+    svgNode(band,"title",{},from+" → "+to+" "+n+" 单");
+    return {band,flare,i};
+  });
+  for(const [i,[name,y]] of Object.entries(yL).entries()){
+    rect(svg,lx-6,y,5,leftUsed[name],{fill:C[0]});
+    label(svg,lx-13,y+13,name,{"text-anchor":"end"});
+    label(svg,lx-13,y+30,String(Math.round(leftUsed[name]/scale))+" 单",{"text-anchor":"end",class:"number"});
+  }
+  for(const [name,y] of Object.entries(yR)){
+    rect(svg,rx+1,y,5,rightUsed[name],{fill:name==="已交付"?C[0]:C[1]});
+    label(svg,rx+13,y+13,name);
+    label(svg,rx+13,y+30,String(Math.round(rightUsed[name]/scale))+" 单",{class:"number"});
+  }
+  label(svg,lx,22,"订单入口",{class:"small"});
+  label(svg,rx,22,"当前去向",{"text-anchor":"end",class:"small"});
+  return p=>ribbons.forEach(({band,flare,i})=>{
+    const t=stage(p,i*.055,.76+i*.055);
+    band.setAttribute("opacity",lerp(.13,i%2===0?.46:.42,ease(t)));
+    attrs(flare,{"stroke-dashoffset":lerp(58,-1000,t),opacity:Math.sin(t*Math.PI)**.8});
+  });
+}
+function trend(svg,values){
+  const x=i=>lerp(52,485,i/(values.length-1)),y=v=>182-v/120*149;
+  for(const v of [0,40,80,120]){line(svg,52,y(v),485,y(v));label(svg,43,y(v)+4,String(v),{"text-anchor":"end",class:"small"});}
+  for(const i of [0,2,4,6,7])label(svg,x(i),203,(i+1)+"月",{"text-anchor":"middle",class:"small"});
+  const d=values.map((v,i)=>(i?"L":"M")+x(i)+" "+y(v)).join(" ");
+  const defs=svgNode(svg,"defs",{});
+  const clip=svgNode(defs,"clipPath",{id:"trend-clip"});
+  const window=rect(clip,46,18,450,173);
+  const marks=svgNode(svg,"g",{"clip-path":"url(#trend-clip)"});
+  path(marks,d+" L485 182 H52 Z",{fill:C[0],"fill-opacity":.13});
+  path(marks,d,{stroke:C[0],"stroke-width":3});
+  for(const [i,v] of values.entries())dot(marks,x(i),y(v),3.5,{fill:C[0]});
+  const endpoint=label(svg,485,y(values.at(-1))-12,String(values.at(-1)),{"text-anchor":"end",class:"number",opacity:0});
+  const head=dot(svg,x(0),y(values[0]),5,{fill:C[1]});
+  return p=>{
+    const u=ease(p)*(values.length-1),i=Math.min(values.length-2,Math.floor(u));
+    const xx=lerp(x(i),x(i+1),u-i),yy=lerp(y(values[i]),y(values[i+1]),u-i);
+    attrs(window,{width:xx-46+6});attrs(head,{cx:xx,cy:yy,opacity:p<1?1:0});
+    endpoint.setAttribute("opacity",stage(xx,x(values.length-1)-.4,x(values.length-1)));
+  };
+}
+function ranking(svg,values){
+  const x0=116,x1=429,y=r=>43+(r-1)*43;
+  label(svg,x0,21,"上季",{"text-anchor":"middle",class:"small"});
+  label(svg,x1,21,"本季",{"text-anchor":"middle",class:"small"});
+  const tokens=values.map(([name,a,b],i)=>{
+    const highlight=name==="东区",color=highlight?C[1]:C[0];
+    const shape="M"+x0+" "+y(a)+" C232 "+y(a)+" 306 "+y(b)+" "+x1+" "+y(b);
+    path(svg,shape,{stroke:color,"stroke-opacity":highlight?.34:.22,"stroke-width":highlight?3:2});
+    label(svg,103,y(a)+4,name+" "+a,{"text-anchor":"end",class:highlight?"number":"small"});
+    label(svg,444,y(b)+4,b+" "+name,{class:highlight?"number":"small"});
+    const moving=path(svg,shape,{stroke:color,"stroke-width":highlight?3:2,pathLength:1000,"stroke-dasharray":"1000 1000"});
+    return {moving,dot:dot(svg,x0,y(a),highlight?6:4,{fill:color}),i};
+  });
+  return p=>tokens.forEach(({moving,dot:point,i})=>{
+    const t=ease(stage(p,i*.045,.85+i*.045));
+    const loc=moving.getPointAtLength(moving.getTotalLength()*t);
+    attrs(point,{cx:loc.x,cy:loc.y});
+    moving.setAttribute("stroke-dashoffset",1000*(1-t));
+  });
+}
+function waterfall(svg,values){
+  const base=176,y=v=>base-v/120*144,x=i=>63+i*74;
+  for(const v of [0,40,80,120]){line(svg,41,y(v),488,y(v));label(svg,35,y(v)+4,String(v),{"text-anchor":"end",class:"small"});}
+  let cumulative=0;
+  const bars=values.map(([name,value],i)=>{
+    const total=i===0||i===values.length-1;
+    const from=total?0:cumulative;
+    const to=total?value:from+value;
+    cumulative=to;
+    const color=total?C[2]:value<0?C[1]:C[0];
+    const bar=rect(svg,x(i)-18,y(from),36,0,{fill:color,rx:1});
+    const readout=label(svg,x(i),Math.min(y(from),y(to))-7,total?String(value):signed(value),
+      {"text-anchor":"middle",class:"number",opacity:0});
+    label(svg,x(i),204,name,{"text-anchor":"middle",class:"small"});
+    const connector=i<values.length-1?line(svg,x(i)+18,y(to),x(i+1)-18,y(to),"ref"):null;
+    if(connector)connector.setAttribute("opacity",0);
+    return {from,to,bar,readout,connector,i};
+  });
+  return p=>bars.forEach(({from,to,bar,readout,connector,i})=>{
+    const t=ease(stage(p,i*.12,i*.12+.33)),yy=y(lerp(from,to,t)),ref=y(from);
+    attrs(bar,{y:Math.min(yy,ref),height:Math.abs(yy-ref)});
+    readout.setAttribute("opacity",stage(t,.72,1));
+    connector?.setAttribute("opacity",stage(t,.6,1));
+  });
+}
+function delta(svg,values){
+  const x=rowAxes(svg,{domain:[-25,25],marks:[-25,-10,0,10,25]});
+  const zero=x(0);
+  line(svg,zero,22,zero,195,"ref");
+  const bars=values.map(([name,n],i)=>{
+    const yy=35+i*37,at=x(n);
+    label(svg,89,yy+13,name,{"text-anchor":"end"});
+    const bar=rect(svg,zero,yy,0,16,{fill:n<0?C[1]:C[0],rx:1});
+    const lab=label(svg,at+(n<0?6:-6),yy+12,signed(n),{
+      "text-anchor":n<0?"start":"end",fill:"var(--svg-bg)",class:"number",opacity:0});
+    lab.style.fill=(Math.abs(n)>=5)?"var(--svg-bg)":"var(--label)";
+    return {bar,lab,at,i};
+  });
+  return p=>bars.forEach(({bar,lab,at,i})=>{
+    const finish=lerp(zero,at,ease(stage(p,i*.10,.63+i*.10)));
+    attrs(bar,{x:Math.min(zero,finish),width:Math.abs(zero-finish)});
+    lab.setAttribute("opacity",stage(p,.59+i*.09,.73+i*.09));
+  });
+}
+function bullet(svg,values,target){
+  const x=rowAxes(svg,{domain:[0,120],marks:[0,30,60,90,120]});
+  const series=values.map(([name,n],i)=>{
+    const yy=31+i*39;
+    label(svg,91,yy+22,name,{"text-anchor":"end"});
+    rect(svg,x(0),yy+6,x(120)-x(0),16,{fill:"var(--graph-rule)"});
+    const bar=rect(svg,x(0),yy+9,1,10,{fill:C[0]});
+    const end=dot(svg,x(0),yy+14,4.3,{fill:C[0]});
+    const ref=line(svg,x(target),yy+2,x(target),yy+26,"ref");attrs(ref,{"stroke-width":2});
+    const lab=label(svg,x(n)+8,yy+17,String(n),{class:"number",opacity:0});
+    return {bar,end,lab,n,i};
+  });
+  return p=>series.forEach(({bar,end,lab,n,i})=>{
+    const t=ease(stage(p,i*.09,.67+i*.09)),xEnd=x(n*t);
+    attrs(bar,{width:xEnd-x(0)});attrs(end,{cx:xEnd});
+    lab.setAttribute("opacity",stage(t,.73,1));
+  });
+}
+function stack(svg,values){
+  const x0=69,span=416;
+  label(svg,x0,43,"上期",{class:"small"});const mode=label(svg,x0,129,"向本期过渡",{class:"small"});
+  let prior=0;
+  const series=values.map(([name,a,b],i)=>{
+    const color=C[i],start=x0+span*prior/100;
+    prior+=a;
+    rect(svg,start,52,span*a/100,20,{fill:color,opacity:.35,stroke:"var(--svg-bg)","stroke-width":1});
+    const band=rect(svg,start,139,span*a/100,26,{fill:color,stroke:"var(--svg-bg)","stroke-width":1});
+    const title=label(svg,66+i*149,194,name+" "+a+"% → "+b+"%",{class:"small"});
+    title.setAttribute("fill",color);
+    return {a,b,band};
+  });
+  return p=>{
+    let sum=0;
+    for(const {a,b,band} of series){
+      const portion=lerp(a,b,ease(p));
+      attrs(band,{x:x0+span*sum/100,width:span*portion/100});
+      sum+=portion;
+    }
+    mode.textContent=p===1?"本期":"过渡示意";
+  };
+}
+function donut(svg,values){
+  const cx=143,cy=111,r=65,CIRCLE=2*Math.PI*r;
+  dot(svg,cx,cy,r,{fill:"none",stroke:"var(--graph-rule)","stroke-width":22});
+  let sum=0;
+  const parts=values.map(([name,n],i)=>{
+    const arc=dot(svg,cx,cy,r,{fill:"none",stroke:C[i],"stroke-width":22,
+      transform:"rotate("+(sum*3.6-90)+" "+cx+" "+cy+")","stroke-dasharray":"0 "+CIRCLE});
+    const yy=55+i*37;
+    rect(svg,293,yy-10,10,10,{fill:C[i]});
+    label(svg,315,yy,name);label(svg,456,yy,n+"%",{"text-anchor":"end",class:"number"});
+    svgNode(arc,"title",{},name+" "+n+"%");
+    const start=sum;sum+=n;return {arc,start,end:sum};
+  });
+  const number=label(svg,cx,112,values[0][1]+"%",{"text-anchor":"middle",class:"number",opacity:0});
+  number.style.fontSize="31px";label(svg,cx,134,values[0][0],{"text-anchor":"middle",class:"small"});
+  return p=>{
+    const at=ease(p)*100;
+    for(const {arc,start,end} of parts)arc.setAttribute("stroke-dasharray",Math.max(0,Math.min(at,end)-start)/100*CIRCLE+" "+CIRCLE);
+    number.setAttribute("opacity",stage(p,.52,.78));
+  };
+}
+function treemap(svg,values){
+  const x0=32,y0=27,W=456,H=163;
+  const firstW=W*values[0][1]/100;
+  let nextY=y0;
+  const tiles=values.map(([name,n],i)=>{
+    const tx=i?x0+firstW:x0,ty=i?nextY:y0;
+    const tw=i?W-firstW:firstW,th=i?H*n/(100-values[0][1]):H;
+    if(i)nextY+=th;
+    const g=svgNode(svg,"g",{});
+    rect(g,tx,ty,tw,th,{fill:C[i],opacity:i?.16:.24,stroke:C[i],"stroke-width":1.2});
+    label(g,tx+11,ty+th/2+4,name);
+    label(g,tx+tw-12,ty+th/2+4,n+"%",{"text-anchor":"end",class:"number"});
+    return {g,tx,ty,i};
+  });
+  return p=>tiles.forEach(({g,tx,ty,i})=>{
+    const t=ease(stage(p,i*.09,.62+i*.09)),scale=lerp(.88,1,t);
+    attrs(g,{opacity:t,transform:"translate("+tx+" "+ty+") scale("+scale+") translate("+(-tx)+" "+(-ty)+")"});
+  });
+}
+function scatter(svg,values){
+  const x=rowAxes(svg,{x0:51,x1:474,y0:183,domain:[0,40],marks:[0,10,20,30,40]}),
+    y=v=>183-v/70*151;
+  for(const v of [0,20,40,60]){line(svg,51,y(v),474,y(v));label(svg,42,y(v)+4,String(v),{"text-anchor":"end",class:"small"});}
+  line(svg,x(20),26,x(20),183,"ref");line(svg,51,y(40),474,y(40),"ref");
+  label(svg,51,20,"产出",{class:"small"});label(svg,491,202,"投入",{class:"small"});
+  const points=values.map(([a,b],i)=>{
+    const el=dot(svg,x(a),y(b),4,{fill:b>=40?C[0]:C[1],opacity:0,stroke:"var(--svg-bg)","stroke-width":1});
+    svgNode(el,"title",{},"门店 "+(i+1)+"，投入 "+a+" 万，产出 "+b+" 万");
+    return el;
+  });
+  return p=>points.forEach((el,i)=>{
+    const t=ease(stage(p,i*.027,.42+i*.027));attrs(el,{opacity:t,r:lerp(1.8,5.2,t)});
+  });
+}
+function heat(svg,values){
+  const colors=["#eeeef0","#dcdde0","#c3c6cc","#a4aab3","#565e69","#363d48"];
+  const defs=svgNode(svg,"defs",{});
+  const pattern=svgNode(defs,"pattern",{id:"unreported",width:5,height:5,patternUnits:"userSpaceOnUse",patternTransform:"rotate(35)"});
+  svgNode(pattern,"line",{x1:0,y1:0,x2:0,y2:5,stroke:C[3],"stroke-width":1});
+  const cells=[];
+  for(const [i,row] of values.entries()){
+    label(svg,61,53+i*29,["周一","周二","周三","周四","周五"][i],{"text-anchor":"end",class:"small"});
+    for(const [j,n] of row.entries()){
+      if(i===0)label(svg,103+j*67,26,[8,10,12,14,16,18][j]+"时",{"text-anchor":"middle",class:"small"});
+      const tone=n===null?-1:Math.min(colors.length-1,Math.floor(n/15));
+      const box=rect(svg,72+j*67,34+i*29,63,25,{fill:tone<0?"url(#unreported)":colors[tone],opacity:0});
+      const text=label(svg,103+j*67,52+i*29,n===null?"未报":String(n),{"text-anchor":"middle",opacity:0});
+      text.style.fill=tone>=4?"var(--svg-bg)":"#19191b";
+      cells.push({box,text,j,i});
+    }
+  }
+  return p=>cells.forEach(({box,text,j,i})=>{
+    const delay=(j*5+i)*.017;
+    const t=ease(stage(p,delay,delay+.40));
+    box.setAttribute("opacity",t);text.setAttribute("opacity",stage(t,.53,1));
+  });
+}
+function interval(svg,values){
+  const x=rowAxes(svg,{domain:[-8,8],marks:[-8,-4,0,4,8]});
+  line(svg,x(0),23,x(0),195,"ref");
+  const marks=values.map(([name,n,lo,hi],i)=>{
+    const yy=37+i*38,estimate=x(n),a=x(lo),b=x(hi),color=lo>0||hi<0?C[0]:C[3];
+    label(svg,88,yy+4,name,{"text-anchor":"end"});
+    const range=line(svg,estimate,yy,estimate,yy);attrs(range,{stroke:color,"stroke-width":2});range.style.stroke=color;
+    const l=line(svg,a,yy-4,a,yy+4),r=line(svg,b,yy-4,b,yy+4);
+    l.style.stroke=color;r.style.stroke=color;
+    const central=dot(svg,estimate,yy,5,{fill:color,stroke:"var(--svg-bg)","stroke-width":1.2});
+    svgNode(central,"title",{},name+" "+signed(n)+" 个百分点；95% CI "+lo+" 至 "+hi);
+    return {range,l,r,central,a,b,estimate,i};
+  });
+  return p=>marks.forEach(({range,l,r,central,a,b,estimate,i})=>{
+    const t=stage(p,.12+i*.08,.65+i*.08);
+    central.setAttribute("opacity",stage(p,i*.06,i*.06+.16));
+    attrs(range,{x1:lerp(estimate,a,ease(t)),x2:lerp(estimate,b,ease(t))});
+    for(const bar of [l,r])bar.setAttribute("opacity",stage(t,.77,1));
+  });
+}
+const chartTypes={flow,trend,ranking,waterfall,delta,bullet,stack,donut,treemap,scatter,heat,interval};
+const durations={flow:1800,trend:1230,ranking:1600,waterfall:1950,delta:1330,bullet:1320,
+  stack:1580,donut:1410,treemap:1200,scatter:1230,heat:1580,interval:1440};
+const entries=new Map();
+function mount(id,figure,featured=false){
+  const item=source.cases[id];
+  figure.id=featured?"hero-chart":id;
+  figure.dataset.chart=id;
+  const heading=html(featured?"h2":"h3",item.name);
+  const svg=svgNode(figure,"svg",{viewBox:"0 0 "+w+" "+h,role:"img","aria-label":item.name,
+    class:"chart",preserveAspectRatio:"xMidYMid meet"});
+  figure.prepend(html("p",item.type+" · "+item.scope,"meta"),heading);
+  const painter=chartTypes[id](svg,item.values,item.target);
+  const caption=html("figcaption",item.caption);
+  const details=html("details");
+  details.append(html("summary","查看数据"),html("pre",item.values.map(value=>Array.isArray(value)?
+    value.map(v=>v===null?"未报":v).join(" · "):String(value)).join("\n")));
+  figure.append(caption,details);
+  const state=ChartMotion.create({
+    scene:{reveal:{p:reduce.matches?1:0}},
+    paint(scene,info){
+      const {p}=scene.get("reveal");
+      painter(p);
+      figure.dataset.progress=p;
+      figure.dataset.phase=info.phase;
+      if(p===1)figure.dataset.finished="true";
+    }
+  });
+  entries.set(figure,state);
+}
+mount("flow",document.getElementById("hero-chart"),true);
+const gallery=document.getElementById("gallery"),nav=document.getElementById("nav-links");
+for(const group of source.groups){
+  const anchor=html("a",group.name);anchor.href="#"+group.id;nav.append(anchor);
+  const section=html("section",undefined,"chapter");section.id=group.id;
+  const heading=html("div",undefined,"heading");heading.append(html("h2",group.name),html("p",group.intro));
+  const cards=html("div",undefined,"cards");
+  section.append(heading,cards);gallery.append(section);
+  for(const id of group.cases){const f=html("figure",undefined,"card");cards.append(f);mount(id,f);}
+}
+gallery.append(html("footer","数据均为见数原创合成样例。"));
+function start(figure,instant=false){
+  if(figure.dataset.seen)return;
+  figure.dataset.seen="true";
+  entries.get(figure).to({reveal:{p:1}},{duration:instant||reduce.matches?0:durations[figure.dataset.chart],ease:p=>p});
+}
+if("IntersectionObserver" in window){
+  const watcher=new IntersectionObserver(visits=>{
+    for(const visit of visits)if(visit.isIntersecting&&visit.intersectionRatio>=.58){
+      watcher.unobserve(visit.target);start(visit.target.closest("figure"));
+    }
+  },{threshold:[.58]});
+  for(const figure of entries.keys())watcher.observe(figure.querySelector("svg"));
+}else for(const figure of entries.keys())start(figure,true);
+reduce.addEventListener("change",event=>{
+  if(event.matches)for(const figure of entries.keys())start(figure,true);
+});
+window.addEventListener("beforeprint",()=>{
+  for(const [figure,state] of entries){start(figure,true);state.finish();}
+});
+</script>
+</body>
+</html>

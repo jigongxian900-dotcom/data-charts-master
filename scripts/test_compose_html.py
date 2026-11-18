@@ -79,6 +79,21 @@ class ComposeTests(unittest.TestCase):
             self.assertEqual(json.loads(base64.b64decode(source['href'].split(',')[1])), self.spec)
             self.assertEqual(len([a for a in document.links if a['download'].endswith('.svg')]), len(self.spec['charts']))
 
+    def test_optional_reading_layout_preserves_source_and_uses_checked_focus(self):
+        brief = compose.build(self.spec, reading='brief')
+        editorial = compose.build(self.spec, reading='editorial', brand_accent='#873548')
+        self.assertIn('class="mode-report reading-brief"', brief)
+        self.assertIn('class="mode-report reading-editorial"', editorial)
+        for output in (brief, editorial):
+            self.assertEqual(json.loads(''.join(Document(output).sources)), self.spec)
+        self.assertIn('--accent:#873548', editorial)
+        with self.assertRaisesRegex(ValueError, '4.5:1'):
+            compose.build(self.spec, reading='brief', brand_accent='#E7CDB8')
+        with self.assertRaisesRegex(ValueError, 'must be #RRGGBB'):
+            compose.build(self.spec, brand_accent='#873548;--ink:red')
+        with self.assertRaisesRegex(ValueError, 'reading requires report'):
+            compose.build(self.spec, mode='slides', reading='editorial')
+
     def test_unfamiliar_changed_values_recompute_geometry_and_tables(self):
         changed = copy.deepcopy(self.spec)
         c = next(c for c in changed['charts'] if c['kind'] == 'bar')

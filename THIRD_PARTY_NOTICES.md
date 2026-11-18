@@ -2,6 +2,8 @@
 
 The project records its chart implementations, palettes, documentation and synthetic data as first-party work. Historical releases through v5.2.0 and their existing MIT grants are preserved. New original additions and changes from v5.3 are offered under the license scope in LICENSE-SCOPE.md, with separate commercial permission. No upstream templates, source code, screenshots, icons or fonts from the projects below are bundled.
 
+The diagram atlas maps [Lieflat Diagrams](https://github.com/larashero3-dotcom/lieflat-diagrams) and [Diagram Design](https://github.com/cathrynlavery/diagram-design) diagram categories to original fixtures. The standard projection dimensions were informed by [Frontend Slides](https://github.com/zarazhangrui/frontend-slides). Each implementation and its sample data are original.
+
 Ideas studied include business-question-led composition, direct annotation, chart catalogues, repository previews and linked interaction:
 
 - [Lieflat Charts](https://github.com/larashero3-dotcom/lieflat-charts): repository presentation and chart storytelling.

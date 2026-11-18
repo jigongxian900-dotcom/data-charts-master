@@ -1,11 +1,18 @@
 ---
-name: data-charts-master
-description: 按业务问题自主设计基础、复合与变形图表，生成HTML分析交互、独立SVG及演示。通过尺度、标记、坐标和层级组合推导新表达；灵感用于迁移机制。保留数据口径与不确定性，PPTX按所需编辑层实测。
+name: jee-charts-master
+description: 按业务问题设计数据图表、复杂组合、流程图和架构图，生成离线交互 HTML、单页或多章报告、16:9 演示及 SVG。按图义匹配动效，保留口径、责任与真实路径。原名 data-charts-master。
 ---
 
-# Data Charts Master
+# Jee Charts Master
 
-版本5.4.0 · 2026-11-17。以业务关系推导表达，组合标记与尺度，按需要变换坐标与层级；按分析任务设计交互链条与数据动效。图谱是工艺参考，基础助手支持数不是Skill的能力上限。能力须由跨领域陌生任务的实物验证，局部高分不外推。
+版本 5.5.0 · 2026-11-18。以业务关系推导表达，组合标记与尺度，按需要变换坐标与层级；按分析任务设计交互链条与数据动效。图谱是工艺参考，基础助手支持数不是Skill的能力上限。能力须由跨领域陌生任务的实物验证，局部高分不外推。
+
+## 图形、流程与整页报告
+
+- 流程、结构、集合、时间与变形先读 [图形与动效图谱](references/diagram-atlas.md)。图义决定动效，数据决定尺度。定量图保留读数，路径不完整时保留未知。
+- 制作决策、泳道、实绩与 SVG 用 [流程制作入口](references/workflow-diagrams.md)。同页需要对照规则和记录时读 [流程与数据分工](references/diagrams-and-data.md)。
+- 整页根据阅读任务选 [A4 单页简报、多章节报告或 16:9 演示](references/report-layouts.md)，再排布主要证据、旁注和来源。
+- 看图形动效用 [十二图展厅](examples/motion-gallery/index.html) 和 [动效组合](examples/motion-composition/index.html)。样例保留真实中间帧、稳定末帧及减少动态。
 
 ## 范围
 

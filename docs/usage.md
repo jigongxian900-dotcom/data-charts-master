@@ -13,35 +13,39 @@
 ### Codex
 
 ```sh
-git clone https://github.com/jigongxian900-dotcom/data-charts-master.git .agents/skills/data-charts-master
+git clone https://github.com/jigongxian900-dotcom/data-charts-master.git .agents/skills/jee-charts-master
 ```
 
-目录结果为 `.agents/skills/data-charts-master/SKILL.md`。在同一项目打开会话，输入 `$data-charts-master` 后描述任务。
+目录结果为 `.agents/skills/jee-charts-master/SKILL.md`。在同一项目打开会话，输入 `$jee-charts-master` 后描述任务。
 
 ### Claude Code
 
 ```sh
-git clone https://github.com/jigongxian900-dotcom/data-charts-master.git .claude/skills/data-charts-master
+git clone https://github.com/jigongxian900-dotcom/data-charts-master.git .claude/skills/jee-charts-master
 ```
 
-目录结果为 `.claude/skills/data-charts-master/SKILL.md`。在同一项目打开会话，输入 `/data-charts-master` 后描述任务。
+目录结果为 `.claude/skills/jee-charts-master/SKILL.md`。在同一项目打开会话，输入 `/jee-charts-master` 后描述任务。
 
 ### 下载 ZIP / 其他 Agent
 
-从 Releases 下载并解压。把**包含 `SKILL.md` 的完整文件夹**改名为 `data-charts-master`，放入工具的自定义技能目录。不要多嵌套一层，也不要只复制 `SKILL.md`。
+从 Releases 下载并解压。把**包含 `SKILL.md` 的完整文件夹**改名为 `jee-charts-master`，放入工具的自定义技能目录。不要多嵌套一层，也不要只复制 `SKILL.md`。
 
 工具没有技能发现功能时，可直接说：“读取 `安装路径/SKILL.md`，按其中方法完成这次图表任务。”此方式依赖 Agent 能读取本地文件。
 
-**用户范围安装**：Codex 支持 `~/.agents/skills/data-charts-master/`；Claude Code 支持 `~/.claude/skills/data-charts-master/`。`~` 指当前用户主目录，PowerShell 中可用 `$env:USERPROFILE` 定位。项目范围和用户范围选其一，避免同名技能重复发现。
+**用户范围安装**：Codex 支持 `~/.agents/skills/jee-charts-master/`；Claude Code 支持 `~/.claude/skills/jee-charts-master/`。`~` 指当前用户主目录，PowerShell 中可用 `$env:USERPROFILE` 定位。项目范围和用户范围选其一，避免同名技能重复发现。
 
 安装路径依据：[OpenAI 本地技能目录](https://learn.chatgpt.com/docs/build-skills?kbid=111697)、[Claude Code 技能目录](https://code.claude.com/docs/en/skills#choose-where-skills-load)。文件放置核验不等于所有客户端的自动发现都已实测。
+
+## 从旧技能名迁移
+
+收到旧目录 `data-charts-master` 时，先在原目录更新，再把该安装文件夹更名为 `jee-charts-master`，打开新会话调用 `$jee-charts-master`（Codex）或 `/jee-charts-master`（Claude Code）。与旧版共用同一个 GitHub 仓库地址。
 
 ## 第一次任务
 
 想直接得到成品，可使用下面的完整指令。这里的“一次交付”是让 Agent 自主选图、生成并自检，不是把任意数据传给固定模板，也不保证每次输出都达到某个审美分数。
 
 ```text
-使用 data-charts-master，把附件数据直接制作成可交付成品。
+使用 jee-charts-master，把附件数据直接制作成可交付成品。
 业务问题：[写你需要判断的问题]。
 受众：[写谁看、看完需要做什么决定]。
 输出：单文件离线 HTML，附同源数据与 SVG 下载。
@@ -58,7 +62,7 @@ git clone https://github.com/jigongxian900-dotcom/data-charts-master.git .claude
 更具体的业务输入示例：
 
 ```text
-使用 data-charts-master。
+使用 jee-charts-master。
 业务问题：哪些区域没有达到目标？是规模差，还是改善不足？
 受众：区域经营负责人。
 数据：附上期间、区域、实际、目标、上期与单位；缺失保留为空。
@@ -124,10 +128,10 @@ python scripts/verify_release.py
 Git 安装的版本可执行：
 
 ```sh
-git -C .agents/skills/data-charts-master pull --ff-only
+git -C .agents/skills/jee-charts-master pull --ff-only
 ```
 
-Claude Code 将路径改为 `.claude/skills/data-charts-master`。有本地修改时先保存自己的修改；不要用强制覆盖处理更新失败。
+Claude Code 将路径改为 `.claude/skills/jee-charts-master`。有本地修改时先保存自己的修改；不要用强制覆盖处理更新失败。
 
 卸载时删除**当初安装的那一个技能文件夹**。自己生成的图表另存项目输出目录，避免和安装目录一起移除。
 
@@ -141,7 +145,7 @@ Claude Code 将路径改为 `.claude/skills/data-charts-master`。有本地修�
 
 ## English quick route
 
-From a project root, clone into `.agents/skills/data-charts-master` for Codex or `.claude/skills/data-charts-master` for Claude Code. Open an agent session and invoke the skill. Keep the complete folder. ZIP users should avoid an extra nested directory.
+From a project root, clone into `.agents/skills/jee-charts-master` for Codex or `.claude/skills/jee-charts-master` for Claude Code. Open an agent session and invoke the skill. Keep the complete folder. ZIP users should avoid an extra nested directory.
 
 For a runnable sample, enter the skill folder and execute the Python commands above. The output is `sample.html` plus `sample.data.json`. The Node build command rebuilds and synchronizes all public gallery files. Git updates use `pull --ff-only`. To uninstall, remove only the installed skill folder.
 

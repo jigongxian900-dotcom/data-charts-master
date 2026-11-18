@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>@@TITLE@@ · 见数流程图</title>
+<style>
+:root{--page:#f7f7f8;--ink:#202127;--muted:#555862;--rule:#ced0d7;--focus:#963447;--serif:"Noto Serif CJK SC","Songti SC",SimSun,Georgia,serif;font:16px/1.55 "Microsoft YaHei","PingFang SC",sans-serif;color:var(--ink);background:var(--page)}
+*{box-sizing:border-box}body,h1,h2,p{margin:0}main{width:min(100%,1460px);padding:0 clamp(18px,5vw,70px) 42px;margin:auto}
+header{border-top:2px solid var(--ink);margin-top:24px;padding:15px 0 18px}
+.kicker{font-size:.85rem;color:var(--muted)}h1{font:700 clamp(36px,5vw,74px)/1.09 var(--serif);letter-spacing:-.035em;margin:6px 0 11px}
+.toolbar{display:flex;gap:9px 24px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:10px 0 8px;border-top:1px solid var(--rule)}
+.toolbar>div{display:flex;gap:8px 17px;flex-wrap:wrap;align-items:center}
+label{display:inline-flex;gap:7px;align-items:center;font-size:.9rem}
+select,button{font:inherit;color:var(--ink);background:transparent}select{border:1px solid var(--rule);padding:4px 7px}
+button{cursor:pointer;border:0;padding:6px 2px;border-bottom:2px solid transparent}
+button:hover{text-decoration:underline;text-underline-offset:3px}
+button[aria-pressed=true]{color:var(--focus);border-color:var(--focus);font-weight:700}
+:focus-visible{outline:2px solid var(--focus);outline-offset:4px}
+.figure{overflow-x:auto;margin:0;border-block:1px solid var(--rule);min-height:220px}
+svg{display:block;width:100%;min-width:650px;height:auto}
+#status{min-height:56px;padding:10px 0 11px;border-bottom:1px solid var(--rule);font-size:.93rem}
+#guide{margin:6px 0 10px;color:var(--muted);font-size:.87rem}
+details{padding:10px 0;border-bottom:1px solid var(--rule);font-size:.89rem}
+summary{cursor:pointer;width:fit-content}
+ol{padding-left:1.6rem;margin:10px 0}
+li+li{margin-top:4px}
+footer{padding:14px 0;color:var(--muted);font-size:.83rem}
+@media print{main{padding:0}.toolbar{display:none}svg{min-width:0}.figure{overflow:visible;break-inside:avoid}}
+</style></head>
+<body><main>
+<header><p class="kicker">Jee Charts Master · 流程与实绩</p><h1>@@TITLE@@</h1><p id="purpose"></p></header>
+<div class="toolbar">
+<div class="selectors"><label>结构<select id="layout"><option value="decision">决策图</option><option value="lanes">责任泳道</option></select></label>
+<label>风格<select id="style"><option value="editorial">纸面编辑</option><option value="review">审阅蓝图</option><option value="projection">深色投影</option></select></label>
+<button type="button" id="export">导出 SVG</button></div>
+<div id="modes" role="group" aria-label="流程阅读层"></div>
+</div>
+<div class="figure" tabindex="0" aria-label="流程图，窄窗可横向滚动" id="canvas"></div>
+<p id="status" role="status"></p><p id="guide"></p>
+<details><summary>查看规则与责任</summary><ol id="rules"></ol></details>
+<details id="ledger"><summary>查看实际路径记录</summary><ol id="records"></ol></details>
+<footer id="source"></footer>
+</main>
+<script type="application/json" id="model">@@DATA@@</script>
+<script>@@MOTION@@</script><script>@@WORKFLOW@@</script>
+<noscript>启用脚本以查看流程图。源模型保存在文件中。</noscript>
+</body></html>

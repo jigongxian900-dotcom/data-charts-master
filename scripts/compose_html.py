@@ -9,7 +9,7 @@ from pathlib import Path
 import re
 import sys
 
-from chart_html import CSS, KIND_NAMES, canonical, digest, esc, fmt, require, svg_chart, theme_css, validate
+from chart_html import CSS, KIND_NAMES, canonical, digest, esc, fmt, require, svg_chart, theme_credit, theme_css, validate
 from custom_chart import registry_for, render_variant, validate_spec
 
 
@@ -21,7 +21,7 @@ def safe_json(obj):
     return canonical(obj).replace('<', '\\u003c').replace('>', '\\u003e').replace('&', '\\u0026')
 
 
-def static_svg(svg, theme, chart=None):
+def static_svg(svg, theme, chart=None, *, palette_credit=''):
     """Export a static, standalone SVG with resolved colors and system typography."""
     colors = dict(re.findall(r'--([\w-]+):(#[0-9a-fA-F]+)', theme.split('@media print')[0]))
     svg = re.sub(r'var\(--([\w-]+)\)', lambda m: colors[m[1]], svg)
@@ -29,6 +29,8 @@ def static_svg(svg, theme, chart=None):
     metadata = ''
     if chart is not None:
         metadata = f'<desc>来源：{esc(chart["source"])}；期间：{esc(chart["period"])}；范围：{esc(chart["scope"])}；单位：{esc(chart["unit"])}。缺失值未替换为零。</desc><metadata id="chart-source">{esc(canonical(chart))}</metadata>'
+    if palette_credit:
+        metadata += f'<metadata id="palette-credit">{esc(palette_credit)}</metadata>'
     if not re.search(r'<svg\b[^>]*\bxmlns=', svg):
         svg = svg.replace('<svg ', '<svg xmlns="http://www.w3.org/2000/svg" ', 1)
     return svg.replace('>', '>' + style + metadata, 1)
@@ -69,9 +71,9 @@ def sections_for(spec):
     return result
 
 
-def chart_panel(c, index, theme, renderer=None):
+def chart_panel(c, index, theme, renderer=None, *, palette_credit=''):
     if renderer is not None:
-        return custom_chart_panel(c, index, theme, renderer)
+        return custom_chart_panel(c, index, theme, renderer, palette_credit=palette_credit)
     desktop, ledger = svg_chart(c)
     mobile, mobile_ledger = svg_chart(c, True)
     compact, compact_ledger = svg_chart(c, compact=True)
@@ -90,13 +92,13 @@ def chart_panel(c, index, theme, renderer=None):
     unit = '占比（%）；原始值：' + c['unit'] if c['kind'] == 'stacked' and c.get('percent') else c['unit']
     claims = ''.join(f'<p class="verified">{esc({"sum":"合计","mean":"平均","median":"中位数","count":"有效记录数"}[cl["method"]])} <strong>{esc(fmt(cl["expected"]))}</strong>{"" if cl["method"] == "count" else " " + esc(c["unit"])}</p>' for cl in c.get('claims', []))
     table = f'<details class="source-table"><summary>同源数据 · {len(c["rows"])}条</summary><div class="table-scroll"><table><caption>{esc(c["scope"])} · {esc(c["unit"])}</caption><thead><tr>{heads}</tr></thead><tbody>{rows}</tbody></table></div></details>'
-    export = data_url(static_svg(desktop, theme, c), 'image/svg+xml;charset=utf-8')
+    export = data_url(static_svg(desktop, theme, c, palette_credit=palette_credit), 'image/svg+xml;charset=utf-8')
     panel = f'<article class="chart-panel kind-{c["kind"]}" data-chart-id="{esc(c["id"])}"><div class="chart-heading"><span class="eyebrow">{index:02d} / {KIND_NAMES[c["kind"]]}</span><h3>{esc(c["title"])}</h3><p class="question">{esc(c["question"])}</p><p class="scope">{esc(c["period"])} · {esc(unit)}</p>{claims}</div><figure>{desktop}{mobile}<figcaption>{esc(notes)}</figcaption></figure><p class="provenance">来源：{esc(c["source"])}<br>期间：{esc(c["period"])} · 范围：{esc(c["scope"])} · 单位：{esc(unit)}</p><div class="chart-tools"><a href="{export}" download="chart-{index:02d}.svg">下载静态SVG</a>{table}</div></article>'
     panel=panel.replace(f'{desktop}{mobile}',f'{desktop}{mobile}<div class="compact-chart">{compact}</div>')
     return panel, {'desktop': ledger, 'mobile': mobile_ledger, 'compact': compact_ledger, 'data_sha256': digest(c['rows'])}
 
 
-def custom_chart_panel(c, index, theme, renderer):
+def custom_chart_panel(c, index, theme, renderer, *, palette_credit=''):
     variants = {variant: render_variant(c, renderer, variant, theme)
                 for variant in ['desktop', 'mobile', 'compact']}
     desktop = variants['desktop']
@@ -113,7 +115,7 @@ def custom_chart_panel(c, index, theme, renderer):
         if records:
             notes += f' {name}{len(records)}条：' + '；'.join(f'第{item["row_index"]+1}条 {item["reason"]}' for item in records) + '。'
     table = f'<details class="source-table"><summary>同源数据 · {len(c["rows"])}条</summary><div class="table-scroll"><table><caption>{esc(c["scope"])} · {esc(c["unit"])}</caption><thead><tr>{heads}</tr></thead><tbody>{rows}</tbody></table></div></details>'
-    export = data_url(static_svg(desktop.export_svg, theme, c), 'image/svg+xml;charset=utf-8')
+    export = data_url(static_svg(desktop.export_svg, theme, c, palette_credit=palette_credit), 'image/svg+xml;charset=utf-8')
     panel = f'<article class="chart-panel kind-{esc(c["kind"])}" data-chart-id="{esc(c["id"])}"><div class="chart-heading"><span class="eyebrow">{index:02d} / {esc(renderer.label)}</span><h3>{esc(c["title"])}</h3><p class="question">{esc(c["question"])}</p><p class="scope">{esc(c["period"])} · {esc(c["unit"])}</p></div><figure>{desktop.svg}{variants["mobile"].svg}<div class="compact-chart">{variants["compact"].svg}</div><figcaption>{esc(notes)}</figcaption></figure><p class="provenance">来源：{esc(c["source"])}<br>期间：{esc(c["period"])} · 范围：{esc(c["scope"])} · 单位：{esc(c["unit"])}</p><div class="chart-tools"><a href="{export}" download="chart-{index:02d}.svg">下载静态SVG</a>{table}</div></article>'
     ledger = {variant: result.ledger for variant, result in variants.items()}
     ledger.update(coverage=desktop.coverage, table_fields=fields, data_sha256=digest(c['rows']),
@@ -141,6 +143,10 @@ body{font-size:16px;line-height:1.65}h1,h2,h3,p{overflow-wrap:anywhere}a{ text-u
 @media(min-width:901px){body.mode-slides.projection main{padding:0;max-width:none}}
 @media print{.resources{display:none!important}.slide-full .chart-heading,.slide-evidence .chart-heading{display:block}.slide-full .scope,.slide-evidence .scope{text-align:left}.slide-full .chart-panel,.slide-evidence .chart-panel{display:block!important}.slide-full figure,.slide-evidence figure{display:block;max-width:760px;margin:10px auto}.slide-full .chart-panel h3,.slide-evidence .chart-panel h3{font-size:23px}.slide-full .provenance,.slide-evidence .provenance,.slide-evidence figcaption{font-size:11px;padding:8px;margin:6px 0;border-top:1px solid var(--rule);background:white}.slide-full figure svg,.slide-evidence figure svg{max-width:760px;max-height:340px;margin:0 auto}.slide-full .chart-heading .question,.slide-evidence .chart-heading .question{display:inline;margin-right:25px}.slide-full .scope,.slide-evidence .scope{display:inline;font-size:12px}}
 @media print{body.projection{overflow:visible}.projection .slide-frame{height:auto;min-height:170mm}.projection .slide-frame .chart-panel{flex:none}.projection .slide-frame figure svg{height:auto;min-height:0;max-height:340px}.projection .slide-frame .chart-heading .eyebrow{display:block}.projection .slide-frame .chart-heading{display:block}.projection .slide-frame .chart-panel{display:block!important}.projection .slide-evidence figure{display:block}.projection .slide-evidence figure svg{height:auto}.projection .cover{display:flex}}
+@media screen and (min-width:901px){
+  .projection #stage{display:grid;justify-items:center;align-items:center;height:calc(100dvh - 56px);padding:12px 16px}
+  .projection .slide-frame{width:min(calc(100vw - 32px),calc((100dvh - 80px) * 16 / 9));height:auto;aspect-ratio:16 / 9}
+}
 '''
 
 
@@ -163,16 +169,103 @@ document.querySelectorAll('[data-print]').forEach(b=>b.onclick=()=>window.print(
 document.documentElement.dataset.composeReady='true';
 '''
 
+REPORT_READING_CSS = {
+    'brief': '''
+.reading-brief>header,.reading-brief>main,.reading-brief>footer{padding-block:22px}
+.reading-brief>header{margin:22px auto 0;padding-top:0}
+.reading-brief>header::before{content:"";display:block;border-top:6px solid var(--accent)}
+.reading-brief header h1{margin:13px 0 8px;font-size:clamp(32px,3.9vw,56px)}
+.reading-brief .subtitle{font-size:16px}
+.reading-brief .summary{margin:12px 0;padding:0 0 0 16px;font-size:19px}
+.reading-brief .toolbar{margin:10px 0}
+.reading-brief .toc{padding-top:12px;margin-top:12px}
+.reading-brief .chapter{padding-top:15px;margin-bottom:36px}
+.reading-brief .chapter-heading{display:block;margin-bottom:16px}
+.reading-brief .chapter-no,.reading-brief .chart-heading>.eyebrow{display:none}
+.reading-brief .chapter h2{font-size:24px}
+.reading-brief .chapter-intro{font-size:15px}
+.reading-brief .chart-panel h3{font-size:21px;margin-top:0}
+.reading-brief .layout-comparison .chart-heading{min-height:122px}
+@media print{
+ @page{size:A4 portrait;margin:12mm}
+ .mode-report.reading-brief>header{break-after:auto;margin:0}
+ .mode-report.reading-brief .chapter{break-before:auto}
+ .reading-brief .chart-panel .scope{font-size:10px}
+ .reading-brief .digest{display:none}
+}
+''',
+    'editorial': '''
+.reading-editorial>header,.reading-editorial>main,.reading-editorial>footer{max-width:1180px}
+.reading-editorial>header{padding-block:45px 20px}
+.reading-editorial>main{padding-top:18px}
+.reading-editorial>header::before{content:"";display:block;border-top:1px solid var(--ink)}
+.reading-editorial header h1,.reading-editorial .chapter h2{
+  font-family:"Songti SC","Noto Serif CJK SC",SimSun,Georgia,serif;letter-spacing:-.025em
+}
+.reading-editorial header h1{max-width:16em;line-height:1.14}
+.reading-editorial .summary{border:0;padding:0;max-width:40em;font-size:20px}
+.reading-editorial .chapter-heading{grid-template-columns:2.6rem 1fr;gap:7px 18px}
+.reading-editorial .chapter-no{font:20px/1.5 Georgia,serif;color:var(--muted)}
+.reading-editorial .chapter-intro{max-width:45em}
+.reading-editorial .layout-feature .chart-panel{grid-template-columns:minmax(180px,1fr) minmax(0,3.8fr)}
+.reading-editorial figcaption{padding-left:12px;border-left:1px solid var(--rule)}
+@media(max-width:940px){
+  .reading-editorial .layout-feature .chart-panel{grid-template-columns:1fr}
+  .reading-editorial .layout-feature .chart-panel>*{grid-column:1;grid-row:auto}
+}
+''',
+    'story': '''
+.reading-story>header,.reading-story>footer{max-width:1080px}
+.reading-story>header{padding-top:38px;padding-bottom:12px}
+.reading-story>main{padding-top:20px}
+.reading-story header h1{margin-top:0;max-width:18em;font-size:clamp(32px,4.3vw,61px);font-family:"Songti SC",SimSun,Georgia,serif}
+.reading-story .summary{max-width:42em;border-left:0;padding-left:0;color:var(--ink)}
+.reading-story .toc{margin-top:20px;padding-top:12px}
+.reading-story .chapter{padding-top:32px;margin-bottom:70px}
+.reading-story .chapter-heading{max-width:720px;margin:0 auto 28px;display:block}
+.reading-story .chapter-no{display:none}
+.reading-story .chapter h2{font-size:clamp(25px,3.3vw,42px)}
+.reading-story .chapter-intro{margin:12px 0 0}
+.reading-story .layout-feature .chart-panel{display:block}
+.reading-story .layout-feature figure{margin:16px 0}
+.reading-story .layout-feature .chart-heading{max-width:720px;margin-inline:auto}
+.reading-story .layout-feature .provenance,.reading-story .layout-feature .chart-tools{max-width:720px;margin-inline:auto}
+.reading-story .chart-panel .eyebrow{display:none}
+''',
+    'evidence': '''
+.reading-evidence>header,.reading-evidence>main,.reading-evidence>footer{max-width:1320px}
+.reading-evidence>header{padding-top:30px;padding-bottom:14px}
+.reading-evidence header h1{font-size:clamp(29px,4.2vw,53px);margin:15px 0 10px}
+.reading-evidence .chapter{border-top:1px solid var(--ink);margin-bottom:38px;padding-top:16px}
+.reading-evidence .chapter-heading{grid-template-columns:42px 1fr;gap:6px 14px;margin-bottom:15px}
+.reading-evidence .chapter-no{font-size:17px;line-height:1.7;color:var(--muted)}
+.reading-evidence .chapter h2{font-size:24px}
+.reading-evidence .chapter-intro{font-size:14px}
+.reading-evidence .chart-panel h3{font-size:20px;margin:4px 0 7px}
+.reading-evidence .chart-panel figure{padding-top:10px;border-top:1px solid var(--rule)}
+.reading-evidence .chart-panel .eyebrow{display:none}
+.reading-evidence .provenance{border-top:0;padding-top:3px}
+.reading-evidence .layout-comparison .chart-heading{min-height:125px}
+''',
+}
 
-def build(spec, mode='report', theme=None, *, renderers=None):
+
+def build(spec, mode='report', theme=None, *, renderers=None, reading=None, brand_accent=None):
     result = validate_composition(spec, renderers)
     registry = registry_for(renderers)
     require(mode in {'report', 'slides'}, 'mode must be report or slides')
-    selected = theme_css(theme or spec.get('theme', 'tidal'))
+    require(reading is None or (mode == 'report' and isinstance(reading, str) and reading in REPORT_READING_CSS),
+            'reading requires report mode and a supported reading layout')
+    reading_class = f' reading-{reading}' if reading else ''
+    reading_css = REPORT_READING_CSS.get(reading, '')
+    use_graphite = reading is not None or brand_accent is not None
+    theme_id = theme or spec.get('theme', 'graphite' if use_graphite else 'tidal')
+    selected = theme_css(theme_id, brand_accent=brand_accent)
+    credit = theme_credit(theme_id)
     composition = spec.get('composition', {})
     panels, ledgers, resources = {}, {}, []
     for i, c in enumerate(spec['charts'], 1):
-        panels[c['id']], ledgers[c['id']] = chart_panel(c, i, selected, registry.get(c['kind']))
+        panels[c['id']], ledgers[c['id']] = chart_panel(c, i, selected, registry.get(c['kind']), palette_credit=credit)
         if mode == 'slides':
             panel, tools = panels[c['id']].rsplit('<div class="chart-tools">', 1)
             panels[c['id']] = panel + '</article>'
@@ -185,10 +278,11 @@ def build(spec, mode='report', theme=None, *, renderers=None):
     if mode == 'report':
         sections = sections_for(spec)
         toc = '<nav class="toc" aria-label="章节">' + ''.join(f'<a href="#chapter-{i}">{i:02d} {esc(s["title"])}</a>' for i, s in enumerate(sections, 1)) + '</nav>'
-        header = f'{edition}<h1>{esc(spec["title"])}</h1><p class="subtitle">{esc(composition.get("subtitle", spec.get("intro", "")))}</p>'
+        header = (edition if not reading else '') + f'<h1>{esc(spec["title"])}</h1><p class="subtitle">{esc(composition.get("subtitle", spec.get("intro", "")))}</p>'
         if composition.get('summary'):
             header += f'<p class="summary">{esc(composition["summary"])}</p>'
-        header += f'<p class="disclosure">{esc(disclosure)}</p>{toolbar}{toc}'
+        header += f'<p class="disclosure">{esc(disclosure)}</p>'
+        header += {'brief': '', 'story': toc}.get(reading, toolbar + toc)
         content = ''.join(f'<section class="chapter layout-{s.get("layout", "feature")}" id="chapter-{i}"><div class="chapter-heading"><span class="chapter-no">{i:02d}</span><h2>{esc(s["title"])}</h2><p class="chapter-intro">{esc(s.get("intro", ""))}</p></div><div class="chart-group">' + ''.join(panels[cid] for cid in s['charts']) + '</div></section>' for i, s in enumerate(sections, 1))
     else:
         header = edition + '<noscript>当前显示全部页面。按钮、键盘与滑动导航需要JavaScript；数据与图表可离线阅读。</noscript>'
@@ -208,7 +302,13 @@ def build(spec, mode='report', theme=None, *, renderers=None):
         content += '</div>'
     closing = f'<p class="closing">{esc(composition["closing"])}</p>' if composition.get('closing') else ''
     footer = f'{closing}<p>图表、表格、SVG与源数据来自同一份输入。输入中的标题和解释由作者提供；本工具不生成业务结论。</p><p class="digest">数据SHA-256：{result["sha256"]}</p>'
-    return f'<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="chart-data-sha256" content="{result["sha256"]}"><title>{esc(spec["title"])}</title><style>{CSS}{COMPOSE_CSS}{selected}.slide-context{{font-size:14px;line-height:1.55;color:var(--muted);margin:0 0 14px;max-width:100%;flex-shrink:0}}.closing-slide .summary{{font-size:24px;line-height:1.7}}@media(max-width:700px){{.slide-context{{font-size:14px}}.closing-slide .summary{{font-size:19px}}}}</style></head><body class="mode-{mode}"><header>{header}</header><main>{content}</main><footer>{footer}</footer><script type="application/json" id="chart-spec">{safe_json(spec)}</script><script type="application/json" id="chart-ledger">{safe_json(ledgers)}</script><script>{DECK_JS}</script></body></html>'
+    if credit:
+        footer += f'<p class="palette-credit">{esc(credit)}</p>'
+    if reading == 'brief':
+        footer = toc + toolbar + footer
+    if reading == 'story':
+        footer = toolbar + footer
+    return f'<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="chart-data-sha256" content="{result["sha256"]}"><title>{esc(spec["title"])}</title><style>{CSS}{COMPOSE_CSS}{selected}{reading_css}.slide-context{{font-size:14px;line-height:1.55;color:var(--muted);margin:0 0 14px;max-width:100%;flex-shrink:0}}.closing-slide .summary{{font-size:24px;line-height:1.7}}@media(max-width:700px){{.slide-context{{font-size:14px}}.closing-slide .summary{{font-size:19px}}}}</style></head><body class="mode-{mode}{reading_class}"><header>{header}</header><main>{content}</main><footer>{footer}</footer><script type="application/json" id="chart-spec">{safe_json(spec)}</script><script type="application/json" id="chart-ledger">{safe_json(ledgers)}</script><script>{DECK_JS}</script></body></html>'
 
 
 def main():
@@ -217,12 +317,14 @@ def main():
     parser.add_argument('--mode', choices=['report', 'slides'], default='report')
     parser.add_argument('--out', type=Path, required=True)
     parser.add_argument('--theme')
+    parser.add_argument('--brand-accent', help='Exact #RRGGBB focus color; defaults the base palette to graphite')
+    parser.add_argument('--reading', choices=REPORT_READING_CSS, help='Optional layout for the intended reading task')
     parser.add_argument('--source-out', type=Path, help='Optional exact original source-file copy; inline/download always included')
     args = parser.parse_args()
     try:
         raw = args.spec.read_bytes()
         spec = json.loads(raw.decode('utf-8-sig'))
-        content = build(spec, args.mode, args.theme)
+        content = build(spec, args.mode, args.theme, reading=args.reading, brand_accent=args.brand_accent)
         args.out.parent.mkdir(parents=True, exist_ok=True)
         args.out.write_text(content, encoding='utf-8', newline='\n')
         if args.source_out:

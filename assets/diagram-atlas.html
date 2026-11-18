@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Jee Charts Master 的原创动效图谱，覆盖流程、架构、时间、关系、变形和数据图。">
+<title>Jee Charts Master · 图形与动效图谱</title>
+<style>
+  :root {color-scheme:light;--paper:#f5f5f2;--white:#fff;--ink:#222125;--muted:#5e5b62;--edge:#d9d8d5;--red:#a13936;--red-pale:#f5e2e0;--blue:#3b586e;--black:#27252a;
+    font-family:"Microsoft YaHei UI","PingFang SC",system-ui,sans-serif}
+  * {box-sizing:border-box}
+  body {margin:0;background:var(--paper);color:var(--ink);font-size:15px}
+  a {color:inherit;text-underline-offset:.18em}
+  button,input {font:inherit;color:inherit}
+  button {cursor:pointer}
+  :focus-visible {outline:2px solid var(--red);outline-offset:4px}
+  .mast {display:flex;justify-content:space-between;align-items:center;max-width:1480px;padding:22px 42px;margin:auto;border-bottom:1px solid var(--edge)}
+  .wordmark {display:flex;align-items:center;gap:11px;text-decoration:none;font-weight:750;letter-spacing:.08em}
+  .wordmark::before {content:"";display:inline-block;width:17px;height:17px;border-radius:50%;background:var(--red);box-shadow:inset 0 0 0 4px var(--red),inset 0 0 0 6px var(--paper)}
+  .mast a:last-child {font-size:13px}
+  .intro {max-width:1480px;margin:auto;display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:32px;align-items:end;padding:28px 42px 24px}
+  h1,h2 {margin:0;font-family:"Source Han Serif SC","Noto Serif CJK SC","Songti SC","SimSun",serif;font-weight:650;letter-spacing:-.025em}
+  h1 {font-size:clamp(42px,5.5vw,80px);line-height:1.04}
+  .intro p {line-height:1.7;margin:9px 0 0;color:var(--muted)}
+  .intro .index-stat {border-left:1px solid var(--edge);padding-left:21px;line-height:1.5;padding-bottom:3px}
+  .index-stat b {font-family:Georgia,serif;font-size:34px;color:var(--ink);font-weight:400;display:block}
+  .workspace {max-width:1480px;margin:auto;padding:0 42px 42px;display:grid;grid-template-columns:246px minmax(0,1fr);gap:26px}
+  .index {padding:15px 0 0;border-top:2px solid var(--black);min-width:0}
+  .index label {display:block;padding-bottom:8px;font-size:13px;font-weight:650}
+  .index input {background:#fff;border:1px solid #b9b6ba;border-radius:3px;padding:10px 11px;width:100%}
+  .index nav {margin:14px 0 0;max-height:560px;overflow:auto;scrollbar-color:#aaa8a7 transparent;padding-right:7px}
+  details {padding:0;border-bottom:1px solid var(--edge)}
+  summary {cursor:pointer}
+  .index summary {padding:11px 3px;font-weight:650}
+  .index ol {list-style:none;margin:0;padding:0 0 8px}
+  .index li button {text-align:left;display:block;border:0;background:transparent;width:100%;padding:8px 10px;line-height:1.35;font-size:13px;border-left:3px solid transparent}
+  .index li button:hover {background:#ebebe8}
+  .index li button[aria-current="true"] {border-color:var(--red);background:#eee5e3;color:#812c2a;font-weight:750}
+  article {--ink:#222125;--canvas:#fff;--muted:#5e5b62;--edge:#d9d8d5;--soft:#f4f4f2;--accent:#a13936;--light-accent:#f7e5e3;--steel:#536a7a;--tone0:#3b5668;--tone1:#8d4d46;--tone2:#5e575b;--tone3:#727377;min-width:0;background:var(--canvas);border:1px solid var(--edge);color:var(--ink)}
+  article[data-group="structure"]{--accent:#3b596a;--light-accent:#e1edf1}
+  article[data-group="time"]{--accent:#805228;--light-accent:#f3e8d7}
+  article[data-group="reasoning"]{--accent:#514572;--light-accent:#ebe5f2}
+  article[data-group="editorial"]{--accent:#773850;--light-accent:#f2e2eb}
+  article[data-group="quantity"]{--accent:#235c56;--light-accent:#e1efea;--tone0:#2d6a61;--tone1:#815049}
+  .figure-head {padding:22px 29px 0}
+  .figure-head .category {margin:0 0 9px;display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:700;color:var(--accent)}
+  .figure-head h2 {font-size:clamp(29px,3.6vw,57px);line-height:1.05}
+  .figure-head .claim {margin:11px 0 0;color:var(--muted);line-height:1.48}
+  figure {margin:6px 18px 12px}
+  svg {display:block;width:100%;max-width:900px;margin-inline:auto;height:auto;aspect-ratio:840 / 398;overflow:visible;font-family:inherit;fill:var(--ink);}
+  svg text {font-size:14px}
+  svg .small {font-size:12px}
+  svg .strong {font-weight:700}
+  svg .muted {fill:var(--muted)}
+  svg .wire {fill:none;stroke:var(--steel);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  svg .heavy {stroke-width:6}
+  svg .hair,svg .lifeline {fill:none;stroke:var(--edge);stroke-width:1.25}
+  svg .lifeline {stroke:#87838c;stroke-dasharray:5 5}
+  svg .panel,svg .soft,svg .legacy,svg .decision,svg .focus-panel,svg .boundary {stroke-width:1;stroke:#b9bac0;fill:#f9f9f8}
+  svg .soft {fill:var(--soft)}
+  svg .decision,svg .focus-panel {fill:var(--light-accent);stroke:var(--accent)}
+  svg .legacy {fill:#f5e7dc;stroke:#997759;stroke-dasharray:4 3}
+  svg .boundary {fill:#f8f8f6;stroke:#7d838a;stroke-dasharray:6 5}
+  svg .accent-stroke {stroke:var(--accent)}
+  svg .accent-text {fill:var(--accent)}
+  svg .accent-dot {fill:var(--accent)}
+  svg .ink-dot {fill:var(--steel)}
+  svg .halo {paint-order:stroke;stroke:var(--canvas);stroke-width:4;stroke-linejoin:round}
+  svg .tone-0 {--mark:var(--tone0)}
+  svg .tone-1 {--mark:var(--tone1)}
+  svg .tone-2 {--mark:var(--tone2)}
+  svg .tone-3 {--mark:var(--tone3)}
+  svg .tone-0,svg .tone-1,svg .tone-2,svg .tone-3 {fill:var(--mark)}
+  svg .light-label,svg .white {fill:#fff}
+  svg .tile {stroke:#fff;stroke-width:2;rx:0}
+  svg .negative {fill:#923d3e}
+  svg .flow-band {fill-opacity:.67}
+  svg .interval-track {fill:none;stroke:var(--edge)}
+  svg .heat-cell {fill:var(--tone0)}
+  svg .missing {fill:#fff;stroke:#9b969a;stroke-dasharray:4 3}
+  svg .set-a {fill:#8298ad;fill-opacity:.24;stroke:#536e88}
+  svg .set-b {fill:#cf9a94;fill-opacity:.30;stroke:#995551}
+  svg .radar-fill {fill:var(--accent);fill-opacity:.19}
+  svg .radial-grid {fill:none;stroke:var(--edge);}
+  svg .iso-front {fill:#cad0d2;stroke:#3d505a}
+  svg .iso-side {fill:#a2aeb4;stroke:#3d505a}
+  svg .iso-top {fill:#edf0f3;stroke:#3d505a;stroke-width:1.2}
+  svg .iso-top.tone-1 {fill:#e3d5d6}
+  svg .iso-top.tone-2 {fill:#d6dce7}
+  .figure-foot {border-top:1px solid var(--edge);display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:start;gap:14px;padding:15px 29px 17px;font-size:13px}
+  .figure-foot p {margin:0;line-height:1.62}
+  .figure-foot strong {color:var(--accent);margin-right:.6em}
+  #replay {background:transparent;border:1px solid #aca9af;padding:7px 10px;border-radius:3px;font-size:12px;white-space:nowrap}
+  #replay:disabled {color:var(--muted);cursor:default}
+  #fixture {margin:0 29px 14px;border:0;color:var(--muted);font-size:13px}
+  #fixture pre{max-height:230px;overflow:auto;line-height:1.5;background:var(--soft);padding:14px}
+  .site-foot {max-width:1480px;margin:auto;padding:16px 42px 31px;color:var(--muted);font-size:13px;line-height:1.6}
+  .site-foot a {margin-right:.65em}
+  @media(max-width:800px) {
+    .mast,.intro,.workspace,.site-foot {padding-left:17px;padding-right:17px}
+    .intro {grid-template-columns:1fr;gap:12px}
+    .intro .index-stat {display:none}
+    .workspace {display:flex;flex-direction:column;gap:14px}
+    .index nav {max-height:172px}
+    .figure-head {padding:16px 15px 0}
+    .figure-foot {padding-left:15px;padding-right:15px}
+    figure {margin:6px 8px 12px}
+  }
+  @media print {.index,.mast,.site-foot,#fixture,#replay{display:none}.workspace,.intro{display:block;padding:0}article{border:0}}
+</style>
+</head>
+<body>
+  <header class="mast"><a class="wordmark" href="https://github.com/jigongxian900-dotcom/data-charts-master">Jee Charts Master</a><a href="https://jigongxian900-dotcom.github.io/data-charts-master/">在线总览 ↗</a></header>
+  <section class="intro">
+    <div><h1>图形与动效</h1><p>按问题选图，沿着条件、关系和数值读完一张图。</p></div>
+    <p class="index-stat"><b id="sample-count"></b> 个原创示例 · 六类阅读任务</p>
+  </section>
+  <div class="workspace">
+    <aside class="index">
+      <label for="search">查找图形或业务问题</label>
+      <input id="search" type="search" placeholder="例如：泳道、库存、序列" autocomplete="off">
+      <nav id="index" aria-label="图形目录"></nav>
+      <p id="empty" hidden>没有匹配的图形。</p>
+    </aside>
+    <main>
+      <article id="example">
+        <header class="figure-head">
+          <p class="category"><span id="family"></span><span id="position"></span></p>
+          <h2 id="name"></h2>
+          <p class="claim" id="claim"></p>
+        </header>
+        <figure><svg id="diagram" viewBox="0 0 840 398" role="img" aria-labelledby="name" aria-describedby="claim"></svg></figure>
+        <footer class="figure-foot"><div><p><strong>动效</strong><span id="motion"></span></p><p><strong>选图条件</strong><span id="input"></span></p></div><button id="replay" type="button">再看一遍</button></footer>
+        <details id="fixture"><summary>查看原始示例数据</summary><pre></pre></details>
+      </article>
+      <noscript>启用 JavaScript 后可查看图谱。</noscript>
+    </main>
+  </div>
+  <footer class="site-foot">案例数据均为合成。<a href="https://github.com/jigongxian900-dotcom/data-charts-master/blob/main/references/diagram-atlas.md">选图规则与资料映射</a><a href="https://github.com/larashero3-dotcom/lieflat-diagrams/blob/main/skill/catalog.md">Lieflat Diagrams 目录</a><a href="https://github.com/cathrynlavery/diagram-design#what-it-makes">Diagram Design 图鉴</a></footer>
+  <script>__CHART_MOTION__</script>
+  <script>__ATLAS_DATA__</script>
+  <script>__ATLAS_RENDER__</script>
+  <script>
+    const byId = id => document.getElementById(id);
+    const diagram=byId('diagram'), article=byId('example'), search=byId('search'), index=byId('index'), replay=byId('replay');
+    const motionPreference=matchMedia('(prefers-reduced-motion: reduce)');
+    let current, engine, observer, render, activeGeneration=0;
+    const entries=new Map(atlasEntries.map(entry=>[entry.id,entry]));
+    const buttons=new Map();
+    byId('sample-count').textContent=entries.size;
+
+    function showIndex() {
+      const text=search.value.trim().toLowerCase();
+      const opened=new Set(Array.from(index.querySelectorAll('details[open]'),el=>el.dataset.group));
+      index.replaceChildren();
+      buttons.clear();
+      for(const [key,[title,desc]] of Object.entries(atlasGroups)){
+        const members=atlasEntries.filter(entry=>entry.group===key && [entry.id,entry.title,entry.claim,title,desc].join(' ').toLowerCase().includes(text));
+        if(!members.length) continue;
+        const group=document.createElement('details'), head=document.createElement('summary'), rows=document.createElement('ol');
+        group.dataset.group=key;
+        group.open=Boolean(text||opened.has(key)||current?.group===key||!current && key==='flow');
+        head.textContent=title+' · '+members.length;
+        group.append(head,rows);
+        members.forEach(entry=>{
+          const row=document.createElement('li'),button=document.createElement('button');
+          button.type='button';
+          button.textContent=entry.title;
+          button.dataset.diagram=entry.id;
+          if(entry===current) button.setAttribute('aria-current','true');
+          button.addEventListener('click',()=>select(entry,true));
+          buttons.set(entry.id,button);
+          rows.append(row);
+          row.append(button);
+        });
+        index.append(group);
+      }
+      byId('empty').hidden=index.children.length>0;
+    }
+
+    function start(generation) {
+      observer?.disconnect();
+      if(generation!==activeGeneration||motionPreference.matches) return;
+      engine?.destroy();
+      engine=ChartMotion.create({
+        scene:{progress:{t:0}},
+        paint(scene,info){
+          render(scene.get('progress').t);
+          article.dataset.phase=info.phase;
+        }
+      });
+      engine.to({progress:{t:1}},{duration: current.kind==='sequence'?2040:1560,ease:t=>1-Math.pow(1-t,1.25)});
+    }
+
+    function select(entry,updateHash) {
+      if (entry===current) return;
+      const generation=++activeGeneration;
+      observer?.disconnect();
+      engine?.destroy();
+      engine=null;
+      buttons.get(current?.id)?.removeAttribute('aria-current');
+      current=entry;
+      const button=buttons.get(entry.id);
+      if(button){
+        button.setAttribute('aria-current','true');
+        button.closest('details').open=true;
+      }
+      if(updateHash) history.replaceState(null,'','#'+entry.id);
+      article.dataset.group=entry.group;
+      article.dataset.diagram=entry.id;
+      article.dataset.phase='settled';
+      byId('family').textContent=atlasGroups[entry.group][0];
+      byId('position').textContent=(atlasEntries.indexOf(entry)+1)+' / '+entries.size;
+      byId('name').textContent=entry.title;
+      byId('claim').textContent=entry.claim;
+      byId('input').textContent=entry.input;
+      byId('motion').textContent=entry.motion || diagramMotion[entry.kind];
+      byId('fixture').querySelector('pre').textContent=JSON.stringify(entry.model,null,2);
+      render=buildDiagram(diagram,entry);
+      render(1);
+      if (!motionPreference.matches && 'IntersectionObserver' in window) {
+        observer=new IntersectionObserver(records=>{
+          if(records.some(record=>record.isIntersecting&&record.intersectionRatio>=.52)) start(generation);
+        },{threshold:.52});
+        observer.observe(diagram);
+      }
+    }
+    const route=()=>select(entries.get(location.hash.slice(1)) || entries.get('sequence'),false);
+    byId('replay').addEventListener('click',()=>start(activeGeneration));
+    function syncMotionPreference() {
+      replay.disabled=motionPreference.matches;
+      if(motionPreference.matches){
+        observer?.disconnect();
+        engine?.finish('reduced-motion');
+      }
+    }
+    motionPreference.addEventListener('change',syncMotionPreference);
+    window.addEventListener('hashchange',route);
+    search.addEventListener('input',showIndex);
+    showIndex();
+    route();
+    syncMotionPreference();
+  </script>
+</body>
+</html>

@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>费用申请怎么过审 · 见数流程图</title>
+<style>
+:root{--page:#f7f7f8;--ink:#202127;--muted:#555862;--rule:#ced0d7;--focus:#963447;--serif:"Noto Serif CJK SC","Songti SC",SimSun,Georgia,serif;font:16px/1.55 "Microsoft YaHei","PingFang SC",sans-serif;color:var(--ink);background:var(--page)}
+*{box-sizing:border-box}body,h1,h2,p{margin:0}main{width:min(100%,1460px);padding:0 clamp(18px,5vw,70px) 42px;margin:auto}
+header{border-top:2px solid var(--ink);margin-top:24px;padding:15px 0 18px}
+.kicker{font-size:.85rem;color:var(--muted)}h1{font:700 clamp(36px,5vw,74px)/1.09 var(--serif);letter-spacing:-.035em;margin:6px 0 11px}
+.toolbar{display:flex;gap:9px 24px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:10px 0 8px;border-top:1px solid var(--rule)}
+.toolbar>div{display:flex;gap:8px 17px;flex-wrap:wrap;align-items:center}
+label{display:inline-flex;gap:7px;align-items:center;font-size:.9rem}
+select,button{font:inherit;color:var(--ink);background:transparent}select{border:1px solid var(--rule);padding:4px 7px}
+button{cursor:pointer;border:0;padding:6px 2px;border-bottom:2px solid transparent}
+button:hover{text-decoration:underline;text-underline-offset:3px}
+button[aria-pressed=true]{color:var(--focus);border-color:var(--focus);font-weight:700}
+:focus-visible{outline:2px solid var(--focus);outline-offset:4px}
+.figure{overflow-x:auto;margin:0;border-block:1px solid var(--rule);min-height:220px}
+svg{display:block;width:100%;min-width:650px;height:auto}
+#status{min-height:56px;padding:10px 0 11px;border-bottom:1px solid var(--rule);font-size:.93rem}
+#guide{margin:6px 0 10px;color:var(--muted);font-size:.87rem}
+details{padding:10px 0;border-bottom:1px solid var(--rule);font-size:.89rem}
+summary{cursor:pointer;width:fit-content}
+ol{padding-left:1.6rem;margin:10px 0}
+li+li{margin-top:4px}
+footer{padding:14px 0;color:var(--muted);font-size:.83rem}
+@media print{main{padding:0}.toolbar{display:none}svg{min-width:0}.figure{overflow:visible;break-inside:avoid}}
+</style></head>
+<body><main>
+<header><p class="kicker">Jee Charts Master · 流程与实绩</p><h1>费用申请怎么过审</h1><p id="purpose"></p></header>
+<div class="toolbar">
+<div class="selectors"><label>结构<select id="layout"><option value="decision">决策图</option><option value="lanes">责任泳道</option></select></label>
+<label>风格<select id="style"><option value="editorial">纸面编辑</option><option value="review">审阅蓝图</option><option value="projection">深色投影</option></select></label>
+<button type="button" id="export">导出 SVG</button></div>
+<div id="modes" role="group" aria-label="流程阅读层"></div>
+</div>
+<div class="figure" tabindex="0" aria-label="流程图，窄窗可横向滚动" id="canvas"></div>
+<p id="status" role="status"></p><p id="guide"></p>
+<details><summary>查看规则与责任</summary><ol id="rules"></ol></details>
+<details id="ledger"><summary>查看实际路径记录</summary><ol id="records"></ol></details>
+<footer id="source"></footer>
+</main>
+<script type="application/json" id="model">{"title": "费用申请怎么过审", "purpose": "同一流程分别回答审批怎么走、由谁接手，以及哪些申请实际回到补件。", "source": "原创合成。每组路径代表互不重叠的申请，口径以观察期末状态为准。", "period": "11 月首周提交，状态截至 11 月 15 日", "unit": "笔", "roles": ["申请人", "预算岗", "部门负责人", "财务"], "nodes": [{"id": "submit", "label": "提交申请", "role": "申请人", "stage": 0, "track": 0, "kind": "start"}, {"id": "budget", "label": "材料齐吗", "role": "预算岗", "stage": 1, "track": 0, "kind": "decision"}, {"id": "revise", "label": "补件", "role": "申请人", "stage": 2, "track": 1, "kind": "action"}, {"id": "approve", "label": "负责人同意吗", "role": "部门负责人", "stage": 2, "track": 0, "kind": "decision"}, {"id": "account", "label": "核对并入账", "role": "财务", "stage": 3, "track": 0, "kind": "action"}, {"id": "reject", "label": "驳回结案", "role": "部门负责人", "stage": 3, "track": 1, "kind": "end"}, {"id": "close", "label": "完成入账", "role": "财务", "stage": 4, "track": 0, "kind": "end"}], "edges": [{"from": "submit", "to": "budget"}, {"from": "budget", "to": "approve", "label": "齐全"}, {"from": "budget", "to": "revise", "label": "缺材料"}, {"from": "revise", "to": "budget", "label": "补齐重审"}, {"from": "approve", "to": "account", "label": "同意"}, {"from": "approve", "to": "reject", "label": "不同意"}, {"from": "account", "to": "close"}], "focus_node": "revise", "observations": [{"nodes": ["submit", "budget", "approve", "account", "close"], "count": 40, "state": "closed"}, {"nodes": ["submit", "budget", "revise", "budget", "approve", "account", "close"], "count": 10, "state": "closed"}, {"nodes": ["submit", "budget", "approve", "reject"], "count": 7, "state": "closed"}, {"nodes": ["submit", "budget", "revise", "budget", "approve", "reject"], "count": 3, "state": "closed"}, {"nodes": ["submit", "budget", "revise"], "count": 5, "state": "open"}]}</script>
+<script>/* ChartMotion 1.0.1 | optional, dependency-free scene transitions | SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0 */
+(function (root, factory) {
+  'use strict';
+  var api = factory();
+  if (typeof module === 'object' && module.exports) module.exports = api;
+  else root.ChartMotion = api;
+})(typeof globalThis !== 'undefined' ? globalThis : this, function () {
+  'use strict';
+
+  function clone(value, path) {
+    path = path || 'geometry';
+    if (typeof value === 'number') {
+      if (!Number.isFinite(value)) throw new TypeError(path + ': expected a finite number');
+      return value;
+    }
+    if (value === null || typeof value === 'string' || typeof value === 'boolean') return value;
+    if (Array.isArray(value)) {
+      for (var i = 0; i < value.length; i += 1) {
+        if (!Object.prototype.hasOwnProperty.call(value, i)) throw new TypeError(path + ': sparse arrays are not supported');
+      }
+      return value.map(function (v, index) { return clone(v, path + '[' + index + ']'); });
+    }
+    if (value && (Object.getPrototypeOf(value) === Object.prototype || Object.getPrototypeOf(value) === null)) {
+      var copy = Object.create(null);
+      Object.keys(value).forEach(function (key) { copy[key] = clone(value[key], path + '.' + key); });
+      return copy;
+    }
+    throw new TypeError(path + ': expected numbers, static strings/booleans/null, arrays or plain objects');
+  }
+  function scene(input) {
+    var result = new Map();
+    var entries;
+    if (input instanceof Map) entries = input.entries();
+    else if (input && (Object.getPrototypeOf(input) === Object.prototype || Object.getPrototypeOf(input) === null)) entries = Object.entries(input);
+    else throw new TypeError('scene must be a Map or plain object keyed by stable string IDs');
+    for (var pair of entries) {
+      if (typeof pair[0] !== 'string' || !pair[0]) throw new TypeError('scene IDs must be nonempty strings');
+      result.set(pair[0], clone(pair[1], pair[0]));
+    }
+    return result;
+  }
+  function equal(a, b) {
+    if (a === b) return true;
+    if (!a || !b || typeof a !== 'object' || typeof b !== 'object' || Array.isArray(a) !== Array.isArray(b)) return false;
+    var ak = Object.keys(a), bk = Object.keys(b);
+    return ak.length === bk.length && ak.every(function (key) { return Object.prototype.hasOwnProperty.call(b, key) && equal(a[key], b[key]); });
+  }
+  function equalScene(a, b) {
+    return a.size === b.size && Array.from(a).every(function (pair) { return b.has(pair[0]) && equal(pair[1], b.get(pair[0])); });
+  }
+  function compatible(a, b, path) {
+    if (typeof a === 'number' && typeof b === 'number') return;
+    if (a === b) return;
+    if (a && b && typeof a === 'object' && typeof b === 'object' && Array.isArray(a) === Array.isArray(b)) {
+      var ak = Object.keys(a), bk = Object.keys(b);
+      if (ak.length === bk.length && ak.every(function (k) { return Object.prototype.hasOwnProperty.call(b, k); })) {
+        ak.forEach(function (k) { compatible(a[k], b[k], path + '.' + k); });
+        return;
+      }
+    }
+    throw new TypeError(path + ': incompatible geometry; supply interpolate or make an explicit staged transition (SVG path strings are never number-morphed)');
+  }
+  function interpolateNumbers(a, b, t) {
+    if (typeof a === 'number' && typeof b === 'number') return a * (1 - t) + b * t;
+    if (a === b) return a;
+    var output = Array.isArray(a) ? [] : Object.create(null);
+    Object.keys(a).forEach(function (k) { output[k] = interpolateNumbers(a[k], b[k], t); });
+    return output;
+  }
+  function create(options) {
+    options = options || {};
+    if (typeof options.paint !== 'function') throw new TypeError('paint is required');
+    var host = typeof window !== 'undefined' ? window : null;
+    var env = options.environment || {};
+    var now = env.now || function () { return typeof performance !== 'undefined' ? performance.now() : Date.now(); };
+    var raf = env.requestFrame || (host && host.requestAnimationFrame ? host.requestAnimationFrame.bind(host) : function (fn) { return setTimeout(fn, 16); });
+    var caf = env.cancelFrame || (host && host.cancelAnimationFrame ? host.cancelAnimationFrame.bind(host) : clearTimeout);
+    var eventTarget = Object.prototype.hasOwnProperty.call(env, 'eventTarget') ? env.eventTarget : host;
+    var media = Object.prototype.hasOwnProperty.call(env, 'mediaQuery') ? env.mediaQuery : (host && host.matchMedia ? host.matchMedia('(prefers-reduced-motion: reduce)') : null);
+    var current = scene(options.scene || {}), destination = scene(current);
+    var job = null, pending = null, frame = null, generation = 0, destroyed = false, stableDepth = 0;
+    var reduced = !!(media && media.matches), lastMeta = options.meta, visiblePhase = 'settled', visibleProgress = 1;
+    function alive() { if (destroyed) throw new Error('ChartMotion has been destroyed'); }
+    function invalidate() {
+      generation += 1;
+      if (frame !== null) caf(frame);
+      frame = null;
+      job = null;
+      return generation;
+    }
+    function info(phase, progress, reason, active) {
+      return { phase: phase, progress: progress, reason: reason, meta: active ? active.meta : lastMeta,
+        entering: active ? active.entering.slice() : [], exiting: active ? active.exiting.slice() : [] };
+    }
+    function paint(phase, progress, reason, active) {
+      visiblePhase = phase; visibleProgress = progress;
+      options.paint(scene(current), info(phase, progress, reason, active));
+    }
+    function settle(active, reason) {
+      var token = invalidate();
+      pending = null;
+      current = scene(active.target);
+      destination = scene(active.target);
+      lastMeta = active.meta;
+      paint('settled', 1, reason, active);
+      if (!destroyed && token === generation && typeof options.onSettled === 'function') options.onSettled(scene(current), info('settled', 1, reason, active));
+    }
+    function finish(reason) {
+      alive();
+      if (job || pending) settle(job || pending, reason || 'finish');
+      return scene(current);
+    }
+    function tick(token, active) {
+      if (destroyed || token !== generation || job !== active) return;
+      frame = null;
+      try {
+        var elapsed = Math.max(0, now() - active.start);
+        var progress = Math.min(1, elapsed / active.duration);
+        if (progress >= 1) { settle(active, 'complete'); return; }
+        var eased = active.ease(progress);
+        if (destroyed || generation !== token || job !== active) return;
+        if (!Number.isFinite(eased)) throw new TypeError('ease must return a finite number');
+        eased = Math.max(0, Math.min(1, eased));
+        var next = new Map();
+        active.from.forEach(function (from, id) {
+          if (destroyed || generation !== token || job !== active) return;
+          var value = active.interpolate ? active.interpolate(clone(from), clone(active.to.get(id)), eased, id,
+            { progress: progress, meta: active.meta, entering: active.entering.includes(id), exiting: active.exiting.includes(id) }) : interpolateNumbers(from, active.to.get(id), eased);
+          next.set(id, clone(value, id));
+        });
+        if (destroyed || generation !== token || job !== active) return;
+        current = next;
+        active.progress = progress;
+        paint('transition', progress, 'frame', active);
+        if (!destroyed && generation === token && job === active) frame = raf(function () { tick(token, active); });
+      } catch (error) {
+        // Never erase a replacement transition created by a reentrant author callback.
+        if (generation === token) invalidate();
+        throw error;
+      }
+    }
+    function to(input, settings) {
+      alive();
+      settings = settings || {};
+      var target = scene(input);
+      var duration = settings.duration === undefined ? (options.duration === undefined ? 320 : options.duration) : settings.duration;
+      if (!Number.isFinite(duration) || duration < 0) throw new RangeError('duration must be a finite nonnegative number');
+      var custom = settings.interpolate || options.interpolate;
+      if (custom !== undefined && typeof custom !== 'function') throw new TypeError('interpolate must be a function');
+      var ease = settings.ease || options.ease || function (t) { return t; };
+      if (typeof ease !== 'function') throw new TypeError('ease must be a function');
+      var from = scene(current), aligned = new Map(), entering = [], exiting = [];
+      var preparationGeneration = generation;
+      var enter = settings.enter || options.enter, exit = settings.exit || options.exit;
+      target.forEach(function (value, id) {
+        if (!from.has(id)) { entering.push(id); from.set(id, enter ? clone(enter(id, clone(value)), id) : clone(value)); }
+        aligned.set(id, clone(value));
+      });
+      Array.from(from).forEach(function (pair) {
+        if (!target.has(pair[0])) {
+          exiting.push(pair[0]);
+          if (exit) aligned.set(pair[0], clone(exit(pair[0], clone(pair[1])), pair[0]));
+          else from.delete(pair[0]); // Explicit default: membership switches immediately, never by index.
+        }
+      });
+      if (destroyed || generation !== preparationGeneration) return api;
+      if (!custom) from.forEach(function (value, id) { compatible(value, aligned.get(id), id); });
+      // Validate first; an invalid request must not interrupt the current animation.
+      var token = invalidate();
+      destination = scene(target);
+      var active = { from: from, to: aligned, target: target, duration: duration, start: now(), progress: 0, ease: ease,
+        interpolate: custom, entering: entering, exiting: exiting, meta: settings.meta === undefined ? options.meta : settings.meta };
+      job = active;
+      pending = active;
+      lastMeta = active.meta;
+      try {
+        if (typeof options.onStart === 'function') options.onStart(scene(current), scene(target), info('start', 0, 'to', active));
+      } catch (error) {
+        if (generation === token) invalidate();
+        throw error;
+      }
+      if (destroyed || generation !== token || job !== active) return api;
+      if (reduced || stableDepth || duration === 0 || equalScene(current, target)) {
+        settle(active, reduced ? 'reduced-motion' : stableDepth ? 'stable-frame' : duration === 0 ? 'immediate' : 'unchanged');
+        return api;
+      }
+      current = scene(from);
+      try { paint('transition', 0, 'start', active); }
+      catch (error) {
+        if (generation === token) invalidate();
+        throw error;
+      }
+      if (!destroyed && generation === token && job === active) frame = raf(function () { tick(token, active); });
+      return api;
+    }
+    function withStableFrame(callback) {
+      alive();
+      if (typeof callback !== 'function') throw new TypeError('callback is required');
+      stableDepth += 1;
+      try {
+        finish('export');
+        if (job || pending) throw new Error('Stable frame was interrupted by an author callback; finish the retained target before exporting');
+        return callback(scene(current));
+      }
+      finally { stableDepth -= 1; }
+    }
+    function mediaChange(event) {
+      reduced = !!event.matches;
+      if (!destroyed && reduced) finish('reduced-motion');
+    }
+    function beforePrint() { if (!destroyed) withStableFrame(function () {}); }
+    function afterPrint() { if (!destroyed) paint(visiblePhase, visibleProgress, 'afterprint', job); }
+    if (media) {
+      if (media.addEventListener) media.addEventListener('change', mediaChange);
+      else if (media.addListener) media.addListener(mediaChange);
+    }
+    if (eventTarget && eventTarget.addEventListener) {
+      eventTarget.addEventListener('beforeprint', beforePrint);
+      eventTarget.addEventListener('afterprint', afterPrint);
+    }
+    var api = {
+      to: to, transition: to, finish: finish,
+      cancel: function () {
+        alive();
+        var active = job;
+        invalidate();
+        if (active) paint('cancelled', active.progress, 'cancel', active);
+        return scene(current);
+      },
+      snapshot: function () { return scene(current); }, target: function () { return scene(destination); },
+      isRunning: function () { return !!job; }, withStableFrame: withStableFrame,
+      destroy: function () {
+        if (destroyed) return;
+        invalidate(); pending = null; destroyed = true;
+        if (media) {
+          if (media.removeEventListener) media.removeEventListener('change', mediaChange);
+          else if (media.removeListener) media.removeListener(mediaChange);
+        }
+        if (eventTarget && eventTarget.removeEventListener) {
+          eventTarget.removeEventListener('beforeprint', beforePrint);
+          eventTarget.removeEventListener('afterprint', afterPrint);
+        }
+      }
+    };
+    try { paint('settled', 1, 'initial', null); }
+    catch (error) { api.destroy(); throw error; }
+    return api;
+  }
+  function captureFocus(root, attribute) {
+    attribute = attribute || 'data-focus-key';
+    var active = root && root.ownerDocument && root.ownerDocument.activeElement;
+    if (!active || !root.contains(active) || !active.hasAttribute(attribute)) return null;
+    var token = { key: active.getAttribute(attribute), attribute: attribute };
+    if (typeof active.selectionStart === 'number') {
+      token.start = active.selectionStart; token.end = active.selectionEnd; token.direction = active.selectionDirection;
+    }
+    return token;
+  }
+  function restoreFocus(root, token) {
+    if (!root || !token) return false;
+    var nodes = Array.from(root.querySelectorAll('*'));
+    if (root.getAttribute) nodes.unshift(root);
+    var matches = nodes.filter(function (node) { return node.getAttribute(token.attribute) === token.key; });
+    if (matches.length !== 1 || typeof matches[0].focus !== 'function' || matches[0].disabled) return false;
+    var node = matches[0];
+    node.focus({ preventScroll: true });
+    if (typeof token.start === 'number' && node.setSelectionRange) {
+      try { node.setSelectionRange(token.start, token.end, token.direction); } catch (_) { /* non-text controls */ }
+    }
+    return root.ownerDocument.activeElement === node;
+  }
+  function preserveFocus(root, render) {
+    var token = captureFocus(root);
+    var result = render();
+    restoreFocus(root, token);
+    return result;
+  }
+  return { version: '1.0.1', create: create, captureFocus: captureFocus, restoreFocus: restoreFocus, preserveFocus: preserveFocus };
+});
+</script><script>"use strict";
+const model=JSON.parse(document.getElementById("model").textContent);
+const observations=model.observations||[];
+const nodesById=new Map(model.nodes.map(n=>[n.id,n]));
+const svgNS="http://www.w3.org/2000/svg";
+const reduced=matchMedia("(prefers-reduced-motion: reduce)");
+const $=id=>document.getElementById(id);
+const formats={
+  editorial:{paper:"#f7f7f8",node:"#ffffff",ink:"#24242b",muted:"#53545d",rule:"#676873",light:"#dadbe1",accent:"#963447",focus:"#f2e4e8",band:"#f1f1f3",radius:0,serif:true},
+  review:{paper:"#f3f7fa",node:"#ffffff",ink:"#172d40",muted:"#4a5e6d",rule:"#576d7f",light:"#cbd6df",accent:"#1c6284",focus:"#dcebf3",band:"#eaf1f6",radius:4,serif:false},
+  projection:{paper:"#1e2025",node:"#2b2e35",ink:"#fcf3e4",muted:"#d0cad1",rule:"#b0a7b2",light:"#454650",accent:"#ffc38a",focus:"#44362d",band:"#262830",radius:1,serif:false}
+};
+const unit=model.unit||"";
+const numeric=new Intl.NumberFormat("zh-CN");
+const quantity=n=>numeric.format(n)+" "+unit;
+const width=144,height=62;
+const stageCount=1+Math.max(...model.nodes.map(n=>n.stage));
+let layer="rules",engine,svg;
+function add(parent,name,attributes,text){
+  const elem=document.createElementNS(svgNS,name);
+  for(const [key,value] of Object.entries(attributes))elem.setAttribute(key,value);
+  if(text!==undefined)elem.textContent=text;
+  parent.append(elem);return elem;
+}
+function txt(parent,x,y,text,fill,settings={}){
+  return add(parent,"text",{x,y,fill,...settings},text);
+}
+function wrapLabel(label,size){
+  const chars=Array.from(label);
+  return Array.from({length:Math.ceil(chars.length/size)},(_,i)=>chars.slice(i*size,(i+1)*size).join(""));
+}
+function setTextList(id,values){
+  for(const value of values){
+    const row=document.createElement("li");row.textContent=value;$(id).append(row);
+  }
+}
+function linkKey(a,b){return a+":"+b;}
+const routeData=observations.map(item=>({
+  ...item, byEdge:new Set(item.nodes.slice(1).map((id,i)=>linkKey(item.nodes[i],id)))
+}));
+const coverage=items=>items.reduce((sum,path)=>sum+path.count,0);
+const summaries={
+  rules:"线和节点表示流程规则。端点、分支条件和负责人可逐项核对。",
+  data:"已记录 "+quantity(coverage(routeData))+"。结案 "+quantity(coverage(routeData.filter(p=>p.state==="closed")))+
+       "，未结 "+quantity(coverage(routeData.filter(p=>p.state==="open")))+"。同一申请反复经过同一条边，边上只计一笔。",
+};
+if(model.focus_node){
+  const scoped=routeData.filter(p=>p.nodes.includes(model.focus_node));
+  summaries.focus="实际经过「"+nodesById.get(model.focus_node).label+"」的申请有 "+quantity(coverage(scoped))+
+    "，其中结案 "+quantity(coverage(scoped.filter(p=>p.state==="closed")))+"、未结 "+
+    quantity(coverage(scoped.filter(p=>p.state==="open")))+"。未结路径停在最后已知节点。";
+}
+$("purpose").textContent=model.purpose;
+$("source").textContent=(model.period?model.period+"。":"")+model.source;
+setTextList("rules",model.edges.map(edge=>{
+  const a=nodesById.get(edge.from),b=nodesById.get(edge.to);
+  return a.label+"（"+a.role+"） → "+b.label+"（"+b.role+"）"+(edge.label?" · "+edge.label:"");
+}));
+$("ledger").hidden=routeData.length===0;
+setTextList("records",routeData.map(p=>p.nodes.map(id=>nodesById.get(id).label).join(" → ")+
+  " · "+quantity(p.count)+" · "+(p.state==="closed"?"已结":"未结")));
+const menu=[["rules","读流程规则"]];
+if(routeData.length){
+  menu.push(["data","叠加实际路径"]);
+  if(model.focus_node)menu.push(["focus","追踪「"+nodesById.get(model.focus_node).label+"」"]);
+}
+const controls=menu.map(([id,label])=>{
+  const button=document.createElement("button");button.type="button";button.textContent=label;
+  button.addEventListener("click",()=>{if(layer!==id){layer=id;updateLayer(true);}});
+  $("modes").append(button);return {id,button};
+});
+function position(lanes){
+  const left=lanes?165:106;
+  const stepX=196,stepY=105;
+  const last=lanes?model.roles.length-1:Math.max(...model.nodes.map(n=>n.track));
+  const graphWidth=left+(stageCount-1)*stepX+106;
+  const graphHeight=134+last*stepY;
+  const loc=new Map(model.nodes.map(n=>[n.id,{
+    x:left+n.stage*stepX,y:65+(lanes?model.roles.indexOf(n.role):n.track)*stepY
+  }]));
+  return {left,stepY,graphWidth,graphHeight,loc};
+}
+function connection(a,b,actualIndex,pairedReturn){
+  const same=a.x===b.x,forward=b.x>a.x;
+  if(same){
+    const sign=b.y>a.y?1:-1;
+    const offset=actualIndex%2===0?-16:16;
+    const xx=a.x+offset,ya=a.y+sign*height/2,yb=b.y-sign*(height/2+3);
+    return {d:"M"+xx+" "+ya+" V"+yb,x:xx+8,y:(ya+yb)/2-3,
+      anchor:"start",nx:xx-8,ny:(ya+yb)/2+15,na:"end"};
+  }
+  const sign=forward?1:-1;
+  const x0=a.x+sign*width/2,x1=b.x-sign*(width/2+3);
+  const delta=forward?15:-27;
+  const sameTrack=Math.abs(a.y-b.y)<1;
+  const reverseOffset=forward?0:16;
+  const y0=a.y+reverseOffset,y1=b.y+reverseOffset;
+  if(sameTrack){
+    const near=(x0+x1)/2;
+    const side=forward?-1:1;
+    return {d:"M"+x0+" "+y0+" H"+x1,x:near,y:y0+side*11,
+      anchor:"middle",nx:near,ny:y0+side*27,na:"middle"};
+  }
+  const mid=forward?x0+(x1-x0)*.46-7:x0+(x1-x0)*.42+9;
+  const center=(y0+y1)/2;
+  if(pairedReturn){
+    const labelX=mid+(forward?-10:10);
+    const anchor=forward?"end":"start";
+    return {d:"M"+x0+" "+y0+" H"+mid+" V"+y1+" H"+x1,x:labelX,y:center-(forward?4:13),
+      anchor,nx:labelX,ny:center+(forward?13:4),na:anchor};
+  }
+  const offset=mid+delta;
+  return {d:"M"+x0+" "+y0+" H"+mid+" V"+y1+" H"+x1,x:offset,y:center-(forward?7:27),
+    anchor:forward?"start":"end",nx:offset,ny:center+(forward?13:-10),na:forward?"start":"end"};
+}
+function nodeShape(parent,item,p,colors){
+  const {x,y}=p,h=height/2,w=width/2;
+  const target=item.id===model.focus_node;
+  const frame={fill:target?colors.focus:colors.node,stroke:target?colors.accent:colors.rule,"stroke-width":target?1.8:1.2};
+  const g=add(parent,"g",{"data-node":item.id});
+  add(g,"title",{},item.label+" · "+item.role);
+  if(item.kind==="decision"){
+    const cut=14;
+    const points=[[x-w+cut,y-h],[x+w-cut,y-h],[x+w,y],[x+w-cut,y+h],[x-w+cut,y+h],[x-w,y]];
+    add(g,"polygon",{points:points.map(pair=>pair.join(",")).join(" "),...frame});
+  }else add(g,"rect",{x:x-w,y:y-h,width,height,rx:item.kind==="action"?colors.radius:16,...frame});
+  const label=wrapLabel(item.label,9);
+  label.forEach((line,i)=>txt(g,x,y-(label.length-1)*8+i*17-2,line,colors.ink,{
+    "font-size":14,"font-weight":700,"text-anchor":"middle"}));
+  txt(g,x,y+(label.length===1?17:23),item.role,colors.muted,{"font-size":11,"text-anchor":"middle"});
+}
+function observedLayer(){
+  const items=layer==="focus"?routeData.filter(p=>p.nodes.includes(model.focus_node)):routeData;
+  return new Map(model.edges.map(e=>{
+    const key=linkKey(e.from,e.to);
+    return [key,coverage(items.filter(p=>p.byEdge.has(key)))];
+  }));
+}
+let renderEdges,paths;
+function draw(){
+  engine?.destroy();
+  const lanes=$("layout").value==="lanes";
+  const colors=formats[$("style").value];
+  const {graphWidth,graphHeight,stepY,loc}=position(lanes);
+  $("canvas").replaceChildren();
+  svg=add($("canvas"),"svg",{viewBox:"0 0 "+graphWidth+" "+graphHeight,role:"img",
+    "aria-labelledby":"svg-title svg-description","font-family":colors.serif?"SimSun, Georgia, serif":"Microsoft YaHei, sans-serif"});
+  add(svg,"title",{id:"svg-title"},model.title);
+  add(svg,"desc",{id:"svg-description"},summaries[layer]+" "+model.source);
+  add(svg,"rect",{x:0,y:0,width:graphWidth,height:graphHeight,fill:colors.paper});
+  if(lanes)for(const [i,role] of model.roles.entries()){
+    const y=13+i*stepY;
+    if(i%2===0)add(svg,"rect",{x:0,y,width:graphWidth,height:stepY,fill:colors.band});
+    add(svg,"line",{x1:0,y1:y+stepY,x2:graphWidth,y2:y+stepY,stroke:colors.light});
+    wrapLabel(role,7).forEach((line,j)=>txt(svg,14,y+45+j*17,line,colors.muted,{"font-size":13,"font-weight":700}));
+  }
+  const defs=add(svg,"defs",{});
+  const arrow=add(defs,"marker",{id:"wf-arrow",viewBox:"0 0 10 10",refX:8.7,refY:5,
+    markerWidth:8,markerHeight:8,orient:"auto",markerUnits:"userSpaceOnUse"});
+  add(arrow,"path",{d:"M0 0 L10 5 L0 10 z",fill:colors.rule});
+  const declared=new Set(model.edges.map(e=>linkKey(e.from,e.to)));
+  paths=model.edges.map((e,i)=>({...e,i,geo:connection(loc.get(e.from),loc.get(e.to),i,
+    declared.has(linkKey(e.to,e.from)))}));
+  for(const e of paths)add(svg,"path",{d:e.geo.d,fill:"none",stroke:colors.rule,"stroke-width":1.25,"marker-end":"url(#wf-arrow)"});
+  renderEdges=new Map();
+  for(const e of paths){
+    const g=e.geo,id=linkKey(e.from,e.to);
+    const trace=add(svg,"path",{d:g.d,fill:"none",stroke:colors.accent,"stroke-width":2.8,pathLength:1000,
+      "stroke-linecap":"round","stroke-dasharray":"1000 1000","data-link":id});
+    const chipStyle={stroke:colors.paper,"stroke-width":5,"paint-order":"stroke",
+      "font-family":"Microsoft YaHei, sans-serif","stroke-linejoin":"round"};
+    const text=txt(svg,g.nx,g.ny,"",colors.accent,{"font-size":12,"font-weight":700,"text-anchor":g.na,...chipStyle});
+    if(e.label)txt(svg,g.x,g.y,e.label,colors.ink,{"font-size":12,"text-anchor":g.anchor,...chipStyle});
+    renderEdges.set(id,{trace,text,i:e.i});
+  }
+  for(const n of model.nodes)nodeShape(svg,n,loc.get(n.id),colors);
+  const scene=Object.fromEntries(paths.map(e=>[linkKey(e.from,e.to),{p:0,alpha:0,readout:0}]));
+  engine=ChartMotion.create({scene,duration:910,paint(current,info){
+    const busy=info.phase==="start"||info.phase==="transition";
+    svg.dataset.phase=info.phase;
+    for(const [id,geo] of current){
+      const item=renderEdges.get(id);
+      const shift=Math.min(.32,item.i*.045);
+      const progress=Math.max(0,Math.min(1,(geo.p-shift)/(.96-shift)));
+      item.trace.setAttribute("stroke-dashoffset",1000*(1-progress));item.trace.setAttribute("opacity",geo.alpha);
+      item.text.setAttribute("opacity",busy?"0":geo.readout);
+    }
+  }});
+  updateLayer(false);
+}
+function updateLayer(animated){
+  const counts=observedLayer();
+  const target={};
+  for(const [id,item] of renderEdges){
+    const count=counts.get(id);
+    item.text.textContent=quantity(count);
+    const active=layer!=="rules"&&count>0;
+    target[id]={p:active?1:0,alpha:active?1:0,readout:layer==="rules"?0:count>0?1:.65};
+  }
+  controls.forEach(({id,button})=>button.setAttribute("aria-pressed",String(layer===id)));
+  $("status").textContent=summaries[layer];
+  $("guide").textContent=layer==="rules"?(routeData.length?"选择“叠加实际路径”核对发生过的申请。":"按规则图核对职责和分支。"):
+    "箭头方向属于规则。强调线显示已有记录。数字为当前范围内经过该边的申请数。";
+  const desc=svg.querySelector("desc");desc.textContent=summaries[layer]+" "+model.source;
+  engine.to(target,{duration:animated&&!reduced.matches?910:0,meta:layer});
+}
+for(const id of ["layout","style"])$(id).addEventListener("change",draw);
+$("export").addEventListener("click",()=>{
+  const serialized=engine.withStableFrame(()=>{
+    const node=svg.cloneNode(true);
+    node.removeAttribute("data-phase");
+    const [, , width, height]=node.getAttribute("viewBox").split(" ");
+    node.setAttribute("width",width);node.setAttribute("height",height);
+    return new XMLSerializer().serializeToString(node);
+  });
+  const url=URL.createObjectURL(new Blob([serialized],{type:"image/svg+xml"}));
+  const link=document.createElement("a");link.href=url;
+  link.download="workflow-"+$("layout").value+"-"+$("style").value+".svg";
+  link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+});
+draw();
+</script>
+<noscript>启用脚本以查看流程图。源模型保存在文件中。</noscript>
+</body></html>
