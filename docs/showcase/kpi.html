@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>园区充电周报 · 见数</title>
+<style>
+ :root{color-scheme:light;--paper:#fbf8f5;--surface:#fffdfa;--ink:#292126;--minor:#665a5e;--rule:#ded4d3;--accent:#98263d;--good:#2d6461;--alert:#9b332a}
+ *{box-sizing:border-box}
+ body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.52 "Microsoft YaHei","PingFang SC",sans-serif}
+ main{width:min(1264px,calc(100% - 80px));margin:0 auto;padding-bottom:24px}
+ a{color:var(--accent);text-underline-offset:4px}
+ h1,h2,h3,p{margin:0}
+ h1{font:700 clamp(34px,4.2vw,52px)/1.1 "Songti SC","SimSun",Georgia,serif;margin-bottom:7px}
+ h2{font-size:20px;line-height:1.25}
+ h3{font-size:15px;line-height:1.32}
+ .page-header{display:flex;justify-content:space-between;align-items:end;gap:14px;flex-wrap:wrap;border-top:5px solid var(--accent);padding:14px 0 16px}
+ .muted{color:var(--minor)}
+ .controls,.view-buttons,.tools{display:flex;align-items:center;flex-wrap:wrap;gap:7px}
+ .controls{gap:12px}
+ .navigation{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);flex-wrap:wrap}
+ button,select{font:inherit;font-size:13px;color:var(--ink);background:var(--surface);border:1px solid #a18e92;border-radius:0;padding:5px 8px;cursor:pointer}
+ button:focus-visible,select:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+ button[aria-pressed="true"]{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+ .recommendation{font-size:13px;color:var(--minor)}
+ .mast-context{font-size:13px}
+ .action{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:10px 20px;padding:11px 0}
+ .action .hint{font-size:13px;color:var(--minor);margin-top:3px}
+ .action-title{font:700 clamp(21px,2.65vw,33px)/1.22 "Songti SC","SimSun",Georgia,serif}
+ .alert{color:var(--alert)}
+ .good{color:var(--good)}
+ .grid{display:grid;gap:12px;align-items:start}
+ .chart{width:100%;height:auto;display:block;color:var(--minor);overflow:visible}
+ .chart text{font:11px "Microsoft YaHei",sans-serif;fill:currentColor;font-variant-numeric:tabular-nums}
+ .scale{stroke:var(--rule);stroke-width:1;fill:none}
+ .guide{stroke:currentColor;stroke-width:1;stroke-dasharray:4 4;fill:none}
+ .signal{stroke:var(--accent);fill:none;stroke-width:2.4}
+ .point{fill:var(--accent);stroke:var(--surface);stroke-width:1}
+ .dotref{stroke:var(--minor);fill:var(--surface);stroke-width:1.1}
+ .fill-main{fill:var(--accent)}
+ .fill-soft{fill:#d7c8c7}
+ .fill-other{fill:#8d777c}
+ .figure-note{font-size:12px;color:var(--minor);margin:2px 0 0}
+ .metric-value{font:700 38px/.99 Georgia,"Microsoft YaHei",serif;letter-spacing:-.045em;white-space:nowrap}
+ .metric-value span{font:500 13px "Microsoft YaHei",sans-serif;color:var(--minor);margin-left:5px;letter-spacing:0}
+ .metric-reading{padding:5px 0 2px}
+ .metric-detail{font-size:12px;color:var(--minor);margin:4px 0 0}
+ .evidence-figure{margin:4px 0 0}
+ .metric{min-width:0;border-top:1px solid var(--rule);padding:9px 12px;background:var(--surface)}
+ .priority-grid{grid-template-columns:minmax(0,1.75fr) minmax(285px,1fr);gap:13px}
+ .peak-hero{padding:14px 19px 11px;background:#2c2229;color:#fff8f3;border-top:4px solid #b73f55;--minor:#e0cfce;--accent:#ef99aa;--surface:#2c2229;--rule:#64555a}
+ .peak-hero .metric-value{font-size:clamp(43px,6.2vw,80px)}
+ .peak-hero .alert{color:#ffcca9}
+ .peak-hero .metric-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+ .peak-hero .chart{max-height:155px}
+ .support{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+ .support .metric{display:grid;grid-template-columns:minmax(105px,.88fr) minmax(105px,1.12fr);align-items:center;gap:5px 10px;background:var(--paper);border:0}
+ .support .metric-value{font-size:30px}
+ .support .chart text{font-size:14px}
+ .overview-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border:1px solid var(--rule);background:var(--surface)}
+ .overview-grid .metric{border:0;border-right:1px solid var(--rule);min-height:188px}
+ .overview-grid .metric:last-child{border:0}
+ .overview-grid .metric:first-child{box-shadow:inset 0 3px var(--accent)}
+ .overview-grid .evidence-figure{min-height:84px;display:grid;grid-template-rows:64px auto;place-items:center;margin-top:5px}
+ .overview-grid .chart{max-height:64px}
+ .drill-grid{grid-template-columns:minmax(0,1.28fr) minmax(0,1fr);gap:14px}
+ .drill-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .drill-cards .metric{border:1px solid var(--rule);padding:9px 11px 5px}
+ .drill-cards .metric:first-child{border-top:3px solid var(--accent)}
+ .drill-cards .metric-value{font-size:33px}
+ .drill-cards .chart{max-height:54px}
+ .site-panel{border-top:1px solid var(--ink);margin-top:12px;padding:7px 0 0}
+ .drill-grid .site-panel{margin-top:0;background:var(--surface);padding:9px 12px;border-top:3px solid var(--accent)}
+ .site-head{display:flex;align-items:baseline;justify-content:space-between;gap:8px 16px;flex-wrap:wrap}
+ .site-head p{font-size:12px}
+ .site-summary{font-size:13px;margin-top:0;color:var(--minor)}
+ .site-comparison{width:100%;border-collapse:collapse;margin:5px 0 1px;font-size:13px;font-variant-numeric:tabular-nums}
+ .site-comparison th,.site-comparison td{padding:5px 8px;border-bottom:1px solid var(--rule);text-align:left}
+ .site-comparison td:nth-child(n+2){white-space:nowrap}
+ .site-comparison th{font-weight:500;color:var(--minor)}
+ .site-comparison th:last-child,.site-comparison td:last-child{width:39%}
+ .site-bar{height:9px;background:#ebe1df;display:flex;position:relative;margin:0}
+ .site-bar::after{content:"";position:absolute;inset:0 auto 0 50%;width:1px;background:var(--minor)}
+ .site-bar i{position:absolute;top:1px;bottom:1px;background:var(--accent)}
+ .site-bar i.neg{background:#8e777e}
+ .site-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin:7px 0 0}
+ .site-grid .site-row{border-right:1px solid var(--rule);padding-right:8px;font-size:13px}
+ .site-grid .site-row:last-child{border:0}
+ .site-grid strong{display:block;font:700 21px Georgia,serif;margin:2px 0}
+ footer{display:flex;gap:8px 17px;justify-content:space-between;flex-wrap:wrap;color:var(--minor);font-size:12px;margin-top:10px;border-top:1px solid var(--rule);padding-top:7px}
+ details{border-bottom:1px solid var(--rule);margin-top:7px}
+ summary{cursor:pointer;font-weight:700;padding:5px 0;font-size:13px}
+ .table-wrap{overflow:auto}
+ .source-table{border-collapse:collapse;width:100%;font-size:13px}
+ .source-table td,.source-table th{border-bottom:1px solid var(--rule);padding:5px 8px;text-align:left;white-space:nowrap}
+ @media(max-width:940px){main{width:calc(100% - 36px)}.overview-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.priority-grid,.drill-grid{grid-template-columns:1fr}.site-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+ @media(max-width:480px){.overview-grid,.drill-cards{grid-template-columns:1fr}.site-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.action{grid-template-columns:1fr}.priority-grid{grid-template-columns:minmax(0,1fr)}.site-comparison th,.site-comparison td{padding:4px 4px}.site-comparison th:last-child,.site-comparison td:last-child{width:26%}}
+ @media print{main{width:100%}nav,.controls,.tools,footer a{display:none}.metric,.site-panel{break-inside:avoid}}
+</style>
+</head>
+<body>
+<main>
+  <header class="page-header">
+    <div><h1>园区充电周报</h1><p id="scope" class="mast-context muted"></p></div>
+    <div class="controls"><label>查看周次 <select id="period"></select></label><button id="data-download">下载原值</button></div>
+  </header>
+  <nav class="navigation" aria-label="看板版式">
+    <div class="view-buttons"><button id="auto" aria-pressed="true">自动选版</button><button data-view="priority">异常优先</button><button data-view="overview">同排监测</button><button data-view="drill">诊断拆解</button></div>
+    <span class="recommendation" id="mode-note"></span>
+  </nav>
+  <div class="action">
+    <div><h2 id="decision" class="action-title"></h2><p id="decision-evidence" class="hint"></p></div>
+  </div>
+  <div id="dashboard"></div>
+  <details id="sources"><summary>核对每日峰值、收入及分母</summary><div id="raw" class="table-wrap"></div></details>
+  <footer><span>见数合成样例 · 功率配额按同一峰时截面核对</span><a href="../../catalog.html">返回图表目录</a></footer>
+</main>
+<script type="application/json" id="source">{"title": "园区充电周报", "question": "下周能否全场统一加推充电优惠，还是先调整峰时配额？", "scope": "五个充电场站", "source": "见数合成样例", "periods": [{"id": "current", "label": "11 月 9–15 日", "dates": ["11.9", "11.10", "11.11", "11.12", "11.13", "11.14", "11.15"], "dailyPeak": [386, 405, 397, 409, 414, 418, 428], "dailyRevenue": [21800, 22800, 23200, 24400, 27600, 31400, 35200], "availability": {"online": 9680, "planned": 10000}, "energy": {"offPeak": 20150, "total": 47300}, "limit": 420, "offPeakGoal": 48, "snapshot": "11 月 15 日 19:15", "sites": [{"id": "north", "name": "北园", "actual": 128, "allocation": 120}, {"id": "east", "name": "东园", "actual": 103, "allocation": 105}, {"id": "expo", "name": "会展站", "actual": 80, "allocation": 75}, {"id": "south", "name": "南园", "actual": 69, "allocation": 70}, {"id": "west", "name": "西园", "actual": 48, "allocation": 50}]}, {"id": "previous", "label": "11 月 2–8 日", "dates": ["11.2", "11.3", "11.4", "11.5", "11.6", "11.7", "11.8"], "dailyPeak": [374, 389, 392, 393, 410, 405, 414], "dailyRevenue": [21200, 22100, 22800, 23500, 24700, 27300, 31400], "availability": {"online": 9740, "planned": 10000}, "energy": {"offPeak": 20525, "total": 44500}, "limit": 420, "offPeakGoal": 48, "snapshot": "11 月 8 日 19:15", "sites": [{"id": "north", "name": "北园", "actual": 121, "allocation": 120}, {"id": "east", "name": "东园", "actual": 100, "allocation": 105}, {"id": "expo", "name": "会展站", "actual": 74, "allocation": 75}, {"id": "south", "name": "南园", "actual": 69, "allocation": 70}, {"id": "west", "name": "西园", "actual": 50, "allocation": 50}]}]}</script>
+<script>/* Select a dashboard layout from the reader task and verified metric roles. */
+(function (root, factory) {
+  const select = factory();
+  if (typeof module === "object" && module.exports) module.exports = select;
+  else root.selectKpiLayout = select;
+})(typeof globalThis !== "undefined" ? globalThis : this, function () {
+  return function selectKpiLayout({ task, levels = [] }) {
+    if (task === "decision") {
+      const exceeded = levels.find(item => item.role === "operating-limit" &&
+        Number.isFinite(item.current) && Number.isFinite(item.limit) &&
+        (item.direction === "upper" ? item.current > item.limit :
+          item.direction === "lower" && item.current < item.limit));
+      if (exceeded) return "priority";
+    }
+    return task === "diagnosis" ? "drill" : "overview";
+  };
+});
+</script>
+<script>"use strict";
+const source=JSON.parse(document.getElementById("source").textContent);
+const $=id=>document.getElementById(id);
+const whole=new Intl.NumberFormat("zh-CN",{maximumFractionDigits:0});
+const one=new Intl.NumberFormat("zh-CN",{maximumFractionDigits:1});
+const sum=numbers=>numbers.reduce((a,b)=>a+b,0);
+const round1=value=>Math.round(value*10)/10;
+const signed=(value,formatted=one)=> (value>0?"+":"")+formatted.format(value);
+const money=value=>(value/10000).toFixed(2);
+const rate=(part,total)=>round1(part/total*100);
+const modes={priority:"异常优先",overview:"同排监测",drill:"诊断拆解"};
+const preference=matchMedia("(prefers-reduced-motion: reduce)");
+let periodIndex=0,manualMode=null,activeEffects=[];
+
+function escapeText(value){
+  return String(value).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[c]);
+}
+function line(x1,y1,x2,y2,cls="scale"){
+  return `<line class="${cls}" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}"/>`;
+}
+function label(x,y,value,align="start"){
+  return `<text x="${x}" y="${y}" text-anchor="${align}">${escapeText(value)}</text>`;
+}
+function shape(x,y,width,height,cls){
+  return `<rect class="${cls}" x="${x}" y="${y}" width="${Math.max(width,0)}" height="${Math.max(height,0)}"/>`;
+}
+function circle(x,y,r,cls="point"){
+  return `<circle class="${cls}" cx="${x}" cy="${y}" r="${r}"/>`;
+}
+function graphic(title,axis,marks,w=330,h=66,anchor=""){
+  return `<svg viewBox="0 0 ${w} ${h}" class="chart" role="img" aria-label="${escapeText(title)}">${axis}<g data-evidence>${marks}</g>${anchor}</svg>`;
+}
+function spark(values,{min=0,max=Math.max(...values),guard=null,name,labels,large=false}){
+  const w=large?525:330,h=large?132:64,left=large?33:13,right=w-(large?42:13);
+  const bottom=h-21,top=large?12:5;
+  const x=i=>left+i*(right-left)/(values.length-1);
+  const y=v=>bottom-(v-min)/(max===min?1:max-min)*(bottom-top);
+  let axis=line(left,bottom,right,bottom);
+  if(guard!==null)axis+=line(left,y(guard),right,y(guard),"guide")+
+    label(right+4,y(guard)+3,guard);
+  if(labels)labels.forEach((day,i)=>{axis+=label(x(i),h-5,day,"middle")});
+  const d=values.map((v,i)=>(i===0?"M":"L")+x(i)+","+y(v)).join(" ");
+  const peak=values.indexOf(Math.max(...values));
+  const marks=`<path d="${d}" class="signal"/>`+values.map((v,i)=>large&&i===peak?"":circle(x(i),y(v),i===values.length-1?4.6:2.8)).join("");
+  const anchor=large?`<g data-anchor="peak-value">${circle(x(peak),y(values[peak]),5)}${label(x(peak)-8,y(values[peak])-6,values[peak],"end")}</g>`:"";
+  return graphic(name,axis,marks,w,h,anchor);
+}
+function microBars(values,name){
+  const max=Math.max(1,...values),baseline=52,band=44;
+  const axis=line(10,baseline,321,baseline);
+  const marks=values.map((v,i)=>shape(13+i*band,baseline-v/max*44,27,v/max*44,i===values.length-1?"fill-main":"fill-soft")).join("");
+  return graphic(name,axis,marks);
+}
+function paired(value,reference,min,max,name,suffix="",targetLabel="基准"){
+  const x=v=>16+(v-min)/(max-min)*296;
+  const left=x(value), right=reference===null?null:x(reference);
+  const axis=line(x(min),25,x(max),25)+label(x(min),50,one.format(min)+suffix,"middle")+label(x(max),50,one.format(max)+suffix,"middle");
+  const marks=(right===null?"":line(left,25,right,25,"signal")+circle(right,25,4.5,"dotref"))+circle(left,25,5);
+  return graphic(name+(reference===null?"":"，"+targetLabel+one.format(reference)+suffix),axis,marks,330,55);
+}
+function comparisonBars(actual,target,name){
+  const max=Math.max(actual,target)*1.16,x=v=>14+v/max*304;
+  return graphic(name,line(14,6,14,53),shape(14,9,x(target)-14,13,"fill-soft")+
+    shape(14,30,x(actual)-14,13,"fill-main")+label(x(target)+4,20,target)+label(x(actual)+4,42,actual),330,52);
+}
+function deviation(value,limit,name){
+  const x=165+Math.min(Math.abs(value)/limit,1)*145*(value<0?-1:1);
+  return graphic(name,line(20,25,311,25)+line(165,9,165,40,"guide")+label(165,52,"0","middle"),
+    shape(Math.min(x,165),17,Math.abs(x-165),16,value>0?"fill-main":"fill-other")+label(x+(value>=0?5:-5),14,signed(value),value>=0?"start":"end"),330,59);
+}
+function shareRing(share){
+  return graphic("非峰占总充电量 "+share+"%",
+    `<circle cx="87" cy="36" r="24" fill="none" stroke="var(--rule)" stroke-width="8"/>`,
+    `<circle cx="87" cy="36" r="24" fill="none" stroke="var(--accent)" stroke-width="8"
+        pathLength="100" stroke-dasharray="${share} 100" transform="rotate(-90 87 36)"/>`+
+        label(122,37,"占全部充电量"),240,74);
+}
+function shareBar(share,goal){
+  const axis=shape(15,17,300,14,"fill-soft")+line(15+goal*3,12,15+goal*3,45,"guide")+label(15+goal*3,57,"目标 "+goal+"%","middle");
+  return graphic("非峰充电量占比 "+share+"%，目标 "+goal+"%",axis,shape(15,17,share*3,14,"fill-main"),330,63);
+}
+function facts(period,reference){
+  const peak=Math.max(...period.dailyPeak), revenue=sum(period.dailyRevenue);
+  const availability=rate(period.availability.online,period.availability.planned);
+  const nonPeak=rate(period.energy.offPeak,period.energy.total);
+  return {
+    peak,revenue,availability,nonPeak,
+    powerGap:peak-period.limit,
+    priorRevenue:reference?sum(reference.dailyRevenue):null,
+    priorAvailability:reference?rate(reference.availability.online,reference.availability.planned):null
+  };
+}
+function renderCard({id,title,value,unit,comparison,note,figure},className=""){
+  return `<article class="metric ${className}" data-metric="${id}">
+      <div class="metric-top"><div><h3>${escapeText(title)}</h3>
+      <div class="metric-reading"><div class="metric-value">${escapeText(value)}<span>${escapeText(unit)}</span></div></div></div>
+      <p class="metric-detail ${comparison.tone??""}">${escapeText(comparison.text)}</p></div>
+      <figure class="evidence-figure">${figure}<figcaption class="figure-note">${escapeText(note)}</figcaption></figure>
+    </article>`;
+}
+function metrics(period,reading,mode){
+  const missing="未提供更早一周";
+  const peakCompare=reading.powerGap>0?"超上限 "+reading.powerGap+" kW":reading.powerGap===0?"等于上限":"距上限还有 "+(-reading.powerGap)+" kW";
+  const power={
+    id:"peak",title:"峰时功率",value:reading.peak,unit:"kW",
+    comparison:{text:peakCompare+" · 上限 "+period.limit+" kW",tone:reading.powerGap>0?"alert":""},
+    note:mode==="priority"?"每日峰值 · 虚线为配额上限":mode==="overview"?"相对总配额 · 零表示等于上限":"浅条为上限，深条为实际",
+    figure:mode==="priority"?spark(period.dailyPeak,{
+      min:Math.floor((Math.min(...period.dailyPeak,period.limit)-9)/10)*10,
+      max:Math.ceil((Math.max(...period.dailyPeak,period.limit)+8)/10)*10,
+      guard:period.limit,name:"每日峰时功率（千瓦），上限 "+period.limit,labels:period.dates,large:true
+    }):mode==="overview"?deviation(reading.powerGap,Math.max(20,Math.abs(reading.powerGap)*1.1),"峰时功率距上限 "+reading.powerGap+" kW"):
+      comparisonBars(reading.peak,period.limit,"实际峰值 "+reading.peak+" 千瓦与上限 "+period.limit+" 千瓦")
+  };
+  const revenueDiff=reading.priorRevenue===null?null:reading.revenue-reading.priorRevenue;
+  const moneyComparison=revenueDiff===null?missing:"较上周 "+(revenueDiff>0?"+":"")+money(revenueDiff)+" 万";
+  const revenue={id:"revenue",title:"收费收入",value:money(reading.revenue),unit:"万",
+    comparison:{text:moneyComparison},
+    note:mode==="drill"?(reading.priorRevenue===null?"本周收入 · 未提供基期":"本周与上周收入"):"本周每日收入 · 样例金额单位",
+    figure:mode==="priority"?spark(period.dailyRevenue,{name:"每日收费收入",min:Math.min(...period.dailyRevenue)*.91}):
+      mode==="overview"?microBars(period.dailyRevenue,"每日收费收入，柱从零起"):
+      paired(reading.revenue/10000,reading.priorRevenue===null?null:reading.priorRevenue/10000,0,
+        Math.max(reading.revenue,reading.priorRevenue??0)/10000*1.12,"收费收入"," 万","上周")
+  };
+  const qualityChange=reading.priorAvailability===null?null:round1(reading.availability-reading.priorAvailability);
+  const available={id:"availability",title:"设备可用率",value:reading.availability.toFixed(1),unit:"%",
+    comparison:{text:qualityChange===null?missing:"较上周 "+signed(qualityChange)+" 个百分点",tone:qualityChange!==null&&qualityChange<0?"alert":""},
+    note:whole.format(period.availability.online)+" / "+whole.format(period.availability.planned)+" 枪位小时",
+    figure:mode==="drill"&&qualityChange!==null?deviation(qualityChange,Math.max(2,Math.abs(qualityChange)*1.2),"可用率周差，单位百分点"):
+      paired(reading.availability,reading.priorAvailability,Math.min(94,reading.availability,reading.priorAvailability??100),100,"设备可用率","%","上周")
+  };
+  const offPeakGap=round1(reading.nonPeak-period.offPeakGoal);
+  const offPeak={id:"offPeak",title:"非峰充电量占比",value:reading.nonPeak.toFixed(1),unit:"%",
+    comparison:{text:"目标 "+period.offPeakGoal+"% · "+signed(offPeakGap)+" 个百分点",tone:offPeakGap<0?"alert":""},
+    note:whole.format(period.energy.offPeak)+" / "+whole.format(period.energy.total)+" kWh",
+    figure:mode==="overview"?shareRing(reading.nonPeak):shareBar(reading.nonPeak,period.offPeakGoal)
+  };
+  return [power,revenue,available,offPeak];
+}
+
+function stations(period,style){
+  const sites=period.sites.map(site=>({...site,delta:site.actual-site.allocation})).sort((a,b)=>b.delta-a.delta);
+  const spread=Math.max(1,...sites.map(site=>Math.abs(site.delta)));
+  const peakSites=sites.filter(site=>site.delta>0);
+  const influence=peakSites.length
+    ? peakSites.map(site=>site.name+" "+signed(site.delta)+" kW").join("、")
+    : "各站均在配额内";
+  const header=`<div class="site-head"><h2>峰时场站配额</h2><p class="muted">${escapeText(period.snapshot)} · 同一时点 · kW</p></div>`;
+  const rows=style==="priority"?`<div class="site-grid">${sites.map(site=>
+    `<div class="site-row" data-site="${site.id}"><h3>${escapeText(site.name)}</h3><strong class="${site.delta>0?"alert":""}">${signed(site.delta)}<span class="muted"> kW</span></strong><p class="muted">实际 ${site.actual} / 配额 ${site.allocation}</p></div>`
+  ).join("")}</div>`:
+  `<table class="site-comparison"><thead><tr><th scope="col">场站</th><th scope="col">实际</th><th scope="col">配额</th><th scope="col">差额</th><th scope="col">相对配额</th></tr></thead>
+      <tbody>${sites.map(site=>{
+    const width=Math.abs(site.delta)/spread*47, left=site.delta<0?50-width:50;
+    return `<tr data-site="${site.id}"><th scope="row">${escapeText(site.name)}</th><td>${site.actual}</td><td>${site.allocation}</td><td class="${site.delta>0?"alert":""}">${signed(site.delta)}</td>
+    <td><div class="site-bar" aria-hidden="true"><i class="${site.delta<0?"neg":""}" style="left:${left}%;width:${width}%"></i></div></td></tr>`;
+  }).join("")}</tbody></table>`;
+  return `<section class="site-panel">${header}<p class="site-summary">${escapeText(influence)}</p>${rows}</section>`;
+}
+function sourceTable(period){
+  const headers="<tr><th>日期</th><th>峰时功率 / kW</th><th>收费收入 / 样例金额单位</th></tr>";
+  const rows=period.dates.map((day,i)=>`<tr><td>${escapeText(day)}</td><td>${period.dailyPeak[i]}</td><td>${whole.format(period.dailyRevenue[i])}</td></tr>`).join("");
+  $("raw").innerHTML=`<table class="source-table"><thead>${headers}</thead><tbody>${rows}</tbody></table>
+    <p class="muted">可用率 = 可用枪位小时 ÷ 排班枪位小时。非峰占比 = 非峰充电量 ÷ 全部充电量。</p>`;
+}
+function stopEffects(){
+  for(const effect of activeEffects)effect.cancel();
+  activeEffects=[];
+}
+function playEvidence(mode){
+  if(preference.matches)return;
+  const marks=Array.from(document.querySelectorAll("#dashboard [data-evidence]"));
+  activeEffects=marks.map((node,i)=>node.animate(mode==="priority"&&i===0
+    ? [{clipPath:"inset(0 100% 0 0)"},{clipPath:"inset(0)"}]
+    : [{opacity:.28},{opacity:1}],
+    {duration:mode==="priority"&&i===0?650:380,delay:i*38,fill:"backwards",easing:"cubic-bezier(.23,.67,.29,1)"}));
+}
+function render(animate=true){
+  stopEffects();
+  const period=source.periods[periodIndex], reference=source.periods[periodIndex+1];
+  const reading=facts(period,reference);
+  const recommended=selectKpiLayout({task:"decision",levels:[{role:"operating-limit",direction:"upper",current:reading.peak,limit:period.limit}]});
+  const mode=manualMode??recommended;
+  const cards=metrics(period,reading,mode);
+  $("scope").textContent="2026 年 · "+period.label+" · "+source.scope;
+  $("mode-note").textContent="按所选周推荐："+modes[recommended];
+  $("auto").setAttribute("aria-pressed",String(manualMode===null));
+  for(const button of document.querySelectorAll("[data-view]"))button.setAttribute("aria-pressed",String(button.dataset.view===manualMode));
+  const over=period.sites.filter(site=>site.actual>site.allocation);
+  const exceptions=over.map(site=>site.name+" "+signed(site.actual-site.allocation)+" kW").join("、");
+  $("decision").textContent=reading.powerGap>0?"暂缓全场加推，先把峰时功率降到上限内":
+    reading.powerGap===0?"全场峰值已到上限，优惠优先错峰":"全场峰值低于总上限，先核各站余量";
+  $("decision-evidence").textContent=reading.powerGap>0
+    ? period.snapshot+" 达到 "+reading.peak+" kW，超总上限 "+reading.powerGap+" kW。该峰时至少需削减或错峰 "+reading.powerGap+" kW。"
+    : period.snapshot+" 达到 "+reading.peak+" kW，"+(reading.powerGap===0?"等于总上限":"距总上限还有 "+(-reading.powerGap)+" kW")+"。"+
+      (exceptions?"仍有场站超配："+exceptions+"。":"");
+  $("dashboard").dataset.layout=mode;
+  if(mode==="priority"){
+    $("dashboard").innerHTML=`<section class="grid priority-grid">${renderCard(cards[0],"peak-hero")}
+      <div class="support">${cards.slice(1).map(card=>renderCard(card)).join("")}</div></section>`+stations(period,mode);
+  }else if(mode==="overview"){
+    $("dashboard").innerHTML=`<section class="grid overview-grid">${cards.map(card=>renderCard(card)).join("")}</section>`+stations(period,mode);
+  }else{
+    $("dashboard").innerHTML=`<div class="grid drill-grid"><section class="drill-cards">${cards.map(card=>renderCard(card)).join("")}</section>${stations(period,mode)}</div>`;
+  }
+  sourceTable(period);
+  if(animate)playEvidence(mode);
+}
+source.periods.forEach((period,index)=>$("period").append(new Option(period.label,index)));
+$("auto").onclick=()=>{manualMode=null;render()};
+$("period").onchange=event=>{periodIndex=Number(event.target.value);render()};
+for(const button of document.querySelectorAll("[data-view]"))button.onclick=()=>{manualMode=button.dataset.view;render()};
+$("data-download").onclick=()=>{
+  const url=URL.createObjectURL(new Blob([JSON.stringify({source:source.source,scope:source.scope,period:source.periods[periodIndex],reference:source.periods[periodIndex+1]??null},null,2)],
+    {type:"application/json"}));
+  const link=document.createElement("a");link.href=url;link.download="充电周报原值.json";link.click();
+  setTimeout(()=>URL.revokeObjectURL(url),2000);
+};
+preference.addEventListener("change",event=>{if(event.matches)stopEffects()});
+addEventListener("beforeprint",stopEffects);
+render(true);
+</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>作品集 · Jee Charts</title>
+<meta name="description" content="Jee Charts 作品集。观看 19 页动态经营演示，并体验八份图表、报告与交互案例。">
+<style>
+:root{color-scheme:light;--canvas:#f1edf6;--ink:#2b243f;--soft:#665b76;--rule:#c9bed3;--red:#a53b2f;--dark:#292343}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--canvas);font:16px/1.6 "Microsoft YaHei","Noto Sans SC",system-ui,sans-serif}
+button,a{color:inherit;font:inherit}a{text-underline-offset:.24em}a:hover{color:var(--red)}
+img,video{max-width:100%;display:block}
+h1,h2,h3,p{margin:0}
+.wrap{width:min(1250px,calc(100% - 64px));margin:auto}
+header .wrap{min-height:83px;display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:1px solid var(--rule)}
+header img{width:166px}
+nav{display:flex;gap:20px;color:var(--soft);font-size:14px}
+.hero{padding:73px 0 48px;display:grid;grid-template-columns:1fr auto;gap:21px;align-items:end}
+.small{color:var(--red);font-weight:700;font-size:13px;letter-spacing:.09em}
+h1{font-size:clamp(42px,6.2vw,88px);line-height:1.1;letter-spacing:-.07em;margin:13px 0 15px}
+.hero p:last-child{color:var(--soft);font-size:17px}
+.feature{display:grid;grid-template-columns:1.85fr 1fr;background:var(--dark);color:#fff3ed}
+.feature>img{width:100%;height:100%;object-fit:cover}
+.feature div{padding:30px 32px;align-self:center}
+.feature .small{color:#ff9b86}
+.feature h2{font-size:clamp(24px,3vw,40px);line-height:1.2;letter-spacing:-.058em;margin:9px 0 12px}
+.feature p{color:#ded1e6}
+.feature a{display:inline-block;margin-top:19px;font-weight:700}
+.feature a:hover{color:#ffad9b}
+.row{margin-top:58px;border-top:1px solid var(--rule);padding-top:17px;display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.row h2{font-size:31px;letter-spacing:-.055em}
+.row p{color:var(--soft);font-size:14px}
+.cases{margin-top:22px;display:grid;grid-template-columns:repeat(3,1fr);gap:29px 17px}
+.case{min-width:0}
+.case a{display:block;text-decoration:none}
+.case img{width:100%;aspect-ratio:16/9;object-fit:cover;border:1px solid var(--rule)}
+.case h3{font-size:20px;margin:10px 0 2px;letter-spacing:-.032em}
+.case p{font-size:14px;color:var(--soft)}
+.film{margin-top:20px;background:var(--dark);width:100%;aspect-ratio:16/9}
+footer{margin:78px 0 28px;color:var(--soft)}
+footer .wrap{border-top:1px solid var(--rule);padding-top:18px}
+@media(max-width:760px){.wrap{width:calc(100% - 32px)}.hero{padding-top:42px;grid-template-columns:1fr}.feature{grid-template-columns:1fr}.cases{grid-template-columns:repeat(2,minmax(0,1fr))}.feature div{padding:22px}header img{width:123px}nav{gap:10px}.row{margin-top:38px}}
+@media(max-width:455px){.cases{grid-template-columns:1fr}.row{align-items:start;flex-direction:column}.hero p:last-child{font-size:15px}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a href="./" aria-label="Jee Charts 作品集"><img src="media/wordmark.svg" alt="Jee Charts"></a><nav><a href="#cases">案例</a><a href="#film">宣传片</a><a href="https://github.com/jigongxian900-dotcom/data-charts-master#安装与第一次使用">安装</a></nav></div></header>
+<main class="wrap">
+  <section class="hero"><div><p class="small">JEE CHARTS · 见数</p><h1>把证据讲清楚。</h1><p>从业务问题出发，制作图表、交互报告和动态演示。</p></div><a href="../diagram-atlas.html">查看图形与动效图谱 ↗</a></section>
+  <article class="feature"><img src="media/dispatch-1.jpg" alt="四个配送片区的延迟走势和晚高峰演示封面"><div><p class="small">19 页动态演示</p><h2>晚餐晚到了，<br>支援先去哪？</h2><p>一组支援人手，四个配送片区。沿着准时率、延迟存量和未回传订单，把现场判断推到一条可执行的改派规则。</p><a href="dispatch-deck.html">进入演示 ↗</a>　<a href="dispatch-data.json">源数据</a></div></article>
+  <div class="row" id="cases"><h2>可操作的案例</h2><p>演示数据均为原创模拟。</p></div>
+  <div class="cases">
+    <article class="case"><a href="bridge.html"><img src="media/bridge.jpg" alt="总激活率的变化与归因桥" loading="lazy"><h3>两条渠道都降，总激活率却升了</h3></a><p>固定渠道占比，查清指标为何反转。</p></article>
+    <article class="case"><a href="kpi.html"><img src="media/kpi.jpg" alt="园区充电周报 KPI 首屏" loading="lazy"><h3>园区充电周报</h3></a><p>把尖峰、服务水平、单次电量与成本放在同一首屏。</p></article>
+    <article class="case"><a href="density.html"><img src="media/density.jpg" alt="售后工单的六边形分箱" loading="lazy"><h3>售后工单与支出</h3></a><p>查密度，再沿支出层级细看。</p></article>
+    <article class="case"><a href="brief.html"><img src="media/brief.jpg" alt="两处水尺单页简报" loading="lazy"><h3>两处水尺 · 一页简报</h3></a><p>先在一页读清两处水尺的回线时差。</p></article>
+    <article class="case"><a href="report.html"><img src="media/report.jpg" alt="两处水尺的连续报告" loading="lazy"><h3>两处水尺 · 连续报告</h3></a><p>按观察日展开水位曲线与现场读数。</p></article>
+    <article class="case"><a href="routes.html"><img src="media/routes.jpg" alt="旧衣循环去向与路径" loading="lazy"><h3>旧衣去哪儿了</h3></a><p>沿流向追踪已确认去向与在途差额。</p></article>
+    <article class="case"><a href="repairs.html"><img src="media/repairs.jpg" alt="校园设施报修与支援判断" loading="lazy"><h3>校园设施报修复盘</h3></a><p>从确认数和待回传区间确定调度界值。</p></article>
+  </div>
+  <div class="row" id="film"><h2>28 秒看见数</h2><p>指标归因、经营演示与图形作品。</p></div>
+  <video class="film" controls playsinline preload="metadata" poster="media/film-cover.jpg" src="media/Jee-Charts-launch.mp4">浏览器不支持视频播放。<a href="media/Jee-Charts-launch.mp4">下载宣传片</a></video>
+</main>
+<footer><div class="wrap"><a href="https://github.com/jigongxian900-dotcom/data-charts-master">GitHub</a>　 <a href="https://github.com/jigongxian900-dotcom/data-charts-master/blob/main/COMMERCIAL.md">使用许可</a></div></footer>
+</body>
+</html>

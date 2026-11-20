@@ -1,0 +1,193 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>两条渠道都降，总激活率却上升</title><style>:root {
+  color-scheme: light;
+  --sans: "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  --serif: "Noto Serif SC", "Songti SC", SimSun, serif;
+  --number: Bahnschrift, "Arial Narrow", sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: #e9e6de; font: 14px/1.65 var(--sans); color: #223035; }
+.jee { --paper: #faf4e9; --ink: #243035; --accent: #aa352b; --muted: #545d5b; --rule: #bab3a9; }
+.rungEdition { --paper: #f0efeb; --ink: #252523; --accent: #252523; --muted: #57574e; --rule: #aaa79d; }
+main { max-width: 720px; margin: 0 auto; padding: 0 0 18px; }
+.poster { width: 100%; }
+svg { display: block; width: 100%; height: auto; }
+svg text { fill: var(--ink); font-family: var(--sans); }
+svg .paper { fill: var(--paper); }
+svg .rule { stroke: var(--rule); stroke-width: 1; }
+svg .eyebrow { font-size: 15px; font-weight: 680; letter-spacing: 1.1px; }
+svg .title { font-family: var(--serif); font-size: 54px; font-weight: 790; letter-spacing: -2px; }
+svg .rungTitle { font-size: 41px; font-weight: 780; letter-spacing: -1.5px; }
+svg .intro { font-size: 17px; font-weight: 540; }
+svg .body { font-size: 16px; font-weight: 540; }
+svg .label { font-size: 16px; font-weight: 720; }
+svg .small { font-size: 14.5px; font-weight: 540; }
+svg .foot { font-size: 12.5px; font-weight: 510; fill: var(--muted); }
+svg .dim { fill: var(--muted); }
+svg .accent { fill: var(--accent); }
+svg .num { font-family: var(--number); font-weight: 660; font-variant-numeric: tabular-nums; font-size: 32px; }
+svg .hero { font-size: 66px; letter-spacing: -2px; }
+svg .actual { font-size: 41px; }
+svg .estimate { font-size: 40px; }
+svg .gain { font-size: 35px; }
+svg .down { font-size: 28px; }
+svg .initial { stroke: var(--ink); stroke-width: 3; }
+svg .within { fill: none; stroke: var(--muted); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+svg .growth { fill: none; stroke: var(--accent); stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+svg .inkdot { fill: var(--ink); }
+svg .estimatedDot { fill: var(--paper); stroke: var(--ink); stroke-width: 2; }
+svg .highlightDot { fill: var(--accent); }
+svg .rung { stroke: var(--ink); stroke-width: 1.05; }
+svg .rung.hollow { stroke: #67665e; stroke-dasharray: 3 3; }
+svg .dashed { stroke: var(--rule); stroke-width: 1.2; stroke-dasharray: 3 5; }
+svg .rungValue { font-size: 30px; }
+svg .midRung { font-size: 25px; }
+nav { display: flex; gap: 7px; padding: 10px 12px 5px; }
+button { font: 650 13px/1.35 var(--sans); color: #282923; background: #f6f3ec; border: 1px solid #938f83; border-radius: 2px; padding: 6px 12px; cursor: pointer; }
+button:hover { color: #fff; background: #292f2e; }
+button:focus-visible, summary:focus-visible { outline: 2px solid #972f26; outline-offset: 2px; }
+details { margin: 3px 12px 0; padding-top: 5px; }
+summary { cursor: pointer; font-weight: 640; width: fit-content; }
+table { border-collapse: collapse; margin-top: 14px; }
+td, th { padding: 5px 12px 5px 0; text-align: left; border-bottom: 1px solid #b8b3a7; }
+.export nav, .export details { display: none; }
+@media print { body { print-color-adjust: exact; } nav, details { display: none; } }
+</style></head><body class="jee"><main><div class="poster" data-duration="5650"><svg viewBox="0 0 560 700" role="img" aria-labelledby="chart-title chart-desc"><title id="chart-title">两条渠道都降，总激活率却上升</title><desc id="chart-desc">一月实际 36.0%。固定一月渠道占比，二月估算 32.8%，下降 3.2 个百分点。换成二月实际占比后，升至 44.4%，相差 11.6 个百分点。只计已满 7 天的试用。二月另有 110 个未满 7 天，未纳入。按二月样本恢复到一月水平，直达可多 14 次激活，合作方 4 次。</desc><rect class="paper" width="560" height="700"/><line x1="34" y1="30" x2="526" y2="30" class="rule"/><text x="34" y="56" class="eyebrow" text-anchor="start">试用激活  /  一月与二月</text><text x="526" y="56" class="foot" text-anchor="end">模拟运营数据</text><text x="34" y="119" class="title" text-anchor="start">两条渠道都降，</text><text x="34" y="176" class="title accent" text-anchor="start">总激活率却上升</text><text x="36" y="221" class="intro" text-anchor="start">先把一月渠道占比套到二月激活率，再换成二月实际占比。</text><text x="37" y="270" class="small dim" text-anchor="start">7 天内激活率</text><g data-action="appear" data-start="100" data-duration="230"><line x1="55" y1="403.4" x2="163" y2="403.4" class="initial"/><circle cx="60" cy="403.4" r="4.5" class="inkdot"/><text x="54" y="385.4" class="num actual" text-anchor="start">36.0%</text><text x="55" y="343.4" class="small dim" text-anchor="start">一月实绩</text></g><path id="within-segment" d="M163 403.4V445H361" class="within" pathLength="1" data-action="ink" data-start="640" data-duration="740"/><g data-action="appear" data-start="1400" data-duration="230"><circle cx="255" cy="445" r="6" class="estimatedDot"/><text x="255" y="431" class="num estimate" text-anchor="middle">32.8%</text><text x="255" y="480" class="label" text-anchor="middle">二月估算</text><text x="255" y="501" class="small dim" text-anchor="middle">沿用一月渠道占比</text><text x="146" y="432" class="num down" text-anchor="end">−3.2</text><text x="146" y="453" class="small dim" text-anchor="end">个百分点</text><text x="146" y="477" class="small" text-anchor="end">各渠道率变化</text></g><path id="mix-segment" d="M361 445V294.2H509" class="growth" pathLength="1" data-action="ink" data-start="2790" data-duration="1160"/><g data-action="appear" data-start="3970" data-duration="230"><circle cx="511" cy="294.2" r="6" class="highlightDot"/><text x="520" y="279.2" class="num hero accent" text-anchor="end">44.4%</text><text x="520" y="321.2" class="label accent" text-anchor="end">二月实绩</text><text x="382" y="374.6" class="num gain accent" text-anchor="start">+11.6</text><text x="384" y="397.6" class="small accent" text-anchor="start">个百分点</text><text x="384" y="422.6" class="label accent" text-anchor="start">渠道占比变化</text></g><g data-action="appear" data-start="4540" data-duration="430"><line x1="35" y1="524" x2="526" y2="524" class="rule"/><text x="35" y="550" class="label" text-anchor="start">分渠道激活率</text><text x="526" y="550" class="label accent" text-anchor="end">直达占比 40% → 70%</text><text x="35" y="578" class="body" text-anchor="start">直达 60.0% → 56.0%    ·    合作方 20.0% → 17.3%</text><line x1="35" y1="596" x2="526" y2="596" class="rule"/><text x="35" y="623" class="label" text-anchor="start">优先优化直达</text><text x="35" y="646" class="small" text-anchor="start">按二月样本恢复到一月水平，直达可多 14 次激活，合作方 4 次。</text><text x="35" y="677" class="foot" text-anchor="start">只计已满 7 天的试用。二月另有 110 个未满 7 天，未纳入。</text></g></svg></div><nav aria-label="图表动效"><button id="poster-toggle" type="button">播放</button><button id="poster-replay" type="button">重播</button></nav><details><summary>原始数据与算法</summary><table><thead><tr><th>月份</th><th>渠道</th><th>已满 7 天</th><th>7 天内激活</th></tr></thead><tbody><tr><td>一月</td><td>直达</td><td>200</td><td>120</td></tr><tr><td>一月</td><td>合作方</td><td>300</td><td>60</td></tr><tr><td>二月</td><td>直达</td><td>350</td><td>196</td></tr><tr><td>二月</td><td>合作方</td><td>150</td><td>26</td></tr></tbody></table><p>二月固定构成估算：40% × (196 ÷ 350) + 60% × (26 ÷ 150) = 32.8%。</p><p>同渠道：32.8% − 36.0% = −3.2 个百分点。渠道构成：44.4% − 32.8% = +11.6 个百分点。这两段按先换各渠道激活率、再换渠道占比的顺序拆解。</p></details></main><script id="source" type="application/json">{"source":"模拟运营数据","case":{"period":"试用满 7 天","jan":[["直达",200,120],["合作方",300,60]],"feb":[["直达",350,196],["合作方",150,26]],"notMature":110}}</script><script>(function(root){
+"use strict";
+
+function create({request, cancel} = {}) {
+  const requestFrame = request ?? (callback => root.requestAnimationFrame(callback));
+  const cancelFrame = cancel ?? (id => root.cancelAnimationFrame(id));
+  let generation = 0;
+  let pending = null;
+  let running = false;
+
+  function stop() {
+    generation++;
+    if (pending !== null) cancelFrame(pending);
+    pending = null;
+    running = false;
+  }
+
+  function start(beats, paint, done = () => {}) {
+    const ends = [];
+    let total = 0;
+    for (const beat of beats) {
+      if (![beat.move, beat.hold].every(time => Number.isFinite(time) && time >= 0) ||
+          beat.move + beat.hold === 0) throw new RangeError("Each beat needs a duration.");
+      total += beat.move + beat.hold;
+      ends.push(total);
+    }
+    if (!ends.length) throw new RangeError("At least one beat is required.");
+    stop();
+    running = true;
+    const id = generation;
+    let origin;
+    function frame(time) {
+      if (id !== generation) return;
+      pending = null;
+      origin ??= time;
+      const elapsed = Math.max(0, time - origin);
+      const index = ends.findIndex(end => elapsed < end);
+      if (index === -1) {
+        running = false;
+        done();
+        return;
+      }
+      const offset = elapsed - (ends[index - 1] || 0);
+      const move = beats[index].move;
+      const progress = move ? Math.min(1, offset / move) : 1;
+      paint({index, progress, arrived: progress === 1});
+      if (id === generation) pending = requestFrame(frame);
+    }
+    pending = requestFrame(frame);
+  }
+
+  return {start, stop, isRunning: () => running};
+}
+
+const api = {create};
+if (typeof module === "object" && module.exports) module.exports = api;
+else root.JeeEvidenceTimeline = api;
+})(globalThis);
+
+(() => {
+  const sheet = document.querySelector('.poster');
+  if (!sheet) return;
+  const items = [...sheet.querySelectorAll('[data-start]')].map(node => ({
+    node,
+    start: Number(node.dataset.start),
+    duration: Number(node.dataset.duration),
+    action: node.dataset.action,
+    until: node.dataset.until ? Number(node.dataset.until) : Infinity
+  }));
+  const end = Number(sheet.dataset.duration);
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  const clock = JeeEvidenceTimeline.create();
+  const toggle = document.querySelector('#poster-toggle');
+  const replay = document.querySelector('#poster-replay');
+  const query = new URLSearchParams(location.search);
+  const exportMode = query.has('export');
+  document.documentElement.classList.toggle('export', exportMode);
+  let position = end;
+
+  function seek(time) {
+    position = Math.min(end, Math.max(0, time));
+    for (const {node, start, duration, until, action} of items) {
+      const share = Math.min(1, Math.max(0, (position - start) / duration));
+      const eased = action === 'ink' || action === 'uncover' ? share * share * (3 - 2 * share) : share;
+      const visible = position < until;
+      if (action === 'ink') {
+        node.style.strokeDasharray = '1 1';
+        node.style.strokeDashoffset = String(1 - eased);
+        node.style.opacity = String(visible && share > 0 ? 1 : 0);
+      } else if (action === 'uncover') {
+        node.style.clipPath = eased < 1 ? 'inset(0 ' + (100 * (1 - eased)) + '% 0 0)' : 'none';
+        node.style.opacity = String(visible && share > 0 ? 1 : 0);
+      } else {
+        node.style.opacity = String(visible ? eased : 0);
+      }
+    }
+  }
+
+  function pause() {
+    clock.stop();
+    if (toggle) toggle.textContent = position < end ? '继续播放' : '播放';
+  }
+
+  function settle() {
+    clock.stop();
+    seek(end);
+    if (toggle) toggle.textContent = '播放';
+  }
+
+  function play(from = 0) {
+    if (reduced.matches) {
+      settle();
+      return;
+    }
+    seek(from);
+    if (toggle) toggle.textContent = '暂停';
+    clock.start([{move: end - from, hold: 0}], ({progress}) => {
+      seek(from + (end - from) * progress);
+    }, settle);
+  }
+
+  replay?.addEventListener('click', () => play());
+  toggle?.addEventListener('click', () => {
+    if (clock.isRunning()) pause();
+    else play(position < end ? position : 0);
+  });
+  addEventListener('keydown', event => {
+    if (event.key.toLowerCase() === 'r' && !event.ctrlKey && !event.metaKey) play();
+  });
+  reduced.addEventListener('change', event => {
+    if (event.matches) settle();
+  });
+  addEventListener('beforeprint', settle);
+  window.posterPlayback = Object.freeze({
+    duration: end, seek(time) { pause(); seek(time); }, replay: () => play(), finish: settle
+  });
+  if (exportMode || query.has('still') || reduced.matches || self !== top) settle();
+  else play();
+})();
+</script></body></html>

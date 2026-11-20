@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>校园设施报修五周复盘</title>
+<style>
+:root{--paper:#f7f5ef;--ink:#20392e;--muted:#53665a;--stroke:#d5dbd0;--green:#3d6753;--light:#dbe6da;--clay:#a94d36;--tint:#f0ddd4;--white:#fffdf8;--measure:min(1200px,calc(100% - 104px));font-family:"Microsoft YaHei UI","Microsoft YaHei","PingFang SC",sans-serif;color:var(--ink);background:var(--paper);font-variant-numeric:tabular-nums}
+*{box-sizing:border-box}body{margin:0}a{color:inherit}button,input{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(--clay);outline-offset:4px}h1,h2,h3,p,figure{margin:0}h1,h2{font-family:"Noto Serif SC","Songti SC","SimSun",serif;font-weight:700}h1{font-size:clamp(36px,5.1vw,70px);letter-spacing:-.065em;line-height:1.15}h2{font-size:clamp(29px,3.4vw,48px);letter-spacing:-.055em;line-height:1.18}p{line-height:1.7}li{line-height:1.65}.wrap{width:var(--measure);margin-inline:auto}.mast{height:62px;display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:1px solid var(--stroke);font-size:13px}.mast strong{font-size:15px}.mast nav{display:flex;gap:23px;flex-wrap:wrap}.mast a{text-decoration:none}.mast a:hover{text-decoration:underline}.eyebrow{font-size:13px;font-weight:700;letter-spacing:.1em;color:var(--green)}.hero{padding:42px 0 44px}.hero p.dek{font-size:17px;margin-top:13px;color:var(--muted);max-width:830px}.hero h1{margin:12px 0 0}.hero h1 em{color:var(--clay);font-style:normal}.evidence{display:grid;grid-template-columns:minmax(0,2.4fr) minmax(262px,1fr);gap:32px;margin-top:30px;padding-top:20px;border-top:1px solid var(--ink)}.figure-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:13px}.figure-head h3{font-size:18px}.util{background:none;border:1px solid var(--stroke);border-radius:3px;padding:5px 9px;color:var(--ink);font-size:12px;white-space:nowrap}.util:hover{background:var(--light)}.axis,.gap-row{display:grid;grid-template-columns:61px minmax(0,1fr) 116px;gap:12px;align-items:center}.axis{font-size:12px;color:var(--muted);margin:6px 0 3px}.ticks{position:relative;height:16px}.ticks span{position:absolute;left:calc(var(--tick)*100% / 6);transform:translateX(-50%)}.gap-row{min-height:62px;border-top:1px solid var(--stroke)}.gap-row:last-of-type{border-bottom:1px solid var(--stroke)}.zone{justify-self:start;background:none;border:0;padding:3px 1px;font-weight:700;color:inherit;font-size:17px;text-align:left}.zone:hover{text-decoration:underline}.bar{position:relative;height:21px;background:repeating-linear-gradient(to right,var(--stroke) 0 1px,transparent 1px 16.66667%);border-right:1px solid var(--stroke)}.bar::before{content:"";position:absolute;top:10px;left:0;right:0;height:1px;background:var(--stroke)}.solid,.fringe,.fringe-ink,.end,.start{position:absolute;height:100%;top:0}.solid{left:0;width:var(--low);background:var(--green)}.focus .solid{background:var(--clay)}.fringe{left:var(--low);width:var(--spread);border-block:1px solid var(--green);background:var(--light);overflow:hidden}.focus .fringe{border-color:var(--clay);background:var(--tint)}.fringe-ink{inset:0;background:repeating-linear-gradient(135deg,transparent 0 4px,var(--green) 4px 5px,transparent 5px 8px);transform-origin:right;opacity:.70}.focus .fringe-ink{background:repeating-linear-gradient(135deg,transparent 0 4px,var(--clay) 4px 5px,transparent 5px 8px)}.start,.end{width:2px;background:var(--green);left:var(--low)}.end{left:var(--high)}.focus .start,.focus .end{background:var(--clay)}.gap-read{text-align:right;line-height:1.15}.gap-read strong{font-size:21px;white-space:nowrap}.focus .gap-read strong,.focus .zone{color:var(--clay)}.gap-read small{white-space:nowrap;display:block;margin-top:5px;color:var(--muted);font-size:11px}.legend{display:flex;gap:15px;flex-wrap:wrap;color:var(--muted);font-size:12px;line-height:1.5;margin-top:11px}.swatch{display:inline-block;width:20px;height:8px;margin-right:5px;vertical-align:1px;background:var(--green)}.swatch.hatch{background:repeating-linear-gradient(135deg,var(--light) 0 4px,var(--green) 4px 5px,var(--light) 5px 8px);border:1px solid var(--green)}.legend-source{display:block;color:var(--muted);font-size:12px;margin-top:6px}.rule{border-left:2px solid var(--clay);padding:2px 0 3px 20px;align-self:start}.rule .eyebrow{color:var(--clay)}.rule p{font-size:14px;margin-top:9px}.boundary{margin-top:10px;line-height:1.35}.boundary div{display:grid;grid-template-columns:auto 1fr;align-items:baseline;gap:10px;padding:7px 0;border-bottom:1px solid var(--stroke);font-size:13px}.boundary strong{font-size:18px;color:var(--clay);white-space:nowrap}
+.chapter{padding:52px 0 54px;border-top:1px solid var(--stroke);scroll-margin-top:15px}.chapter h2{margin-top:9px}.chapter .intro{font-size:16px;color:var(--muted);max-width:780px;margin-top:10px}.trend-frame{margin-top:22px;border-top:1px solid var(--ink)}.trend-head,.trend-row{display:grid;grid-template-columns:116px repeat(5,minmax(0,1fr));text-align:center;align-items:center}.trend-head{font-size:12px;color:var(--muted);min-height:36px}.trend-head span:first-child{text-align:left}.trend-row{position:relative;height:101px;border-top:1px solid var(--stroke)}.trend-row:last-child{border-bottom:1px solid var(--stroke)}.trend-name{grid-column:1;z-index:1;font-size:18px;font-weight:700;text-align:left}.trend-name small{display:block;font-size:11px;font-weight:400;color:var(--muted);margin-top:6px}.trend-svg{position:absolute;left:116px;top:0;width:calc(100% - 116px);height:100%;overflow:visible}.trend-axis{stroke:var(--green);stroke-width:1;stroke-dasharray:4 5;opacity:.65}.trend-grid{stroke:var(--stroke);stroke-width:1}.trend-path{stroke:var(--green);stroke-width:2.3;fill:none;vector-effect:non-scaling-stroke}.trend-path.base{opacity:.24}.trend-path.accent{stroke:var(--clay)}.trend-mark{position:absolute;grid-column:var(--col)/span 1;justify-self:center;top:var(--y);transform:translate(-50%,-50%);left:50%;width:9px;height:9px;border:2px solid var(--green);background:var(--paper);border-radius:50%;z-index:2}.trend-mark.current{background:var(--clay);border-color:var(--clay)}.dot-label{position:absolute;grid-column:var(--col)/span 1;justify-self:center;top:var(--label);left:50%;transform:translateX(-50%);width:max-content;font-size:13px;font-weight:700;line-height:16px;padding:0 3px;background:var(--paper)}.dot-label.current{font-size:16px;color:var(--clay)}.no-report{position:absolute;grid-column:var(--col)/span 1;top:71px;left:50%;transform:translateX(-50%);font-size:12px;color:var(--muted);white-space:nowrap}.trend-caption{font-size:12px;color:var(--muted);margin-top:11px}.summary-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin-top:24px}.summary-grid article{border-top:2px solid var(--green);padding-top:12px}.summary-grid h3{font-size:18px;margin-bottom:6px}.summary-grid p{font-size:14px;color:var(--muted)}
+.actions{background:var(--ink);color:var(--white)}.actions .eyebrow,.actions .intro{color:#d5e4d7}.action-list{margin-top:27px;border-top:1px solid #7f9688}.action-row{display:grid;grid-template-columns:190px 1fr;gap:25px;align-items:baseline;border-bottom:1px solid #7f9688;padding:15px 0}.action-row h3{font-size:18px}.action-row p{font-size:15px;color:#edf0e8}.action-row strong{color:#fff}.record-toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin:22px 0 16px}.zone-options{display:flex;gap:6px;flex-wrap:wrap}.zone-options button{border:1px solid var(--stroke);background:none;color:var(--ink);padding:7px 13px;border-radius:2px}.zone-options button[aria-pressed=true]{background:var(--ink);color:var(--white);border-color:var(--ink)}.record{overflow:auto}.record table{width:100%;min-width:630px;border-collapse:collapse;text-align:right;font-size:14px}.record caption{text-align:left;font-weight:700;font-size:17px;padding:0 0 8px}.record th,.record td{border-bottom:1px solid var(--stroke);padding:9px 8px}.record thead th{border-top:1px solid var(--ink);background:var(--light)}.record th:first-child,.record th:nth-child(2){text-align:left}.record .latest{background:#eee9df}.record .unknown{color:var(--muted)}.notes{margin-top:24px;color:var(--muted);font-size:13px}.notes p+p{margin-top:6px}footer{border-top:1px solid var(--stroke);padding:15px 0 25px;font-size:12px;color:var(--muted)}[hidden]{display:none!important}
+@media(max-width:940px){:root{--measure:calc(100% - 56px)}.evidence{grid-template-columns:minmax(0,1.6fr) minmax(248px,1fr);gap:23px}.axis,.gap-row{grid-template-columns:46px minmax(0,1fr) 85px;gap:9px}.gap-read strong{font-size:18px}.gap-read small{font-size:10px}}
+@media(max-width:740px){:root{--measure:calc(100% - 36px)}.mast{height:auto;min-height:62px;padding:10px 0;align-items:start;flex-direction:column;gap:8px}.mast nav{gap:17px;font-size:12px}.hero{padding:25px 0 34px}.hero p.dek{font-size:15px}.evidence{grid-template-columns:minmax(0,1fr);margin-top:23px;gap:19px}.rule{padding-left:13px}.chapter{padding:35px 0}.trend-head,.trend-row{grid-template-columns:63px repeat(5,minmax(0,1fr))}.trend-svg{left:63px;width:calc(100% - 63px)}.trend-name{font-size:16px}.trend-head{font-size:10px}.dot-label{font-size:11px}.dot-label.current{font-size:13px}.summary-grid{grid-template-columns:1fr;gap:14px}.action-row{grid-template-columns:1fr;gap:4px}.action-row h3{font-size:17px}.record table{min-width:564px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.001ms!important;scroll-behavior:auto!important}}
+@media print{:root{--measure:100%;--paper:#fff}body{padding:0 11mm;background:white}.mast nav,.util,.zone-options{display:none}.chapter,.hero{padding:22px 0}.evidence{grid-template-columns:2fr 1fr}.actions{background:white;color:var(--ink)}.actions .eyebrow,.actions .intro,.action-row p,.action-row strong{color:var(--ink)}.trend-frame,.action-row,.gap-chart{break-inside:avoid}.record table{min-width:0}*{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+.decision-demo{background:#edf0e8}
+.scenario-layout{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(230px,1fr);gap:28px;margin-top:23px;border-top:1px solid var(--ink);padding-top:18px}
+.scenario-axis{display:grid;grid-template-columns:54px minmax(0,1fr) 62px;gap:8px;color:var(--muted);font-size:12px;margin-bottom:4px}
+.scenario-axis div{display:flex;justify-content:space-between}
+.scenario-axis>span:last-child{text-align:right}
+.scenario-row{display:grid;grid-template-columns:54px minmax(0,1fr) 62px;gap:8px;align-items:center;min-height:51px;border-bottom:1px solid var(--stroke);font-size:16px;font-weight:700}
+.scenario-row b{text-align:right;white-space:nowrap}
+.scenario-track{height:23px;background:var(--light);position:relative}
+.scenario-track i{display:block;height:100%;background:var(--green);width:0}
+.scenario-row[data-compare=north] .scenario-track i{width:91.6667%;background:var(--clay)}
+.scenario-row[data-compare=west] .scenario-track i{width:62.5%}
+.scenario-input{margin-top:9px;color:var(--muted);font-size:13px;min-height:20px}
+.scenario-answer{border-left:2px solid var(--green);padding:4px 0 4px 17px;color:var(--muted);font-size:14px}
+.scenario-answer strong{display:block;color:var(--ink);font:700 clamp(26px,3vw,42px)/1.3 "SimSun",serif;margin:7px 0}
+.scenario-answer[data-phase="2"] strong,.scenario-answer[data-phase="2"]{color:var(--clay);border-color:var(--clay)}
+.scenario-controls{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-top:16px}
+.scenario-controls [role=group]{display:flex;flex-wrap:wrap;gap:5px}
+.scenario-controls button{border:1px solid var(--stroke);padding:6px 9px;background:var(--white);color:var(--ink);font-size:13px}
+.scenario-controls button[aria-pressed=true]{background:var(--ink);color:var(--white)}
+@media(max-width:740px){.scenario-layout{grid-template-columns:1fr;gap:13px}.scenario-answer{min-height:103px}}
+@media print{.scenario-controls{display:none}.decision-demo{background:white}}
+
+</style></head>
+<body>
+<header class="mast wrap" id="top"><strong>校园设施报修五周复盘</strong><nav aria-label="报告目录"><a href="#priority">支援选择</a><a href="#scenario">7 / 8 单怎么改派</a><a href="#trend">五周实绩</a><a href="#action">排班与复核</a><a href="#records">工单原值</a></nav></header>
+<main>
+<section id="priority" class="hero wrap">
+<div class="eyebrow">市属院校设施联管处　·　10.05—11.08</div>
+<h1>支援先预留<em>江北</em>，回传后定片区</h1>
+<p class="dek">下周只支援一个片区。按第 5 周达到 90% 按时完工率还差多少单排序。江北账面差 22 单，湖西差 15 单，今天的验收回传可能改变排序。</p>
+<div class="evidence">
+<figure class="gap-chart" id="gap-chart" aria-labelledby="gap-title">
+<div class="figure-head"><h3 id="gap-title">第 5 周达标缺口</h3><button class="util" id="replay-gap" type="button">重看回传区间</button></div>
+<div class="axis" aria-hidden="true"><span>片区</span><div class="ticks"><span style="--tick:0">0</span><span style="--tick:1">4</span><span style="--tick:2">8</span><span style="--tick:3">12</span><span style="--tick:4">16</span><span style="--tick:5">20</span><span style="--tick:6">24</span></div><span style="text-align:right">单位：单</span></div>
+<div class="gap-row focus">
+    <button class="zone" type="button" data-detail="江北" aria-label="查江北工单原值" title="查江北工单原值">江北</button>
+    <div class="bar" style="--low:29.16666667%;--high:91.66666667%;--spread:62.50000000%" aria-hidden="true"><span class="solid"></span><span class="fringe"><span class="fringe-ink"></span></span><span class="start"></span><span class="end"></span></div>
+    <div class="gap-read"><strong>7–22 单</strong><small>已按时 158 / 需 180</small></div></div><div class="gap-row">
+    <button class="zone" type="button" data-detail="湖西" aria-label="查湖西工单原值" title="查湖西工单原值">湖西</button>
+    <div class="bar" style="--low:54.16666667%;--high:62.50000000%;--spread:8.33333333%" aria-hidden="true"><span class="solid"></span><span class="fringe"><span class="fringe-ink"></span></span><span class="start"></span><span class="end"></span></div>
+    <div class="gap-read"><strong>13–15 单</strong><small>已按时 111 / 需 126</small></div></div><div class="gap-row">
+    <button class="zone" type="button" data-detail="南站" aria-label="查南站工单原值" title="查南站工单原值">南站</button>
+    <div class="bar" style="--low:41.66666667%;--high:50.00000000%;--spread:8.33333333%" aria-hidden="true"><span class="solid"></span><span class="fringe"><span class="fringe-ink"></span></span><span class="start"></span><span class="end"></span></div>
+    <div class="gap-read"><strong>10–12 单</strong><small>已按时 258 / 需 270</small></div></div>
+<figcaption><div class="legend"><span><i class="swatch"></i>全按时回传后仍差</span><span><i class="swatch hatch"></i>待回传中可能补上的单量</span></div><small class="legend-source">右端为账面缺口。点片区名称查工单原值。第 5 周为 11.02—08，来源为设施工单台账（模拟）。</small></figcaption>
+</figure>
+<aside class="rule" aria-label="锁定排班的判断条件">
+<div class="eyebrow">次日上午锁排班</div>
+<p>比较江北比湖西<strong>多回传确认按时</strong>的单量。</p>
+<div class="boundary"><div><strong>≤6 单</strong><span>支援江北</span></div><div><strong>7 单</strong><span>缺口并列，沿用江北预排</span></div><div><strong>≥8 单</strong><span>改派湖西</span></div></div>
+<p>湖西即使补齐 2 单仍差 13 单，超过南站账面缺口 12 单。</p>
+</aside>
+</div></section>
+<section class="chapter decision-demo" id="scenario">
+  <div class="wrap">
+    <div class="eyebrow">回传情景</div>
+    <h2>7 单并列，8 单改派</h2>
+    <p class="intro">用一组可行回传演示：湖西新增确认按时 0 单，江北依次为 0、7、8 单。条长是重算后的剩余缺口。</p>
+    <div class="scenario-layout">
+      <div>
+        <div class="scenario-axis"><span>剩余缺口</span><div><span>0</span><span>12</span><span>24</span></div><span>单位：单</span></div>
+        <div class="scenario-row" data-compare="north"><span>江北</span><div class="scenario-track" aria-hidden="true"><i></i></div><b>22 单</b></div>
+        <div class="scenario-row" data-compare="west"><span>湖西</span><div class="scenario-track" aria-hidden="true"><i></i></div><b>15 单</b></div>
+        <p class="scenario-input">新增确认按时 · 江北 <b id="scenario-return">0 单</b> · 湖西 <b>0 单</b></p>
+      </div>
+      <aside class="scenario-answer" aria-live="polite" aria-atomic="true" data-phase="0">
+        <p id="scenario-caption">账面缺口</p>
+        <strong id="scenario-action">预排江北</strong>
+        <p id="scenario-reason">还差 22 单，比湖西多 7 单。</p>
+      </aside>
+    </div>
+    <div class="scenario-controls">
+      <div role="group" aria-label="选择回传情景">
+        <button type="button" data-scenario="0" aria-pressed="true">账面 · 0 单</button>
+        <button type="button" data-scenario="1" aria-pressed="false">并列 · 7 单</button>
+        <button type="button" data-scenario="2" aria-pressed="false">改派 · 8 单</button>
+      </div>
+      <button type="button" id="scenario-play" class="util">播放推演</button>
+    </div>
+  </div>
+</section>
+
+<section class="chapter" id="trend"><div class="wrap">
+<div class="eyebrow">五周实绩</div><h2>第 5 周，三个片区的确认按时率都下降</h2>
+<p class="intro">第 4 周到第 5 周，江北下降 8.8 个百分点，湖西下降 9.1 个百分点，南站下降 4.3 个百分点。即使待回传的工单全数按时，三个片区第 5 周仍低于 90%。</p>
+<figure aria-labelledby="trend-title"><div class="figure-head" style="margin-top:21px;margin-bottom:0"><h3 id="trend-title">确认按时工单 ÷ 当周承诺到期工单</h3><button class="util" type="button" id="replay-trend">重看五周走势</button></div>
+<div class="trend-frame" id="trend-frame"><div class="trend-head" aria-hidden="true"><span>片区</span><span>第 1 周<br>10.05–11</span><span>第 2 周<br>10.12–18</span><span>第 3 周<br>10.19–25</span><span>第 4 周<br>10.26–11.01</span><span>第 5 周<br>11.02–08</span></div><div class="trend-row"><span class="trend-name">江北<small>90% 目标</small></span>
+    <svg class="trend-svg" aria-hidden="true" viewBox="0 0 500 101" preserveAspectRatio="none"><line class="trend-grid" x1="450" x2="450" y1="10" y2="91"/><line class="trend-grid" x1="350" x2="350" y1="10" y2="91"/><line class="trend-grid" x1="250" x2="250" y1="10" y2="91"/><line class="trend-grid" x1="150" x2="150" y1="10" y2="91"/><line class="trend-grid" x1="50" x2="50" y1="10" y2="91"/><line class="trend-axis" x1="0" x2="500" y1="38.3" y2="38.3"/><path class="trend-path base" d="M 50 30.41 L 150 33.50"/><path class="trend-path reveal" pathLength="1" data-beat="0" d="M 50 30.41 L 150 33.50"/><path class="trend-path base" d="M 150 33.50 L 250 41.39"/><path class="trend-path reveal" pathLength="1" data-beat="430" d="M 150 33.50 L 250 41.39"/><path class="trend-path base" d="M 250 41.39 L 350 46.27"/><path class="trend-path reveal" pathLength="1" data-beat="990" d="M 250 41.39 L 350 46.27"/><path class="trend-path base accent" d="M 350 46.27 L 450 77.35"/><path class="trend-path reveal accent" pathLength="1" data-beat="1560" d="M 350 46.27 L 450 77.35"/></svg><span aria-hidden="true" class="trend-mark" style="--col:2;--y:30.4px"></span><span class="dot-label" style="--col:2;--label:6.4px">92.2%</span><span aria-hidden="true" class="trend-mark" style="--col:3;--y:33.5px"></span><span class="dot-label" style="--col:3;--label:9.5px">91.4%</span><span aria-hidden="true" class="trend-mark" style="--col:4;--y:41.4px"></span><span class="dot-label" style="--col:4;--label:17.4px">89.1%</span><span aria-hidden="true" class="trend-mark" style="--col:5;--y:46.3px"></span><span class="dot-label" style="--col:5;--label:22.3px">87.8%</span><span aria-hidden="true" class="trend-mark current" style="--col:6;--y:77.3px"></span><span class="dot-label current" style="--col:6;--label:53.3px">79.0%</span></div><div class="trend-row"><span class="trend-name">湖西<small>90% 目标</small></span>
+    <svg class="trend-svg" aria-hidden="true" viewBox="0 0 500 101" preserveAspectRatio="none"><line class="trend-grid" x1="450" x2="450" y1="10" y2="91"/><line class="trend-grid" x1="350" x2="350" y1="10" y2="91"/><line class="trend-grid" x1="250" x2="250" y1="10" y2="91"/><line class="trend-grid" x1="150" x2="150" y1="10" y2="91"/><line class="trend-grid" x1="50" x2="50" y1="10" y2="91"/><line class="trend-axis" x1="0" x2="500" y1="38.3" y2="38.3"/><path class="trend-path base" d="M 50 28.36 L 150 30.11"/><path class="trend-path reveal" pathLength="1" data-beat="0" d="M 50 28.36 L 150 30.11"/><path class="trend-path base" d="M 150 30.11 L 250 37.50"/><path class="trend-path reveal" pathLength="1" data-beat="430" d="M 150 30.11 L 250 37.50"/><path class="trend-path base" d="M 250 37.50 L 350 43.96"/><path class="trend-path reveal" pathLength="1" data-beat="990" d="M 250 37.50 L 350 43.96"/><path class="trend-path base accent" d="M 350 43.96 L 450 76.34"/><path class="trend-path reveal accent" pathLength="1" data-beat="1560" d="M 350 43.96 L 450 76.34"/></svg><span aria-hidden="true" class="trend-mark" style="--col:2;--y:28.4px"></span><span class="dot-label" style="--col:2;--label:4.4px">92.8%</span><span aria-hidden="true" class="trend-mark" style="--col:3;--y:30.1px"></span><span class="dot-label" style="--col:3;--label:6.1px">92.3%</span><span aria-hidden="true" class="trend-mark" style="--col:4;--y:37.5px"></span><span class="dot-label" style="--col:4;--label:13.5px">90.2%</span><span aria-hidden="true" class="trend-mark" style="--col:5;--y:44.0px"></span><span class="dot-label" style="--col:5;--label:20.0px">88.4%</span><span aria-hidden="true" class="trend-mark current" style="--col:6;--y:76.3px"></span><span class="dot-label current" style="--col:6;--label:52.3px">79.3%</span></div><div class="trend-row"><span class="trend-name">南站<small>90% 目标</small></span>
+    <svg class="trend-svg" aria-hidden="true" viewBox="0 0 500 101" preserveAspectRatio="none"><line class="trend-grid" x1="450" x2="450" y1="10" y2="91"/><line class="trend-grid" x1="350" x2="350" y1="10" y2="91"/><line class="trend-grid" x1="250" x2="250" y1="10" y2="91"/><line class="trend-grid" x1="150" x2="150" y1="10" y2="91"/><line class="trend-grid" x1="50" x2="50" y1="10" y2="91"/><line class="trend-axis" x1="0" x2="500" y1="38.3" y2="38.3"/><path class="trend-path base" d="M 250 35.31 L 350 37.08"/><path class="trend-path reveal" pathLength="1" data-beat="990" d="M 250 35.31 L 350 37.08"/><path class="trend-path base accent" d="M 350 37.08 L 450 52.50"/><path class="trend-path reveal accent" pathLength="1" data-beat="1560" d="M 350 37.08 L 450 52.50"/></svg><span aria-hidden="true" class="trend-mark" style="--col:2;--y:30.3px"></span><span class="dot-label" style="--col:2;--label:6.3px">92.2%</span><span class="no-report" style="--col:3">未报</span><span aria-hidden="true" class="trend-mark" style="--col:4;--y:35.3px"></span><span class="dot-label" style="--col:4;--label:11.3px">90.8%</span><span aria-hidden="true" class="trend-mark" style="--col:5;--y:37.1px"></span><span class="dot-label" style="--col:5;--label:13.1px">90.3%</span><span aria-hidden="true" class="trend-mark current" style="--col:6;--y:52.5px"></span><span class="dot-label current" style="--col:6;--label:28.5px">86.0%</span></div></div><figcaption class="trend-caption">各行共用 76%–96% 刻度，虚线为 90% 目标。南站第 2 周未提交，承诺到期数未知。来源为设施工单台账（模拟）。</figcaption></figure>
+<div class="summary-grid"><article><h3>江北</h3><p>到期 200 单，确认过期 27 单，终态待回传 15 单。若待回传均按时，按时率最高为 86.5%。</p></article><article><h3>湖西</h3><p>到期 140 单，确认过期 27 单，终态待回传 2 单。若待回传均按时，按时率最高为 80.7%。</p></article><article><h3>南站</h3><p>到期 300 单，确认过期 40 单，终态待回传 2 单。若待回传均按时，按时率最高为 86.7%。</p></article></div>
+</div></section>
+<section class="chapter actions" id="action"><div class="wrap">
+<div class="eyebrow">排班与复核</div><h2>先补终态，支援用在下一批</h2>
+<div class="action-list">
+<div class="action-row"><h3>今天 · 维修班</h3><p>江北、湖西按验收签收逐单查 15 单及 2 单待回传件，回填实际验收时间，并判定是否在承诺期限内。联管处先预排江北，保留改派至湖西的班次。</p></div>
+<div class="action-row"><h3>次日上午 · 联管处</h3><p>按已补证的按时单重算三片区缺口，应用上方门槛后锁单一片区。若余下待回传仍可能换序，按已确认的缺口值派班，并记录未决件数。支援班可跨班处理同一片区的新批工单，先排临近承诺到期、已具备维修条件的工单。</p></div>
+<div class="action-row"><h3>下周结束 · 联管处</h3><p>对下一批承诺到期的工单按三类终态逐项对账。复核受援片区<strong>确认按时率是否达到 90%</strong>、还差几单，并同屏列第 5 周回传后基线与下一批的到期数、按时数、过期数和待回传数。若还有待回传，继续用区间标记达标是否待定。</p></div>
+</div></div></section>
+<section class="chapter wrap" id="records"><div class="eyebrow">台账明细</div><h2>查任一片区的工单原值</h2>
+<div class="record-toolbar"><div class="zone-options" role="group" aria-label="选择片区"><button type="button" data-filter="all" aria-pressed="true">全部片区</button><button type="button" data-filter="江北" aria-pressed="false">江北</button><button type="button" data-filter="湖西" aria-pressed="false">湖西</button><button type="button" data-filter="南站" aria-pressed="false">南站</button></div><button type="button" class="util" id="download">下载源数据 JSON</button></div>
+<div class="record" tabindex="0" role="region" aria-label="工单原值表，可横向滚动"><table><caption id="record-caption" aria-live="polite">全部片区 · 工单数（单）</caption><thead><tr><th scope="col">片区</th><th scope="col">承诺到期周</th><th scope="col">承诺到期</th><th scope="col">确认按时</th><th scope="col">确认过期</th><th scope="col">终态待回传</th></tr></thead><tbody><tr class="" data-zone="江北"><th scope="row">江北</th><td style="text-align:left">第 1 周　10.05–11</td><td>180</td><td>166</td><td>13</td><td>1</td></tr><tr class="" data-zone="江北"><th scope="row">江北</th><td style="text-align:left">第 2 周　10.12–18</td><td>185</td><td>169</td><td>13</td><td>3</td></tr><tr class="" data-zone="江北"><th scope="row">江北</th><td style="text-align:left">第 3 周　10.19–25</td><td>184</td><td>164</td><td>17</td><td>3</td></tr><tr class="" data-zone="江北"><th scope="row">江北</th><td style="text-align:left">第 4 周　10.26–11.01</td><td>196</td><td>172</td><td>18</td><td>6</td></tr><tr class="latest" data-zone="江北"><th scope="row">江北</th><td style="text-align:left">第 5 周　11.02–08</td><td>200</td><td>158</td><td>27</td><td>15</td></tr><tr class="" data-zone="湖西"><th scope="row">湖西</th><td style="text-align:left">第 1 周　10.05–11</td><td>125</td><td>116</td><td>8</td><td>1</td></tr><tr class="" data-zone="湖西"><th scope="row">湖西</th><td style="text-align:left">第 2 周　10.12–18</td><td>130</td><td>120</td><td>9</td><td>1</td></tr><tr class="" data-zone="湖西"><th scope="row">湖西</th><td style="text-align:left">第 3 周　10.19–25</td><td>133</td><td>120</td><td>11</td><td>2</td></tr><tr class="" data-zone="湖西"><th scope="row">湖西</th><td style="text-align:left">第 4 周　10.26–11.01</td><td>138</td><td>122</td><td>14</td><td>2</td></tr><tr class="latest" data-zone="湖西"><th scope="row">湖西</th><td style="text-align:left">第 5 周　11.02–08</td><td>140</td><td>111</td><td>27</td><td>2</td></tr><tr class="" data-zone="南站"><th scope="row">南站</th><td style="text-align:left">第 1 周　10.05–11</td><td>258</td><td>238</td><td>19</td><td>1</td></tr><tr class="" data-zone="南站"><th scope="row">南站</th><td style="text-align:left">第 2 周　10.12–18</td><td class="unknown" colspan="4">未提交，承诺到期数未知</td></tr><tr class="" data-zone="南站"><th scope="row">南站</th><td style="text-align:left">第 3 周　10.19–25</td><td>273</td><td>248</td><td>23</td><td>2</td></tr><tr class="" data-zone="南站"><th scope="row">南站</th><td style="text-align:left">第 4 周　10.26–11.01</td><td>290</td><td>262</td><td>26</td><td>2</td></tr><tr class="latest" data-zone="南站"><th scope="row">南站</th><td style="text-align:left">第 5 周　11.02–08</td><td>300</td><td>258</td><td>40</td><td>2</td></tr></tbody></table></div>
+<div class="notes"><p>数据来源：市属院校设施工单台账（模拟），源文件 repairs.json。覆盖江北、湖西、南站第 1–5 周；南站第 2 周整期缺报。</p><p>每周按承诺到期日期划分。确认按时、确认过期、终态待回传互斥，三者合计为承诺到期数。待回传工单中可能含按时完工件。</p><p>90% 达标所需单量＝承诺到期数 × 90% 后向上取整。账面缺口＝达标所需单量－确认按时单量，最低为零；把全部待回传都视为按时时得到缺口下界。百分比与百分点变化均在最后一步四舍五入。</p></div>
+</section></main><footer><div class="wrap"><a href="#top">返回报告顶部 ↑</a></div></footer>
+<script type="application/json" id="source">{"source": "市属院校设施工单台账（模拟）", "weeks": ["10.05–11", "10.12–18", "10.19–25", "10.26–11.01", "11.02–08"], "target": 0.9, "columns": ["承诺到期", "确认按时", "确认过期", "终态待回传"], "zones": [{"name": "江北", "weeks": [[180, 166, 13, 1], [185, 169, 13, 3], [184, 164, 17, 3], [196, 172, 18, 6], [200, 158, 27, 15]]}, {"name": "湖西", "weeks": [[125, 116, 8, 1], [130, 120, 9, 1], [133, 120, 11, 2], [138, 122, 14, 2], [140, 111, 27, 2]]}, {"name": "南站", "weeks": [[258, 238, 19, 1], null, [273, 248, 23, 2], [290, 262, 26, 2], [300, 258, 40, 2]]}], "availableNext": "当日可从江北、湖西维修班的验收签收回补终态；支援排班次日上午锁定。支援只用于下一批工单，试点期间可跨班支援同一区域。"}</script>
+<script>
+const $ = (selector) => document.querySelector(selector);
+const all = (selector) => [...document.querySelectorAll(selector)];
+const preference = matchMedia('(prefers-reduced-motion: reduce)');
+const motion = new Map();
+const firstSeen = new Set();
+function clearMotion(key) {
+  for (const animation of motion.get(key) || []) animation.cancel();
+  motion.delete(key);
+}
+function play(key) {
+  firstSeen.add(key);
+  clearMotion(key);
+  if (preference.matches) return;
+  const animations = key === 'gap' ? all('.fringe-ink').map((mark, index) => mark.animate(
+    [{clipPath:'inset(0 0 0 100%)'},{clipPath:'inset(0 0 0 0)'}],
+    {duration:660,delay:index*165,easing:'cubic-bezier(.20,.65,.25,1)',fill:'both'}
+  )) : all('.trend-path.reveal').map(mark => mark.animate(
+    [{strokeDashoffset:1,strokeDasharray:'1 1'},{strokeDashoffset:0,strokeDasharray:'1 1'}],
+    {duration:400,delay:Number(mark.dataset.beat),easing:'ease-out',fill:'both'}
+  ));
+  motion.set(key, animations);
+  Promise.all(animations.map(animation => animation.finished.catch(() => {}))).then(() => {
+    if (motion.get(key) === animations) clearMotion(key);
+  });
+}
+for (const key of ['gap','trend']) $('#replay-'+key).addEventListener('click', () => play(key));
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(entries => {
+    for (const entry of entries) {
+      const key = entry.target.id === 'gap-chart' ? 'gap' : 'trend';
+      if (entry.isIntersecting && entry.intersectionRatio >= .65 && !firstSeen.has(key)) {
+        observer.unobserve(entry.target);
+        play(key);
+      }
+    }
+  }, {threshold:.65});
+  observer.observe($('#gap-chart'));
+  observer.observe($('#trend-frame'));
+}
+preference.addEventListener('change', () => { if (preference.matches) for (const key of motion.keys()) clearMotion(key); });
+window.addEventListener('beforeprint', () => { for (const key of motion.keys()) clearMotion(key); });
+function selectZone(zone) {
+  for (const button of all('[data-filter]')) button.setAttribute('aria-pressed', String(button.dataset.filter === zone));
+  for (const row of all('tbody tr')) row.hidden = zone !== 'all' && row.dataset.zone !== zone;
+  $('#record-caption').textContent = `${zone === 'all' ? '全部片区' : zone} · 工单数（单）`;
+}
+for (const button of all('[data-filter]')) button.addEventListener('click',()=>selectZone(button.dataset.filter));
+for (const button of all('[data-detail]')) button.addEventListener('click',()=>{
+  const zone = button.dataset.detail;
+  selectZone(zone);
+  document.getElementById('records').scrollIntoView({block:'start'});
+  all('[data-filter]').find(item=>item.dataset.filter === zone).focus({preventScroll:true});
+});
+$('#download').addEventListener('click',()=>{
+  const url = URL.createObjectURL(new Blob([$('#source').textContent],{type:'application/json'}));
+  const anchor = document.createElement('a');
+  anchor.href=url;anchor.download='repairs.json';anchor.click();
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+});
+</script><script>
+(function(root){
+"use strict";
+
+function create({request, cancel} = {}) {
+  const requestFrame = request ?? (callback => root.requestAnimationFrame(callback));
+  const cancelFrame = cancel ?? (id => root.cancelAnimationFrame(id));
+  let generation = 0;
+  let pending = null;
+  let running = false;
+
+  function stop() {
+    generation++;
+    if (pending !== null) cancelFrame(pending);
+    pending = null;
+    running = false;
+  }
+
+  function start(beats, paint, done = () => {}) {
+    const ends = [];
+    let total = 0;
+    for (const beat of beats) {
+      if (![beat.move, beat.hold].every(time => Number.isFinite(time) && time >= 0) ||
+          beat.move + beat.hold === 0) throw new RangeError("Each beat needs a duration.");
+      total += beat.move + beat.hold;
+      ends.push(total);
+    }
+    if (!ends.length) throw new RangeError("At least one beat is required.");
+    stop();
+    running = true;
+    const id = generation;
+    let origin;
+    function frame(time) {
+      if (id !== generation) return;
+      pending = null;
+      origin ??= time;
+      const elapsed = Math.max(0, time - origin);
+      const index = ends.findIndex(end => elapsed < end);
+      if (index === -1) {
+        running = false;
+        done();
+        return;
+      }
+      const offset = elapsed - (ends[index - 1] || 0);
+      const move = beats[index].move;
+      const progress = move ? Math.min(1, offset / move) : 1;
+      paint({index, progress, arrived: progress === 1});
+      if (id === generation) pending = requestFrame(frame);
+    }
+    pending = requestFrame(frame);
+  }
+
+  return {start, stop, isRunning: () => running};
+}
+
+const api = {create};
+if (typeof module === "object" && module.exports) module.exports = api;
+else root.JeeEvidenceTimeline = api;
+})(globalThis);
+
+</script><script>
+(() => {
+  "use strict";
+  const $ = id => document.getElementById(id);
+  const source = JSON.parse($("source").textContent);
+  const base = source.zones.slice(0,2).map(zone => {
+    const [total,confirmed] = zone.weeks.at(-1);
+    return Math.ceil(total*source.target)-confirmed;
+  });
+  const cases = [
+    {back:0,caption:"账面缺口",action:"预排江北",reason:"还差 22 单，比湖西多 7 单。"},
+    {back:7,caption:"情景 · 江北多 7 单",action:"缺口并列",reason:"江北与湖西各差 15 单，保留江北预排。"},
+    {back:8,caption:"情景 · 江北多 8 单",action:"改派湖西",reason:"江北差 14 单，湖西仍差 15 单。"}
+  ];
+  const rows = [...document.querySelectorAll(".scenario-row")];
+  const answer = document.querySelector(".scenario-answer");
+  const buttons = [...document.querySelectorAll("[data-scenario]")];
+  const playControl = $("scenario-play");
+  const media = matchMedia("(prefers-reduced-motion: reduce)");
+  const timeline = JeeEvidenceTimeline.create();
+  const beats = [{move:0,hold:640},{move:560,hold:1260},{move:490,hold:1080}];
+  let phase = 0;
+  let played = false;
+
+  function paintBars(north) {
+    [north,base[1]].forEach((value,i) => rows[i].querySelector("i").style.width = value/24*100+"%");
+  }
+  function write(node,value) {
+    if (node.textContent !== value) node.textContent = value;
+  }
+  function settled(index) {
+    phase = index;
+    const scenario = cases[index];
+    const north = base[0]-scenario.back;
+    paintBars(north);
+    answer.dataset.phase = String(index);
+    write(rows[0].querySelector("b"),north+" 单");
+    write(rows[1].querySelector("b"),base[1]+" 单");
+    write($("scenario-return"),scenario.back+" 单");
+    write($("scenario-caption"),scenario.caption);
+    write($("scenario-action"),scenario.action);
+    write($("scenario-reason"),scenario.reason);
+    buttons.forEach((button,i) => button.setAttribute("aria-pressed",String(i===index)));
+  }
+  function show(index) {
+    played = true;
+    timeline.stop();
+    settled(index);
+    write(playControl,"播放推演");
+  }
+  function animate() {
+    if (timeline.isRunning()) {show(phase);return}
+    if (media.matches) {show((phase+1)%cases.length);return}
+    played = true;
+    settled(0);
+    write(playControl,"停止播放");
+    timeline.start(beats,({index,progress,arrived}) => {
+      if (arrived) {if (phase !== index || answer.dataset.phase === "moving") settled(index);return}
+      const prev = cases[index-1].back, next = cases[index].back;
+      paintBars(base[0]-prev-(next-prev)*progress);
+      if (answer.dataset.phase === "moving") return;
+      answer.dataset.phase = "moving";
+      write(rows[0].querySelector("b"),"—");
+      write($("scenario-return"),"—");
+      write($("scenario-caption"),"代入下一组回传情景");
+      write($("scenario-action"),"重算缺口");
+      write($("scenario-reason"),"湖西仍差 15 单。");
+    },() => show(cases.length-1));
+  }
+  buttons.forEach((button,i) => button.addEventListener("click",() => show(i)));
+  playControl.addEventListener("click",animate);
+  media.addEventListener("change",() => {
+    if (media.matches && timeline.isRunning()) show(phase);
+    playControl.hidden = media.matches;
+  });
+  addEventListener("beforeprint",() => {if(timeline.isRunning()) show(phase)});
+  playControl.hidden = media.matches;
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting || entry.intersectionRatio < .64) return;
+      observer.disconnect();
+      if (!played && !media.matches) animate();
+    },{threshold:.64});
+    observer.observe(document.querySelector(".scenario-layout"));
+  }
+})();
+
+</script></body></html>

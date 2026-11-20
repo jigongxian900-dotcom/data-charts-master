@@ -1,4 +1,4 @@
 interface:
-  display_name: "Jee Charts Master"
+  display_name: "Jee Charts"
   short_description: "设计图表、图解、交互报告和演示"
-  default_prompt: "使用 Jee Charts Master 根据业务问题选图，并制作可核对的图表或 HTML 报告。"
+  default_prompt: "使用 Jee Charts 根据业务问题选图，并制作可核对的图表或 HTML 报告。"

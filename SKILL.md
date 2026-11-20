@@ -3,9 +3,19 @@ name: jee-charts-master
 description: 按业务问题设计数据图表、复杂组合、流程图和架构图，生成离线交互 HTML、单页或多章报告、16:9 演示及 SVG。按图义匹配动效，保留口径、责任与真实路径。原名 data-charts-master。
 ---
 
-# Jee Charts Master
+# Jee Charts
 
 版本 5.6.0 · 2026-11-18。以业务关系推导表达，组合标记与尺度，按需要变换坐标与层级；按分析任务设计交互链条与数据动效。图谱是工艺参考，基础助手支持数不是Skill的能力上限。能力须由跨领域陌生任务的实物验证，局部高分不外推。
+
+## 成品与演示
+
+- 从业务决定、证据顺序和逐页的主图开始制作 [16:9 动态演示](references/dynamic-presentations.md)。查看 [19 页配送调度演示](docs/showcase/dispatch-deck.html)、[单页简报](docs/showcase/brief.html)与[连续报告](docs/showcase/report.html)。
+- 汇报涉及未回传时，先算出多少补报会让两组并列或改派。让主读数和状态变化在同一尺度上出现。
+
+## 成品与演示
+
+- 从业务决定、证据顺序和逐页的主图开始制作 [16:9 动态演示](references/dynamic-presentations.md)。查看 [19 页配送调度演示](docs/showcase/dispatch-deck.html)、[单页简报](docs/showcase/brief.html)与[连续报告](docs/showcase/report.html)。
+- 汇报涉及未回传时，先算出多少补报会让两组并列或改派。让主读数和状态变化在同一尺度上出现。
 
 ## 图形、流程与整页报告
 

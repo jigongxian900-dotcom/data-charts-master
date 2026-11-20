@@ -1,4 +1,12 @@
-# Jee Charts Master
+# Jee Charts
+
+Build charts, interactive reports, and animated presentations around a business decision.
+
+[Open the showcase](https://jigongxian900-dotcom.github.io/data-charts-master/showcase/) · [Watch the 28-second film](https://jigongxian900-dotcom.github.io/data-charts-master/showcase/#film) · [Open the 19-slide delivery dispatch case](https://jigongxian900-dotcom.github.io/data-charts-master/showcase/dispatch-deck.html) · [中文](README.md)
+
+Build charts, interactive reports, and animated presentations around a business decision.
+
+[Open the showcase](https://jigongxian900-dotcom.github.io/data-charts-master/showcase/) · [Watch the 28-second film](https://jigongxian900-dotcom.github.io/data-charts-master/showcase/#film) · [Open the 19-slide delivery dispatch case](https://jigongxian900-dotcom.github.io/data-charts-master/showcase/dispatch-deck.html) · [中文](README.md)
 
 
 ## 5.4 motion preview

@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>下游晚一天回线 · 见数</title>
+<style>:root{
+ --paper:#f2f0e8;--ink:#172f3c;--sub:#556e76;--rule:#c2ceca;--panel:#132d3b;--focus:#edb670;--cool:#8faec9;--hot:#ecf4ed;--hair:#3b5b67;
+ font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;color:var(--ink);background:var(--paper);font-variant-numeric:tabular-nums
+}
+body[data-case="repairs"]{--paper:#f4ebe0;--ink:#402c28;--sub:#815d50;--rule:#d8c3ae;--panel:#502a27;--focus:#ffd197;--cool:#d9ae91;--hot:#fdf1db;--hair:#895853}
+body[data-case="textiles"]{--paper:#f0eaf0;--ink:#372c49;--sub:#736281;--rule:#cfbfda;--panel:#322742;--focus:#dcab97;--cool:#aabf98;--hot:#f8efff;--hair:#655578}
+*{box-sizing:border-box}body{margin:0}.shell{width:min(1220px,calc(100% - 96px));margin-inline:auto}
+h1,h2,h3,p,figure{margin:0}h1,h2,h3{font-family:"Noto Serif SC","SimSun",serif}h1,h2{font-weight:900;letter-spacing:-.05em}h1{font-size:clamp(40px,5.65vw,84px);line-height:1.08}h2{font-size:clamp(32px,4.4vw,63px);line-height:1.17}h3{font-size:25px;line-height:1.35}
+a{color:inherit;text-underline-offset:.24em}button{font:inherit;cursor:pointer}button,a,summary{outline-offset:4px}button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid currentColor}
+.mast{min-height:60px;display:flex;justify-content:space-between;align-items:center;gap:12px 20px;border-bottom:1px solid var(--hair);flex-wrap:wrap;padding:8px 0}
+.mast nav{display:flex;gap:17px;flex-wrap:wrap;font-size:13px}.mast nav a{text-decoration:none}.mast nav a:hover{text-decoration:underline}
+.brand{display:flex;gap:10px;align-items:baseline;font-weight:700}.brand strong{font:900 25px "Noto Serif SC","SimSun",serif}.brand span{font:600 11px Bahnschrift,Arial,sans-serif;letter-spacing:.13em}
+.opening{background:var(--panel);color:var(--hot)}.opening .mast{color:var(--hot)}
+.lead{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(270px,.88fr);gap:25px 46px;align-items:end;padding:33px 0 24px}
+.period{font:600 13px "Noto Sans SC",sans-serif;letter-spacing:.1em;margin-bottom:10px}.opening .period{color:var(--cool)}
+.lead p{max-width:31em;font-size:16px;line-height:1.7}.opening .lead p{color:var(--hot)}
+.plate,.evidence-plate{min-width:0}.plate{padding:15px 0 13px;border-top:1px solid currentColor}
+.opening .plate{border-color:var(--hair)}
+.chart-tools{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-size:13px}.chart-tools strong{font-size:16px}
+.chart-tools button,.day-picker button,.deck-buttons button,.export{color:inherit;background:transparent;border:1px solid currentColor;border-radius:0;padding:4px 9px;font-size:13px}
+.day-picker button[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}:is(.opening,.slide.dark) .day-picker button[aria-pressed=true]{background:var(--hot);color:var(--panel);border-color:var(--hot)}
+.flagship-plot{min-width:0;width:100%;aspect-ratio:1000/402}.flagship-plot svg{display:block;width:100%;height:100%;overflow:visible}
+.day-picker{display:flex;gap:5px;flex-wrap:wrap;margin:3px 0 6px}
+.plot-note{min-height:47px;display:grid;grid-template-columns:max-content minmax(0,1fr);align-items:baseline;gap:12px;border-top:1px solid var(--rule);margin-top:8px;padding-top:10px;font-size:14px}
+.opening .plot-note{border-color:var(--hair)}.plot-note strong{font-size:18px}.plot-note span{line-height:1.45}
+.source{font-size:12px;color:var(--sub);line-height:1.65}.opening .source{color:var(--cool);padding:0 0 19px}
+.story-tall{padding:57px 0 65px;border-bottom:1px solid var(--rule)}
+.story-tall p{font-size:16px;line-height:1.7}.story-lede{display:grid;grid-template-columns:minmax(0,1.42fr) minmax(270px,1fr);gap:24px 50px;align-items:end;margin:12px 0 24px}.story-lede p{color:var(--sub)}
+.story-table{width:100%;border-collapse:collapse;text-align:left;font-size:16px;line-height:1.4;table-layout:fixed;margin-top:21px}.story-table th,.story-table td{vertical-align:top;border-bottom:1px solid var(--rule);padding:12px 11px;text-align:left}.story-table th:first-child,.story-table td:first-child{padding-left:0}.story-table tr[data-key]{font-weight:750}
+.exhibit{display:grid;grid-template-columns:minmax(0,1.9fr) minmax(230px,.8fr);gap:18px 35px;align-items:center;border-top:1px solid var(--ink);border-bottom:1px solid var(--rule);padding:16px 0 23px}.exhibit svg{width:100%;height:auto;display:block}.exhibit p{color:var(--sub)}.exhibit strong{font:700 clamp(28px,4vw,55px) Bahnschrift,sans-serif;white-space:nowrap}
+.split{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 39px}.split article{border-top:1px solid var(--ink);padding:14px 0}.split h3{margin-bottom:6px}
+.next-line{border-top:2px solid var(--ink);padding:12px 0 22px;display:grid;grid-template-columns:145px 1fr;gap:10px 22px;align-items:baseline}.next-line strong{font:750 22px "Noto Serif SC",serif}.next-line p{font-size:15px;line-height:1.65}
+.brief-body .lead{padding:23px 0 18px}
+.brief-grid{display:grid;grid-template-columns:minmax(0,2fr) minmax(245px,.85fr);gap:20px 34px;align-items:start}.brief-grid .plate{border-top:1px solid var(--ink)}.brief-side{border-top:2px solid var(--ink);padding:11px 0 2px}.brief-side .fact{font:720 clamp(34px,4.4vw,57px)/1.1 Bahnschrift,sans-serif;margin:8px 0;color:var(--ink)}.brief-side p{font-size:14px;line-height:1.6}.brief-side .story-table{font-size:13px;margin:14px 0 7px}.brief-side .story-table th,.brief-side .story-table td{padding:7px 4px}
+.brief-footer{margin:11px 0 20px}.brief-footer .next-line{padding-bottom:9px}.brief-footer .source{margin-top:8px}
+.data-area{padding:30px 0 45px}.data-area summary{cursor:pointer;font-weight:700;font-size:16px}.data-area .story-table{font-size:13px}.data-area .source{margin-top:12px}.data-area .export{margin-top:13px}
+.nav-compact{font-size:13px;color:var(--sub)}
+.deck{background:var(--panel);color:var(--hot);min-height:100dvh;display:grid;place-content:center;justify-items:center;gap:8px;padding:0 0 9px}
+.deck-frame{width:min(100vw,calc((100dvh - 61px)*16/9));aspect-ratio:16/9;background:var(--paper);color:var(--ink);container-type:inline-size;position:relative;overflow:hidden}
+.slide{position:absolute;inset:0;padding:3.3cqw 4.6cqw 3.6cqw;display:flex;flex-direction:column;gap:1.35cqw;justify-content:center}.slide[hidden]{display:none}
+.slide h1{font-size:6.25cqw}.slide h2{font-size:5cqw}.slide h3{font-size:2.3cqw}.slide p{font-size:1.56cqw;line-height:1.5}
+.slide .period{font-size:1.08cqw;margin-bottom:0}.slide .brand strong{font-size:1.7cqw}.slide .brand span{font-size:.84cqw}
+.slide.dark{background:var(--panel);color:var(--hot)}.slide.dark .period,.slide.dark .source{color:var(--cool)}
+.slide .plate{max-width:100%;padding:.7cqw 0 .3cqw;border-color:var(--hair)}.slide .chart-tools{font-size:.92cqw}.slide .chart-tools strong{font-size:1.4cqw}.slide .chart-tools button,.slide .day-picker button{font-size:.91cqw;padding:.28cqw .62cqw}.slide .plot-note{margin:.25cqw 0 0;min-height:0;padding:.4cqw 0 0;font-size:1.1cqw;gap:1cqw;border-color:var(--hair)}.slide .plot-note strong{font-size:1.4cqw}.slide .flagship-plot{height:24cqw;aspect-ratio:auto}
+.slide .stage-lead{display:grid;grid-template-columns:minmax(0,1.48fr) minmax(0,1fr);align-items:end;gap:2.6cqw}
+.slide .exhibit{padding:1.1cqw 0;gap:2cqw;grid-template-columns:minmax(0,1.75fr) minmax(0,1fr)}.slide .exhibit strong{font-size:3.7cqw}
+.slide .split{gap:4cqw}.slide .story-table{font-size:1.23cqw;margin-top:.8cqw}.slide .story-table th,.slide .story-table td{padding:.65cqw .2cqw}
+.slide .step-out{margin-top:auto;display:flex;justify-content:space-between;gap:10px;align-items:end;border-top:1px solid var(--hair);padding-top:.62cqw;font-size:1cqw}
+.stage-evidence,.stage-context,.stage-action{flex:1;min-height:0;display:grid;align-content:center}
+.stage-evidence{gap:2.2cqw}.stage-evidence .exhibit{border-block:1px solid var(--rule)}.stage-evidence>p{max-width:68ch}
+.stage-context{grid-template-columns:1.12fr .88fr;gap:5.5cqw;align-items:center}.stage-context h2{font-size:4.6cqw}.stage-context p{margin-top:1.4cqw}
+.stage-context .split{display:grid;grid-template-columns:1fr;gap:2.1cqw}.stage-context .split article{border-top:1px solid var(--rule);padding-top:1.15cqw}.stage-context .split p{margin-top:.55cqw}
+.stage-action{gap:2.1cqw;max-width:66cqw}.stage-action h2{font-size:7cqw}.stage-action .source{font-size:1.02cqw}
+.deck-buttons{display:flex;gap:8px;align-items:center;font-size:13px}.deck-buttons button{white-space:nowrap}.deck-buttons button:disabled{opacity:.48;cursor:default}
+.deck-frame .data-area{position:absolute;z-index:2;inset:7% 5%;padding:2cqw;background:var(--paper);color:var(--ink);overflow:auto}.data-area[hidden]{display:none}.hidden{display:none!important}
+@media(max-width:780px){.shell{width:calc(100% - 34px)}.lead,.story-lede,.brief-grid,.exhibit,.split{grid-template-columns:1fr;gap:13px}.lead{padding-top:23px}.story-tall{padding:32px 0}.mast nav{gap:10px}.flagship-plot{aspect-ratio:1.9}.plot-note{grid-template-columns:1fr;gap:4px}.next-line{grid-template-columns:1fr;gap:3px}.story-table{font-size:13px}.deck{min-height:100dvh}.slide .plot-note{grid-template-columns:max-content 1fr}}
+@media print{.mast nav,.chart-tools button,.day-picker,.deck-buttons,.export{display:none}.shell{width:100%}.story-tall{break-inside:avoid}.opening{print-color-adjust:exact}.deck{display:block;background:white;padding:0}.deck-frame{position:static;width:100%;overflow:visible;aspect-ratio:auto}.slide,.slide[hidden]{position:relative;display:flex;aspect-ratio:16/9;break-after:page}.slide:last-of-type{break-after:auto}}
+</style>
+<body data-case="water" data-mode="brief">
+<div id="root"></div>
+<script type="application/json" id="configuration">{"kind":"water","mode":"brief","copy":{"name":"两处水尺","period":"08.04—08.11　·　每日 08:00","briefTitle":"下游晚一天回线","storyTitle":"两处水尺，八天晨读","deckTitle":"哪处先回线","lead":"8 月 8 日，石桥上游 68 cm，柳堤下游 62 cm。当天只有上游回到 65 cm 关注线以上。下游到 8 月 9 日晨读才回线。","plate":"上下游水尺 · 65 cm 关注线","key":"晚 1 天","side":"柳堤到 8 月 9 日晨读才回到 65 cm 以上。","summaryRows":[["","上游","下游"],["08.07","60 cm","57 cm"],["08.08","68 cm","62 cm"],["08.09","72 cm","66 cm"]],"detailTitle":"下游晚一天回线","detailSummary":"8 月 6 日下游缺测。只能确认 8 月 7 日的下游晨读低于线，何时开始低于线仍未知。","evidenceRows":[["晨读","石桥上游","柳堤下游"],["08.06","64 cm","缺测"],["08.07","60 cm","57 cm"],["08.08","68 cm · 已回线","62 cm · 仍低于线"],["08.09","72 cm","66 cm · 已回线"]],"noteTitle":"开闸、降雨同夜","noteLead":"开闸和降雨都发生在 8 月 7 日夜间。晨读只能显示随后水位变化。计算补水贡献需要闸口流量和雨量记录。","notes":[["08.07 23:00","闸站记录开闸补水。流量和总量未提供。"],["08.07 夜间至次晨","沿河有降雨记录。没有雨量与精确时段。"]],"actionTitle":"复核柳堤晨读","action":"下个观测周期沿用 08:00 双点晨读。先确认柳堤供电与水尺读数，再补同期雨量和闸口流量。关注线只供本案例管理观察。","sourceLine":"水尺晨读与闸站事件记录（合成） · cm · 每天 08:00"},"data":{"source":"模拟沿河水尺晨读与闸站事件记录","observation":"每日 08:00","unit":"cm","watchLine":65,"days":["08.04","08.05","08.06","08.07","08.08","08.09","08.10","08.11"],"stations":[{"name":"石桥上游","levels":[73,69,64,60,68,72,71,69]},{"name":"柳堤下游","levels":[70,66,null,57,62,66,68,67]}],"events":[{"date":"08.06","event":"柳堤探头断电，晨读缺测"},{"date":"08.07 23:00","event":"开闸补水"},{"date":"08.07 夜间至 08.08 清晨","event":"沿河记录降雨，雨量未知"}]}}</script>
+<script>(function(root){
+"use strict";
+
+function create({request, cancel} = {}) {
+  const requestFrame = request ?? (callback => root.requestAnimationFrame(callback));
+  const cancelFrame = cancel ?? (id => root.cancelAnimationFrame(id));
+  let generation = 0;
+  let pending = null;
+  let running = false;
+
+  function stop() {
+    generation++;
+    if (pending !== null) cancelFrame(pending);
+    pending = null;
+    running = false;
+  }
+
+  function start(beats, paint, done = () => {}) {
+    const ends = [];
+    let total = 0;
+    for (const beat of beats) {
+      if (![beat.move, beat.hold].every(time => Number.isFinite(time) && time >= 0) ||
+          beat.move + beat.hold === 0) throw new RangeError("Each beat needs a duration.");
+      total += beat.move + beat.hold;
+      ends.push(total);
+    }
+    if (!ends.length) throw new RangeError("At least one beat is required.");
+    stop();
+    running = true;
+    const id = generation;
+    let origin;
+    function frame(time) {
+      if (id !== generation) return;
+      pending = null;
+      origin ??= time;
+      const elapsed = Math.max(0, time - origin);
+      const index = ends.findIndex(end => elapsed < end);
+      if (index === -1) {
+        running = false;
+        done();
+        return;
+      }
+      const offset = elapsed - (ends[index - 1] || 0);
+      const move = beats[index].move;
+      const progress = move ? Math.min(1, offset / move) : 1;
+      paint({index, progress, arrived: progress === 1});
+      if (id === generation) pending = requestFrame(frame);
+    }
+    pending = requestFrame(frame);
+  }
+
+  return {start, stop, isRunning: () => running};
+}
+
+const api = {create};
+if (typeof module === "object" && module.exports) module.exports = api;
+else root.JeeEvidenceTimeline = api;
+})(globalThis);
+</script>
+<script>(() => {
+"use strict";
+const $ = selector => document.querySelector(selector);
+const cfg = JSON.parse($("#configuration").textContent);
+const {kind,mode,copy,data} = cfg;
+const root = $("#root");
+const timeline = JeeEvidenceTimeline.create();
+const reduced = matchMedia("(prefers-reduced-motion: reduce)");
+const sum = list => list.reduce((total,value) => total+value,0);
+const esc = value => String(value).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmt = value => value.toLocaleString("zh-CN");
+const rule = "var(--rule)", hair = "var(--hair)", tone = "var(--ink)", soft = "var(--sub)";
+const focus = "var(--focus)", cold = "var(--cool)", pale = "var(--hot)";
+const dark = mode!=="brief";
+const primary = dark?pale:tone, minor=dark?cold:soft, grid=dark?hair:rule;
+const ray = (x1,y1,x2,y2,stroke,width=1,extra="") => `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${stroke}" stroke-width="${width}" ${extra}/>`;
+const dot = (x,y,r,fill,stroke=fill,width=1) => `<circle cx="${x}" cy="${y}" r="${r}" fill="${fill}" stroke="${stroke}" stroke-width="${width}"/>`;
+const txt = (x,y,value,fill=primary,size=19,anchor="start",weight=550) => `<text x="${x}" y="${y}" fill="${fill}" font-size="${size}" text-anchor="${anchor}" font-weight="${weight}" font-family="Noto Sans SC,Microsoft YaHei,sans-serif">${esc(value)}</text>`;
+const svg = (content,label,height=402) => `<svg viewBox="0 0 1000 ${height}" role="img" aria-label="${esc(label)}">${content}</svg>`;
+const mute = "#b14d35";
+const marker = dark?focus:mute;
+
+function water(frame) {
+  const levels=data.stations.map(item=>item.levels);
+  const x=i=>81+i*114;
+  const y=v=>321-(v-55)*12.50;
+  const shown=frame.full?7:frame.index;
+  const chosen=frame.arrived?frame.index:frame.index-1;
+  let shape=txt(34,40,"cm",minor,16);
+  for (const val of [55,60,65,70,75]) {
+    shape+=ray(81,y(val),924,y(val),val===65?marker:grid,val===65?1.7:1,val===65?'stroke-dasharray="6 6"':"")+txt(69,y(val)+6,val,minor,16,"end");
+  }
+  shape+=txt(931,y(65)-6,"关注线",minor,15);
+  if(chosen>=0)shape+=ray(x(chosen),45,x(chosen),324,marker,1,'opacity=".7"');
+  for(let i=1;i<=shown;i++){
+    if(levels[1][i-1]===null||levels[1][i]===null||(!frame.full&&i===shown&&!frame.arrived))continue;
+    shape+=`<path d="M${x(i-1)} ${y(levels[0][i-1])}L${x(i)} ${y(levels[0][i])}L${x(i)} ${y(levels[1][i])}L${x(i-1)} ${y(levels[1][i-1])}Z" fill="${minor}" opacity=".13"/>`;
+  }
+  levels.forEach((list,j)=>{
+    const color=j?minor:primary;
+    list.forEach((value,i)=>{
+      if(value===null||i>shown)return;
+      const isMoving=!frame.full&&i===shown&&!frame.arrived;
+      if(i>0&&list[i-1]!==null){
+        const p=isMoving?frame.progress:1;
+        shape+=ray(x(i-1),y(list[i-1]),x(i-1)+(x(i)-x(i-1))*p,y(list[i-1])+(y(value)-y(list[i-1]))*p,color,j?2.4:3.1,j?'stroke-dasharray="6 5"':"");
+      }
+      if(!isMoving){
+        shape+=dot(x(i),y(value),i===chosen?7.5:4.7,j?(dark?"var(--panel)":"var(--paper)"):(i===chosen?marker:color),color,2);
+        if(i===chosen)shape+=txt(x(i)+(j?13:-13),y(value)+(j?27:-14),value,primary,27,j?"start":"end",800);
+      }
+    });
+  });
+  data.days.forEach((day,i)=>{shape+=txt(x(i),353,day,i===chosen?marker:minor,18,"middle",i===chosen?800:550)});
+  if (shown>=2)shape+=txt(x(2),382,"下游缺测",minor,15,"middle");
+  return svg(shape,"上下游同日水尺，实线为上游，虚线为下游，8 月 6 日下游缺测");
+}
+
+const base=kind==="repairs"?data.zones.map(zone=>{
+  const [orders,confirmed,,pending]=zone.weeks.at(-1);
+  const gap=Math.ceil(orders*data.target)-confirmed;
+  return {name:zone.name,minimum:gap-pending,gap};
+}):[];
+const returns=[0,7,8];
+function repairs(frame) {
+  const picked=returns[frame.index];
+  const north=base[0].gap-(frame.arrived?picked:returns[frame.index-1]+(picked-returns[frame.index-1])*frame.progress);
+  const values=[north,base[1].gap];
+  let shape=txt(885,47,"单位 · 单",minor,16);
+  for(const tick of [0,6,12,18,24])shape+=txt(164+tick*27,56,tick,minor,16,"middle");
+  values.forEach((value,j)=>{
+    const y=90+j*112;
+    shape+=txt(50,y+36,base[j].name,primary,27,"start",800);
+    for(let i=0;i<24;i++){
+      const filled=Math.min(1,Math.max(0,value-i));
+      const x=164+i*27;
+      shape+=`<rect x="${x}" y="${y}" width="24" height="53" rx="1" fill="none" stroke="${frame.index===2&&j===0&&i===14?marker:grid}"/>`;
+      if(filled)shape+=`<rect x="${x}" y="${y}" width="${24*filled}" height="53" fill="${j?minor:marker}"/>`;
+    }
+    shape+=txt(897,y+39,j||frame.arrived?value:"—",primary,41,"end",850);
+  });
+  shape+=ray(50,293,916,293,grid);
+  const actions=["账面缺口","两区并列","改派湖西"];
+  shape+=txt(50,341,frame.arrived?actions[frame.index]:"代入回传情景",marker,29,"start",800);
+  shape+=txt(916,340,"湖西新增确认 0 单 · 一格代表一单",minor,19,"end");
+  return svg(shape,"报修情景下江北、湖西的剩余缺口");
+}
+
+function ribbon(x1,y1,x2,y2,wide){
+  const mid=(x1+x2)/2;
+  return `M${x1} ${y1}C${mid} ${y1} ${mid} ${y2} ${x2} ${y2}V${y2+wide}C${mid} ${y2+wide} ${mid} ${y1+wide} ${x1} ${y1+wide}Z`;
+}
+let batch=0;
+function textiles(frame) {
+  const src=data.batches[batch], stages=["确认再用","纤维处理","待签收"];
+  const factor=268/src.intake;
+  const colors=[dark?"#c0b1d8":"#684f80",dark?"#afbea3":"#758764",dark?"#d5a289":"#b4705a"];
+  const columns=[0,1,2].map(i=>sum(src.routes.map(row=>row.weights[i])));
+  let top=44;
+  const terminals=columns.map(v=>{const y=top;top+=v*factor+12;return y});
+  let startY=44;
+  let shape=txt(32,24,src.name+" · "+fmt(src.intake)+" kg",minor,19)+txt(747,24,"第 28 天去向",minor,19);
+  src.routes.forEach((route,index)=>{
+    const th=sum(route.weights)*factor;
+    let from=startY;
+    const p=index<frame.index?1:index===frame.index?frame.progress:0;
+    const id="route"+index;
+    shape+=`<defs><clipPath id="${id}"><rect x="235" y="0" width="${512*p}" height="395"/></clipPath></defs>`;
+    route.weights.forEach((v,j)=>{
+      const h=v*factor;
+      if(v)shape+=`<path clip-path="url(#${id})" d="${ribbon(235,from,747,terminals[j],h)}" fill="${colors[j]}" opacity=".70"/>`;
+      from+=h;terminals[j]+=h;
+    });
+    shape+=`<rect x="226" y="${startY}" width="9" height="${th}" fill="${minor}"/>`+
+      txt(214,startY+20,route.name,primary,18,"end",750)+txt(214,startY+41,fmt(sum(route.weights))+" kg",minor,16,"end");
+    startY+=th+12;
+  });
+  let y=44;
+  const reached=frame.arrived?frame.index:frame.index-1;
+  columns.forEach((v,i)=>{
+    const shown=sum(src.routes.slice(0,reached+1).map(row=>row.weights[i]));
+    shape+=`<rect x="747" y="${y}" width="9" height="${v*factor}" fill="${colors[i]}" opacity=".52"/>`;
+    shape+=txt(768,y+17,stages[i],primary,19,"start",750)+txt(768,y+40,fmt(shown)+" kg",minor,17);
+    y+=v*factor+12;
+  });
+  shape+=txt(32,382,"带宽表示重量 · 右侧为已到场的路径合计",minor,17);
+  return svg(shape,"旧衣分拣流程三条路径及实际公斤数");
+}
+
+function overview(){
+  if(kind==="water"){
+    const [up,down]=data.stations.map(s=>s.levels);
+    let shape=ray(24,115,960,115,rule)+txt(24,165,"上游",soft,25)+txt(24,204,"下游",soft,25);
+    for (const i of [3,4,5]){
+      const x=177+(i-3)*265;
+      shape+=txt(x,64,data.days[i],soft,22)+
+        txt(x,165,up[i]+" cm",i===4?mute:tone,39,"start",800)+txt(x,204,down[i]+" cm",i===5?mute:soft,32);
+      if(i===4)shape+=ray(x,74,x+217,74,mute,3);
+    }
+    return svg(shape,"8 月 7 至 9 日上游、下游晨读，第一行上游",260);
+  }
+  if(kind==="repairs"){
+    let shape=txt(166,38,"最少",soft,17)+txt(788,38,"账面缺口",soft,17);
+    base.forEach((r,i)=>{
+      const y=71+i*65, x=v=>170+v/24*640;
+      shape+=txt(22,y+25,r.name,tone,22)+ray(170,y+16,810,y+16,rule)+
+        `<rect x="${x(r.minimum)}" y="${y}" width="${x(r.gap)-x(r.minimum)}" height="32" fill="${i?"#b97a5c":mute}" opacity=".72"/>`+
+        txt(834,y+24,r.minimum+"–"+r.gap+" 单",tone,24);
+    });
+    return svg(shape,"三个片区剩余缺口区间",280);
+  }
+  let shape="";
+  const palette=["#664e84","#9baf8d","#c08970"];
+  data.batches.forEach((b,i)=>{
+    let ox=190;
+    const y=47+i*99;
+    shape+=txt(15,y+33,b.name,tone,24);
+    [0,1,2].forEach(j=>{
+      const v=sum(b.routes.map(r=>r.weights[j]));
+      const w=v/b.intake*670;
+      shape+=`<rect x="${ox}" y="${y}" width="${w}" height="51" fill="${palette[j]}"/>`;
+      ox+=w;
+    });
+    shape+=txt(886,y+34,(sum(b.routes.map(r=>r.weights[0]))/b.intake*100).toFixed(1)+"%",tone,25);
+  });
+  shape+=ray(659,23,659,209,mute,2,'stroke-dasharray="5 4"')+txt(659,232,"70% 承诺",soft,18,"middle");
+  return svg(shape,"春秋两批分母各自为本批入库重量，左段为确认再用率",257);
+}
+
+const beats=kind==="water"?data.days.map((_,i)=>({move:i?270:0,hold:[4,5].includes(i)?1210:220})):
+  kind==="repairs"?[{move:0,hold:660},{move:580,hold:1280},{move:500,hold:1080}]:
+  Array.from({length:3},()=>({move:580,hold:820}));
+const last=beats.length-1;
+const settled=i=>({index:i,progress:1,arrived:true,full:true});
+const replayStatus=()=>timeline.isRunning();
+const labels=kind==="water"?data.days:kind==="repairs"?["账面 · 0 单","并列 · 7 单","改派 · 8 单"]:data.batches.map(b=>b.name);
+
+function notes(frame){
+  const i=frame.arrived?frame.index:frame.index-1;
+  if(kind==="water"){
+    const [a,b]=data.stations.map(s=>s.levels[Math.max(0,i)]);
+    const shown=frame.arrived?(b===null?`${a} cm / 缺测`:`${a} / ${b} cm`):"沿时序读数";
+    const line=i===4?"8 月 8 日 · 上游已回线，下游仍低 3 cm":i===5?"8 月 9 日 · 下游回到线以上":b===null?"下游探头断电，保留空位":"实线 · 上游　虚线 · 下游　每日 08:00";
+    return [shown,line];
+  }
+  if(kind==="repairs")return frame.arrived?
+    [["22 / 15 单","账面差额 · 先预排江北"],["15 / 15 单","补 7 单后两区并列 · 保留江北预排"],["14 / 15 单","补 8 单后湖西缺口更大 · 改派湖西"]][i]:
+    ["代入回传","当前为情景推演，下一拍显示确认的差额。"];
+  const src=data.batches[batch], row=src.routes[Math.max(0,i)];
+  return i<0?["跟随分拣路径","带宽表示公斤。"]:[row.name, `确认再用 ${row.weights[0]} kg · 纤维处理 ${row.weights[1]} kg · 待签收 ${row.weights[2]} kg`];
+}
+
+function display(frame){
+  const chart=$("#plot");
+  if(!chart)return;
+  chart.innerHTML=({water,repairs,textiles}[kind])(frame);
+  chart.dataset.phase=String(frame.index);
+  chart.dataset.arrived=String(frame.arrived);
+  const [headline,description]=notes(frame);
+  if($("#read").textContent!==headline)$("#read").textContent=headline;
+  if($("#explain").textContent!==description)$("#explain").textContent=description;
+  for(const [i,button] of Array.from(document.querySelectorAll("[data-pick]")).entries())
+    button.setAttribute("aria-pressed",String(kind==="textiles"?i===batch:frame.arrived&&i===frame.index));
+}
+const snap=()=>settled(kind==="water"?4:last);
+function stop(frame=snap()){
+  timeline.stop();
+  display(frame);
+  if($("#replay"))$("#replay").textContent="重看变化";
+}
+function play(){
+  if(replayStatus()){stop();return}
+  if(reduced.matches){stop();return}
+  $("#replay").textContent="停止";
+  timeline.start(beats,display,()=>stop(settled(last)));
+}
+
+function initPlot(){
+  if(!$("#plot"))return;
+  display(snap());
+  $("#replay").onclick=play;
+  $("#replay").hidden=reduced.matches;
+  document.querySelectorAll("[data-pick]").forEach((button,i)=>button.addEventListener("click",()=>{
+    if(kind==="textiles"){batch=i;stop(settled(last));}
+    else stop(settled(i));
+  }));
+}
+
+function table(rows){
+  const [header,...body]=rows;
+  return `<table class="story-table"><thead><tr>${header.map(value=>`<th scope="col">${esc(value)}</th>`).join("")}</tr></thead><tbody>${body.map((row,i)=>`<tr ${kind==="water"&&row[0]==="08.08"?'data-key=""':""}>${row.map(value=>`<td>${esc(value)}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
+}
+function originals(){
+  if(kind==="water")return [[data.observation,...data.stations.map(s=>s.name+" / cm")],...data.days.map((day,i)=>[day,...data.stations.map(s=>s.levels[i]??"缺测")])];
+  if(kind==="repairs")return [["片区","周次",...data.columns],...data.zones.flatMap(z=>z.weeks.map((row,i)=>[z.name,data.weeks[i],...(row??["未交","—","—","—"])]))];
+  return [["批次","首次分拣","确认再用 / kg","纤维处理 / kg","待签收 / kg"],...data.batches.flatMap(src=>src.routes.map(r=>[src.name,r.name,...r.weights]))];
+}
+function fileExport(){
+  const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});
+  const href=URL.createObjectURL(blob);
+  const a=document.createElement("a");a.href=href;a.download=kind+"-source.json";a.click();
+  requestAnimationFrame(()=>URL.revokeObjectURL(href));
+}
+const brand='<div class="brand"><strong>见数</strong><span>JEE CHARTS MASTER</span></div>';
+const mast=nav=>`<header class="mast">${brand}<nav aria-label="内容">${nav}</nav></header>`;
+const top=(title)=>`<div class="lead"><div><p class="period">${copy.period}</p><h1>${title}</h1></div><p>${copy.lead}</p></div>`;
+const plate=()=>`<figure class="plate" id="motion-plate"><div class="chart-tools"><strong>${copy.plate}</strong><button id="replay" type="button">重看变化</button></div>
+  <div id="plot" class="flagship-plot"></div><div class="day-picker" role="group" aria-label="核查原值">${labels.map(d=>`<button data-pick type="button">${d}</button>`).join("")}</div>
+  <figcaption class="plot-note" aria-live="polite"><strong id="read"></strong><span id="explain"></span></figcaption></figure>`;
+const source=()=>`<p class="source">来源 · ${copy.sourceLine}</p>`;
+const next=()=>`<div class="next-line"><strong>${copy.actionTitle}</strong><p>${copy.action}</p></div>`;
+const overviewBox=()=>`<div class="exhibit">${overview()}<div><strong>${copy.key}</strong><p>${copy.side}</p></div></div>`;
+const split=()=>`<div class="split">${copy.notes.map(([title,detail])=>`<article><h3>${title}</h3><p>${detail}</p></article>`).join("")}</div>`;
+const dataBox=()=>`<details><summary>查看原值</summary>${table(originals())}${source()}<button class="export" type="button" data-export>下载源数据 JSON</button></details>`;
+
+function brief(){
+  return `<main class="shell brief-body">${mast('<a href="#raw">原值</a>')}${top(copy.briefTitle)}<div class="brief-grid">${plate()}<aside class="brief-side"><p>本次判断</p><div class="fact">${copy.key}</div><p>${copy.side}</p>${table(copy.summaryRows)}</aside></div>
+  <footer class="brief-footer">${next()}${source()}<div id="raw" class="nav-compact">${dataBox()}</div></footer></main>`;
+}
+function story(){
+  return `<main><section class="opening" id="opening"><div class="shell">${mast('<a href="#compare">对照</a><a href="#context">核查</a><a href="#next">下一步</a><a href="#raw">原值</a>')}${top(copy.storyTitle)}${plate()}${source()}</div></section>
+    <section class="story-tall" id="compare"><div class="shell"><div class="story-lede"><h2>${copy.detailTitle}</h2><p>${copy.detailSummary}</p></div>${overviewBox()}${table(copy.evidenceRows)}</div></section>
+    <section class="story-tall" id="context"><div class="shell"><div class="story-lede"><h2>${copy.noteTitle}</h2><p>${copy.noteLead}</p></div>${split()}</div></section>
+    <footer class="shell data-area" id="next">${next()}<div id="raw">${dataBox()}</div></footer></main>`;
+}
+function deck(){
+  const contents=[
+    `<div class="stage-lead"><div><p class="period">${copy.period}</p><h1>${copy.deckTitle}</h1></div><p>${copy.lead}</p></div>${plate()}`,
+    `<div class="stage-evidence"><h2>${copy.detailTitle}</h2>${overviewBox()}<p>${copy.detailSummary}</p></div>`,
+    `<div class="stage-context"><div><h2>${copy.noteTitle}</h2><p>${copy.noteLead}</p></div>${split()}</div>`,
+    `<div class="stage-action"><h2>${copy.actionTitle}</h2><p>${copy.action}</p>${source()}</div>`
+  ];
+  return `<main class="deck"><div class="deck-frame">${contents.map((content,i)=>`<section class="slide ${i===0?"dark":""}" data-slide="${i}" ${i?"hidden":""}>${i===0?brand:""}${content}<div class="step-out"><span>见数 · ${copy.name}</span><span>${i+1} / ${contents.length}</span></div></section>`).join("")}<div id="deck-data" class="data-area" hidden>${dataBox()}<button class="export" type="button" id="exit-data">返回演示</button></div></div>
+    <nav class="deck-buttons" aria-label="演示操作"><button id="prev" type="button">上一页</button><span id="page-number" aria-live="polite"></span><button id="next-slide" type="button">下一页</button><button id="show-data" type="button">原值</button></nav></main>`;
+}
+root.innerHTML=({brief,story,deck}[mode])();
+initPlot();
+document.querySelectorAll("[data-export]").forEach(button=>button.onclick=fileExport);
+if(mode==="deck"){
+  const all=Array.from(document.querySelectorAll(".slide"));
+  let current=0;
+  function select(index){
+    current=Math.min(all.length-1,Math.max(0,index));
+    stop();
+    all.forEach((slide,i)=>{slide.hidden=i!==current});
+    $("#prev").disabled=current===0;
+    $("#next-slide").disabled=current===all.length-1;
+    $("#page-number").textContent=(current+1)+" / "+all.length;
+  }
+  function toggleData(on){
+    $("#deck-data").hidden=!on;
+    if(on){stop();$("#deck-data summary").focus();}
+    else $("#show-data").focus();
+  }
+  $("#prev").onclick=()=>select(current-1);
+  $("#next-slide").onclick=()=>select(current+1);
+  $("#show-data").onclick=()=>toggleData(true);
+  $("#exit-data").onclick=()=>toggleData(false);
+  addEventListener("keydown",event=>{
+    if(!$("#deck-data").hidden){if(event.key==="Escape")toggleData(false);return}
+    if(["ArrowLeft","PageUp"].includes(event.key))select(current-1);
+    if(["ArrowRight","PageDown"].includes(event.key))select(current+1);
+  });
+  select(0);
+}
+if(location.search.includes("autoplay")&&!reduced.matches)play();
+reduced.addEventListener("change",()=>{if(reduced.matches)stop();$("#replay").hidden=reduced.matches});
+addEventListener("beforeprint",()=>stop());
+
+window.JeeFlagship = {
+  frameAt(ms) {
+    timeline.stop();
+    let position=0;
+    const at=beats.findIndex(beat=>{if(ms<position+beat.move+beat.hold)return true;position+=beat.move+beat.hold;return false});
+    if(at===-1){display(settled(last));return}
+    const motion=beats[at].move;
+    const progress=motion?Math.min(1,(ms-position)/motion):1;
+    display({index:at,progress,arrived:progress===1,full:false});
+  },
+  duration:sum(beats.map(beat=>beat.move+beat.hold))
+};
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light"><title>旧衣去哪儿了｜社区循环站</title>
+<style>
+:root{--paper:#f5f6ef;--ink:#203c33;--muted:#526459;--line:#cbd6c8;--green:#2c765e;--green-dark:#17493b;--fiber:#ac5a43;--fiber-dark:#813d2d;--wait:#d9b76b;--wait-dark:#614712;--white:#fffffb;--display:"Songti SC","Noto Serif CJK SC","SimSun",serif;--body:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif}
+*,*:before,*:after{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.7 var(--body);font-variant-numeric:tabular-nums}h1,h2,h3,p,figure{margin:0}h1,h2{font-family:var(--display);font-weight:800;line-height:1.12;letter-spacing:-.05em}a{color:inherit;text-underline-offset:.25em}button,a{touch-action:manipulation}button{font:inherit;color:inherit}button:focus-visible,a:focus-visible{outline:3px solid var(--green);outline-offset:4px}section{scroll-margin-top:25px}.shell{width:min(1180px,calc(100% - 88px));margin:auto}.mast{border-bottom:1px solid var(--line)}.mast .shell{height:60px;display:flex;align-items:center;justify-content:space-between;gap:18px}.station{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.065em}.station svg{width:22px;height:22px}.mast nav{display:flex;gap:28px;font-size:13px}.mast nav a{text-decoration:none}.mast nav a:hover{text-decoration:underline}.intro{padding:42px 0 29px;display:grid;grid-template-columns:1fr minmax(290px,36%);gap:50px;align-items:end}.kicker{font-size:13px;font-weight:800;letter-spacing:.12em;color:var(--muted);margin-bottom:8px}h1{font-size:clamp(54px,6.3vw,92px)}.standfirst{font-size:16px;line-height:1.75;max-width:38em;padding-bottom:4px}.standfirst strong{font-weight:850}
+.feature{background:var(--green-dark);color:#fffff5;padding:28px 36px 24px;position:relative;border-radius:2px}.feature-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px}.feature h2{font:700 22px/1.25 var(--body);letter-spacing:0}.feature .unit{color:#d8e5d5;font-size:13px}.compare{display:grid;grid-template-columns:120px 1fr;gap:0 24px;margin-top:12px}.batchname{align-self:center;line-height:1.45}.batchname b{display:block;font-size:18px}.batchname small{display:block;color:#d8e5d5;font-size:13px}.scale,.weighted{position:relative;grid-column:2}.scale{height:34px;margin-bottom:1px;font-size:12px;color:#e2edd9}.scale span{position:absolute;bottom:2px;transform:translateX(-50%);white-space:nowrap}.scale span:first-child{left:0;transform:none}.scale span:nth-child(2){left:50%}.scale span:last-child{right:0;transform:none}.scale .prom{left:70%;top:0;bottom:auto;color:#ffe0a0;font-weight:800}.weighted{margin-bottom:13px;padding-top:1px}.weighted:last-child{margin-bottom:0}.track{display:flex;position:relative;height:58px;background:#f1e8d0;isolation:isolate}.track .piece{position:relative;display:flex;align-items:center;min-width:0;padding:0;color:#102f27;white-space:nowrap;font-weight:800}.track .piece:first-child{padding-left:14px}.track .piece b{font:800 clamp(22px,2.7vw,36px)/1 var(--body);letter-spacing:-.05em}.track .piece b small{font-size:.63em}.track .piece.wait{justify-content:center;font-size:13px}.track .piece.fiber{justify-content:center;color:#fff6eb;font-size:15px}.piece.ok,.swatch.ok{background:repeating-linear-gradient(90deg,#a6cfac 0,#a6cfac 7px,#96c4a0 7px,#96c4a0 8px)}.piece.fiber,.swatch.fiber{background:repeating-linear-gradient(0deg,#98543f 0,#98543f 6px,#a45d47 6px,#a45d47 7px)}.piece.wait,.swatch.wait{background:repeating-linear-gradient(135deg,#e7ca89 0,#e7ca89 4px,#b18b41 4px,#b18b41 5px)}.target-mark{position:absolute;z-index:2;left:70%;width:0;top:-4px;bottom:-4px;border-left:2px dashed #fff8d9;filter:drop-shadow(1px 0 0 #283629);pointer-events:none}.under{display:flex;gap:5px 18px;flex-wrap:wrap;color:#e3eadf;font-size:12px;margin-top:5px}.under strong{color:#fff;font-size:13px}.feature-foot{border-top:1px solid #527767;margin-top:15px;padding-top:13px;display:flex;justify-content:space-between;gap:16px;align-items:flex-start}.legend{display:flex;flex-wrap:wrap;gap:5px 15px;font-size:12px}.swatch{height:10px;width:17px;display:inline-block;margin-right:5px}.feature-foot p{font-size:13px;color:#f1f7eb}.feature-foot strong{color:#ffe0a0}
+.chapter{padding:70px 0 68px;border-bottom:1px solid var(--line)}.sectionhead{display:grid;grid-template-columns:1fr minmax(310px,34%);gap:46px;align-items:end;margin-bottom:25px}.sectionhead h2{font-size:clamp(34px,4.25vw,60px)}.sectionhead p{color:var(--muted);font-size:15px}.toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:0 0 14px}.tabs{display:flex;gap:5px}.tabs button,.play,.download{border:1px solid var(--line);background:transparent;min-height:42px;padding:7px 15px;cursor:pointer;font-weight:700;font-size:14px}.tabs button[aria-pressed=true]{background:var(--green-dark);color:var(--white);border-color:var(--green-dark)}.tabs button:hover:not([aria-pressed=true]),.play:hover,.download:hover{background:#e4eddf}.play[aria-pressed=true]{background:#e4eddf}.play[aria-disabled=true]{cursor:default;color:var(--muted);background:transparent}.glyph{margin-right:6px;font-size:12px}.route-figure{border-top:2px solid var(--ink);background:var(--white);padding:18px 23px 15px}.flowheads{display:grid;grid-template-columns:22% 48% 30%;gap:0;font-weight:800;font-size:14px}.flowheads small{display:block;color:var(--muted);font-weight:500;font-size:13px}.flowheads div:last-child{text-align:right}.flowstage{display:grid;grid-template-columns:1fr;margin:10px 0 0}.flowstage svg{width:100%;height:auto;display:block;overflow:visible}.flowstage .overlay{opacity:.25}.flowstage .base{opacity:.68}.flowstage.is-playing .base{opacity:.26}.flowstage.is-playing .overlay{opacity:.86}.svglabels{font:700 14px var(--body);fill:var(--ink);paint-order:stroke;stroke:#fffffb;stroke-width:4px;stroke-linejoin:round}.svglabels small{font-size:12px}.fig-explain{font-size:13px;color:var(--muted);margin:6px 0 0}.flow-status{min-height:28px;color:var(--green-dark);font-size:14px;font-weight:750;margin-top:4px}
+.tablebox{margin-top:18px;overflow:auto}table{border-collapse:collapse;width:100%;line-height:1.45}caption{text-align:left;font-weight:800;margin-bottom:8px}th,td{padding:11px 10px;border-bottom:1px solid var(--line);text-align:right}th:first-child,td:first-child{text-align:left}thead th{font-size:13px;color:var(--muted);font-weight:750}tbody th{font-weight:700}tfoot th,tfoot td{font-weight:850;background:#e7eddf}.route-detail .pending{color:var(--wait-dark);font-weight:800}.route-detail .good{color:var(--green-dark)}
+.decision{display:grid;grid-template-columns:1.42fr 1fr;gap:45px;align-items:start}.interval{border-top:2px solid var(--ink);padding:14px 0 0}.interval h3{font-size:19px}.interval figcaption{color:var(--muted);font-size:13px;line-height:1.55;margin:4px 0 13px}.interval-axis{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);border-bottom:1px solid var(--line);margin:12px 0 12px}.gaprow{margin-bottom:17px}.gaplabel{display:flex;align-items:baseline;justify-content:space-between;gap:5px}.gaplabel b{font-size:15px}.gaplabel strong{font-size:22px;line-height:1}.gaplabel strong small{font-size:12px}.gaptrack{position:relative;height:23px;margin:5px 0;background:repeating-linear-gradient(90deg,#d6dfd1 0 1px,transparent 1px 25%),linear-gradient(transparent 46%,#ccd7c9 46% 54%,transparent 54%)}.gapbar{position:absolute;height:100%;background:repeating-linear-gradient(135deg,#e7ca89 0,#e7ca89 5px,#a77b29 5px,#a77b29 6px);border-inline:2px solid var(--wait-dark)}.gaprow p{font-size:13px;color:var(--muted)}.priority{background:#e5ecdc;padding:23px 25px 24px;border-top:2px solid var(--green)}.priority .when{font-size:13px;color:var(--muted);font-weight:800}.priority h3{font-size:25px;line-height:1.28;margin:4px 0 12px}.priority p{font-size:15px}.priority .condition{border-top:1px solid #c7d4bf;padding-top:11px;margin-top:11px}.tradeoffs{border-top:1px solid var(--line);margin-top:26px;padding-top:15px;color:var(--muted);font-size:14px}.sources{padding:44px 0 55px}.sources h2{font-size:35px;margin-bottom:11px}.sources p{font-size:14px;color:var(--muted);max-width:64em}.sources details{margin-top:19px;border-top:1px solid var(--line);padding-top:10px}.sources summary{cursor:pointer;font-size:15px;font-weight:800}.sources .tablebox{margin-top:12px}.downloads{margin-top:16px;display:flex;gap:10px;flex-wrap:wrap}.download{display:inline-flex;align-items:center;text-decoration:none}.footerline{border-top:1px solid var(--line);padding:13px 0;color:var(--muted);font-size:12px}
+@media(max-width:860px){.shell{width:calc(100% - 46px)}.intro{grid-template-columns:1fr 43%;gap:30px}.decision{gap:27px}.sectionhead{gap:26px}.feature{padding-inline:24px}}
+@media(max-width:650px){.shell{width:calc(100% - 32px)}.mast .shell{height:51px;gap:7px}.station{gap:6px;font-size:12px;letter-spacing:0}.station svg{width:16px;height:16px}.mast nav{gap:9px;font-size:11px}.intro{display:block;padding:29px 0 19px}.kicker{font-size:11px}.standfirst{margin-top:14px;font-size:14px}.feature{padding:15px 12px 12px}.feature h2{font-size:17px}.feature .unit{font-size:10px}.compare{grid-template-columns:1fr;gap:0;margin-top:8px}.scale,.weighted{grid-column:1}.scale{height:29px}.batchname{display:flex;align-items:baseline;gap:7px;margin:5px 0}.batchname b{font-size:14px}.batchname small{display:inline;font-size:11px}.track{height:43px}.track .piece:first-child{padding-left:7px}.track .piece b{font-size:23px}.track .piece.wait{font-size:0}.track .piece.fiber{font-size:12px}.weighted{margin-bottom:5px}.feature-foot{display:block;margin-top:12px;padding-top:7px}.feature-foot .legend{margin-bottom:5px}.under{gap:3px 9px;font-size:11px}.under strong{font-size:11px}.feature-foot p,.legend{font-size:11px}.chapter{padding:43px 0}.sectionhead{display:block;margin-bottom:15px}.sectionhead p{margin-top:11px;font-size:14px}.route-figure{padding:12px 8px 9px}.flowheads{font-size:11px}.flowheads small{font-size:10px}.svglabels{display:none}.fig-explain,.flow-status{font-size:11px}.flow-status{min-height:23px}.tabs button,.play,.download{font-size:12px;padding:6px 9px;min-height:38px}.toolbar{gap:6px}.tablebox{margin-top:14px}th,td{padding:8px 3px;font-size:12px}thead th{font-size:11px}.decision{display:block}.priority{margin-top:19px}.sources .tablebox td,.sources .tablebox th{font-size:10px}.sources .tablebox strong{white-space:nowrap}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}.shell{width:100%}.mast nav,.toolbar,.downloads{display:none}.chapter{padding:28px 0}.intro{padding:18px 0}.feature,.route-figure,.priority,.gaprow,tr{break-inside:avoid}.sources details:not([open])>.tablebox{display:block}.sources details summary{display:none}.flowstage .base{opacity:.68!important}.flowstage .overlay{display:none}}
+</style>
+</head>
+<body>
+<header class="mast"><div class="shell"><div class="station"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5h20M2 12h20M2 19h20M5 2v20M12 2v20M19 2v20" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5 9v6m7-13v6m7 8v6" stroke="var(--paper)" stroke-width="2.8"/><path d="M2 12h6m1-7h6m1 14h6" stroke="currentColor" stroke-width="1.6"/></svg>社区循环站</div><nav aria-label="报告章节"><a href="#results">批次对照</a><a href="#paths">分拣路径</a><a href="#next">一周行动</a><a href="#data">台账</a></nav></div></header>
+<main class="shell">
+<section id="results">
+<div class="intro"><div><p class="kicker">旧衣去向报告 · 入库后第 28 天</p><h1>旧衣去哪儿了</h1></div><p class="standfirst" id="standfirst"></p></div>
+<figure class="feature" aria-labelledby="compare-title"><div class="feature-head"><h2 id="compare-title">每批旧衣的去向</h2><span class="unit">以各批入库重量为 100%</span></div>
+<div class="compare" id="compare"></div>
+<figcaption class="feature-foot"><div class="legend"><span><i class="swatch ok"></i>已确认再用</span><span><i class="swatch wait"></i>待签收</span><span><i class="swatch fiber"></i>纤维处理</span></div><p id="feature-note"></p></figcaption></figure>
+</section>
+<section id="paths" class="chapter">
+<div class="sectionhead"><h2>旧衣的三条分拣路径</h2><p>一袋旧衣交来后，站点会把其中的衣物分到转赠、修复再流通和直接纤维处理三个去向。前两条路径仍可能转做纤维处理，或在第 28 天等待签收。</p></div>
+<div class="toolbar"><div class="tabs" role="group" aria-label="选择批次" id="tabs"></div><button class="play" id="play" type="button" aria-pressed="false"><span class="glyph" aria-hidden="true">▶</span>按路径播放</button></div>
+<figure class="route-figure" aria-labelledby="paths-figure-title">
+<div class="flowheads" id="paths-figure-title"><div>入库<small id="flow-intake"></small></div><div>首次分拣<small>三条路径</small></div><div>第 28 天记录<small>单位：公斤</small></div></div>
+<div class="flowstage" id="flowstage"></div>
+<figcaption class="fig-explain">带宽表示所选批次内的重量，切换批次时各自铺满。零公斤的连接省略。每公斤在第 28 天只计入一种去向。</figcaption>
+<p class="flow-status" id="flow-status" aria-live="polite"></p>
+</figure>
+<div class="tablebox route-detail" id="route-detail"></div>
+</section>
+<section id="next" class="chapter">
+<div class="sectionhead"><h2>先跟进哪一条路径？</h2><p>一周内，跨站确认一批旧衣的一条待签收路径。用可跟进重量挑选本周对象，再用承诺缺口判断是否需要改变分拣和处理方式。</p></div>
+<div class="decision"><figure class="interval" aria-labelledby="interval-title"><h3 id="interval-title">签收后，离承诺还差多少？</h3><figcaption>区间左端假设待签收全部确认再用，右端是当前台账缺口。单位：公斤。</figcaption><div id="gap-chart"></div></figure>
+<div class="priority"><p class="when">本周先做</p><h3 id="priority-title"></h3><div id="priority-copy"></div></div></div>
+<p class="tradeoffs" id="tradeoffs"></p>
+</section>
+<section id="data" class="sources">
+<h2>来源与计算口径</h2>
+<p id="source-line"></p>
+<p>确认再用率 = 第 28 天已确认再用重量 ÷ 本批入库重量。待签收可能确认再用，也可能进入纤维处理，确认前不计入再用。第 28 天的去向记录可追到首次分拣路径。台账没有单件记录或签收时间明细。</p>
+<details id="ledger"><summary>展开两批完整台账</summary><div class="tablebox" id="full-data"></div></details>
+<div class="downloads"><a id="download-data" class="download" download="旧衣去向-原始台账.json">下载原始台账 JSON</a><a id="download-svg" class="download" download="旧衣去向-分拣路径.svg">下载所选批次路径图 SVG</a></div>
+</section>
+</main><footer class="footerline"><div class="shell">社区循环站 · 旧衣去向报告</div></footer>
+<script type="application/json" id="ledger-json">{
+  "source":"社区循环站入库及分拣、结案台账（模拟）",
+  "observationDays":28,
+  "target":0.7,
+  "columns":["已确认再用","纤维处理","待签收"],
+  "batches":[
+    {"name":"春季批次","dates":"03.01–03.07","intake":1000,"routes":[{"name":"转赠","weights":[498,35,37]},{"name":"修复再流通","weights":[130,45,55]},{"name":"直接纤维处理","weights":[0,200,0]}]},
+    {"name":"秋季批次","dates":"09.05–09.11","intake":1500,"routes":[{"name":"转赠","weights":[633,66,36]},{"name":"修复再流通","weights":[260,134,41]},{"name":"直接纤维处理","weights":[0,330,0]}]}
+  ]
+}
+</script>
+<script>
+(function(root){
+"use strict";
+
+function create({request, cancel} = {}) {
+  const requestFrame = request ?? (callback => root.requestAnimationFrame(callback));
+  const cancelFrame = cancel ?? (id => root.cancelAnimationFrame(id));
+  let generation = 0;
+  let pending = null;
+  let running = false;
+
+  function stop() {
+    generation++;
+    if (pending !== null) cancelFrame(pending);
+    pending = null;
+    running = false;
+  }
+
+  function start(beats, paint, done = () => {}) {
+    const ends = [];
+    let total = 0;
+    for (const beat of beats) {
+      if (![beat.move, beat.hold].every(time => Number.isFinite(time) && time >= 0) ||
+          beat.move + beat.hold === 0) throw new RangeError("Each beat needs a duration.");
+      total += beat.move + beat.hold;
+      ends.push(total);
+    }
+    if (!ends.length) throw new RangeError("At least one beat is required.");
+    stop();
+    running = true;
+    const id = generation;
+    let origin;
+    function frame(time) {
+      if (id !== generation) return;
+      pending = null;
+      origin ??= time;
+      const elapsed = Math.max(0, time - origin);
+      const index = ends.findIndex(end => elapsed < end);
+      if (index === -1) {
+        running = false;
+        done();
+        return;
+      }
+      const offset = elapsed - (ends[index - 1] || 0);
+      const move = beats[index].move;
+      const progress = move ? Math.min(1, offset / move) : 1;
+      paint({index, progress, arrived: progress === 1});
+      if (id === generation) pending = requestFrame(frame);
+    }
+    pending = requestFrame(frame);
+  }
+
+  return {start, stop, isRunning: () => running};
+}
+
+const api = {create};
+if (typeof module === "object" && module.exports) module.exports = api;
+else root.JeeEvidenceTimeline = api;
+})(globalThis);
+
+</script>
+<script>
+(() => {
+  'use strict';
+  const raw = document.querySelector('#ledger-json').textContent;
+  const data = JSON.parse(raw);
+  const $ = id => document.getElementById(id);
+  const n = value => value.toLocaleString('zh-CN');
+  const w = value => n(value) + ' 公斤';
+  const pct = (v,d) => (100*v/d).toFixed(1);
+  const ratio = (v,d) => pct(v,d) + '%';
+  const sum = values => values.reduce((a,b) => a+b,0);
+  const batches = data.batches.map(source => {
+    const totals = data.columns.map((_,j) => sum(source.routes.map(r => r.weights[j])));
+    const threshold = Math.ceil(source.intake * data.target);
+    const gap = threshold - totals[0];
+    const routes = source.routes.map(r => ({...r,total:sum(r.weights)}));
+    if (sum(totals) !== source.intake || routes.some(r => r.weights.some(v => !Number.isInteger(v) || v<0))) throw Error('重量无法对账');
+    return {...source,threshold,gap,minimum:Math.max(0,gap-totals[2]),totals,routes};
+  });
+  const [a,b] = batches;
+  const commitment = Math.round(data.target*100);
+  document.documentElement.style.setProperty('--target', commitment + '%');
+  $('standfirst').innerHTML = '秋季收得更多，春季确认再用的比例更高。以入库后第 28 天为准，<strong>两批都没达到每批 ' + commitment + '% 的再用承诺。</strong>';
+  $('compare').innerHTML = '<div class="scale" aria-hidden="true"><span>0%</span><span>50%</span><span class="prom" style="left:var(--target)">'+commitment+'% 承诺</span><span>100%</span></div>' + batches.map(t => {
+    const [ok,fiber,wait] = t.totals;
+    const aria = t.name + '，入库' + w(t.intake) + '，已确认再用' + ratio(ok,t.intake) + '，待签收' + ratio(wait,t.intake) + '，纤维处理' + ratio(fiber,t.intake);
+    return '<div class="batchname"><b>'+t.name+'</b><small>'+t.dates+' 入库</small></div><div class="weighted"><div class="track" role="img" aria-label="'+aria+'"><span class="piece ok" style="width:'+100*ok/t.intake+'%"><b>'+pct(ok,t.intake)+'<small>%</small></b></span><span class="piece wait" style="width:'+100*wait/t.intake+'%">'+ratio(wait,t.intake)+'</span><span class="piece fiber" style="width:'+100*fiber/t.intake+'%">'+ratio(fiber,t.intake)+'</span><i class="target-mark" style="left:var(--target)"></i></div><div class="under"><span>入库 <strong>'+w(t.intake)+'</strong></span><span>确认再用 '+w(ok)+'</span><span>待签收 '+w(wait)+'</span><span>纤维处理 '+w(fiber)+'</span></div></div>';
+  }).join('');
+  $('feature-note').innerHTML = '秋季多收 <strong>'+w(b.intake-a.intake)+'</strong>，确认再用率低 <strong>'+((a.totals[0]/a.intake-b.totals[0]/b.intake)*100).toFixed(1)+' 个百分点</strong>。';
+
+  const gapMax = Math.ceil(Math.max(...batches.map(t => t.gap))/40)*40;
+  $('gap-chart').innerHTML = '<div class="interval-axis" aria-hidden="true">'+Array.from({length:5},(_,i)=>'<span>'+i*gapMax/4+'</span>').join('')+'</div>' + batches.map(t => '<div class="gaprow"><div class="gaplabel"><b>'+t.name+'</b><strong>'+n(t.minimum)+'–'+n(t.gap)+' <small>公斤</small></strong></div><div class="gaptrack" aria-hidden="true"><div class="gapbar" style="left:'+t.minimum/gapMax*100+'%;width:'+(t.gap-t.minimum)/gapMax*100+'%"></div></div><p>承诺 '+w(t.threshold)+' · 当前差 '+w(t.gap)+' · 全部待签确认后 '+ratio(t.totals[0]+t.totals[2],t.intake)+'</p></div>').join('');
+  const options = batches.flatMap(t=>t.routes.filter(r=>r.weights[2]>0).map(r=>({t,r}))).sort((l,r)=>r.r.weights[2]-l.r.weights[2]);
+  const first = options[0], next = options[1], selected = first.t;
+  const potential = first.r.weights[2], other = selected.totals[2]-potential;
+  $('priority-title').textContent = selected.name+' · '+first.r.name+'签收';
+  $('priority-copy').innerHTML = '<p>请循环站和接收站一周内核对这条路径的 <strong>'+w(potential)+'</strong>。这是单条路径可跟进重量的最大值，下一项是'+next.t.name+next.r.name+'的 '+w(next.r.weights[2])+'。回查时记录确认再用、转纤维处理和仍待签收各多少公斤。</p><p class="condition">春季还需确认 <strong>'+w(a.gap)+'</strong>。即使修复路径的 '+w(potential)+' 全确认，之后也还要从转赠路径确认至少 <strong>'+w(a.gap-potential)+'</strong>。若修复最终确认少于 '+w(a.gap-other)+'，即使转赠待签全部确认，春季仍达不到承诺。</p>';
+  $('tradeoffs').innerHTML = '<strong>秋季的缺口更大。</strong> 即使 '+w(b.totals[2])+' 待签收全部确认再用，秋季仍差 '+w(b.minimum)+'，超过春季当前的 '+w(a.gap)+'。秋季要缩小缺口，还要复核直送纤维处理的 '+w(b.routes[2].total)+'，以及修复分拣后转纤维处理的 '+w(b.routes[1].weights[1])+'。其中有多少可再用，台账无法判断。';
+  $('source-line').textContent = '来源为'+data.source+'。范围涵盖春季 '+a.dates+' 和秋季 '+b.dates+' 两批入库旧衣。观察窗为各批入库后第 '+data.observationDays+' 天，原始重量以整数公斤记录。';
+  $('download-data').href = 'data:application/json;charset=utf-8,' + encodeURIComponent(raw);
+  const header = '<thead><tr><th scope="col">首次分拣</th><th scope="col">路径重量</th>' + data.columns.map(c=>'<th scope="col">'+c+'</th>').join('')+'</tr></thead>';
+  const row = r => '<tr><th scope="row">'+r.name+'</th><td>'+n(r.total)+'</td>'+r.weights.map((v,j)=>'<td class="'+['good','fiber','pending'][j]+'">'+n(v)+'</td>').join('')+'</tr>';
+  const table = (t,caption) => '<table><caption>'+caption+'</caption>'+header+'<tbody>'+t.routes.map(row).join('')+'</tbody><tfoot>'+row({name:'批次合计',total:t.intake,weights:t.totals})+'</tfoot></table>';
+  $('full-data').innerHTML = batches.map(t=>table(t,t.name+' · '+t.dates+' 入库（公斤）')).join('<br>');
+
+  const colors = ['#2c765e','#ac5a43','url(#pending-pattern)'];
+  const patterns = '<defs><pattern id="pending-pattern" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(45)"><rect width="7" height="7" fill="#ead09a"/><rect width="2" height="7" fill="#ad873c"/></pattern></defs>';
+  const media = matchMedia('(prefers-reduced-motion: reduce)');
+  const stage = $('flowstage'), play = $('play');
+  const flowTimeline = JeeEvidenceTimeline.create();
+  let chosen = 0, showing = -1, reached = false, didPlay = false, exportMarkup = '';
+  const label = (x,y,title,value,anchor='start') => '<text class="svglabels" x="'+x+'" y="'+y+'" text-anchor="'+anchor+'">'+title+'<tspan x="'+x+'" dy="18" fill="#54685a" font-size="12">'+w(value)+'</tspan></text>';
+  function draw(t) {
+    const H = 258, plot = 184, scale = plot / t.intake, gap = 19;
+    const rounded = number => +number.toFixed(4);
+    const left = 18, middle = 323, right = 956, node = 9;
+    let leftOffset = 43, routeOffset = 24, terminalOffset = 24;
+    const starts = t.totals.map(v => {const y = terminalOffset; terminalOffset += v*scale+gap; return y;});
+    const terminalCursor = [...starts];
+    const band = (x1,y1,x2,y2,h) => {
+      const control = (x2-x1)*.43;
+      return 'M'+x1+' '+rounded(y1)+' C'+rounded(x1+control)+' '+rounded(y1)+' '+rounded(x2-control)+' '+rounded(y2)+' '+x2+' '+rounded(y2)+' V'+rounded(y2+h)+' C'+rounded(x2-control)+' '+rounded(y2+h)+' '+rounded(x1+control)+' '+rounded(y1+h)+' '+x1+' '+rounded(y1+h)+' Z';
+    };
+    const rect = (x,y,h,fill) => '<rect x="'+x+'" y="'+rounded(y)+'" width="'+node+'" height="'+rounded(h)+'" fill="'+fill+'"/>';
+    const routeNodes = [];
+    const neutral = ['#91a197','#acb4a3','#c3c5b7'];
+    const routes = t.routes.map((r,i) => {
+      let routeY = routeOffset;
+      routeNodes.push(rect(middle,routeOffset,r.total*scale,neutral[i]));
+      const marks = ['<path d="'+band(left+node,leftOffset,middle,routeOffset,r.total*scale)+'" fill="'+neutral[i]+'"/>'];
+      r.weights.forEach((value,j) => {
+        if (value) marks.push('<path d="'+band(middle+node,routeY,right,terminalCursor[j],value*scale)+'" fill="'+colors[j]+'"/>');
+        routeY += value*scale;
+        terminalCursor[j] += value*scale;
+      });
+      const item = {r,marks:marks.join(''),y:routeOffset};
+      routeOffset += r.total*scale+gap;
+      leftOffset += r.total*scale;
+      return item;
+    });
+    const nodes = rect(left,43,plot,'#53695b') + routeNodes.join('') + t.totals.map((v,j)=>rect(right,starts[j],v*scale,colors[j])).join('');
+    const labels = label(29,132,'旧衣入库',t.intake)+routes.map(({r,y})=>label(middle+20,y+r.total*scale/2-4,r.name,r.total)).join('')+t.totals.map((v,j)=>label(right-10,starts[j]+v*scale/2-4,data.columns[j],v,'end')).join('');
+    const groups = routes.map((item,i)=>'<g data-route="'+i+'" class="base">'+item.marks+'</g>').join('');
+    const masks = routes.map((_,i)=>'<clipPath id="sweep-'+i+'"><rect x="'+left+'" y="0" width="0" height="'+H+'" data-sweep="'+i+'"/></clipPath>').join('');
+    const overlays = routes.map((item,i)=>'<g class="overlay" clip-path="url(#sweep-'+i+')" aria-hidden="true">'+item.marks+'</g>').join('');
+    const title = '<title>'+t.name+'分拣与去向｜第 '+data.observationDays+' 天</title><desc>入库 '+w(t.intake)+'。'+routes.map(({r})=>r.name+' '+w(r.total)+'，'+data.columns.map((c,j)=>c+w(r.weights[j])).join('、')).join('。')+'。来源为'+data.source+'。</desc>';
+    const root = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 982 '+H+'" role="img">';
+    stage.innerHTML = root + title + patterns + '<defs>'+masks+'</defs>' + groups + overlays + nodes + labels + '</svg>';
+    exportMarkup = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -35 982 332" role="img">'+title+patterns+'<style>.svglabels{font:700 14px sans-serif;fill:#203c33;paint-order:stroke;stroke:#fffffb;stroke-width:4px}.base{opacity:.68}</style><rect x="0" y="-35" width="982" height="332" fill="#fffffb"/><text x="18" y="-9" fill="#203c33" font-family="sans-serif" font-size="18" font-weight="700">'+t.name+' · 第 28 天的分拣与去向（公斤）</text>'+groups+nodes+labels+'<text x="18" y="280" fill="#526459" font-family="sans-serif" font-size="13">来源：'+data.source+' · '+t.dates+' 入库 · 带宽表示本批次重量</text></svg>';
+  }
+  function note() {
+    const t = batches[chosen];
+    $('flow-status').textContent = t.name+' · 第 '+data.observationDays+' 天仍有 '+w(t.totals[2])+' 待签收。';
+  }
+  function stop() {
+    flowTimeline.stop();
+    showing = -1;
+    reached = false;
+    stage.classList.remove('is-playing');
+    stage.querySelectorAll('[data-sweep]').forEach(mark => mark.setAttribute('width',0));
+    play.setAttribute('aria-pressed','false');
+    play.setAttribute('aria-disabled',media.matches);
+    play.innerHTML = media.matches ? '已启用减少动态' : '<span class="glyph" aria-hidden="true">▶</span>按路径播放';
+    note();
+  }
+  function select(index) {
+    stop();
+    chosen = index;
+    const t = batches[chosen];
+    [...$('tabs').children].forEach((button,i)=>button.setAttribute('aria-pressed',i===index));
+    $('flow-intake').textContent = t.dates+' · '+w(t.intake);
+    draw(t);
+    $('route-detail').innerHTML = table(t,t.name+'分拣去向明细（公斤）');
+    $('download-svg').href = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(exportMarkup);
+    $('download-svg').download = '旧衣去向-'+t.name+'-分拣路径.svg';
+    note();
+  }
+  function animate() {
+    if (flowTimeline.isRunning()) { stop(); return; }
+    if (media.matches) { note(); return; }
+    const paths = batches[chosen].routes;
+    const clips = [...stage.querySelectorAll('[data-sweep]')];
+    const beats = paths.map(() => ({move:720, hold:470}));
+    stage.classList.add('is-playing');
+    play.setAttribute('aria-pressed','true');
+    play.innerHTML = '<span class="glyph" aria-hidden="true">■</span>停止播放';
+    flowTimeline.start(beats, ({index, progress, arrived}) => {
+      const route = paths[index];
+      if (index !== showing) {
+        showing = index;
+        reached = false;
+        $('flow-status').textContent = route.name+' · 首次分拣 '+w(route.total);
+      }
+      clips.forEach((mark,i) => {
+        const p = i<index?1:i===index?progress:0;
+        mark.setAttribute('width',Math.round(948*p*(2-p)*10)/10);
+      });
+      if (arrived && !reached) {
+        reached = true;
+        $('flow-status').textContent = route.name+' '+w(route.total)+' · '+data.columns.map((c,j)=>c+' '+w(route.weights[j])).join('、');
+      }
+    }, stop);
+  }
+  batches.forEach((t,i) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.id = 'batch-'+i;
+    button.textContent = t.name;
+    button.addEventListener('click',()=>{ didPlay=true; select(i); });
+    $('tabs').append(button);
+  });
+  select(0);
+  play.addEventListener('click',()=>{didPlay=true;animate();});
+  media.addEventListener('change',stop);
+  window.addEventListener('beforeprint',stop);
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(([entry])=>{
+      if (!entry.isIntersecting || entry.intersectionRatio<.74) return;
+      observer.disconnect();
+      if (!didPlay) {didPlay=true;animate();}
+    },{threshold:.74});
+    observer.observe(stage);
+  }
+})();
+</script>
+</body></html>
