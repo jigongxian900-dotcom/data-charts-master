@@ -577,7 +577,7 @@
       "path": "docs/showcase/media/Jee-Charts-launch.mp4",
       "status": "new-first-party",
       "legacy_sha256": null,
-      "release_sha256": "f25fd4c59bcfd0db4792f0bd048293d4a279e5ccd4014694bdec89e5d3f36011"
+      "release_sha256": "81e47c4b623d531f2eb1c5b1217ff8ef9da5ac95d412a70b0bd3a4d156108f24"
     },
     {
       "path": "docs/showcase/media/bridge.jpg",
@@ -619,7 +619,7 @@
       "path": "docs/showcase/media/launch-motion.gif",
       "status": "new-first-party",
       "legacy_sha256": null,
-      "release_sha256": "67ef8bc4103be985cc971a665b9df439afb1e57be8f78e6e1a16d4a9857cf2b5"
+      "release_sha256": "d3a8ba564be5254136107911455833b003182a8856fbd07b87079e0fc98475fe"
     },
     {
       "path": "docs/showcase/media/repairs.jpg",
